@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.env.*
+*.local
+
+# Cursor AI rules
+.cursor/rules/codacy.mdc
+.cursor/ 
