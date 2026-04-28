@@ -319,6 +319,11 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
   const [answeredCount, setAnsweredCount] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [result, setResult] = useState(null);
+  /*
+   * Each entry mirrors the shape used by App.jsx for db sync:
+   *   { id, correct, hintUsed, challengeType, skills, unitId }
+   */
+  const [attempts, setAttempts] = useState([]);
 
   const startTsRef = useRef(0);
   const finishedRef = useRef(false);
@@ -352,6 +357,7 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
       setIdx(0);
       setAnsweredCount(0);
       setCorrectCount(0);
+      setAttempts([]);
       setRemaining(scenario.timeLimitSeconds);
       finishedRef.current = false;
       startTsRef.current = Date.now();
@@ -403,7 +409,17 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
         total: challenges.length,
       });
     }
-    if (onComplete) onComplete(computed);
+    if (onComplete) {
+      onComplete({
+        ...computed,
+        scenarioId: scenario.id,
+        unitId: scenario.unitId,
+        correctCount,
+        total: challenges.length,
+        durationMs: Math.max(0, scenario.timeLimitSeconds - timeRemainingSec) * 1000,
+        attempts,
+      });
+    }
   }
 
   function handleAnswer({ correct, hintUsed }) {
@@ -424,6 +440,19 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
         hintUsed,
         challengeType: cur.type,
       });
+    }
+    if (cur) {
+      setAttempts((prev) => [
+        ...prev,
+        {
+          id: `dor:${scenario.id}:${cur.id}`,
+          correct: !!correct,
+          hintUsed: !!hintUsed,
+          challengeType: cur.type,
+          skills: Array.isArray(cur.skills) ? cur.skills : scenario.skills,
+          unitId: scenario.unitId,
+        },
+      ]);
     }
 
     /*

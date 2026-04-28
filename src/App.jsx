@@ -4,13 +4,14 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil, TrendingUp, Skull, Timer
+  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut
 } from 'lucide-react';
 import { UNITS, migrateSkillIds } from './data/skills.js';
 import { SCENARIOS, getScenariosForUnit } from './data/scenarios.js';
 import CodeEditor from './components/CodeEditor.jsx';
 import ProgressReport from './components/ProgressReport.jsx';
 import DoOrDie from './components/DoOrDie.jsx';
+import OnboardingModal from './components/OnboardingModal.jsx';
 
 /* =========================================================================
    STYLE BLOCK — fonts, custom CSS, small animations.
@@ -2012,22 +2013,24 @@ function Stars({ count, size = 16 }) {
   );
 }
 
-function Hud({ state, onHome, onPractice, onProgress, onReset }) {
+function Hud({ state, user, onHome, onPractice, onProgress, onReset, onSignOut }) {
   return (
-    <div className="ja-card flex items-center justify-between px-4 py-3 mb-6">
-      <div className="flex items-center gap-3">
+    <div className="ja-card flex items-center justify-between px-4 py-3 mb-6 gap-2">
+      <div className="flex items-center gap-3 min-w-0">
         <button onClick={onHome} className="flex items-center gap-2 hover:opacity-90">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{background:'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color:'#0a0c12'}}>
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background:'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color:'#0a0c12'}}>
             <Code2 size={20} strokeWidth={2.5}/>
           </div>
           <div className="hidden sm:block">
             <div className="text-sm leading-tight ja-display" style={{fontWeight:700, letterSpacing:'-0.01em'}}>Java Adventure</div>
-            <div className="text-xs ja-mono" style={{color:'var(--ink-mute)'}}>// learn by doing</div>
+            <div className="text-xs ja-mono truncate" style={{color:'var(--ink-mute)'}}>
+              {user ? `// ${user.name}` : '// learn by doing'}
+            </div>
           </div>
         </button>
       </div>
 
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-3">
         <Stat icon={<Zap size={14}/>}    label="XP"     value={state.xp}      color="cyan"/>
         <Stat icon={<Flame size={14}/>}  label="Streak" value={state.streak}  color="amber"/>
         <Stat icon={<Trophy size={14}/>} label="Best"   value={state.bestStreak} color="emerald" hideOnMobile/>
@@ -2055,6 +2058,16 @@ function Hud({ state, onHome, onPractice, onProgress, onReset }) {
         >
           <RotateCcw size={14}/>
         </button>
+        {user && onSignOut && (
+          <button
+            onClick={onSignOut}
+            className="ja-mono text-xs px-2 py-2 rounded-lg"
+            style={{border:'1px solid var(--line)', color:'var(--ink-mute)'}}
+            title={`Sign out ${user.email}`}
+          >
+            <LogOut size={14}/>
+          </button>
+        )}
       </div>
     </div>
   );
@@ -2318,7 +2331,11 @@ function LevelView({ worldId, state, onBack, onPickLevel, onPickScenario }) {
 
 function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, mode = 'level' }) {
   const [idx, setIdx] = useState(0);
-  const [results, setResults] = useState([]); // [{ id, correct, hintUsed }]
+  /*
+   * Each result captures everything needed to persist the attempt server-side:
+   * id, correctness, hint usage, challenge type, and skill ids.
+   */
+  const [results, setResults] = useState([]);
 
   const current = CHALLENGES[challengeIds[idx]];
   const total = challengeIds.length;
@@ -2334,16 +2351,25 @@ function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, 
       hintUsed,
       challengeType: current.type,
     });
-    setResults(prev => [...prev, { id: cid, correct, hintUsed }]);
+    setResults((prev) => [
+      ...prev,
+      {
+        id: cid,
+        correct,
+        hintUsed,
+        challengeType: current.type,
+        skills: migrateSkillIds(current.skills || []),
+      },
+    ]);
   }
 
   function handleNext() {
     if (idx < total - 1) {
       setIdx(idx + 1);
     } else {
-      const correctCount = results.filter(r => r.correct).length;
+      const correctCount = results.filter((r) => r.correct).length;
+      const unitId = unitIdForCurrentRun(challengeIds);
       if (mode === 'level' && levelId) {
-        const unitId = unitIdForCurrentRun(challengeIds);
         dispatch({
           type: 'completeLevel',
           levelId,
@@ -2358,7 +2384,7 @@ function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, 
           correct: correctCount,
         });
       }
-      onComplete({ correctCount, total, results });
+      onComplete({ correctCount, total, results, unitId });
     }
   }
 
@@ -3096,6 +3122,8 @@ function SummaryStat({ label, value, color }) {
    APP ROOT
    ========================================================================= */
 
+const USER_STORAGE_KEY = 'java-adventure-user-v1';
+
 export default function App() {
   const [state, dispatch] = useReducer(reducer, undefined, defaultState);
   const [loaded, setLoaded] = useState(false);
@@ -3104,6 +3132,13 @@ export default function App() {
    *   map | world | level | summary | practice | progress | doOrDie
    */
   const [view, setView] = useState({ kind: 'map' });
+  /*
+   * Authenticated learner. Loaded from localStorage on mount; populated by
+   * the OnboardingModal on first visit. We re-fetch via /api/users on mount
+   * so a refresh always reflects the latest server-side row.
+   */
+  const [user, setUser] = useState(null);
+  const [userChecked, setUserChecked] = useState(false);
 
   /*
    * Storage abstraction: prefer the host-injected window.storage (if present),
@@ -3157,6 +3192,85 @@ export default function App() {
     if (!loaded) return;
     writeSaved(JSON.stringify(state));
   }, [state, loaded]);
+
+  /*
+   * User identity bootstrap: read the cached user from localStorage so the
+   * onboarding modal doesn't flash on every refresh, then re-validate the
+   * server has the row (in case the DB was reset).
+   */
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      let cached = null;
+      try {
+        const raw = window.localStorage?.getItem(USER_STORAGE_KEY);
+        if (raw) cached = JSON.parse(raw);
+      } catch (e) { /* ignore */ }
+      if (cached?.email) {
+        setUser(cached);
+        try {
+          const res = await fetch(`/api/users?email=${encodeURIComponent(cached.email)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (!cancelled && data.user) {
+              setUser(data.user);
+              window.localStorage?.setItem(USER_STORAGE_KEY, JSON.stringify(data.user));
+            }
+          }
+        } catch (e) { /* keep cached */ }
+      }
+      if (!cancelled) setUserChecked(true);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  function handleOnboardingComplete(newUser) {
+    setUser(newUser);
+    try { window.localStorage?.setItem(USER_STORAGE_KEY, JSON.stringify(newUser)); } catch (e) { /* ignore */ }
+  }
+
+  function handleSignOut() {
+    if (typeof window === 'undefined') return;
+    if (!window.confirm('Sign out? Your local progress will be cleared from this device.')) return;
+    try {
+      window.localStorage?.removeItem(USER_STORAGE_KEY);
+      window.localStorage?.removeItem(STORAGE_KEY);
+      window.localStorage?.removeItem(LEGACY_STORAGE_KEY);
+    } catch (e) { /* ignore */ }
+    setUser(null);
+    dispatch({ type: 'reset' });
+    setView({ kind: 'map' });
+  }
+
+  /*
+   * Persist a completed run to the database. Fire-and-forget: failures are
+   * surfaced to the console but don't block the UI flow.
+   */
+  async function syncSession(payload) {
+    if (!user?.id) return;
+    try {
+      await fetch('/api/sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: user.id, ...payload }),
+      });
+    } catch (e) {
+      /* Non-fatal: local state already captured the result. */
+      // eslint-disable-next-line no-console
+      console.warn('session sync failed', e);
+    }
+  }
+
+  function buildAttemptsForApi(results, fallbackUnitId) {
+    return (results || []).map((r) => ({
+      challengeId: r.id,
+      challengeType: r.challengeType || 'unknown',
+      skills: r.skills || [],
+      correct: !!r.correct,
+      hintUsed: !!r.hintUsed,
+      unitId: r.unitId || fallbackUnitId || null,
+    }));
+  }
 
   function goHome() { setView({ kind: 'map' }); }
   function goProgress() { setView({ kind: 'progress' }); }
@@ -3215,13 +3329,19 @@ export default function App() {
     <div className="ja-root min-h-screen ja-grid-bg" style={{padding:'24px 16px 80px'}}>
       <style>{styleSheet}</style>
 
+      {userChecked && !user && (
+        <OnboardingModal onComplete={handleOnboardingComplete} />
+      )}
+
       <div className="max-w-3xl mx-auto">
         <Hud
           state={state}
+          user={user}
           onHome={goHome}
           onPractice={startPractice}
           onProgress={goProgress}
           onReset={handleResetProgress}
+          onSignOut={handleSignOut}
         />
 
         {view.kind === 'map' && (
@@ -3260,6 +3380,19 @@ export default function App() {
               scenario={scenario}
               dispatch={dispatch}
               onBack={() => setView({ kind: 'world', worldId: view.worldId || unitToWorld(scenario.unitId) })}
+              onComplete={(result) => {
+                syncSession({
+                  mode: 'doOrDie',
+                  unitId: result.unitId,
+                  scenarioId: result.scenarioId,
+                  correctCount: result.correctCount,
+                  total: result.total,
+                  score: result.finalScore,
+                  grade: result.grade,
+                  durationMs: result.durationMs,
+                  attempts: result.attempts,
+                });
+              }}
               renderChallenge={({ challenge, onAnswer }) => (
                 <ChallengeCard
                   key={challenge.id}
@@ -3280,10 +3413,20 @@ export default function App() {
             challengeIds={view.challengeIds}
             mode="level"
             onExit={() => setView({ kind: 'world', worldId: view.worldId })}
-            onComplete={({ correctCount, total, results }) =>
-              setView({ kind: 'summary', mode: 'level', levelName: view.levelName, worldId: view.worldId,
-                        levelId: view.levelId, challengeIds: view.challengeIds, correctCount, total, results })
-            }
+            onComplete={({ correctCount, total, results, unitId }) => {
+              syncSession({
+                mode: 'level',
+                unitId,
+                levelId: view.levelId,
+                correctCount,
+                total,
+                attempts: buildAttemptsForApi(results, unitId),
+              });
+              setView({
+                kind: 'summary', mode: 'level', levelName: view.levelName, worldId: view.worldId,
+                levelId: view.levelId, challengeIds: view.challengeIds, correctCount, total, results,
+              });
+            }}
             dispatch={dispatch}
           />
         )}
@@ -3293,10 +3436,19 @@ export default function App() {
             challengeIds={view.challengeIds}
             mode="practice"
             onExit={goHome}
-            onComplete={({ correctCount, total, results }) =>
-              setView({ kind: 'summary', mode: 'practice', levelName: 'Quick Practice',
-                        challengeIds: view.challengeIds, correctCount, total, results })
-            }
+            onComplete={({ correctCount, total, results, unitId }) => {
+              syncSession({
+                mode: 'practice',
+                unitId,
+                correctCount,
+                total,
+                attempts: buildAttemptsForApi(results, unitId),
+              });
+              setView({
+                kind: 'summary', mode: 'practice', levelName: 'Quick Practice',
+                challengeIds: view.challengeIds, correctCount, total, results,
+              });
+            }}
             dispatch={dispatch}
           />
         )}
@@ -3321,7 +3473,7 @@ export default function App() {
 
         {/* Footer */}
         <div className="mt-12 text-center ja-mono text-xs" style={{color:'var(--ink-mute)'}}>
-          // angelo's java practice arena · v1
+          // java practice arena · v1
         </div>
       </div>
     </div>
