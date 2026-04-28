@@ -4,8 +4,13 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil
+  AlertCircle, Pencil, TrendingUp, Skull, Timer
 } from 'lucide-react';
+import { UNITS, migrateSkillIds } from './data/skills.js';
+import { SCENARIOS, getScenariosForUnit } from './data/scenarios.js';
+import CodeEditor from './components/CodeEditor.jsx';
+import ProgressReport from './components/ProgressReport.jsx';
+import DoOrDie from './components/DoOrDie.jsx';
 
 /* =========================================================================
    STYLE BLOCK — fonts, custom CSS, small animations.
@@ -255,6 +260,42 @@ const styleSheet = `
     50%      { opacity: 1; }
   }
   .ja-breathe { animation: ja-breathe 2.5s ease-in-out infinite; }
+
+  /* Do or Die: pulsing coral icon, ticker slide, screen pulse, spinner */
+  @keyframes ja-pulse-coral {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.15); }
+  }
+  .ja-pulse-coral { animation: ja-pulse-coral 1.2s ease-in-out infinite; }
+
+  @keyframes ja-ticker-slide {
+    from { transform: translateX(40%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+  }
+  .ja-ticker-slide { animation: ja-ticker-slide 0.6s ease-out; }
+
+  @keyframes ja-screen-pulse {
+    0%, 100% { box-shadow: inset 0 0 80px -10px rgba(255,122,122,0.05); }
+    50%      { box-shadow: inset 0 0 120px -10px rgba(255,122,122,0.18); }
+  }
+  .ja-screen-pulse {
+    position: relative;
+    border-radius: 16px;
+    animation: ja-screen-pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes ja-spin {
+    to { transform: rotate(360deg); }
+  }
+  .ja-spin { animation: ja-spin 1s linear infinite; }
+
+  /* CodeMirror container fits the panel */
+  .ja-code-editor {
+    width: 100%;
+  }
+  .ja-code-editor .cm-editor {
+    height: 100%;
+  }
 
   /* Code-write textarea */
   .ja-code-input {
@@ -1739,38 +1780,103 @@ const CHALLENGES = {
    STATE MANAGEMENT
    ========================================================================= */
 
-const STORAGE_KEY = 'java-adventure-state-v1';
+const STORAGE_KEY = 'java-adventure-state-v2';
+const LEGACY_STORAGE_KEY = 'java-adventure-state-v1';
+const MAX_SKILL_HISTORY = 50;
+const MAX_SESSION_HISTORY = 200;
+const MAX_DOR_HISTORY = 100;
 
 function defaultState() {
   return {
     xp: 0,
     streak: 0,
     bestStreak: 0,
-    levelProgress: {},   // { 'v-l1': { stars: 2, attempted: 3, correct: 3 } }
-    skillStats: {},      // { 'arithmetic-output': { correct: 4, wrong: 1 } }
-    challengeAttempts: {}, // { 'v1': { attempts: 2, lastCorrect: true } }
+    levelProgress: {},
+    /*
+     * skillStats keyed by canonical skill id (e.g. 'U2-S6'). Each entry:
+     * { correct, wrong, history: [{ t, c, type }] }
+     *   t    - timestamp ms
+     *   c    - boolean correct
+     *   type - challenge type string ('mc', 'tf', etc)
+     */
+    skillStats: {},
+    challengeAttempts: {},
     sessionsPlayed: 0,
+    /*
+     * sessionHistory tracks every level / practice / do-or-die completion
+     * for the progress report's trend lines.
+     *   { t, mode, unitId, correctCount, total }
+     */
+    sessionHistory: [],
+    /*
+     * doOrDieHistory tracks per-scenario best results.
+     *   { scenarioId, unitId, t, score, grade, completion, accuracy, speed }
+     */
+    doOrDieHistory: [],
   };
+}
+
+/*
+ * Migrate legacy skillStats keys from short tags (e.g. 'arithmetic-output')
+ * to canonical ids ('U2-S5'). Aggregates counts where multiple legacy ids
+ * collapse to the same canonical id. Drops anything that does not map.
+ */
+function migrateSkillStats(oldStats) {
+  const out = {};
+  for (const [key, val] of Object.entries(oldStats || {})) {
+    const ids = migrateSkillIds([key]);
+    if (ids.length === 0) continue;
+    const newKey = ids[0];
+    const cur = out[newKey] || { correct: 0, wrong: 0, history: [] };
+    out[newKey] = {
+      correct: cur.correct + (val.correct || 0),
+      wrong: cur.wrong + (val.wrong || 0),
+      history: cur.history.concat(val.history || []),
+    };
+  }
+  return out;
+}
+
+function migrateLoadedState(payload) {
+  const base = { ...defaultState(), ...payload };
+  base.skillStats = migrateSkillStats(payload.skillStats);
+  base.sessionHistory = Array.isArray(payload.sessionHistory) ? payload.sessionHistory : [];
+  base.doOrDieHistory = Array.isArray(payload.doOrDieHistory) ? payload.doOrDieHistory : [];
+  return base;
+}
+
+function appendBounded(arr, item, max) {
+  const next = arr.concat([item]);
+  if (next.length > max) return next.slice(next.length - max);
+  return next;
 }
 
 function reducer(state, action) {
   switch (action.type) {
     case 'load': {
-      return { ...defaultState(), ...action.payload };
+      return migrateLoadedState(action.payload || {});
     }
     case 'reset': {
       return defaultState();
     }
     case 'answer': {
-      const { challengeId, correct, skills, hintUsed } = action;
+      const { challengeId, correct, skills, hintUsed, challengeType } = action;
       const xpDelta = correct ? (hintUsed ? 5 : 10) : 0;
       const streak = correct ? state.streak + 1 : 0;
+      const canonicalSkills = migrateSkillIds(skills || []);
       const skillStats = { ...state.skillStats };
-      for (const sk of (skills || [])) {
-        const cur = skillStats[sk] || { correct: 0, wrong: 0 };
+      const t = Date.now();
+      for (const sk of canonicalSkills) {
+        const cur = skillStats[sk] || { correct: 0, wrong: 0, history: [] };
+        const history = appendBounded(
+          cur.history || [],
+          { t, c: !!correct, type: challengeType || 'unknown' },
+          MAX_SKILL_HISTORY,
+        );
         skillStats[sk] = {
           correct: cur.correct + (correct ? 1 : 0),
           wrong: cur.wrong + (correct ? 0 : 1),
+          history,
         };
       }
       const prev = state.challengeAttempts[challengeId] || { attempts: 0, lastCorrect: false };
@@ -1782,21 +1888,74 @@ function reducer(state, action) {
         skillStats,
         challengeAttempts: {
           ...state.challengeAttempts,
-          [challengeId]: { attempts: prev.attempts + 1, lastCorrect: correct }
-        }
+          [challengeId]: { attempts: prev.attempts + 1, lastCorrect: correct },
+        },
       };
     }
     case 'completeLevel': {
-      const { levelId, attempted, correct } = action;
+      const { levelId, attempted, correct, unitId } = action;
       const stars = scoreStars(correct, attempted);
       const prev = state.levelProgress[levelId];
       const merged = !prev || stars > prev.stars
         ? { stars, attempted, correct }
         : prev;
+      const sessionEntry = {
+        t: Date.now(),
+        mode: 'level',
+        unitId: unitId || null,
+        levelId,
+        correctCount: correct,
+        total: attempted,
+      };
       return {
         ...state,
         levelProgress: { ...state.levelProgress, [levelId]: merged },
         sessionsPlayed: state.sessionsPlayed + 1,
+        sessionHistory: appendBounded(state.sessionHistory || [], sessionEntry, MAX_SESSION_HISTORY),
+      };
+    }
+    case 'completePractice': {
+      const { attempted, correct } = action;
+      const sessionEntry = {
+        t: Date.now(),
+        mode: 'practice',
+        unitId: null,
+        correctCount: correct,
+        total: attempted,
+      };
+      return {
+        ...state,
+        sessionsPlayed: state.sessionsPlayed + 1,
+        sessionHistory: appendBounded(state.sessionHistory || [], sessionEntry, MAX_SESSION_HISTORY),
+      };
+    }
+    case 'doOrDieResult': {
+      const { scenarioId, unitId, score, grade, completion, accuracy, speed, correctCount, total } = action;
+      const entry = {
+        scenarioId,
+        unitId: unitId || null,
+        t: Date.now(),
+        score,
+        grade,
+        completion,
+        accuracy,
+        speed,
+      };
+      const sessionEntry = {
+        t: entry.t,
+        mode: 'doOrDie',
+        unitId: unitId || null,
+        scenarioId,
+        correctCount: correctCount || 0,
+        total: total || 0,
+        score,
+        grade,
+      };
+      return {
+        ...state,
+        sessionsPlayed: state.sessionsPlayed + 1,
+        doOrDieHistory: appendBounded(state.doOrDieHistory || [], entry, MAX_DOR_HISTORY),
+        sessionHistory: appendBounded(state.sessionHistory || [], sessionEntry, MAX_SESSION_HISTORY),
       };
     }
     default:
@@ -1813,6 +1972,32 @@ function scoreStars(correct, attempted) {
   return 0;
 }
 
+const WORLD_TO_UNIT = Object.fromEntries(
+  Object.values(UNITS).map((u) => [u.worldId, u.id]),
+);
+const UNIT_TO_WORLD = Object.fromEntries(
+  Object.values(UNITS).map((u) => [u.id, u.worldId]),
+);
+
+function unitIdForWorld(worldId) {
+  return WORLD_TO_UNIT[worldId] || null;
+}
+
+function unitToWorld(unitId) {
+  return UNIT_TO_WORLD[unitId] || null;
+}
+
+/*
+ * Best-effort: pick the unit id for a level by inspecting the world tag of
+ * the first challenge in the run. Falls back to null.
+ */
+function unitIdForCurrentRun(challengeIds) {
+  if (!challengeIds || challengeIds.length === 0) return null;
+  const first = CHALLENGES[challengeIds[0]];
+  if (!first) return null;
+  return unitIdForWorld(first.world);
+}
+
 /* =========================================================================
    COMPONENTS
    ========================================================================= */
@@ -1827,7 +2012,7 @@ function Stars({ count, size = 16 }) {
   );
 }
 
-function Hud({ state, onHome, onPractice, onReset }) {
+function Hud({ state, onHome, onPractice, onProgress, onReset }) {
   return (
     <div className="ja-card flex items-center justify-between px-4 py-3 mb-6">
       <div className="flex items-center gap-3">
@@ -1846,6 +2031,14 @@ function Hud({ state, onHome, onPractice, onReset }) {
         <Stat icon={<Zap size={14}/>}    label="XP"     value={state.xp}      color="cyan"/>
         <Stat icon={<Flame size={14}/>}  label="Streak" value={state.streak}  color="amber"/>
         <Stat icon={<Trophy size={14}/>} label="Best"   value={state.bestStreak} color="emerald" hideOnMobile/>
+        <button
+          onClick={onProgress}
+          className="ja-mono text-xs px-3 py-2 rounded-lg flex items-center gap-1.5"
+          style={{border:'1px solid var(--line-2)', color:'var(--ink)'}}
+          title="View your mastery progress"
+        >
+          <TrendingUp size={14}/> <span className="hidden sm:inline">Progress</span>
+        </button>
         <button
           onClick={onPractice}
           className="ja-mono text-xs px-3 py-2 rounded-lg flex items-center gap-1.5"
@@ -2002,10 +2195,17 @@ function prettySkill(s) {
 
 /* ---------- LEVEL VIEW ---------- */
 
-function LevelView({ worldId, state, onBack, onPickLevel }) {
+function LevelView({ worldId, state, onBack, onPickLevel, onPickScenario }) {
   const world = WORLDS.find(w => w.id === worldId);
   const levels = LEVELS[worldId];
   const Icon = world.icon;
+  const unitId = unitIdForWorld(worldId);
+  const scenarios = unitId ? getScenariosForUnit(unitId) : [];
+  const bestByScenario = {};
+  for (const r of (state.doOrDieHistory || [])) {
+    const cur = bestByScenario[r.scenarioId];
+    if (!cur || r.score > cur.score) bestByScenario[r.scenarioId] = r;
+  }
 
   return (
     <div>
@@ -2024,6 +2224,47 @@ function LevelView({ worldId, state, onBack, onPickLevel }) {
           <div className="ja-mono text-sm" style={{color:`var(--${world.color})`}}>{world.subtitle}</div>
         </div>
       </div>
+
+      {scenarios.length > 0 && (
+        <div className="mb-6">
+          <div className="ja-mono text-xs mb-3 flex items-center gap-2" style={{ color: 'var(--coral)', letterSpacing: '0.08em' }}>
+            <Skull size={12} /> DO OR DIE - timed missions
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {scenarios.map((sc) => {
+              const best = bestByScenario[sc.id];
+              return (
+                <button
+                  key={sc.id}
+                  onClick={() => onPickScenario && onPickScenario(sc.id)}
+                  className="ja-tile ja-card p-4 text-left flex items-center justify-between gap-3"
+                  style={{ background: 'linear-gradient(180deg, rgba(255,122,122,0.05), var(--panel-2))' }}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                         style={{ background: 'rgba(255,122,122,0.16)', color: 'var(--coral)' }}>
+                      <Skull size={16} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="ja-display text-base" style={{ fontWeight: 700 }}>{sc.title}</div>
+                      <div className="ja-mono text-xs truncate" style={{ color: 'var(--ink-mute)' }}>
+                        {sc.summary}
+                      </div>
+                    </div>
+                  </div>
+                  {best ? (
+                    <div className="ja-display text-2xl flex-shrink-0" style={{ fontWeight: 800, color: 'var(--amber)' }}>
+                      {best.grade}
+                    </div>
+                  ) : (
+                    <Timer size={16} style={{ color: 'var(--ink-mute)', flexShrink: 0 }} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       <div className="space-y-3">
         {levels.map((level, idx) => {
@@ -2090,7 +2331,8 @@ function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, 
       challengeId: cid,
       correct,
       skills: current.skills,
-      hintUsed
+      hintUsed,
+      challengeType: current.type,
     });
     setResults(prev => [...prev, { id: cid, correct, hintUsed }]);
   }
@@ -2099,12 +2341,19 @@ function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, 
     if (idx < total - 1) {
       setIdx(idx + 1);
     } else {
-      // Done
       const correctCount = results.filter(r => r.correct).length;
       if (mode === 'level' && levelId) {
+        const unitId = unitIdForCurrentRun(challengeIds);
         dispatch({
           type: 'completeLevel',
           levelId,
+          attempted: total,
+          correct: correctCount,
+          unitId,
+        });
+      } else if (mode === 'practice') {
+        dispatch({
+          type: 'completePractice',
           attempted: total,
           correct: correctCount,
         });
@@ -2136,7 +2385,7 @@ function ChallengeRunner({ levelId, challengeIds, onExit, onComplete, dispatch, 
 
 /* ---------- INDIVIDUAL CHALLENGE CARD ---------- */
 
-function ChallengeCard({ challenge, onAnswer, onNext, isLast }) {
+function ChallengeCard({ challenge, onAnswer, onNext, isLast, hideNext }) {
   const [phase, setPhase] = useState('answering'); // answering | feedback
   const [correct, setCorrect] = useState(null);
   const [hintUsed, setHintUsed] = useState(false);
@@ -2208,7 +2457,7 @@ function ChallengeCard({ challenge, onAnswer, onNext, isLast }) {
       )}
 
       {phase === 'feedback' && (
-        <FeedbackPanel correct={correct} explanation={challenge.explanation} onNext={onNext} isLast={isLast}/>
+        <FeedbackPanel correct={correct} explanation={challenge.explanation} onNext={onNext} isLast={isLast} hideNext={hideNext}/>
       )}
     </div>
   );
@@ -2293,12 +2542,11 @@ function CodeWriteAnswers({ challenge, onSubmit }) {
       <div className="ja-mono text-xs mb-2 flex items-center gap-2" style={{color:'var(--ink-mute)'}}>
         <Pencil size={12}/> write your code in NetBeans, then paste it here:
       </div>
-      <textarea
-        className="ja-code-input"
+      <CodeEditor
         value={code}
-        onChange={e => setCode(e.target.value)}
-        disabled={phase === 'reviewing' || phase === 'reviewed'}
-        spellCheck={false}
+        onChange={setCode}
+        readOnly={phase === 'reviewing' || phase === 'reviewed'}
+        minHeight="260px"
         placeholder="// paste your code here"
       />
 
@@ -2713,7 +2961,7 @@ function TraceAnswers({ challenge, onSubmit }) {
 
 /* ---------- FEEDBACK ---------- */
 
-function FeedbackPanel({ correct, explanation, onNext, isLast }) {
+function FeedbackPanel({ correct, explanation, onNext, isLast, hideNext }) {
   return (
     <div className={`ja-card p-5 mt-2 ja-pop ${correct ? 'ja-glow-emerald' : 'ja-glow-coral'}`}
          style={{background: correct ? 'rgba(110,231,168,0.06)' : 'rgba(255,122,122,0.06)'}}>
@@ -2733,16 +2981,18 @@ function FeedbackPanel({ correct, explanation, onNext, isLast }) {
           {correct ? 'Correct!' : 'Not quite.'}
         </div>
       </div>
-      <p className="text-sm mb-4" style={{color:'var(--ink-dim)', lineHeight:1.6}}>{explanation}</p>
-      <div className="flex justify-end">
-        <button
-          onClick={onNext}
-          className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
-          style={{background:'var(--ink)', color:'#0a0c12', fontWeight:700}}
-        >
-          {isLast ? 'finish' : 'next'} <ArrowRight size={14}/>
-        </button>
-      </div>
+      <p className="text-sm" style={{color:'var(--ink-dim)', lineHeight:1.6}}>{explanation}</p>
+      {!hideNext && (
+        <div className="flex justify-end mt-4">
+          <button
+            onClick={onNext}
+            className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
+            style={{background:'var(--ink)', color:'#0a0c12', fontWeight:700}}
+          >
+            {isLast ? 'finish' : 'next'} <ArrowRight size={14}/>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -2849,36 +3099,67 @@ function SummaryStat({ label, value, color }) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, undefined, defaultState);
   const [loaded, setLoaded] = useState(false);
-  const [view, setView] = useState({ kind: 'map' }); // map | world | level | summary | practice
+  /*
+   * View kinds:
+   *   map | world | level | summary | practice | progress | doOrDie
+   */
+  const [view, setView] = useState({ kind: 'map' });
 
-  // Load progress on mount
+  /*
+   * Storage abstraction: prefer the host-injected window.storage (if present),
+   * otherwise fall back to localStorage. We also try to migrate from the
+   * legacy v1 key on first load.
+   */
+  async function readSaved() {
+    if (typeof window === 'undefined') return null;
+    if (window.storage) {
+      try {
+        const res = await window.storage.get(STORAGE_KEY);
+        if (res?.value) return res.value;
+        const legacy = await window.storage.get(LEGACY_STORAGE_KEY);
+        if (legacy?.value) return legacy.value;
+      } catch (e) {
+        // ignore; fall through to localStorage
+      }
+    }
+    try {
+      const v = window.localStorage.getItem(STORAGE_KEY);
+      if (v) return v;
+      const legacy = window.localStorage.getItem(LEGACY_STORAGE_KEY);
+      if (legacy) return legacy;
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  async function writeSaved(value) {
+    if (typeof window === 'undefined') return;
+    if (window.storage) {
+      try { await window.storage.set(STORAGE_KEY, value); return; } catch (e) { /* fall through */ }
+    }
+    try { window.localStorage.setItem(STORAGE_KEY, value); } catch (e) { /* ignore */ }
+  }
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      if (typeof window !== 'undefined' && window.storage) {
+      const value = await readSaved();
+      if (!cancelled && value) {
         try {
-          const res = await window.storage.get(STORAGE_KEY);
-          if (!cancelled && res?.value) {
-            dispatch({ type: 'load', payload: JSON.parse(res.value) });
-          }
-        } catch (e) {
-          // No saved state — fine.
-        }
+          dispatch({ type: 'load', payload: JSON.parse(value) });
+        } catch (e) { /* ignore corrupt save */ }
       }
       if (!cancelled) setLoaded(true);
     })();
     return () => { cancelled = true; };
   }, []);
 
-  // Save on state change
   useEffect(() => {
     if (!loaded) return;
-    if (typeof window !== 'undefined' && window.storage) {
-      window.storage.set(STORAGE_KEY, JSON.stringify(state)).catch(() => {});
-    }
+    writeSaved(JSON.stringify(state));
   }, [state, loaded]);
 
   function goHome() { setView({ kind: 'map' }); }
+  function goProgress() { setView({ kind: 'progress' }); }
 
   function startLevel(levelId, worldId) {
     const level = LEVELS[worldId].find(l => l.id === levelId);
@@ -2889,6 +3170,10 @@ export default function App() {
       challengeIds: level.challengeIds,
       levelName: level.name
     });
+  }
+
+  function startScenario(scenarioId, worldId) {
+    setView({ kind: 'doOrDie', scenarioId, worldId });
   }
 
   function startPractice() {
@@ -2935,6 +3220,7 @@ export default function App() {
           state={state}
           onHome={goHome}
           onPractice={startPractice}
+          onProgress={goProgress}
           onReset={handleResetProgress}
         />
 
@@ -2945,14 +3231,48 @@ export default function App() {
           />
         )}
 
+        {view.kind === 'progress' && (
+          <ProgressReport state={state} onBack={goHome} />
+        )}
+
         {view.kind === 'world' && (
           <LevelView
             worldId={view.worldId}
             state={state}
             onBack={goHome}
             onPickLevel={(levelId) => startLevel(levelId, view.worldId)}
+            onPickScenario={(scenarioId) => startScenario(scenarioId, view.worldId)}
           />
         )}
+
+        {view.kind === 'doOrDie' && (() => {
+          const scenario = SCENARIOS.find((s) => s.id === view.scenarioId);
+          if (!scenario) {
+            return (
+              <div className="ja-card p-6 text-center">
+                <div className="ja-display text-lg mb-2">Scenario not found</div>
+                <button onClick={goHome} className="ja-mono text-xs px-3 py-2 rounded-lg" style={{background:'var(--panel-2)', border:'1px solid var(--line)'}}>back</button>
+              </div>
+            );
+          }
+          return (
+            <DoOrDie
+              scenario={scenario}
+              dispatch={dispatch}
+              onBack={() => setView({ kind: 'world', worldId: view.worldId || unitToWorld(scenario.unitId) })}
+              renderChallenge={({ challenge, onAnswer }) => (
+                <ChallengeCard
+                  key={challenge.id}
+                  challenge={challenge}
+                  onAnswer={onAnswer}
+                  onNext={() => {}}
+                  isLast={false}
+                  hideNext
+                />
+              )}
+            />
+          );
+        })()}
 
         {view.kind === 'level' && (
           <ChallengeRunner
