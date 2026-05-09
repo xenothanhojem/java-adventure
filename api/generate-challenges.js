@@ -67,6 +67,15 @@ const SKILL_HINTS = {
   'U7-S7': 'separate ifs may both run; nested ifs share a path',
   'U7-S8': '&& both true, || either true, ! flips truth',
   'U7-S9': 'apply conditions in word problems (age, discount, divisibility)',
+  // Binary
+  'UB-S1': 'decimal is base 10 (digits 0-9); binary is base 2 (only 0 and 1)',
+  'UB-S2': 'computers use binary because circuits have two states: on/off',
+  'UB-S3': 'binary place values are powers of 2: 1, 2, 4, 8, 16, 32...',
+  'UB-S4': 'binary to decimal: multiply each bit by its place value, sum the results',
+  'UB-S5': 'decimal to binary: repeated division by 2 (read remainders bottom-to-top)',
+  'UB-S6': 'binary addition: 0+0=0, 0+1=1, 1+1=10 (carry 1), 1+1+1=11',
+  'UB-S7': 'binary subtraction: 0-0=0, 1-0=1, 1-1=0, 0-1 requires borrowing',
+  'UB-S8': '1 bit = 0 or 1; 4 bits = nibble; 8 bits = byte',
 };
 
 function buildSystemPrompt() {

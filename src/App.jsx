@@ -4,14 +4,16 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut
+  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary
 } from 'lucide-react';
 import { UNITS, migrateSkillIds } from './data/skills.js';
 import { SCENARIOS, getScenariosForUnit } from './data/scenarios.js';
+import { getTheoryUnit } from './data/theory.js';
 import CodeEditor from './components/CodeEditor.jsx';
 import ProgressReport from './components/ProgressReport.jsx';
 import DoOrDie from './components/DoOrDie.jsx';
 import OnboardingModal from './components/OnboardingModal.jsx';
+import TheoryMode from './components/TheoryMode.jsx';
 
 /* =========================================================================
    STYLE BLOCK — fonts, custom CSS, small animations.
@@ -202,6 +204,11 @@ const styleSheet = `
 
   /* Indigo glow for object world */
   .ja-glow-indigo { box-shadow: 0 0 0 1px rgba(168,197,255,0.35), 0 0 30px -8px rgba(168,197,255,0.55), inset 0 0 20px -10px rgba(168,197,255,0.4); }
+
+  /* Lime glow and background for binary world */
+  .ja-glow-lime { box-shadow: 0 0 0 1px rgba(190,242,100,0.35), 0 0 30px -8px rgba(190,242,100,0.55), inset 0 0 20px -10px rgba(190,242,100,0.4); }
+  .ja-w-binary { background: radial-gradient(circle at 30% 20%, rgba(190,242,100,0.18), transparent 60%), linear-gradient(180deg, var(--panel), var(--panel-2)); }
+  :root { --lime: #bef264; }
 
   /* Trace table inputs */
   .ja-trace-input {
@@ -532,6 +539,16 @@ const WORLDS = [
     icon: GitBranch,
     blurb: 'True or false. If, else, nested. AND, OR, NOT. Every branch leads somewhere.',
   },
+  {
+    id: 'binary',
+    name: 'Binary Matrix',
+    subtitle: 'Binary · calculations & conversions',
+    color: 'lime',
+    glow: 'ja-glow-lime',
+    bg: 'ja-w-binary',
+    icon: Binary,
+    blurb: 'Ones and zeros. Convert, add, subtract. Bits, bytes, and the language every computer speaks.',
+  },
 ];
 
 // Each level is a small bundle of challenges
@@ -571,6 +588,12 @@ const LEVELS = {
     { id: 'o-l2', name: 'Constructors',      subtitle: 'Overloading and method resolution',         challengeIds: ['o5','o6','o7','o8'] },
     { id: 'o-l3', name: 'Color & Random',    subtitle: 'RGB and Math.random',                       challengeIds: ['o9','o10','o11','o12','o13'] },
     { id: 'o-l4', name: 'Object Forge Boss', subtitle: 'State, randomness, and your own program',   challengeIds: ['o14','o15','o16','o17','o18'], hasCoding: true },
+  ],
+  binary: [
+    { id: 'b-l1', name: 'Number Systems',     subtitle: 'Decimal vs binary, bases, why computers use binary', challengeIds: ['b1','b2','b3','b4'] },
+    { id: 'b-l2', name: 'Place Value & Conversion', subtitle: 'Powers of 2, binary <-> decimal',      challengeIds: ['b5','b6','b7','b8'] },
+    { id: 'b-l3', name: 'Binary Arithmetic',  subtitle: 'Addition, subtraction, carry, borrow',       challengeIds: ['b9','b10','b11','b12'] },
+    { id: 'b-l4', name: 'Binary Boss',        subtitle: 'Bits, bytes, mixed conversions, and arithmetic', challengeIds: ['b13','b14','b15','b16','b17'] },
   ],
 };
 
@@ -1775,6 +1798,171 @@ const CHALLENGES = {
     skills: ['code-write', 'random', 'color-class', 'multiple-objects'],
     explanation: 'This brings together everything from Unit 6: random numbers, the Color class, multiple objects, and method calls on each one.'
   },
+
+  /* ---- Binary Matrix ---- */
+  b1: {
+    type: 'mc', world: 'binary',
+    prompt: 'What does "base 2" mean?',
+    options: ['Uses 2 digits: 0 and 1', 'Numbers go up to 2', 'There are 2 columns', 'Values are always doubled'],
+    answer: 0,
+    hint: 'The base tells you how many different symbols the system uses.',
+    explanation: 'Base 2 (binary) uses only two symbols: 0 and 1. Every place value is a power of 2.',
+    skills: ['binary']
+  },
+  b2: {
+    type: 'mc', world: 'binary',
+    prompt: 'Why do computers use binary internally?',
+    options: ['Binary numbers are smaller', 'Electronic circuits have two states (on/off) mapping to 1/0', 'Decimal is too complex', 'Binary was invented first'],
+    answer: 1,
+    hint: 'Think about how electronic circuits work physically.',
+    explanation: 'Digital circuits naturally distinguish two voltage states. Binary (0 and 1) maps directly to on/off, making it reliable.',
+    skills: ['binary']
+  },
+  b3: {
+    type: 'mc', world: 'binary',
+    prompt: 'What are the binary place values for a 4-bit number (left to right)?',
+    options: ['1, 2, 3, 4', '8, 4, 2, 1', '10, 20, 30, 40', '4, 3, 2, 1'],
+    answer: 1,
+    hint: 'Each position is a power of 2.',
+    explanation: 'Binary place values from left to right for 4 bits: 8 (2^3), 4 (2^2), 2 (2^1), 1 (2^0).',
+    skills: ['binary-place-value']
+  },
+  b4: {
+    type: 'tf', world: 'binary',
+    prompt: 'The binary number 1010 and the decimal number 1010 represent the same value.',
+    answer: false,
+    hint: 'One uses base 2 place values, the other uses base 10.',
+    explanation: 'False. Binary 1010 = 10 in decimal (8+0+2+0). Decimal 1010 is one thousand and ten. Same digits, different bases, very different values.',
+    skills: ['binary']
+  },
+  b5: {
+    type: 'mc', world: 'binary',
+    prompt: 'Convert the binary number 1101 to decimal.',
+    options: ['11', '12', '13', '14'],
+    answer: 2,
+    hint: 'Place values: 8, 4, 2, 1. Add up the positions with a 1.',
+    explanation: '1x8 + 1x4 + 0x2 + 1x1 = 8 + 4 + 0 + 1 = 13.',
+    skills: ['binary-to-decimal']
+  },
+  b6: {
+    type: 'mc', world: 'binary',
+    prompt: 'Convert the binary number 10110 to decimal.',
+    options: ['18', '20', '22', '26'],
+    answer: 2,
+    hint: '5-bit number. Place values: 16, 8, 4, 2, 1.',
+    explanation: '1x16 + 0x8 + 1x4 + 1x2 + 0x1 = 16 + 0 + 4 + 2 + 0 = 22.',
+    skills: ['binary-to-decimal']
+  },
+  b7: {
+    type: 'mc', world: 'binary',
+    prompt: 'Convert the decimal number 19 to binary.',
+    options: ['10011', '10101', '10010', '11001'],
+    answer: 0,
+    hint: '19 = 16 + 2 + 1. Which bits are on?',
+    explanation: '19 = 16 + 0 + 0 + 2 + 1, so in binary: 1x16, 0x8, 0x4, 1x2, 1x1 = 10011.',
+    skills: ['decimal-to-binary']
+  },
+  b8: {
+    type: 'order', world: 'binary',
+    prompt: 'Put the repeated-division steps in order to convert 11 to binary:',
+    items: [
+      'Read remainders bottom to top: 1011',
+      '11 / 2 = 5 remainder 1',
+      '1 / 2 = 0 remainder 1',
+      '5 / 2 = 2 remainder 1',
+      '2 / 2 = 1 remainder 0',
+    ],
+    answer: [1, 3, 4, 2, 0],
+    hint: 'Keep dividing by 2 until the quotient is 0, then read remainders backwards.',
+    explanation: '11/2=5r1, 5/2=2r1, 2/2=1r0, 1/2=0r1. Remainders bottom to top: 1011.',
+    skills: ['decimal-to-binary']
+  },
+  b9: {
+    type: 'mc', world: 'binary',
+    prompt: 'What is 1010 + 0101 in binary?',
+    options: ['1111', '10000', '1100', '1001'],
+    answer: 0,
+    hint: 'Add column by column from the right. No carries needed here.',
+    explanation: '0+1=1, 1+0=1, 0+1=1, 1+0=1. Result: 1111. (Decimal check: 10 + 5 = 15 = 1111.)',
+    skills: ['binary-addition']
+  },
+  b10: {
+    type: 'mc', world: 'binary',
+    prompt: 'What is 1011 + 0110 in binary?',
+    options: ['10000', '10001', '1110', '10010'],
+    answer: 1,
+    hint: 'Watch for carries: 1+1 = 10 in binary (write 0, carry 1).',
+    explanation: 'From right: 1+0=1, 1+1=10(carry), 0+1+1=10(carry), 1+0+1=10(carry), carry=1. Result: 10001. (11 + 6 = 17.)',
+    skills: ['binary-addition']
+  },
+  b11: {
+    type: 'mc', world: 'binary',
+    prompt: 'In binary addition, what is 1 + 1?',
+    options: ['2', '11', '10', '0'],
+    answer: 2,
+    hint: 'There is no digit 2 in binary.',
+    explanation: '1 + 1 in binary = 10 (write 0 in this column, carry 1 to the next). The decimal value is 2, written as 10 in binary.',
+    skills: ['binary-addition']
+  },
+  b12: {
+    type: 'mc', world: 'binary',
+    prompt: 'What is 1100 - 0101 in binary?',
+    options: ['0111', '1001', '0110', '1000'],
+    answer: 0,
+    hint: 'Convert to decimal to check: 12 - 5 = ?',
+    explanation: '1100 = 12, 0101 = 5. 12 - 5 = 7. 7 in binary = 0111.',
+    skills: ['binary-subtraction']
+  },
+  b13: {
+    type: 'mc', world: 'binary',
+    prompt: 'How many bits are in one byte?',
+    options: ['2', '4', '8', '16'],
+    answer: 2,
+    hint: 'A nibble is 4 bits; a byte is double that.',
+    explanation: '1 byte = 8 bits. A nibble is 4 bits (half a byte).',
+    skills: ['bits-bytes']
+  },
+  b14: {
+    type: 'mc', world: 'binary',
+    prompt: 'What is the maximum decimal value you can store in 8 bits (1 byte)?',
+    options: ['128', '255', '256', '512'],
+    answer: 1,
+    hint: '8 bits all set to 1: 11111111.',
+    explanation: '11111111 = 128+64+32+16+8+4+2+1 = 255. The range is 0 to 255.',
+    skills: ['bits-bytes', 'binary-to-decimal']
+  },
+  b15: {
+    type: 'trace', world: 'binary',
+    prompt: 'Convert each binary number to decimal:',
+    code: '1001\n0110\n1110\n10000',
+    rows: [
+      { label: '1001', answer: '9' },
+      { label: '0110', answer: '6' },
+      { label: '1110', answer: '14' },
+      { label: '10000', answer: '16' },
+    ],
+    hint: 'Multiply each bit by its place value and add.',
+    explanation: '1001=8+1=9, 0110=4+2=6, 1110=8+4+2=14, 10000=16.',
+    skills: ['binary-to-decimal']
+  },
+  b16: {
+    type: 'mc', world: 'binary',
+    prompt: 'What is 1111 + 0001 in binary?',
+    options: ['10000', '10001', '1111', '10010'],
+    answer: 0,
+    hint: 'This is like adding 15 + 1 in decimal.',
+    explanation: '1111 = 15, 0001 = 1. 15 + 1 = 16 = 10000 in binary. Carries ripple all the way through.',
+    skills: ['binary-addition']
+  },
+  b17: {
+    type: 'mc', world: 'binary',
+    prompt: 'Convert the decimal number 42 to binary.',
+    options: ['101010', '101011', '110010', '100110'],
+    answer: 0,
+    hint: '42 = 32 + 8 + 2.',
+    explanation: '42 = 32+8+2 = 1x32, 0x16, 1x8, 0x4, 1x2, 0x1 = 101010.',
+    skills: ['decimal-to-binary']
+  },
 };
 
 /* =========================================================================
@@ -2208,12 +2396,13 @@ function prettySkill(s) {
 
 /* ---------- LEVEL VIEW ---------- */
 
-function LevelView({ worldId, state, onBack, onPickLevel, onPickScenario }) {
+function LevelView({ worldId, state, onBack, onPickLevel, onPickScenario, onPickTheory }) {
   const world = WORLDS.find(w => w.id === worldId);
   const levels = LEVELS[worldId];
   const Icon = world.icon;
   const unitId = unitIdForWorld(worldId);
   const scenarios = unitId ? getScenariosForUnit(unitId) : [];
+  const hasTheory = unitId ? !!getTheoryUnit(unitId) : false;
   const bestByScenario = {};
   for (const r of (state.doOrDieHistory || [])) {
     const cur = bestByScenario[r.scenarioId];
@@ -2237,6 +2426,30 @@ function LevelView({ worldId, state, onBack, onPickLevel, onPickScenario }) {
           <div className="ja-mono text-sm" style={{color:`var(--${world.color})`}}>{world.subtitle}</div>
         </div>
       </div>
+
+      {hasTheory && (
+        <div className="mb-6">
+          <button
+            onClick={() => onPickTheory && onPickTheory(unitId)}
+            className="ja-tile ja-card p-4 w-full text-left flex items-center justify-between gap-3"
+            style={{ background: `linear-gradient(180deg, rgba(var(--${world.color}-rgb, 92,242,255), 0.06), var(--panel-2))` }}
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: `rgba(var(--${world.color}-rgb, 92,242,255), 0.16)`, color: `var(--${world.color})` }}>
+                <BookOpen size={16} />
+              </div>
+              <div>
+                <div className="ja-display text-base" style={{ fontWeight: 700 }}>Theory Mode</div>
+                <div className="ja-mono text-xs" style={{ color: 'var(--ink-mute)' }}>
+                  Learn the concepts, then test yourself
+                </div>
+              </div>
+            </div>
+            <ArrowRight size={16} style={{ color: `var(--${world.color})`, flexShrink: 0 }} />
+          </button>
+        </div>
+      )}
 
       {scenarios.length > 0 && (
         <div className="mb-6">
@@ -3129,7 +3342,7 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   /*
    * View kinds:
-   *   map | world | level | summary | practice | progress | doOrDie
+   *   map | world | level | summary | practice | progress | doOrDie | theory
    */
   const [view, setView] = useState({ kind: 'map' });
   /*
@@ -3362,6 +3575,25 @@ export default function App() {
             onBack={goHome}
             onPickLevel={(levelId) => startLevel(levelId, view.worldId)}
             onPickScenario={(scenarioId) => startScenario(scenarioId, view.worldId)}
+            onPickTheory={(theoryUnitId) => setView({ kind: 'theory', unitId: theoryUnitId, worldId: view.worldId })}
+          />
+        )}
+
+        {view.kind === 'theory' && (
+          <TheoryMode
+            unitId={view.unitId}
+            worldColor={WORLDS.find(w => w.id === view.worldId)?.color || 'cyan'}
+            onBack={() => setView({ kind: 'world', worldId: view.worldId })}
+            onComplete={({ correctCount, total, results, unitId: theoryUnitId }) => {
+              syncSession({
+                mode: 'theory',
+                unitId: theoryUnitId,
+                correctCount,
+                total,
+                attempts: buildAttemptsForApi(results, theoryUnitId),
+              });
+            }}
+            dispatch={dispatch}
           />
         )}
 

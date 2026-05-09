@@ -11,6 +11,7 @@ export const UNITS = {
   U5: { id: 'U5', number: 5, name: 'For Loops', worldId: 'loops' },
   U6: { id: 'U6', number: 6, name: 'More about objects', worldId: 'objects' },
   U7: { id: 'U7', number: 7, name: 'If Statements', worldId: 'logic' },
+  UB: { id: 'UB', number: 8, name: 'Binary Calculations and Conversions', worldId: 'binary' },
 };
 
 export const SKILLS = {
@@ -74,6 +75,16 @@ export const SKILLS = {
   'U7-S7': { unit: 'U7', name: 'Separate independent ifs', description: 'When multiple ifs must each be checked.' },
   'U7-S8': { unit: 'U7', name: 'Logical operators', description: '&&, ||, ! and combined conditions.' },
   'U7-S9': { unit: 'U7', name: 'Conditions in scenarios', description: 'Apply conditions to word problems.' },
+
+  // Binary Calculations and Conversions
+  'UB-S1': { unit: 'UB', name: 'Number systems', description: 'Decimal vs binary, base/radix concept.' },
+  'UB-S2': { unit: 'UB', name: 'Why computers use binary', description: 'Two-state electronics, on/off, reliability.' },
+  'UB-S3': { unit: 'UB', name: 'Binary place value', description: 'Powers of 2, reading binary columns.' },
+  'UB-S4': { unit: 'UB', name: 'Binary to decimal', description: 'Convert binary to decimal using place values.' },
+  'UB-S5': { unit: 'UB', name: 'Decimal to binary', description: 'Repeated division or place-value decomposition.' },
+  'UB-S6': { unit: 'UB', name: 'Binary addition', description: 'Column addition with carry in binary.' },
+  'UB-S7': { unit: 'UB', name: 'Binary subtraction', description: 'Subtraction with borrowing in binary.' },
+  'UB-S8': { unit: 'UB', name: 'Bits bytes and storage', description: 'Bit, nibble, byte terminology.' },
 };
 
 /*
@@ -231,6 +242,19 @@ export const LEGACY_SKILL_MAP = {
   'logical-operators': 'U7-S8',
   'and-or-not': 'U7-S8',
   'scenarios': 'U7-S9',
+
+  // Binary
+  'binary': 'UB-S1',
+  'decimal': 'UB-S1',
+  'number-systems': 'UB-S1',
+  'binary-place-value': 'UB-S3',
+  'binary-to-decimal': 'UB-S4',
+  'decimal-to-binary': 'UB-S5',
+  'binary-addition': 'UB-S6',
+  'binary-subtraction': 'UB-S7',
+  'bits-bytes': 'UB-S8',
+  'bit': 'UB-S8',
+  'byte': 'UB-S8',
 
   // Generic / non-skill tags - drop by mapping to null
   'code-reading': null,

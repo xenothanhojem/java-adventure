@@ -228,6 +228,50 @@ export const SCENARIOS = [
     victoryMessage: 'Firewall holds. AI quarantined. Network secure.',
     failMessage: 'Filter logic failed. AI inside the network. Total compromise.',
   },
+
+  // -------------------- Binary --------------------
+  {
+    id: 'ub-enigma',
+    unitId: 'UB',
+    title: 'Enigma Protocol',
+    icon: 'cpu',
+    summary: 'Crack the binary cipher before the message expires.',
+    briefing:
+      'An intercepted enemy transmission is encoded in binary. Convert binary to decimal, decimal to binary, perform binary addition to reconstruct the cipher key, and identify storage units. The message self-destructs in minutes.',
+    tickerMessages: [
+      'SIGNALS INTELLIGENCE: Encrypted burst detected on hostile frequency.',
+      'Cipher header indicates time-locked self-destruct.',
+      'Partial decode: location coordinates embedded in binary.',
+      'Message integrity degrading. Bits corrupting.',
+      'FINAL DECODE WINDOW - CRACK IT NOW.',
+    ],
+    timeLimitSeconds: 240,
+    questionCount: 6,
+    skills: ['UB-S1', 'UB-S3', 'UB-S4', 'UB-S5', 'UB-S6', 'UB-S8'],
+    victoryMessage: 'Cipher cracked. Coordinates decoded. The intel is ours.',
+    failMessage: 'Message self-destructed. The binary secrets are lost.',
+  },
+  {
+    id: 'ub-mars-relay',
+    unitId: 'UB',
+    title: 'Mars Relay',
+    icon: 'radio',
+    summary: 'Fix the corrupted binary data link to Mars.',
+    briefing:
+      'The Mars colony data relay is transmitting garbled binary. Sensor readings need binary-to-decimal conversion, supply manifests need decimal-to-binary encoding, and the checksum requires binary addition. Fix the relay before the colony loses contact.',
+    tickerMessages: [
+      'MARS COLONY: Data link degrading. Packet loss at 40 percent.',
+      'Life support telemetry unreadable.',
+      'Colony commander requesting immediate relay repair.',
+      'Solar storm approaching. Communications window closing.',
+      'TOTAL BLACKOUT in 2 minutes unless relay is restored.',
+    ],
+    timeLimitSeconds: 240,
+    questionCount: 6,
+    skills: ['UB-S3', 'UB-S4', 'UB-S5', 'UB-S6', 'UB-S7'],
+    victoryMessage: 'Relay restored. Mars colony back online. Data flowing clean.',
+    failMessage: 'Relay failed. Mars colony goes dark. Contact lost.',
+  },
 ];
 
 export function getScenariosForUnit(unitId) {
