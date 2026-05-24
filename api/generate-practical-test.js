@@ -89,7 +89,23 @@ RULES:
 - Keep it Grade 10 level: no arrays, no ArrayList, no file I/O, no try-catch. Only basic Java.
 - The starterCode should be a compilable skeleton with the class, main method stub, and method stubs with TODO comments.
 - Make section numbering start at 2 (section 1 is typically "create the project" which we skip).
-- Return ONLY the JSON. No explanation, no markdown.`;
+- Return ONLY the JSON. No explanation, no markdown.
+
+CRITICAL -- QUESTION WORDING STYLE:
+- NEVER reveal Java types in the question text. The student must choose the correct type themselves -- that IS the assessment.
+- When asking the student to declare global variables, present them in a TABLE format inside the question text, listing each variable name alongside a plain-English storage description. Use this exact pattern:
+
+  "In the program called ClassName add the following global variables that will be accessible throughout the program. Choose the appropriate types for each variable.\\n\\nVariable | Description\\n---|---\\nitemName | Store text\\ntotalCount | Store whole number\\naverageScore | Store real number\\ncategoryList | Store text"
+
+  NEVER write "int totalCount" or "double averageScore" or "(String)" in the question. Use ONLY:
+    - "Store text" (student must decide: String)
+    - "Store whole number" (student must decide: int)
+    - "Store real number" (student must decide: double)
+    - "Store single character" (student must decide: char)
+    - "Store true/false" (student must decide: boolean)
+- Similarly, when asking the student to declare local variables inside methods, describe what the variable stores, not its type. For example: "Create a variable called swimTime to store the total time in seconds" (not "Create a double called swimTime").
+- For method signatures, describe the return/parameter purpose, don't give the signature. For example: "Write a method called processOrder that accepts the customer's name and returns nothing" rather than "Write void processOrder(String name)".
+- The marking rubric SHOULD contain the expected types (for marking), but the question text must NOT.`;
 
   const userMessage = `Generate a practical coding test that integrates these units:
 ${unitBlock}
