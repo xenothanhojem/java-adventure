@@ -14,6 +14,7 @@ import ProgressReport from './components/ProgressReport.jsx';
 import DoOrDie from './components/DoOrDie.jsx';
 import OnboardingModal from './components/OnboardingModal.jsx';
 import TheoryMode from './components/TheoryMode.jsx';
+import PracticalTest from './components/PracticalTest.jsx';
 
 /* =========================================================================
    STYLE BLOCK — fonts, custom CSS, small animations.
@@ -2275,7 +2276,7 @@ function Stat({ icon, label, value, color, hideOnMobile }) {
 
 /* ---------- HOME / WORLD MAP ---------- */
 
-function WorldMap({ state, onPickWorld }) {
+function WorldMap({ state, onPickWorld, onPracticalTest }) {
   return (
     <div>
       <div className="mb-8 mt-2">
@@ -2341,6 +2342,37 @@ function WorldMap({ state, onPickWorld }) {
           );
         })}
       </div>
+
+      {/* Practical Test card */}
+      <button
+        onClick={onPracticalTest}
+        className="ja-tile ja-card w-full text-left p-6 mt-4 relative overflow-hidden ja-glow-magenta"
+        style={{ background: 'linear-gradient(135deg, rgba(214,138,255,0.08), rgba(92,242,255,0.04))' }}
+      >
+        <div className="flex items-start justify-between">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center"
+              style={{background:'rgba(214,138,255,0.16)', color:'var(--magenta)'}}>
+              <FileCode size={22} strokeWidth={2}/>
+            </div>
+            <div>
+              <div className="ja-display text-2xl mb-1" style={{fontWeight:700, letterSpacing:'-0.02em'}}>
+                Practical Test
+              </div>
+              <div className="ja-mono text-xs mb-2" style={{color:'var(--magenta)', opacity: 0.85}}>
+                AI-generated coding exam
+              </div>
+              <p className="text-sm" style={{color:'var(--ink-dim)', lineHeight:1.55}}>
+                A full practical coding test -- just like the real thing. Pick your units, get a unique test paper, write your code, and get marked instantly.
+              </p>
+            </div>
+          </div>
+          <div className="ja-mono text-xs px-2 py-1 rounded flex-shrink-0"
+            style={{background:'rgba(214,138,255,0.12)', color:'var(--magenta)'}}>
+            NEW
+          </div>
+        </div>
+      </button>
 
       {state.sessionsPlayed > 0 && (
         <SkillSummary state={state}/>
@@ -3342,7 +3374,7 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   /*
    * View kinds:
-   *   map | world | level | summary | practice | progress | doOrDie | theory
+   *   map | world | level | summary | practice | progress | doOrDie | theory | practicalTest
    */
   const [view, setView] = useState({ kind: 'map' });
   /*
@@ -3561,6 +3593,7 @@ export default function App() {
           <WorldMap
             state={state}
             onPickWorld={(worldId) => setView({ kind: 'world', worldId })}
+            onPracticalTest={() => setView({ kind: 'practicalTest' })}
           />
         )}
 
@@ -3591,6 +3624,23 @@ export default function App() {
                 correctCount,
                 total,
                 attempts: buildAttemptsForApi(results, theoryUnitId),
+              });
+            }}
+            dispatch={dispatch}
+          />
+        )}
+
+        {view.kind === 'practicalTest' && (
+          <PracticalTest
+            onBack={goHome}
+            onComplete={(result) => {
+              syncSession({
+                mode: 'practicalTest',
+                title: result.title,
+                totalAwarded: result.totalAwarded,
+                totalPossible: result.totalPossible,
+                percentage: result.percentage,
+                grade: result.grade,
               });
             }}
             dispatch={dispatch}
