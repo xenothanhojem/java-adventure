@@ -81,7 +81,7 @@ RULES:
 - Use System.out.println / System.out.print for output.
 - Total marks should be 50-70.
 - Include at least one for loop, at least one if/else structure, at least one method besides main.
-- Include a while loop with a sentinel value (like "XXX" or -1) for repeated processing.
+- Use ONLY for loops for repetition. Do NOT use while loops -- they are not part of the curriculum. If you need repeated processing (e.g. processing multiple items), use a for loop with a fixed count that the user inputs at the start (e.g. "How many swimmers?"), NOT a sentinel/flag loop.
 - Include arithmetic (sum, average, or similar accumulator).
 - Include string output formatting (concatenation, tabs, team/category lists).
 - Questions should specify exact output format with examples.

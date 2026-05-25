@@ -3,6 +3,7 @@ import {
   ChevronLeft, FileCode, Loader2, AlertCircle, Send, RotateCcw,
   Trophy, Check, X, ChevronDown, ChevronUp, Home, Sparkles,
   ExternalLink, Lightbulb, LightbulbOff, ClipboardPaste,
+  Compass, ChevronRight, CircleDot, MessageCircle, BookOpen,
 } from 'lucide-react';
 import CodeEditor from './CodeEditor.jsx';
 
@@ -426,6 +427,12 @@ const PaperPhase = React.forwardRef(function PaperPhase(
   const [hintOn, setHintOn] = useState(isEasy);
   const popupRef = useRef(null);
 
+  const [guideData, setGuideData] = useState(null);
+  const [guideLoading, setGuideLoading] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
+  const [guideStep, setGuideStep] = useState(0);
+  const [guideError, setGuideError] = useState('');
+
   const blankCode = `public class ${test.className} {\n    public static void main(String[] args) {\n        \n    }\n}\n`;
 
   function toggleHint() {
@@ -459,11 +466,44 @@ const PaperPhase = React.forwardRef(function PaperPhase(
     }
   }
 
+  async function fetchGuide() {
+    if (guideData) {
+      setGuideOpen(true);
+      return;
+    }
+    setGuideLoading(true);
+    setGuideError('');
+    setGuideOpen(true);
+    try {
+      const res = await fetch('/api/guide-practical-test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ test }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error ${res.status}`);
+      }
+      const data = await res.json();
+      if (!data.guide) throw new Error('No guide data received');
+      setGuideData(data.guide);
+      setGuideStep(0);
+    } catch (err) {
+      setGuideError(err.message || 'Failed to generate guide');
+    } finally {
+      setGuideLoading(false);
+    }
+  }
+
   useEffect(() => {
     return () => {
       if (popupRef.current && !popupRef.current.closed) popupRef.current.close();
     };
   }, []);
+
+  const totalGuideSteps = guideData
+    ? 1 + (guideData.walkthrough || []).length + 1
+    : 0;
 
   return (
     <div ref={ref}>
@@ -473,6 +513,18 @@ const PaperPhase = React.forwardRef(function PaperPhase(
           <ChevronLeft size={16} /> new test
         </button>
         <div className="flex items-center gap-3">
+          <button
+            onClick={fetchGuide}
+            className="flex items-center gap-1.5 ja-mono text-xs px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity"
+            style={{
+              background: guideOpen ? 'rgba(76,217,100,0.1)' : 'rgba(76,217,100,0.06)',
+              border: '1px solid',
+              borderColor: guideOpen ? 'rgba(76,217,100,0.4)' : 'rgba(76,217,100,0.2)',
+              color: 'var(--emerald)',
+            }}
+          >
+            <Compass size={13} /> {guideData ? 'Guide me' : 'Guide me'}
+          </button>
           <button
             onClick={openPaperWindow}
             className="flex items-center gap-1.5 ja-mono text-xs px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity"
@@ -486,6 +538,20 @@ const PaperPhase = React.forwardRef(function PaperPhase(
           </div>
         </div>
       </div>
+
+      {/* Guide panel */}
+      {guideOpen && (
+        <GuidePanel
+          guide={guideData}
+          loading={guideLoading}
+          error={guideError}
+          step={guideStep}
+          setStep={setGuideStep}
+          totalSteps={totalGuideSteps}
+          onClose={() => setGuideOpen(false)}
+          onRetry={fetchGuide}
+        />
+      )}
 
       {/* Test header */}
       <div className="ja-card p-5 mb-4 ja-glow-magenta"
@@ -785,6 +851,234 @@ function ResultsPhase({ result, test, onBack, onNewTest, onRetry }) {
         <button onClick={onBack} className="flex-1 flex items-center justify-center gap-2 ja-mono text-sm px-4 py-2.5 rounded-lg"
           style={{ background: 'var(--magenta)', color: 'var(--bg)', fontWeight: 700 }}>
           Done <Home size={14} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Guide Me panel ---------- */
+
+function GuidePanel({ guide, loading, error, step, setStep, totalSteps, onClose, onRetry }) {
+  if (loading) {
+    return (
+      <div className="ja-card p-5 mb-4"
+        style={{ background: 'linear-gradient(180deg, rgba(76,217,100,0.06), var(--panel-2))', borderColor: 'rgba(76,217,100,0.25)' }}>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <Compass size={16} style={{ color: 'var(--emerald)' }} />
+            <span className="ja-display text-base" style={{ fontWeight: 700 }}>Guide Me</span>
+          </div>
+          <button onClick={onClose} className="ja-mono text-xs hover:opacity-70" style={{ color: 'var(--ink-mute)' }}>
+            <X size={14} />
+          </button>
+        </div>
+        <div className="flex items-center gap-3 py-4 justify-center">
+          <Loader2 size={20} className="ja-spin" style={{ color: 'var(--emerald)' }} />
+          <span className="text-sm" style={{ color: 'var(--ink-dim)' }}>Building your step-by-step guide...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="ja-card p-5 mb-4" style={{ borderColor: 'rgba(255,122,122,0.3)' }}>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <Compass size={16} style={{ color: 'var(--coral)' }} />
+            <span className="ja-display text-base" style={{ fontWeight: 700 }}>Guide Me</span>
+          </div>
+          <button onClick={onClose} className="ja-mono text-xs hover:opacity-70" style={{ color: 'var(--ink-mute)' }}>
+            <X size={14} />
+          </button>
+        </div>
+        <p className="text-sm mb-3" style={{ color: 'var(--coral)' }}>{error}</p>
+        <button onClick={onRetry} className="ja-mono text-xs px-3 py-1.5 rounded-lg"
+          style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
+          <RotateCcw size={12} className="inline mr-1" /> Try again
+        </button>
+      </div>
+    );
+  }
+
+  if (!guide) return null;
+
+  const walkthrough = guide.walkthrough || [];
+
+  function renderStepContent() {
+    if (step === 0) {
+      return (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-7 h-7 rounded-full flex items-center justify-center"
+              style={{ background: 'rgba(76,217,100,0.15)', color: 'var(--emerald)' }}>
+              <BookOpen size={14} />
+            </div>
+            <div className="ja-display text-base" style={{ fontWeight: 700 }}>
+              {guide.startingPoint?.title || 'Where to begin'}
+            </div>
+          </div>
+          <p className="text-sm mb-3" style={{ color: 'var(--ink-dim)', lineHeight: 1.55 }}>
+            {guide.overview}
+          </p>
+          <div className="space-y-2">
+            {(guide.startingPoint?.steps || []).map((s, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ background: 'rgba(76,217,100,0.1)', color: 'var(--emerald)', fontSize: '10px', fontWeight: 700 }}>
+                  {i + 1}
+                </div>
+                <span className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{s}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (step <= walkthrough.length) {
+      const w = walkthrough[step - 1];
+      return (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="ja-mono text-xs px-2 py-0.5 rounded"
+              style={{ background: 'rgba(214,138,255,0.12)', color: 'var(--magenta)' }}>
+              {w.questionNumber}
+            </span>
+            <div className="ja-display text-base" style={{ fontWeight: 700 }}>{w.title}</div>
+          </div>
+
+          <div className="space-y-3">
+            <div className="flex items-start gap-2.5">
+              <MessageCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--cyan)' }} />
+              <div>
+                <div className="ja-mono text-xs mb-1" style={{ color: 'var(--cyan)' }}>THINK ABOUT</div>
+                <p className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{w.thinkAbout}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2.5">
+              <Compass size={14} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--emerald)' }} />
+              <div>
+                <div className="ja-mono text-xs mb-1" style={{ color: 'var(--emerald)' }}>APPROACH</div>
+                <p className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{w.approach}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2.5">
+              <BookOpen size={14} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--amber)' }} />
+              <div>
+                <div className="ja-mono text-xs mb-1" style={{ color: 'var(--amber)' }}>CONCEPT REMINDER</div>
+                <p className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{w.conceptReminder}</p>
+              </div>
+            </div>
+
+            {w.commonMistake && (
+              <div className="flex items-start gap-2.5">
+                <AlertCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--coral)' }} />
+                <div>
+                  <div className="ja-mono text-xs mb-1" style={{ color: 'var(--coral)' }}>WATCH OUT</div>
+                  <p className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{w.commonMistake}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{ background: 'rgba(76,217,100,0.15)', color: 'var(--emerald)' }}>
+            <Check size={14} />
+          </div>
+          <div className="ja-display text-base" style={{ fontWeight: 700 }}>Testing and finishing up</div>
+        </div>
+        {(guide.testingTips || []).length > 0 && (
+          <div className="space-y-2 mb-3">
+            {guide.testingTips.map((tip, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <CircleDot size={10} className="flex-shrink-0 mt-1.5" style={{ color: 'var(--emerald)' }} />
+                <span className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.5 }}>{tip}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {guide.encouragement && (
+          <div className="flex items-start gap-2 p-3 rounded-lg mt-2"
+            style={{ background: 'rgba(76,217,100,0.06)', border: '1px solid rgba(76,217,100,0.2)' }}>
+            <Sparkles size={14} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--emerald)' }} />
+            <span className="text-sm" style={{ color: 'var(--emerald)' }}>{guide.encouragement}</span>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="ja-card p-5 mb-4"
+      style={{ background: 'linear-gradient(180deg, rgba(76,217,100,0.04), var(--panel-2))', borderColor: 'rgba(76,217,100,0.2)' }}>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Compass size={16} style={{ color: 'var(--emerald)' }} />
+          <span className="ja-display text-base" style={{ fontWeight: 700 }}>Guide Me</span>
+          <span className="ja-mono text-xs" style={{ color: 'var(--ink-mute)' }}>
+            {step + 1} / {totalSteps}
+          </span>
+        </div>
+        <button onClick={onClose} className="ja-mono text-xs hover:opacity-70" style={{ color: 'var(--ink-mute)' }}>
+          <X size={14} />
+        </button>
+      </div>
+
+      {/* Progress dots */}
+      <div className="flex gap-1 mb-4">
+        {Array.from({ length: totalSteps }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => setStep(i)}
+            className="h-1.5 rounded-full transition-all"
+            style={{
+              flex: i === step ? 2 : 1,
+              background: i === step ? 'var(--emerald)' : i < step ? 'rgba(76,217,100,0.3)' : 'var(--line)',
+            }}
+          />
+        ))}
+      </div>
+
+      {renderStepContent()}
+
+      {/* Navigation */}
+      <div className="flex items-center justify-between mt-4 pt-3" style={{ borderTop: '1px solid var(--line)' }}>
+        <button
+          onClick={() => setStep(Math.max(0, step - 1))}
+          disabled={step === 0}
+          className="flex items-center gap-1 ja-mono text-xs px-3 py-1.5 rounded-lg transition-opacity"
+          style={{
+            background: 'var(--panel)',
+            border: '1px solid var(--line)',
+            opacity: step === 0 ? 0.35 : 1,
+            color: 'var(--ink-dim)',
+          }}
+        >
+          <ChevronLeft size={12} /> Previous
+        </button>
+        <button
+          onClick={() => setStep(Math.min(totalSteps - 1, step + 1))}
+          disabled={step >= totalSteps - 1}
+          className="flex items-center gap-1 ja-mono text-xs px-3 py-1.5 rounded-lg transition-opacity"
+          style={{
+            background: step < totalSteps - 1 ? 'rgba(76,217,100,0.1)' : 'var(--panel)',
+            border: '1px solid',
+            borderColor: step < totalSteps - 1 ? 'rgba(76,217,100,0.3)' : 'var(--line)',
+            opacity: step >= totalSteps - 1 ? 0.35 : 1,
+            color: step < totalSteps - 1 ? 'var(--emerald)' : 'var(--ink-dim)',
+          }}
+        >
+          Next <ChevronRight size={12} />
         </button>
       </div>
     </div>
