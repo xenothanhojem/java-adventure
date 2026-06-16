@@ -1,9 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { ChevronLeft, TrendingUp, BookOpen, Skull } from 'lucide-react';
-import {
-  SKILLS, UNITS, SKILL_GROUPS, MASTERY_LABEL, MASTERY_COLOR,
-  deriveMastery,
-} from '../data/skills.js';
+import { getSubjectModule } from '../subjects/index.js';
 
 /*
  * Progress dashboard. Aggregates skillStats into per-unit mastery summaries,
@@ -14,7 +11,7 @@ function masteryRank(state) {
   return ['notStarted', 'introduced', 'practising', 'secure', 'mastered'].indexOf(state);
 }
 
-function summariseUnit(unitId, skillStats) {
+function summariseUnit(unitId, skillStats, SKILLS, deriveMastery) {
   const unitSkills = Object.entries(SKILLS).filter(([, s]) => s.unit === unitId);
   if (unitSkills.length === 0) {
     return { unitId, total: 0, mastered: 0, secure: 0, practising: 0, introduced: 0, notStarted: 0, percent: 0, byState: {} };
@@ -41,7 +38,7 @@ function summariseUnit(unitId, skillStats) {
   };
 }
 
-function summariseGroup(group, skillStats) {
+function summariseGroup(group, skillStats, deriveMastery) {
   const states = group.skills.map((id) => deriveMastery(skillStats[id]));
   const ranks = states.map(masteryRank);
   const avgRank = ranks.length ? ranks.reduce((a, b) => a + b, 0) / ranks.length : 0;
@@ -72,9 +69,9 @@ function Sparkline({ history, width = 90, height = 22 }) {
   );
 }
 
-function MasteryBadge({ state }) {
-  const color = MASTERY_COLOR[state];
-  const label = MASTERY_LABEL[state];
+function MasteryBadge({ state, masteryColor, masteryLabel }) {
+  const color = masteryColor[state];
+  const label = masteryLabel[state];
   return (
     <span
       className="ja-mono text-xs px-2 py-0.5 rounded-md"
@@ -89,8 +86,8 @@ function MasteryBadge({ state }) {
   );
 }
 
-function UnitCard({ summary, expanded, onToggle, skillStats }) {
-  const unit = UNITS[summary.unitId];
+function UnitCard({ summary, expanded, onToggle, skillStats, units, skills, deriveMastery, masteryColor, masteryLabel }) {
+  const unit = units[summary.unitId];
   if (!unit) return null;
   return (
     <div className="ja-card overflow-hidden">
@@ -103,7 +100,7 @@ function UnitCard({ summary, expanded, onToggle, skillStats }) {
             className="w-10 h-10 rounded-lg flex items-center justify-center ja-mono text-sm"
             style={{ background: 'var(--panel-2)', border: '1px solid var(--line)', color: 'var(--cyan)' }}
           >
-            U{unit.number}
+            {unit.id}
           </div>
           <div>
             <div className="ja-display text-lg" style={{ fontWeight: 700 }}>{unit.name}</div>
@@ -133,11 +130,11 @@ function UnitCard({ summary, expanded, onToggle, skillStats }) {
       {expanded && (
         <div className="p-5 pt-4 border-t mt-4" style={{ borderColor: 'var(--line)' }}>
           <div className="grid gap-2">
-            {Object.entries(SKILLS)
+            {Object.entries(skills)
               .filter(([, s]) => s.unit === summary.unitId)
               .map(([id, s]) => {
                 const stat = skillStats[id];
-                const state = deriveMastery(stat);
+                const mState = deriveMastery(stat);
                 const total = (stat?.correct || 0) + (stat?.wrong || 0);
                 const acc = total > 0 ? Math.round(((stat?.correct || 0) / total) * 100) : 0;
                 return (
@@ -156,7 +153,7 @@ function UnitCard({ summary, expanded, onToggle, skillStats }) {
                       </div>
                     </div>
                     <Sparkline history={stat?.history} />
-                    <MasteryBadge state={state} />
+                    <MasteryBadge state={mState} masteryColor={masteryColor} masteryLabel={masteryLabel} />
                   </div>
                 );
               })}
@@ -167,10 +164,10 @@ function UnitCard({ summary, expanded, onToggle, skillStats }) {
   );
 }
 
-function WeakAreas({ skillStats }) {
+function WeakAreas({ skillStats, skills }) {
   const weak = useMemo(() => {
     const entries = [];
-    for (const [id, s] of Object.entries(SKILLS)) {
+    for (const [id, s] of Object.entries(skills)) {
       const stat = skillStats[id];
       if (!stat) continue;
       const total = (stat.correct || 0) + (stat.wrong || 0);
@@ -229,9 +226,9 @@ function WeakAreas({ skillStats }) {
   );
 }
 
-function CrossUnitGroups({ skillStats }) {
+function CrossUnitGroups({ skillStats, skillGroups, deriveMastery }) {
   const groups = useMemo(
-    () => Object.entries(SKILL_GROUPS).map(([key, g]) => ({ key, ...summariseGroup(g, skillStats) })),
+    () => Object.entries(skillGroups || {}).map(([key, g]) => ({ key, ...summariseGroup(g, skillStats, deriveMastery) })),
     [skillStats],
   );
   return (
@@ -349,14 +346,16 @@ function DoOrDieSummary({ doOrDieHistory }) {
   );
 }
 
-export default function ProgressReport({ state, onBack }) {
+export default function ProgressReport({ subject = 'java', state, onBack }) {
+  const registry = getSubjectModule(subject);
+  const { UNITS, SKILLS, deriveMastery, MASTERY_LABEL, MASTERY_COLOR, SKILL_GROUPS } = registry;
   const skillStats = state.skillStats || {};
   const [expandedUnit, setExpandedUnit] = useState(null);
 
   const unitSummaries = useMemo(
     () => Object.values(UNITS)
       .sort((a, b) => a.number - b.number)
-      .map((u) => summariseUnit(u.id, skillStats)),
+      .map((u) => summariseUnit(u.id, skillStats, SKILLS, deriveMastery)),
     [skillStats],
   );
 
@@ -392,7 +391,7 @@ export default function ProgressReport({ state, onBack }) {
 
       <ActivityChart sessionHistory={state.sessionHistory} />
 
-      <WeakAreas skillStats={skillStats} />
+      <WeakAreas skillStats={skillStats} skills={SKILLS} />
 
       <div>
         <div className="ja-mono text-xs mb-2" style={{ color: 'var(--ink-mute)' }}>// units</div>
@@ -404,12 +403,17 @@ export default function ProgressReport({ state, onBack }) {
               expanded={expandedUnit === s.unitId}
               onToggle={() => setExpandedUnit(expandedUnit === s.unitId ? null : s.unitId)}
               skillStats={skillStats}
+              units={UNITS}
+              skills={SKILLS}
+              deriveMastery={deriveMastery}
+              masteryColor={MASTERY_COLOR}
+              masteryLabel={MASTERY_LABEL}
             />
           ))}
         </div>
       </div>
 
-      <CrossUnitGroups skillStats={skillStats} />
+      {SKILL_GROUPS && <CrossUnitGroups skillStats={skillStats} skillGroups={SKILL_GROUPS} deriveMastery={deriveMastery} />}
 
       <DoOrDieSummary doOrDieHistory={state.doOrDieHistory} />
     </div>

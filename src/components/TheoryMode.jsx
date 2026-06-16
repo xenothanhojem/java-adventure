@@ -28,8 +28,9 @@ function shuffle(arr) {
   return a;
 }
 
-function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch }) {
-  const unit = useMemo(() => getTheoryUnit(unitId), [unitId]);
+function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch, getTheoryUnit: getTheoryUnitProp }) {
+  const resolveUnit = getTheoryUnitProp || getTheoryUnit;
+  const unit = useMemo(() => resolveUnit(unitId), [unitId, getTheoryUnitProp]);
   const [phase, setPhase] = useState('learn');
   const [topicIdx, setTopicIdx] = useState(0);
   const [quizQuestions, setQuizQuestions] = useState([]);
@@ -53,8 +54,14 @@ function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch 
 
   const topic = unit.topics[topicIdx];
 
+  function getQuestionsForUnit(id) {
+    const u = resolveUnit(id);
+    if (!u) return [];
+    return u.topics.flatMap((t) => t.questions || []);
+  }
+
   function startQuiz() {
-    const all = getAllTheoryQuestions(unitId);
+    const all = getQuestionsForUnit(unitId);
     const picked = shuffle(all).slice(0, Math.min(10, all.length));
     setQuizQuestions(picked);
     setQuizIdx(0);

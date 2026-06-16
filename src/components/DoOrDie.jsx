@@ -3,7 +3,7 @@ import {
   ChevronLeft, Skull, Timer, Loader2, AlertCircle, Trophy, RotateCcw, Home,
 } from 'lucide-react';
 import { tickerScheduleFor, scoreRun, GRADE_COLOR } from '../data/scenarios.js';
-import { UNITS } from '../data/skills.js';
+import { UNITS as JAVA_UNITS } from '../data/skills.js';
 import NewsTicker from './NewsTicker.jsx';
 
 /*
@@ -59,8 +59,8 @@ function CountdownBar({ remaining, total }) {
   );
 }
 
-function Briefing({ scenario, onDeploy, onBack }) {
-  const unit = UNITS[scenario.unitId];
+function Briefing({ scenario, units, onDeploy, onBack }) {
+  const unit = units[scenario.unitId];
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
@@ -310,7 +310,8 @@ function ScoreBlock({ label, value, sub, color }) {
   );
 }
 
-export default function DoOrDie({ scenario, onBack, onComplete, dispatch, renderChallenge }) {
+export default function DoOrDie({ scenario, subject = 'java', units, onBack, onComplete, dispatch, renderChallenge }) {
+  const unitRegistry = units || JAVA_UNITS;
   const [phase, setPhase] = useState('briefing');
   const [challenges, setChallenges] = useState([]);
   const [error, setError] = useState(null);
@@ -332,11 +333,12 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
     setPhase('loading');
     setError(null);
     try {
-      const unit = UNITS[scenario.unitId];
+      const unit = unitRegistry[scenario.unitId];
       const res = await fetch('/api/generate-challenges', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          subject,
           unitId: scenario.unitId,
           unitName: unit ? unit.name : '',
           skills: scenario.skills,
@@ -476,7 +478,7 @@ export default function DoOrDie({ scenario, onBack, onComplete, dispatch, render
   }
 
   if (phase === 'briefing') {
-    return <Briefing scenario={scenario} onDeploy={fetchChallenges} onBack={onBack} />;
+    return <Briefing scenario={scenario} units={unitRegistry} onDeploy={fetchChallenges} onBack={onBack} />;
   }
   if (phase === 'loading') {
     return <LoadingScreen scenario={scenario} />;

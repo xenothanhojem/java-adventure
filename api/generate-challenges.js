@@ -78,7 +78,70 @@ const SKILL_HINTS = {
   'UB-S8': '1 bit = 0 or 1; 4 bits = nibble; 8 bits = byte',
 };
 
-function buildSystemPrompt() {
+const BUSINESS_SKILL_HINTS = {
+  'BS1-S1': 'business report structure: title, introduction, procedure, findings, conclusion, recommendations',
+  'BS1-S2': 'formal professional tone, no slang',
+  'BS1-S3': 'apply ownership and ethics theory to case study',
+  'BS1-S4': 'justified practical recommendations linked to findings',
+  'BS2-S1': 'capital, debt, unlimited and limited liability',
+  'BS2-S2': 'legal personality / separate legal entity, registration',
+  'BS2-S3': 'continuity, shareholders, dividends',
+  'BS2-S4': 'MOI and CIPC registration',
+  'BS2-S5': 'income tax vs corporate tax',
+  'BS3-S1': 'seven factors: legal persona, liability, tax, continuity, management, capital, formation',
+  'BS3-S2': 'six forms: sole trader, partnership, Pty Ltd, Ltd, SOE, NPO',
+  'BS4-S1': 'sole trader: one owner, unlimited liability, no separate legal personality',
+  'BS4-S2': 'sole trader advantages and disadvantages',
+  'BS4-S3': 'partnership: two or more owners, shared profits, unlimited liability',
+  'BS4-S4': 'partnership agreement clauses',
+  'BS5-S1': 'private company Pty Ltd: limited liability, private shares, CIPC',
+  'BS5-S2': 'public company Ltd: JSE, public shares, strict requirements',
+  'BS5-S3': 'company advantages and disadvantages',
+  'BS6-S1': 'SOE: government owned, public service',
+  'BS6-S2': 'NPO: community purpose, no profit distribution',
+  'BS7-S1': 'compare ownership forms: liability, capital, continuity',
+  'BS7-S2': 'Green Harvest growth stages',
+  'BS7-S3': 'recommend suitable ownership for scenarios',
+  'BS8-S1': 'organisational culture',
+  'BS8-S2': 'ethical behaviour in business',
+  'BS8-S3': 'unethical behaviour: bribery, false advertising, tax evasion',
+  'BS8-S4': 'ethical vs unethical marketing',
+  'BS9-S1': 'rights and responsibilities of citizens and businesses',
+  'BS9-S2': 'business respect for stakeholder rights',
+  'BS10-S1': 'valid contract requirements',
+  'BS10-S2': 'breach of contract',
+  'BS10-S3': 'contract types: sale, service, employment, lease',
+  'BS11-S1': 'time management in business',
+  'BS11-S2': 'delegation',
+  'BS11-S3': 'stress and workload management',
+  'BS11-S4': 'effective communication',
+  'BS11-S5': 'assertiveness',
+  'BS12-S1': 'integrated exam skills: ownership, ethics, report',
+  'BS12-S2': '50-mark test structure',
+};
+
+function buildSystemPrompt(subject = 'java') {
+  if (subject === 'business') {
+    return `You are an expert Grade 10 IEB Business Studies teacher in South Africa.
+
+Generate a JSON array of challenge objects for timed Business Studies quizzes. STRICT FORMAT - no prose, no markdown fences, just a JSON array.
+
+Each challenge fields:
+  id, type ("mc" | "tf" | "order"), prompt, skills (array), hint, explanation
+
+Type-specific:
+  - mc: options (EXACTLY 4 strings), answer (0-3 index)
+  - tf: answer (boolean)
+  - order: items (4-6 strings), answer (indices in correct order)
+
+RULES:
+- Grade 10 IEB Business Studies only: forms of ownership, ethics, contracts, self-management, business reports.
+- NO Java code. NO programming.
+- Questions answerable in 30 seconds.
+- Connect lightly to the scenario context.
+- Use South African examples (CIPC, JSE, SARS, Pty Ltd).
+- Return ONLY the JSON array.`;
+  }
   return `You are an expert Java teacher generating short timed quiz questions for Angelo, a Grade 10 student in South Africa learning Java with NetBeans and the Exploring IT textbook.
 
 You will generate a JSON array of challenge objects. STRICT FORMAT - no prose, no markdown fences, just a JSON array.
@@ -110,9 +173,10 @@ RULES:
 - Return ONLY the JSON array. No explanation, no markdown.`;
 }
 
-function buildUserMessage({ unitId, unitName, skills, count, scenarioContext, difficulty }) {
+function buildUserMessage({ subject, unitId, unitName, skills, count, scenarioContext, difficulty }) {
+  const hints = subject === 'business' ? BUSINESS_SKILL_HINTS : SKILL_HINTS;
   const skillBlock = skills
-    .map((id) => `  ${id} - ${SKILL_HINTS[id] || ''}`)
+    .map((id) => `  ${id} - ${hints[id] || ''}`)
     .join('\n');
   return `Generate ${count} challenges for unit ${unitId} (${unitName}).
 
@@ -171,6 +235,7 @@ export default async function handler(req, res) {
   }
 
   const {
+    subject = 'java',
     unitId,
     unitName,
     skills = [],
@@ -194,12 +259,12 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 4000,
-        system: buildSystemPrompt(),
+        system: buildSystemPrompt(subject),
         messages: [{
           role: 'user',
-          content: buildUserMessage({ unitId, unitName, skills, count: safeCount, scenarioContext, difficulty }),
+          content: buildUserMessage({ subject, unitId, unitName, skills, count: safeCount, scenarioContext, difficulty }),
         }],
       }),
     });

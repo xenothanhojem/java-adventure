@@ -41,6 +41,7 @@ export const sessions = pgTable('sessions', {
   id: serial('id').primaryKey(),
   userId: integer('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
   mode: text('mode').notNull(),
+  subject: text('subject').notNull().default('java'),
   unitId: text('unit_id'),
   levelId: text('level_id'),
   scenarioId: text('scenario_id'),

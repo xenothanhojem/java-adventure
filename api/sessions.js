@@ -23,6 +23,7 @@ export default async function handler(req, res) {
     const sessionRow = {
       userId,
       mode: asString(body.mode) || 'unknown',
+      subject: asString(body.subject) || 'java',
       unitId: asString(body.unitId),
       levelId: asString(body.levelId),
       scenarioId: asString(body.scenarioId),
