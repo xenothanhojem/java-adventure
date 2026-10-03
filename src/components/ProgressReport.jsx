@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { ChevronLeft, TrendingUp, BookOpen, Skull } from 'lucide-react';
-import { getSubjectModule } from '../subjects/index.js';
+import { getSubject, getSubjectModule } from '../subjects/index.js';
+import TeachMe from './TeachMe.jsx';
+import { buildWeakAreasPrompt } from '../lib/teachPrompt.js';
 
 /*
  * Progress dashboard. Aggregates skillStats into per-unit mastery summaries,
@@ -164,7 +166,7 @@ function UnitCard({ summary, expanded, onToggle, skillStats, units, skills, deri
   );
 }
 
-function WeakAreas({ skillStats, skills }) {
+function WeakAreas({ skillStats, skills, subject, studentName }) {
   const weak = useMemo(() => {
     const entries = [];
     for (const [id, s] of Object.entries(skills)) {
@@ -197,17 +199,34 @@ function WeakAreas({ skillStats, skills }) {
     );
   }
 
+  const { UNITS, SKILL_HINTS = {} } = getSubjectModule(subject);
+  const teachPrompt = (list) => () => buildWeakAreasPrompt({
+    subjectId: subject,
+    subjectTitle: getSubject(subject).title,
+    studentName,
+    areas: list.map((w) => ({
+      name: w.name,
+      description: skills[w.id]?.description,
+      unitName: UNITS[w.unit]?.name,
+      accuracy: w.acc,
+      hint: SKILL_HINTS[w.id],
+    })),
+  });
+
   return (
     <div className="ja-card p-5">
-      <div className="flex items-center gap-2 mb-3">
-        <TrendingUp size={16} style={{ color: 'var(--coral)' }} />
-        <div className="ja-display text-lg" style={{ fontWeight: 700 }}>Weak areas</div>
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <div className="flex items-center gap-2">
+          <TrendingUp size={16} style={{ color: 'var(--coral)' }} />
+          <div className="ja-display text-lg" style={{ fontWeight: 700 }}>Weak areas</div>
+        </div>
+        <TeachMe getPrompt={teachPrompt(weak)} label={weak.length > 1 ? 'Teach me all of these' : 'Teach me'} />
       </div>
       <div className="grid gap-2">
         {weak.map((w) => (
           <div
             key={w.id}
-            className="flex items-center justify-between px-3 py-2 rounded-lg"
+            className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg"
             style={{ background: 'var(--panel-2)', border: '1px solid var(--line)' }}
           >
             <div className="min-w-0 flex-1">
@@ -219,6 +238,7 @@ function WeakAreas({ skillStats, skills }) {
             <div className="ja-mono text-xs" style={{ color: 'var(--coral)' }}>
               {w.last5Acc}% last 5 · {w.acc}% overall
             </div>
+            <TeachMe getPrompt={teachPrompt([w])} compact />
           </div>
         ))}
       </div>
@@ -346,7 +366,7 @@ function DoOrDieSummary({ doOrDieHistory }) {
   );
 }
 
-export default function ProgressReport({ subject = 'java', state, onBack }) {
+export default function ProgressReport({ subject = 'java', state, studentName, onBack }) {
   const registry = getSubjectModule(subject);
   const { UNITS, SKILLS, deriveMastery, MASTERY_LABEL, MASTERY_COLOR, SKILL_GROUPS } = registry;
   const skillStats = state.skillStats || {};
@@ -391,7 +411,7 @@ export default function ProgressReport({ subject = 'java', state, onBack }) {
 
       <ActivityChart sessionHistory={state.sessionHistory} />
 
-      <WeakAreas skillStats={skillStats} skills={SKILLS} />
+      <WeakAreas skillStats={skillStats} skills={SKILLS} subject={subject} studentName={studentName} />
 
       <div>
         <div className="ja-mono text-xs mb-2" style={{ color: 'var(--ink-mute)' }}>// units</div>

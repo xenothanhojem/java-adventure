@@ -13,6 +13,8 @@ import OnboardingModal from './components/OnboardingModal.jsx';
 import TheoryMode from './components/TheoryMode.jsx';
 import PracticalTest from './components/PracticalTest.jsx';
 import SubjectPicker from './components/SubjectPicker.jsx';
+import TeachMe from './components/TeachMe.jsx';
+import { buildWeakAreasPrompt } from './lib/teachPrompt.js';
 import { SUBJECTS, getSubject, getSubjectModule } from './subjects/index.js';
 import { tickerScheduleFor, scoreRun, GRADE_COLOR } from './data/scenarios.js';
 
@@ -758,7 +760,7 @@ function Stat({ icon, label, value, color, hideOnMobile }) {
 
 /* ---------- HOME / WORLD MAP ---------- */
 
-function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubject }) {
+function WorldMap({ subject, state, studentName, onPickWorld, onPracticalTest, onSwitchSubject }) {
   return (
     <div>
       <div className="mb-8 mt-2">
@@ -860,13 +862,13 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
       )}
 
       {state.sessionsPlayed > 0 && (
-        <SkillSummary state={state}/>
+        <SkillSummary subject={subject} state={state} studentName={studentName}/>
       )}
     </div>
   );
 }
 
-function SkillSummary({ state }) {
+function SkillSummary({ subject, state, studentName }) {
   const skills = Object.entries(state.skillStats || {});
   if (skills.length === 0) return null;
   const sorted = skills
@@ -874,6 +876,20 @@ function SkillSummary({ state }) {
     .sort((a, b) => b.total - a.total);
   const strong = sorted.filter(s => s.acc >= 0.75).slice(0, 3);
   const weak = sorted.filter(s => s.acc < 0.6).slice(0, 3);
+
+  const { SKILLS, UNITS, SKILL_HINTS = {} } = getSubjectModule(subject);
+  const teachPrompt = () => buildWeakAreasPrompt({
+    subjectId: subject,
+    subjectTitle: getSubject(subject).title,
+    studentName,
+    areas: weak.map(s => ({
+      name: SKILLS[s.k]?.name || prettySkill(s.k),
+      description: SKILLS[s.k]?.description,
+      unitName: UNITS[SKILLS[s.k]?.unit]?.name,
+      accuracy: Math.round(s.acc * 100),
+      hint: SKILL_HINTS[s.k],
+    })),
+  });
 
   return (
     <div className="ja-card mt-8 p-5">
@@ -893,7 +909,10 @@ function SkillSummary({ state }) {
           ))}
         </div>
         <div>
-          <div className="ja-mono text-xs mb-2" style={{color:'var(--coral)'}}>NEEDS WORK</div>
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <div className="ja-mono text-xs" style={{color:'var(--coral)'}}>NEEDS WORK</div>
+            {weak.length > 0 && <TeachMe getPrompt={teachPrompt} />}
+          </div>
           {weak.length === 0 && <div className="text-sm" style={{color:'var(--ink-mute)'}}>Nothing flagged. Nice.</div>}
           {weak.map(s => (
             <div key={s.k} className="flex items-center justify-between py-1 ja-mono text-sm" style={{color:'var(--ink-dim)'}}>
@@ -2384,11 +2403,12 @@ export default function App() {
             onPickWorld={(worldId) => setView({ kind: 'world', subject: activeSubject, worldId })}
             onPracticalTest={() => setView({ kind: 'practicalTest', subject: activeSubject })}
             onSwitchSubject={goSubjectPicker}
+            studentName={user?.name}
           />
         )}
 
         {view.kind === 'progress' && (
-          <ProgressReport subject={activeSubject} state={subjectState} onBack={goHome} />
+          <ProgressReport subject={activeSubject} state={subjectState} studentName={user?.name} onBack={goHome} />
         )}
 
         {view.kind === 'world' && (
@@ -2408,6 +2428,10 @@ export default function App() {
             unitId={view.unitId}
             worldColor={getWorlds(activeSubject).find(w => w.id === view.worldId)?.color || 'cyan'}
             getTheoryUnit={(id) => getTheoryUnitForSubject(id, activeSubject)}
+            subjectId={activeSubject}
+            subjectTitle={getSubject(activeSubject).title}
+            skillHints={getSubjectModule(activeSubject).SKILL_HINTS}
+            studentName={user?.name}
             onBack={() => setView({ kind: 'world', subject: activeSubject, worldId: view.worldId })}
             onComplete={({ correctCount, total, results, unitId: theoryUnitId }) => {
               syncSession({

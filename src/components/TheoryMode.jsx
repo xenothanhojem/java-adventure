@@ -4,6 +4,8 @@ import {
   Star, ArrowRight, RotateCcw, Trophy, Sparkles, ListChecks,
 } from 'lucide-react';
 import { getTheoryUnit } from '../data/theory.js';
+import TeachMe from './TeachMe.jsx';
+import { buildTopicPrompt } from '../lib/teachPrompt.js';
 
 /*
  * TheoryMode: a two-phase learning experience.
@@ -17,6 +19,7 @@ import { getTheoryUnit } from '../data/theory.js';
  *   onBack       - return to world/level view
  *   onComplete   - callback with quiz results
  *   dispatch     - game state reducer dispatch (for skill tracking)
+ *   subjectId, subjectTitle, skillHints, studentName - context for the "Teach me" prompt
  */
 
 function shuffle(arr) {
@@ -28,7 +31,10 @@ function shuffle(arr) {
   return a;
 }
 
-function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch, getTheoryUnit: getTheoryUnitProp }) {
+function TheoryMode({
+  unitId, worldColor = 'cyan', onBack, onComplete, dispatch, getTheoryUnit: getTheoryUnitProp,
+  subjectId = 'java', subjectTitle = 'Java Practical', skillHints, studentName,
+}) {
   const resolveUnit = getTheoryUnitProp || getTheoryUnit;
   const unit = useMemo(() => resolveUnit(unitId), [unitId, getTheoryUnitProp]);
   const [phase, setPhase] = useState('learn');
@@ -126,6 +132,9 @@ function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch,
           onBack={onBack}
           onStartQuiz={startQuiz}
           worldColor={worldColor}
+          getTeachPrompt={() => buildTopicPrompt({
+            subjectId, subjectTitle, studentName, unitTitle: unit.title, topic, skillHints,
+          })}
         />
       )}
 
@@ -164,7 +173,7 @@ function TheoryMode({ unitId, worldColor = 'cyan', onBack, onComplete, dispatch,
   );
 }
 
-function LearnPhase({ unit, topic, topicIdx, setTopicIdx, onBack, onStartQuiz, worldColor }) {
+function LearnPhase({ unit, topic, topicIdx, setTopicIdx, onBack, onStartQuiz, worldColor, getTeachPrompt }) {
   const topRef = useRef(null);
 
   useEffect(() => {
@@ -220,9 +229,12 @@ function LearnPhase({ unit, topic, topicIdx, setTopicIdx, onBack, onStartQuiz, w
       <div className="space-y-5">
         {/* Explanation */}
         <div className="ja-card p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <BookOpen size={16} style={{ color: `var(--${worldColor})` }} />
-            <div className="ja-display text-lg" style={{ fontWeight: 700 }}>{topic.title}</div>
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <BookOpen size={16} className="flex-shrink-0" style={{ color: `var(--${worldColor})` }} />
+              <div className="ja-display text-lg" style={{ fontWeight: 700 }}>{topic.title}</div>
+            </div>
+            <TeachMe getPrompt={getTeachPrompt} color={worldColor} />
           </div>
           <div className="space-y-2">
             {topic.explanation.map((line, i) => (
