@@ -133,7 +133,7 @@ function Briefing({ scenario, units, onDeploy, onBack }) {
           className="w-full ja-display text-lg px-6 py-4 rounded-xl ja-glow-coral hover:opacity-95 transition"
           style={{
             background: 'linear-gradient(90deg, var(--coral), var(--magenta))',
-            color: '#0a0c12',
+            color: 'var(--on-accent)',
             fontWeight: 800,
             letterSpacing: '0.04em',
           }}
@@ -170,7 +170,7 @@ function ErrorScreen({ message, onRetry, onBack }) {
         <button
           onClick={onRetry}
           className="ja-mono text-xs px-4 py-2 rounded-lg flex items-center gap-1.5"
-          style={{ background: 'var(--coral)', color: '#0a0c12', fontWeight: 700 }}
+          style={{ background: 'var(--coral)', color: 'var(--on-accent)', fontWeight: 700 }}
         >
           <RotateCcw size={14} /> retry
         </button>
@@ -283,7 +283,7 @@ function CompleteScreen({ scenario, result, onReplay, onBack }) {
           <button
             onClick={onReplay}
             className="ja-mono text-xs px-4 py-2.5 rounded-lg flex items-center gap-1.5"
-            style={{ background: 'var(--coral)', color: '#0a0c12', fontWeight: 700 }}
+            style={{ background: 'var(--coral)', color: 'var(--on-accent)', fontWeight: 700 }}
           >
             <RotateCcw size={14} /> retry mission
           </button>

@@ -39,7 +39,7 @@ export default function NewsTicker({ messages, schedule, elapsedFraction }) {
           className="flex items-center gap-2 px-3 py-2 ja-mono text-xs uppercase"
           style={{
             background: 'var(--coral)',
-            color: '#0a0c12',
+            color: 'var(--on-accent)',
             fontWeight: 700,
             letterSpacing: '0.06em',
           }}

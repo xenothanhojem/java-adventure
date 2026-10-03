@@ -29,7 +29,7 @@ export default function SubjectPicker({ onSelect }) {
               <div className="flex items-start justify-between mb-4">
                 <div
                   className={`w-14 h-14 rounded-xl flex items-center justify-center ${subject.glowClass}`}
-                  style={{ background: 'rgba(0,0,0,0.3)', color: `var(--${subject.accentColor})` }}
+                  style={{ background: 'var(--icon-tile)', color: `var(--${subject.accentColor})` }}
                 >
                   <Icon size={26} strokeWidth={2} />
                 </div>

@@ -4,7 +4,7 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary
+  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary, Sun, Moon
 } from 'lucide-react';
 import CodeEditor from './components/CodeEditor.jsx';
 import ProgressReport from './components/ProgressReport.jsx';
@@ -55,6 +55,13 @@ const styleSheet = `
     --syn-com: #5d6481;       /* comments  */
     --syn-fn:  #5cf2ff;       /* functions */
     --syn-id:  #e8ebf5;       /* identifiers */
+
+    --on-accent: #0a0c12;     /* text on accent-coloured buttons */
+    --icon-tile: rgba(0,0,0,0.3);
+    --code-bg: #07090f;
+    --input-bg: #07090f;
+    --vignette: rgba(10,12,18,0.85);
+    color-scheme: dark;
   }
 
   body, .ja-root {
@@ -81,7 +88,7 @@ const styleSheet = `
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 30%, transparent 0%, rgba(10,12,18,0.85) 75%);
+    background: radial-gradient(circle at 50% 30%, transparent 0%, var(--vignette) 75%);
   }
 
   .ja-glow-cyan    { box-shadow: 0 0 0 1px rgba(92,242,255,0.35), 0 0 30px -8px rgba(92,242,255,0.55), inset 0 0 20px -10px rgba(92,242,255,0.4); }
@@ -124,7 +131,7 @@ const styleSheet = `
 
   /* code block — Java syntax highlighted via spans */
   .ja-code {
-    background: #07090f;
+    background: var(--code-bg);
     border: 1px solid var(--line);
     border-radius: 10px;
     font-family: 'JetBrains Mono', monospace;
@@ -257,9 +264,51 @@ const styleSheet = `
   .ja-w-databases-sql       { --w-color: var(--rose); }
   :root { --lime: #bef264; }
 
+  /* Light theme: accents are darker so text in accent colours stays readable on white */
+  :root[data-theme="light"] {
+    --bg: #f5f6fa;
+    --bg-2: #eceff5;
+    --panel: #ffffff;
+    --panel-2: #f7f8fb;
+    --line: #dde1eb;
+    --line-2: #c5ccdb;
+    --ink: #151a28;
+    --ink-dim: #475069;
+    --ink-mute: #737b96;
+
+    --cyan: #0e7490;
+    --magenta: #9333ea;
+    --amber: #b45309;
+    --emerald: #047857;
+    --coral: #dc2626;
+    --gold: #a16207;
+    --teal: #0f766e;
+    --sky: #0369a1;
+    --orange: #c2410c;
+    --violet: #6d28d9;
+    --rose: #be123c;
+    --lime: #4d7c0f;
+
+    --syn-key: #be185d;
+    --syn-num: #b45309;
+    --syn-str: #047857;
+    --syn-com: #737b96;
+    --syn-fn:  #0e7490;
+    --syn-id:  #151a28;
+
+    --on-accent: #ffffff;
+    --icon-tile: rgba(21,26,40,0.06);
+    --code-bg: #f7f8fb;
+    --input-bg: #ffffff;
+    --vignette: rgba(245,246,250,0.85);
+    color-scheme: light;
+  }
+  :root[data-theme="light"] .ja-card { box-shadow: 0 1px 2px rgba(21,26,40,0.05); }
+  :root[data-theme="light"] .ja-star.lit { filter: none; }
+
   /* Trace table inputs */
   .ja-trace-input {
-    background: #07090f;
+    background: var(--input-bg);
     border: 1px solid var(--line-2);
     color: var(--cyan);
     font-family: 'JetBrains Mono', monospace;
@@ -355,7 +404,7 @@ const styleSheet = `
   /* Code-write textarea */
   .ja-code-input {
     width: 100%;
-    background: #07090f;
+    background: var(--input-bg);
     border: 1px solid var(--line-2);
     border-radius: 10px;
     color: var(--ink);
@@ -600,12 +649,46 @@ function Stars({ count, size = 16 }) {
   );
 }
 
-function Hud({ subject, state, user, onHome, onPractice, onProgress, onReset, onSignOut, onSwitchSubject }) {
+const THEME_KEY = 'ja-theme';
+
+function initialTheme() {
+  if (typeof window === 'undefined') return 'dark';
+  const stored = window.localStorage.getItem(THEME_KEY);
+  if (stored === 'light' || stored === 'dark') return stored;
+  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function useTheme() {
+  const [theme, setTheme] = useState(initialTheme);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem(THEME_KEY, theme);
+  }, [theme]);
+  const toggle = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
+  return [theme, toggle];
+}
+
+function ThemeToggle({ theme, onToggle }) {
+  const toLight = theme !== 'light';
+  return (
+    <button
+      onClick={onToggle}
+      className="ja-mono text-xs px-2 py-2 rounded-lg"
+      style={{border:'1px solid var(--line)', color:'var(--ink-dim)'}}
+      title={toLight ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={toLight ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      {toLight ? <Sun size={14}/> : <Moon size={14}/>}
+    </button>
+  );
+}
+
+function Hud({ subject, state, user, theme, onToggleTheme, onHome, onPractice, onProgress, onReset, onSignOut, onSwitchSubject }) {
   return (
     <div className="ja-card flex items-center justify-between px-4 py-3 mb-6 gap-2">
       <div className="flex items-center gap-3 min-w-0">
         <button onClick={onHome} className="flex items-center gap-2 hover:opacity-90">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: subject === 'theory' ? 'linear-gradient(135deg,#bef264,#2dd4bf)' : 'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color:'#0a0c12'}}>
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: subject === 'theory' ? 'linear-gradient(135deg,#bef264,#2dd4bf)' : 'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color: 'var(--on-accent)'}}>
             {subject === 'theory' ? <Cpu size={20} strokeWidth={2.5}/> : <Code2 size={20} strokeWidth={2.5}/>}
           </div>
           <div className="hidden sm:block">
@@ -637,6 +720,7 @@ function Hud({ subject, state, user, onHome, onPractice, onProgress, onReset, on
         >
           <Target size={14}/> <span className="hidden sm:inline">Practice</span>
         </button>
+        <ThemeToggle theme={theme} onToggle={onToggleTheme}/>
         <button
           onClick={onReset}
           className="ja-mono text-xs px-2 py-2 rounded-lg"
@@ -708,7 +792,7 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
             >
               <div className="flex items-start justify-between mb-3">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${world.glow}`}
-                     style={{background:'rgba(0,0,0,0.3)', color:`var(--${world.color})`}}>
+                     style={{background: 'var(--icon-tile)', color:`var(--${world.color})`}}>
                   <Icon size={22} strokeWidth={2}/>
                 </div>
                 <div className="flex flex-col items-end gap-1">
@@ -852,7 +936,7 @@ function LevelView({ subject, worldId, state, onBack, onPickLevel, onPickScenari
 
       <div className="flex items-start gap-4 mb-7">
         <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${world.glow}`}
-             style={{background:'rgba(0,0,0,0.3)', color:`var(--${world.color})`}}>
+             style={{background: 'var(--icon-tile)', color:`var(--${world.color})`}}>
           <Icon size={26} strokeWidth={2}/>
         </div>
         <div>
@@ -1248,7 +1332,7 @@ function CodeWriteAnswers({ challenge, onSubmit }) {
             className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
             style={{
               background: code.trim().length >= 5 ? 'var(--cyan)' : 'var(--line)',
-              color: code.trim().length >= 5 ? '#0a0c12' : 'var(--ink-mute)',
+              color: code.trim().length >= 5 ? 'var(--on-accent)' : 'var(--ink-mute)',
               fontWeight: 700,
               cursor: code.trim().length >= 5 ? 'pointer' : 'not-allowed'
             }}
@@ -1356,7 +1440,7 @@ function CodeReview({ review, onContinue, onRevise }) {
         <button
           onClick={onContinue}
           className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
-          style={{background: review.passes ? 'var(--emerald)' : 'var(--ink)', color:'#0a0c12', fontWeight:700}}
+          style={{background: review.passes ? 'var(--emerald)' : 'var(--ink)', color: 'var(--on-accent)', fontWeight:700}}
         >
           continue <ArrowRight size={14}/>
         </button>
@@ -1420,7 +1504,7 @@ function MCAnswers({ challenge, onSubmit }) {
           className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
           style={{
             background: selected !== null && !submitted ? 'var(--cyan)' : 'var(--line)',
-            color: selected !== null && !submitted ? '#0a0c12' : 'var(--ink-mute)',
+            color: selected !== null && !submitted ? 'var(--on-accent)' : 'var(--ink-mute)',
             fontWeight: 700,
             cursor: selected !== null && !submitted ? 'pointer' : 'not-allowed'
           }}
@@ -1472,7 +1556,7 @@ function TFAnswers({ challenge, onSubmit }) {
           className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
           style={{
             background: selected !== null && !submitted ? 'var(--cyan)' : 'var(--line)',
-            color: selected !== null && !submitted ? '#0a0c12' : 'var(--ink-mute)',
+            color: selected !== null && !submitted ? 'var(--on-accent)' : 'var(--ink-mute)',
             fontWeight: 700,
             cursor: selected !== null && !submitted ? 'pointer' : 'not-allowed'
           }}
@@ -1571,7 +1655,7 @@ function OrderAnswers({ challenge, onSubmit }) {
           className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
           style={{
             background: pool.length === 0 && !submitted ? 'var(--cyan)' : 'var(--line)',
-            color: pool.length === 0 && !submitted ? '#0a0c12' : 'var(--ink-mute)',
+            color: pool.length === 0 && !submitted ? 'var(--on-accent)' : 'var(--ink-mute)',
             fontWeight: 700,
             cursor: pool.length === 0 && !submitted ? 'pointer' : 'not-allowed'
           }}
@@ -1624,7 +1708,7 @@ function MatchAnswers({ challenge, onSubmit }) {
                   key={opt}
                   onClick={() => pick(i, opt)}
                   disabled={submitted}
-                  className="ja-mc-opt text-left text-sm"
+                  className="ja-opt text-left text-sm"
                   data-state={picked ? (submitted ? (opt === pair.right ? 'correct' : 'wrong') : 'selected') : state}
                 >
                   {opt}
@@ -1641,7 +1725,7 @@ function MatchAnswers({ challenge, onSubmit }) {
           className="ja-mono text-sm px-5 py-2.5 rounded-lg"
           style={{
             background: allFilled && !submitted ? 'var(--cyan)' : 'var(--line)',
-            color: allFilled && !submitted ? '#0a0c12' : 'var(--ink-mute)',
+            color: allFilled && !submitted ? 'var(--on-accent)' : 'var(--ink-mute)',
             fontWeight: 700,
           }}
         >
@@ -1705,7 +1789,7 @@ function TraceAnswers({ challenge, onSubmit }) {
           className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
           style={{
             background: !values.some(v => v.trim() === '') && !submitted ? 'var(--cyan)' : 'var(--line)',
-            color:      !values.some(v => v.trim() === '') && !submitted ? '#0a0c12' : 'var(--ink-mute)',
+            color:      !values.some(v => v.trim() === '') && !submitted ? 'var(--on-accent)' : 'var(--ink-mute)',
             fontWeight: 700,
             cursor:     !values.some(v => v.trim() === '') && !submitted ? 'pointer' : 'not-allowed'
           }}
@@ -1726,12 +1810,12 @@ function FeedbackPanel({ correct, explanation, onNext, isLast, hideNext }) {
       <div className="flex items-center gap-3 mb-2">
         {correct ? (
           <div className="w-8 h-8 rounded-full flex items-center justify-center"
-               style={{background:'var(--emerald)', color:'#0a0c12'}}>
+               style={{background:'var(--emerald)', color: 'var(--on-accent)'}}>
             <Check size={18} strokeWidth={3}/>
           </div>
         ) : (
           <div className="w-8 h-8 rounded-full flex items-center justify-center"
-               style={{background:'var(--coral)', color:'#0a0c12'}}>
+               style={{background:'var(--coral)', color: 'var(--on-accent)'}}>
             <X size={18} strokeWidth={3}/>
           </div>
         )}
@@ -1745,7 +1829,7 @@ function FeedbackPanel({ correct, explanation, onNext, isLast, hideNext }) {
           <button
             onClick={onNext}
             className="ja-mono text-sm px-5 py-2.5 rounded-lg flex items-center gap-2"
-            style={{background:'var(--ink)', color:'#0a0c12', fontWeight:700}}
+            style={{background:'var(--ink)', color: 'var(--on-accent)', fontWeight:700}}
           >
             {isLast ? 'finish' : 'next'} <ArrowRight size={14}/>
           </button>
@@ -1831,7 +1915,7 @@ function SummaryScreen({ subject, correctCount, total, results, mode, levelName,
         <button
           onClick={onHome}
           className="ja-mono text-sm px-5 py-2.5 rounded-lg"
-          style={{background:'var(--cyan)', color:'#0a0c12', fontWeight:700}}
+          style={{background:'var(--cyan)', color: 'var(--on-accent)', fontWeight:700}}
         >
           back to map
         </button>
@@ -2048,6 +2132,7 @@ function reducer(state, action) {
 const USER_STORAGE_KEY = 'java-adventure-user-v1';
 
 export default function App() {
+  const [theme, toggleTheme] = useTheme();
   const [state, dispatch] = useReducer(reducer, undefined, defaultState);
   const [loaded, setLoaded] = useState(false);
   /*
@@ -2272,6 +2357,8 @@ export default function App() {
           subject={activeSubject}
           state={subjectState}
           user={user}
+          theme={theme}
+          onToggleTheme={toggleTheme}
           onHome={goHome}
           onPractice={startPractice}
           onProgress={goProgress}
@@ -2282,7 +2369,12 @@ export default function App() {
         )}
 
         {view.kind === 'subjectPicker' && (
-          <SubjectPicker onSelect={selectSubject} />
+          <>
+            <div className="flex justify-end mb-4">
+              <ThemeToggle theme={theme} onToggle={toggleTheme}/>
+            </div>
+            <SubjectPicker onSelect={selectSubject} />
+          </>
         )}
 
         {view.kind === 'map' && (

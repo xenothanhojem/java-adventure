@@ -117,7 +117,7 @@ export default function OnboardingModal({ onComplete }) {
           className="w-full mt-5 ja-display text-base px-5 py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
           style={{
             background: 'linear-gradient(90deg, var(--cyan), var(--magenta))',
-            color: '#0a0c12',
+            color: 'var(--on-accent)',
             fontWeight: 800,
             letterSpacing: '0.04em',
           }}
