@@ -1,0 +1,183 @@
+
+===== PDF PAGE 108 =====
+Exploring IT: Theory Grade 10 
+Page 100 Learning Unit 8 Social and Ethical Issues 
+Learning Unit 8 Social and 
+Ethical Issues 
+8.1 Economic Reasons for Using Computers 
+The computer does things quickly and more accurately than the alternate option of doing the task 
+manually. The computer is able to carry out tasks accurately and is more reliable than the manual 
+alternative, provided, of course, that the user feeds the computer accurate data. 
+Computers streamline operations in businesses and make globalised businesses possible through 
+providing effortless communication using the Internet. Business communication has become almost 
+completely paperless. This is good for our environment. 
+Computing has not only allowed the efficient, accurate and reliable computation of complex 
+calculations, it also allows us to store extremely large amounts of data with effortless retrieval. This in 
+turn saves paper and makes the processing of these large amounts of data accurate and reliable. 
+Productivity in industry is much greater, more cost effective, more efficient and more reliable when 
+computers are used in manufacturing; replacing manual labour.  
+8.2 Digital Divide 
+The term digital divide refers to the gap between the: haves” 
+and the “have nots”. The “haves” are classified as those who 
+have regular, effective access to digital and information 
+technology, and the “have nots” obviously do not. While it is 
+clearly an issue about access to computers and the Internet, 
+it is also the accompanying skills and resources which enable 
+the technology to be used. Groups often discussed in the 
+context of a digital divide include socioeconomic (rich/poor), 
+racial (white/minority), or geographical (urban/rural).  
+http://en.wikipedia.org/wiki/Digital_divide 
+http://pittsburghtoday.org/wp-content/uploads/1990/04/bridging-the-digital-divide-1-1024x506.jpg 
+Digitally enabled citizens are those that have access to technology and can communicate globally 
+using e-Communications. They have a set of skills which they can use to become productive 
+members of society.  
+8.2.1 Reasons for the Divide 
+8.2.1.1 Infrastructure 
+In the map of the undersea fibre cables linking the continents in 2013, it shows that there is an 
+improved infrastructure to the African continent over recent years. 
+
+===== PDF PAGE 109 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 8 Social and Ethical Issues Page 101 
+ 
+http://www.skibbereeneagle.ie/?p=5134 
+The map of the African continent shows the cables in 2014. The thicker lines are higher in bandwidth. 
+ 
+ 
+http://www.nashua.co.za/wp-content/uploads/2012/06/Africa_Undersea.jpg 
+From the two following graphs it can be seen that developing countries are far behind in the number 
+of cell phone users and the number of users connected to the Internet. This implies a lack of access 
+
+===== PDF PAGE 110 =====
+Exploring IT: Theory Grade 10 
+Page 102 Learning Unit 8 Social and Ethical Issues 
+to information and services that people in developed countries take for granted: like online shopping, 
+access to weather forecasts for farmers, online education and banking. 
+Internet users per 100 inhabitants 1996-2014
+ 
+http://en.wikipedia.org/wiki/Global_Internet_usage 
+Mobile phone penetration in worldwide regions from 2010 to 2015 
+ 
+http://sourcedigit.com/1264-global-mobile-penetration-q3-2012/ 
+8.2.1.2 Poverty 
+Along with the lack of infrastructure is the fact that most countries are extremely poor. The 
+governments do not have the finances to provide the infrastructure, schools and basic necessities.  
+8.2.1.3 Education 
+A lack of education, basic literacy and schooling facilities is another contributing factor. It is probably 
+one of the easier to overcome provided that the technology exists. Dr Sugata Mitre has proved that 
+children can learn by themselves given access to computers and fast Internet access. Without 
+technology, the education system is reliant on teachers, textbooks and classrooms.  
+8.2.1.4 Political 
+Many countries are waging civil wars and are torn apart by violence. They are not able to focus on 
+bridging the divide for the people of their nation. 
+
+===== PDF PAGE 111 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 8 Social and Ethical Issues Page 103 
+8.2.2 Bridging the Divide 
+Closing the gap between those who have access to technology and those who do not, is not a simple 
+solution. The answer lies in a combination of political stability, improved infrastructure, reduced 
+poverty and improved education. Cell phones have helped to reduce the gap since their use has 
+increased in Africa faster than the use of computers. Most phones provide Internet connectivity and 
+are used in social networking. These features enable users to be connected and have access to 
+information and other services. Through mobile service cell phones can be used to produce more 
+digitally enabled citizens in Africa and other deprived areas. 
+8.3 Ergonomics 
+Ergonomics is the science which deals with the design of equipment, furniture and environment to fit 
+the user's capabilities and to promote user safety. The picture below shows how your computer 
+should be positioned in relation to your body. 
+ 
+http://www.progressivecare.in/wp-content/uploads/2018/04/ergonomic-seating.jpg 
+Computers can cause physical problems if you constantly and incorrectly use them, as shown in the 
+following examples: 
+8.3.1 Text Messaging 
+Text messaging has become the most popular way to communicate. Each message 
+involves making hundreds of tiny repeated movements on the keyboard of a cell 
+phone, and because the movements are small, they do not cause the blood to 
+circulate. The result can be 'Sore Thumb Syndrome'”  
+Thumbs up 4 SMSing. Free 4 All. Volume 12 Number 5 June 2007 
+https://www.blog.ohmyarthritis.com/wp-content/uploads/CMC_main-sm.jpg 
+
+===== PDF PAGE 112 =====
+Exploring IT: Theory Grade 10 
+Page 104 Learning Unit 8 Social and Ethical Issues 
+8.3.2 Repetitive Strain Injuries (RSI)  
+Repetitive Strain Injuries occur from repeated physical 
+movements, like using the keyboard or the mouse, doing 
+damage to tendons, nerves, muscles, and other soft body 
+tissues. Common symptoms are tightness, discomfort, tingling, 
+coldness, numbness, stiffness, soreness, burning or pain in the 
+hands, wrists, fingers, forearms, elbows, upper back, shoulders, 
+or neck. You are more likely to develop problems if you use 
+incorrect typing techniques or body positions that place 
+unnecessary stress on muscles. While you are typing your 
+wrists should not rest on anything and should not be bent to the 
+side. 
+https://www.chairoffice.co.uk/media/4839/rsi-header.jpg 
+http://eeshop.unl.edu/pmx.html 
+8.3.3 Carpal Tunnel Syndrome (CTS)  
+Carpal Tunnel Syndrome is a painful condition involving the 
+median nerve and the flexor tendons that extend from the 
+forearm into the hand through a “tunnel” made up of the wrist 
+bones, or carpals, and the transverse carpal ligament. As you 
+move your hand and fingers, the flexor tendons rub against the 
+sides of the tunnel. This rubbing can cause irritation of the 
+tendons, causing them to swell. When the tendons swell, they 
+apply pressure to the median nerve. The result can be tingling, 
+numbness, and eventually debilitating pain. It can be treated 
+with splints or braces, anti-inflammatory medications, cortisone 
+injections or surgery to reduce the swelling and pressure on 
+the median nerve.  
+www.mayoclininc.org/carpal-tunnel-syndrome} 
+8.3.4 Eye Strain 
+People also complain more about eye problems because of the increasing amount of time they are 
+spending on computers. They can be prevented by taking frequent breaks from viewing the computer 
+screen, and having your eyes tested regularly. The continual refreshing of CRT screens caused a 
+detectable flickering that also contributed to eye strain. 
+www Irishhealth.com 
+8.4 Green Computing 
+8.4.1 Electrical Consumption 
+Computer systems account for between 5 and 10 percent of the world's electricity usage. Much of this 
+energy is wasted since many people leave their computers on even when not in use. If one computer 
+is left on in sleep mode a very small amount of power is being used. However, collectively a large 
+number of computers left in sleep mode are using a great deal of power collectively. 
+ 
+
+===== PDF PAGE 113 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 8 Social and Ethical Issues Page 105 
+ 
+https://www.platinumelectricians.com.au/wp-content/uploads/2012/07/PlatinumElectrician4.jpg 
+8.4.2 Green Disposal 
+The second major area of green computing is recycling and reusing. Before buying a new computer 
+or device consider upgrading some of the components to extend the life of device.  
+Computer components must be recycled. Locate a reliable IT waste disposal centre in your area and 
+make use of it for the recycling of any electrical, computer and electronic components. Printer 
+cartridges which cannot be refilled should also be disposed of at a print cartridge store who take in old 
+cartridges or at an IT waste disposal centre. Batteries should also be disposed of responsibly at an 
+appropriate disposal centre. Try to reduce the amount you print and recycle the unwanted paper that 
+you use for printing.  
+When purchasing computer equipment check for design energy efficient computers, servers, printers 
+and electronic devices. 
+Also check the manufacturing company's green manufacturing policy and their commitment to 
+minimise waste during manufacturing of computers and devices. 
+ 
+https://i.pinimg.com/originals/48/5b/54/485b5476af386db266d625b59022715a.png 
+
+===== PDF PAGE 114 =====
+Exploring IT: Theory Grade 10 
+Page 106 Learning Unit 8 Social and Ethical Issues 
+CHECK POINT 1 
+1. List THREE economic reasons for using a computer. 
+2. Give THREE reasons for the digital divide. 
+3. Do you think the digital divide exists in your school or suburb? 
+4. Name THREE important ways that are important in preparing an ergonomically correct work 
+environment for computing and the use of mobile devices? 
+5. List THREE types of injuries that can occur when using computing devices. 
+6. What green computing factors should be considered when purchasing a new computer or 
+device? 
+7. Find out the name of an IT waste disposal in your area and make a poster to put up at your 
+school to make others aware of the importance of responsible disposal of electronic devices. 
+8. Why is it important that old computers are not thrown away? 
+9. Give TWO ways in which you can reduce the impact of computers on the environment. 
+ 

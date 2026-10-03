@@ -1,0 +1,879 @@
+
+===== PDF PAGE 11 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 1 
+Learning Unit 1 Introduction to 
+Java Programming 
+1.1 Getting Started 
+There are many programming languages available and they are all used to solve problems, Java 
+being one of them. The process of problem solving is the same for any programming language. Java 
+is a language that uses objects which will be explored throughout this book.  
+A Java program consists of one or more classes. A 
+class is a template from which objects can be 
+created. To keep the problems visual, we are going to 
+use a Gogga. A gogga is a Khoisan word for a bug or 
+any creepy crawly insect. Gogga is the name we have 
+given to a new class of objects which can move in a 
+window with horizontal and vertical lines, 25 pixels 
+apart, forming a grid. 
+A class is the basic unit in Java for organising code. 
+In most of the programs you create you will be using 
+Java classes which have been written by other 
+programmers. The Gogga class is an example of such 
+a class, which was written by some of the authors of 
+this book. In addition, you will be using many classes 
+which are provided with the Java programming 
+language written by the developers of Java. 
+Java programs are often created in an Integrated Development Environment (IDE) which is a 
+program which provides tools such as an editor for typing in program instructions in Java code and a 
+syntax-checker which detects "grammatical" or punctuation errors. The IDE also allows your 
+programs to be run and tested from within it. The IDE we will be using is called jGrasp and was 
+developed to be a simple IDE to start coding Java. You can use another IDE if you wish to. Later on, 
+we will move onto NetBeans which will be used to code programs with Graphical User interfaces 
+(GUI) with windows. 
+1.1.1 Downloading Files for Java 
+Java is free and can be downloaded without any cost.  
+• You will need to install the Java platform 8 (or later) which is available at: 
+http://www.oracle.com/technetwork/java/javase/downloads/index.html 
+• Once Java is installed on your machine you can download jGrasp from www.jgrasp.org. Install 
+jGrasp. 
+• Finally, to get the Gogga class to work with Java you need to download the it.jar file available from 
+www.funworks.co.za under File Downloads in the Java files section. The it.jar file consists of the 
+Gogga class and other classes. Copy the it.jar file to the C:\Program Files 
+(x86)\jGRASP\extensions\classes path in the jGrasp folders on your C drive. 
+  
+
+===== PDF PAGE 12 =====
+Exploring IT: Java Programming Grade 10 
+Page 2 Learning Unit 1 Introduction to Java Programming 
+1.2 Coding your First Program 
+ACTIVITY 1  
+Creating a Java application program.  A Java application is a stand-alone application that is designed 
+to run on a computer or laptop. Refer to section 2.6.1 in Learning Unit 2 of Exploring IT: Theory 
+Grade 10 for more about stand-alone applications. Open your program editor with a new empty 
+window on your screen.  
+ Type in the code for the MakeSquare class as shown below. 
+// Your name Today's date name and date? 
+public class MakeSquare 
+{ 
+   public static void main (String[] args) 
+   {  
+  //program instructions go here 
+  
+   } // main method 
+} // MakeSquare class 
+ Change the first line which is a comment so that your name and today's date is displayed. 
+Java is case-sensitive, which means that it makes a difference if a letter is in uppercase or 
+lowercase. In Java, public is not the same as PUBLIC, or even Public. Make sure that the M and S of 
+MakeSquare are in uppercase and the rest of the letters are in lower 
+A Java program consists of one or more classes. Every class must have a name that starts with a 
+capital letter. If the class name has more than one word, there are no spaces between the words and 
+the second word starts with a capital letter. The body of the class is enclosed in curly brackets. 
+A Java program that can be run must have a main method, which always has the heading 
+public static void main (String[] args)  (note the square and round brackets). 
+The actual instructions to be carried out will be typed inside the curly brackets of the main method. 
+The main method is the starting section of a Java program and is completely contained inside the 
+curly brackets of the class. 
+Java uses curly brackets to show the beginning and end of blocks of code. Each opening curly 
+bracket must have a matching closing bracket. In the code above, the class has a set of curly 
+brackets and so does the main method.  
+Indent your Java code between the curly brackets to show that the main method is inside the Java 
+class and the code to be placed inside the main method. 
+You can leave blank lines wherever you like in a Java program. In fact, it is a good idea to leave 
+blank lines between sections to make the program easier to read. 
+ Save your program. Your file must be called MakeSquare.java.  
+Put a full stop between the words MakeSquare and java with no spaces before or after the full stop. 
+Java wants the file name with which the file is saved to be the same name as the class which 
+contains the code. You IDE may add the .java extension for you. 
+ Use the menus to Compile and Run the program. 
+Compiling converts the program instructions in the .java file into Java bytecode and stores this 
+converted program in a new file with the extension .class. Running carries out the program 
+instructions. 
+Code preceded by // is a 
+comment and will be ignored. 
+Use comments to explain the 
+code in your program.  
+===== PDF PAGE 13 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 3 
+If you have made no errors, you should get a message stating that your program compiled 
+successfully. If there are errors, check your typing, save any changes and try to compile and run 
+again.  
+In this activity, you have only created an outline of an application program, which can be run, but does 
+nothing!   
+1.2.1 Creating an Object 
+Java programs use objects which have properties. In Java code can be created to determine the 
+behaviours of an object using its properties, in a similar way to any Object-Oriented Programming 
+(OOP) language. 
+The Gogga class can be used to create Gogga 
+objects, which have characteristics (properties), such 
+as colour and direction. They can carry out actions 
+(behaviours), such as moving along the grid lines in a 
+set direction. Gogga objects can draw shapes by 
+leaving a trail on the grid.  
+Gogga objects exist in an output window called the 
+Gogga Grid. By default, the grid is 14 columns 
+across and 9 rows down. The Grid can be saved, it 
+can be printed, and the speed of the objects' 
+movements can be changed.  
+The Gogga grid shows a red Gogga facing UP at the 
+intersection of column 7 and row 5. This is the same 
+as using x and y values where x is 7 and y is 5.  
+These are default settings for any new Gogga object that is created, if alternate values are not 
+specified. 
+ACTIVITY 2  
+Adding program instructions to create a Gogga object. 
+ Open the MakeSquare program, on the next line under the comment you added with your 
+name and the date, but above the class heading, type the following Java statement: 
+ import it.*; 
+The it (eye-tee) package contains the Gogga class and other related classes. This it package must 
+be imported at the beginning of every program that uses Gogga objects so that Gogga objects can be 
+created and so that they can use methods from the previously created classes. The * means that all 
+classes in the "it" package will be available for use in this program. 
+ In between the opening and closing curly brackets of the main() method, type the following 
+line: 
+ Gogga bug = new Gogga(); 
+The Java instruction Gogga bug = new Gogga(); creates an object of the Gogga class named 
+bug and gives the object all its characteristics such as colour and position. It causes bug to be 
+displayed on the Gogga grid at the default starting position (x = 7, y = 5).  
+The Gogga object can be given any one-word name, such as flea, fred, x, or item. We have 
+chosen bug for the object's name in this program. 
+  
+
+===== PDF PAGE 14 =====
+Exploring IT: Java Programming Grade 10 
+Page 4 Learning Unit 1 Introduction to Java Programming 
+ Check that your program appears as follows: 
+// your name and today's date   
+import it.*; 
+public class MakeSquare 
+{ 
+    public static void main (String[] args) 
+    { 
+        Gogga bug = new Gogga(); 
+    } // main method 
+} // MakeSquare class 
+ Save, compile and run the program and watch the messages at the bottom of your program 
+editor window, if they are available to you. 
+ Check that the Gogga grid appears when you run the program and that a red Gogga object is 
+shown on the grid facing upwards. (If not, check that you have copied the it.jar file to the 
+C:\Program Files\jGRASP\extensions\classes folder.) 
+1.2.2 Object Fields and Methods 
+Objects have properties and behaviours as do objects in the real world. For example, an object of 
+type dog has a colour (property) and can bark (behaviour).  
+In Java, the properties or characteristics of an object are stored in fields and the behaviours of an 
+object or the actions it can carry out are called methods.  
+Method names in Java are always followed with opening and closing round brackets. 
+Fields are also called variables which are named locations in memory (RAM). 
+Objects created from the Gogga class have several fields. One of these stores the object's x-position 
+on the grid another is its y-position. Another field stores the object's colour, which by default is red. 
+Gogga objects also have behaviours - one of these is the ability to move. This action is carried out 
+using the move() method. When used with a Gogga object, the move() method causes the object to 
+move one unit in the direction it is facing. 
+ACTIVITY 3  
+Using the move() method of the Gogga class. 
+ After the Java instruction  Gogga bug = new Gogga();  in which the object bug was created 
+add the following statement on the next line: 
+ bug.move(); 
+bug refers to the object being used and move() is a method (a behaviour) which results in a Gogga 
+object moving 1 block. 
+A dot (or full stop) joins the move() method (behaviour) to the object which carries it out - bug in this 
+case. This is called "dot notation". 
+ Save, compile and run to check that the bug moves 1 block. 
+ Add further Java statements after bug.move(); to make bug move up to the top of the grid, 
+then save and run. 
+1.2.3 Other Methods Used by Gogga Objects 
+In addition to being able to move, objects of the Gogga class can use several other methods. Two of 
+these are turnLeft() and turnRight() which make a Gogga object turn either left or right 90̊ from the 
+direction it is facing. These methods do not move the object; they merely change its direction. 
+This line is called a statement, which is an 
+instruction telling the computer what to do. All 
+statements in Java end with a semi-colon. 
+===== PDF PAGE 15 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 5 
+ACTIVITY 4  
+Using several methods of the Gogga class. 
+ Change the program instructions inside the main method of your MakeSquare Java program 
+to use move() and either turnLeft() or turnRight() so that bug will draw a square with sides of 2 
+units and will end up facing in the same direction and same position as it started, as shown in 
+the screen shot below. 
+ Save, compile and run your program and check that it does work correctly. If not, change it until 
+it does.  
+Your code should be similar to: 
+// your name and today's date 
+import it.*; 
+ 
+public class MakeSquare 
+{ 
+   public static void main (String [] args) 
+   {     
+      Gogga bug = new Gogga (); 
+      
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+   } // main method 
+} // MakeSquare class 
+You should notice that the above code repeats 
+the statements to draw one side 4 times, implying the necessity for a loop. We will use loops later in 
+this book. 
+1.2.4 Renaming a Program 
+When you create a program you often want to add on to it or to change it but keep the original 
+program as is. In order to preserve the original, you must give the program a new name and then you 
+will have the original program with the original name as well as your new program. 
+In Java, the name of the class must be the same as the file name with which the class is saved. 
+ACTIVITY 5  
+Changing the program to draw a square of 3 units. 
+ Change all occurrences of MakeSquare to MakeSquare3Blocks.  
+ Use the Find / Replace option which is usually in the Edit menu: 
+ Enter MakeSquare as the text to Find and MakeSquare3Blocks as the text to Replace. 
+ Select Replace All so that the name change occurs in all places in the file.  
+ Check that the changes have taken place in your code on the screen. 
+
+===== PDF PAGE 16 =====
+Exploring IT: Java Programming Grade 10 
+Page 6 Learning Unit 1 Introduction to Java Programming 
+ Save the file with the new name.  
+ Select File | Save As. Most IDE programs will show the Java class 
+name as the file name to be saved with. If this is so, just click 
+Save, otherwise type in the new file name MakeSquare3Blocks 
+and click Save. Make sure that the file is saved with .java 
+extension.  
+ Now change this new program by adding further instructions so 
+that bug will draw a square of side 3 units, instead of 2 units. 
+ Save your program.  
+EXERCISE 1 
+1. Open the program MakeSquare. 
+ Rename the program as MakeRect. Save this 
+program with the new name. 
+ Change the code so that the Gogga object draws a 
+rectangle with vertical sides of 5 blocks long and 
+horizontal sides of 2 blocks. 
+ Save your program. 
+2.  Start a new Java application program. Use class name 
+Bumps. Save the class. 
+Above the class heading add Java statements to 
+• give your name and today's date as a comment 
+• import all classes in the "it" package (one of which is 
+the Gogga class) 
+ Add code in the main method to create a Gogga 
+object called flea which then draws the picture 
+shown on the right using methods from the Gogga 
+class. Save again. 
+ When you run your program check that your output 
+is exactly the same as that shown here with flea 
+ending facing up and at position (11, 5). 
+ Save your program.  
+ 
+
+===== PDF PAGE 17 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 7 
+1.3 The Programmer versus the End User 
+When you are typing in the instructions for a Java program in 
+the editor window you are in the role of the programmer. The 
+window where you as a programmer type in the Java 
+instructions is called the code window. Your purpose as a 
+programmer is to code programs to be used by end users.  
+An end user is somebody who normally does not understand 
+any programming. They simply use a program such as 
+MakeSquare and will see a square drawn on the grid when the 
+program is run.  
+The window that displays the Gogga grid (where the output or 
+the results of your program is displayed when you run your 
+program) is known as the output window. This output window 
+displays what the end user sees.  
+An important fact to realise at this stage is that there is a big 
+difference between the code window and the output window. 
+At this beginning stage of programming, you act as both 
+programmer and end user; you are creating the programs and 
+you are the only one running them. Later on, you will develop 
+programs for other end users, so it is important to learn good 
+programming habits from the beginning to make your programs 
+as user-friendly as possible. 
+At this stage your programs expect no input. Later on, you will 
+code programs where the end user can input data into the 
+program when it is running, and the programs will work on the 
+input and provide output.  
+1.4 Different Forms of Output   
+The output you have seen so far is the graphical output produced by Gogga objects. A program can 
+also produce text output. Text includes letters, numbers and special characters (such as *, %, $), 
+most keys that can be typed on your keyboard and others. 
+ACTIVITY 6 
+A Java program that displays text output: 
+ Start a new class with class name TextOutput. 
+ Type in the following program (on the next page) on an empty screen in your Java editor. 
+public class TextOutput 
+{   
+   public static void main (String [] args) 
+   { 
+      System.out.print ("Hello, 2 + 3 = "); 
+      System.out.println (2 + 3); 
+      System.out.println ("Good Bye"); 
+   } 
+} 
+ Save and run the program and see what happens.  
+The output alongside should appear on your OUTPUT window.  
+You must use double 
+quotes " in the brackets 
+of the first and third lines 
+of the main method. 
+NOTE: The first line uses 
+print, the second and 
+third lines use println 
+
+===== PDF PAGE 18 =====
+Exploring IT: Java Programming Grade 10 
+Page 8 Learning Unit 1 Introduction to Java Programming 
+The statement System.out.print or System.out.println() uses the print() or println() method that 
+will display (in an output window) whatever is in the round brackets after the method name. println() 
+can be read as print and go to the next line. 
+There is a difference when numbers are not placed in quotes in the brackets. 
+ Add quotes to the 2nd statement:  System.out.println("2 + 3"); 
+ Run the program. Note that the output changes to show 2+3 on the right of the equals sign, 
+instead of 5.  
+ Remove the quotes and the run the program again to check that the calculation is done 
+correctly and 5 is output. 
+Anything placed in quotes is displayed as it is on the screen. If there are calculations in brackets, such 
+as (2+3), without quotes, then the computer will first perform the calculation and then display the 
+result on the screen. 
+The difference between the print and println methods 
+ Change the first line of the program to use the println method instead of print 
+ System.out.println ("Hello, 2 + 3 = "); 
+ 
+In the output window, the 5 will be placed on the next line.  
+The print method displays what is in brackets on the output window and the next output will be on the 
+same line.  
+The println method displays what is in brackets and the next output is on the next line. 
+EXERCISE 2 
+1. Change all three of the statements in the program TextOutput to use print methods.  
+ Add a space before the 'G' inside the quotes as in " Goodbye" so that the output is clearly 
+spaced out on one line.  
+2. Code a new program called Greet that will display the message in 3 lines one below the other: 
+ Hello! 
+ How are you? 
+ My name is Sam.    
+3. Write down what will be displayed by the following code if it is run in a Java program: 
+System.out.print("I am going");     
+System.out.println(" to the");  
+System.out.println("shopping mall."); 
+System.out.println(); 
+System.out.println("There is no bus"); 
+System.out.print("may I have a lift?"); 
+ 
+  
+
+===== PDF PAGE 19 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 9 
+CHECK POINT 1  
+1. What is the difference between an 'App' and an 'Application'? 
+2. What does a one-line comment start with in a Java program? 
+3. What is the purpose of putting comments in a program if they are ignored when the program is 
+run? 
+4. What does it mean to say Java is case sensitive? 
+5.      
+5.1. Explain the purpose of this Java instruction: import it.*; 
+5.2. Why is the * used? 
+6. What punctuation symbol do statements end with in Java? 
+7. Write down a Java statement to create an object of the Gogga class called slug. 
+8. What is another term for the properties of an object? 
+9. What is the Java term for the behaviours or actions that an object can carry out? 
+10. What type of brackets are used to begin and end a class or a method? 
+11. Write down two methods besides move() that can be used with objects of the Gogga class. 
+12. You want to give your program another class name. Write down all the steps you need to 
+successfully change the name of a program in Java and save the program with the new class 
+name. 
+13. What is the difference between: 
+13.1. an end user and a programmer? 
+13.2. a code (or editor) window and the output window? 
+ 
+1.5 How do Gogga Objects Get or Change their Field Values? 
+In the programs you have coded, objects of the Gogga class have been created to use methods such 
+as move() and turnLeft(). For example, to create a Gogga object called tic, the statement Gogga 
+tic = new Gogga(); is used. The object is created with the new operator and a special 
+constructor method Gogga() which has the same name as the class.  
+Gogga() is called a constructor method and it assigns values to the field variables of the Gogga 
+object. By default, the Gogga object field variables will store the colour red, the up direction and x 
+and y values that position it roughly in the middle of the screen when the object is created. 
+What if we want to change the values in some or all these variables?  The values in the x-and y-
+position variables can be changed by methods such as move(). There are other methods in the 
+Gogga class that we can also use to change field values. They are detailed in the following table: 
+(Assume that a Gogga object called bug has already been created using the new operator.) 
+===== PDF PAGE 20 =====
+Exploring IT: Java Programming Grade 10 
+Page 10 Learning Unit 1 Introduction to Java Programming 
+Method What it does How to use the method 
+setPosition (x,y) Changes the position of the 
+Gogga object to the new x 
+and y coordinates. (The 
+direction of the Gogga 
+object stays the same and 
+a trail is NOT drawn from 
+the old position to the new 
+position.) 
+bug.setPosition (4,3); 
+will put bug at position 4,3 in the grid. 
+setDirection(dir) Changes the direction of 
+the Gogga object. The 
+directions are: Gogga.UP, 
+Gogga.DOWN, 
+Gogga.LEFT and 
+Gogga.RIGHT 
+bug.setDirection(Gogga.DOWN); 
+will make bug face down. 
+setColor (col) Changes the colour of the 
+Gogga object and its trail. 
+The change in the trail will 
+only be seen after the next 
+move() method is 
+executed. To use this 
+method, you must add  
+import java.awt.*; at 
+the top of your program. 
+bug.setColor(Color.blue); 
+will change the colour of bug's trail to 
+blue. 
+ 
+Note the American spelling of Color 
+setTrailwidth (num) Changes the width of the 
+Gogga object's trail. If it is 
+set to 0, it will leave no trail. 
+bug.setTrailWidth (8); 
+will change the width of bug's trail to 8 
+pixels when the next  move () 
+statement executes. 
+setLabel (label) Shows a text label next to 
+the Gogga object. 
+bug.setLabel("Fred"); 
+will place the text "Fred" next to bug. 
+It will follow bug as it moves. Note that 
+the text label is placed in double 
+quotes. 
+trailOn() Turns the Gogga object's 
+trail on. The change will 
+only be seen with the next 
+move () command. (If the 
+trail is already on, it will not 
+cause an error.) 
+bug.trailOn(); 
+will show bug's trail the next time he is 
+moved. 
+trailOff() Turns the Gogga object's 
+trail off. The change will 
+only be seen with the next 
+move () command. (If the 
+trail is already off, it will not 
+cause an error.) 
+bug.trailOff(); 
+will not show bug's trail the next time 
+he is moved. 
+Notice from the previous table that the setPosition method needs two numbers in round brackets to 
+work. These numbers in round brackets after the method name are called parameters.  
+The setColor method needs a single parameter and the move() method needs no parameters.  
+It is important to know (or be able to look up) the parameters expected by methods. When a method 
+is used in a program, it is known as a method call or a method call statement.  
+===== PDF PAGE 21 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 11 
+The call statement transfers control to the definition of the method (which is stored somewhere on 
+your computer). The definition of the method consists of a list of Java instructions that tell Java how to 
+carry out the method.   
+For example, the statement  bug.setPosition(7, 2); is a call statement to the setPosition() 
+method which makes Java find the setPosition() method's definition and carry it out using the 
+values 7 for x and 2 for y, which causes the object bug to move to the position (7, 2) on the grid. 
+ACTIVITY 7 
+Using the methods of the Gogga class. 
+ Start a new Java application program called TestGoggaMethods. We will try out all the Gogga 
+methods to see what the resulting behaviours are. 
+ Add your name and the date as a comment at the top of the program. 
+ Add the statement (above the class heading) to import the "it" package of classes. 
+ In the body of the main method, type an instruction to create a Gogga object called kreepy, 
+using the constructor method Gogga().  
+Gogga kreepy = new Gogga(); 
+ After this, type instructions to use kreepy with some of the other Gogga methods: 
+ kreepy.setPosition(3,1); 
+ kreepy.setDirection (Gogga.RIGHT); 
+ kreepy.setLabel("kreepy"); 
+ kreepy.setTrailWidth (9); 
+ kreepy.move(); 
+ kreepy.move(); 
+ kreepy.move(); 
+ kreepy.move();     
+ kreepy.move(); 
+ kreepy.trailOff(); 
+ kreepy.move(); 
+ kreepy.move (); 
+ kreepy.trailOn(); 
+ kreepy.move(); 
+ Save the program, then compile and run it. Is the output what you expected it to be?   
+ Add the following instruction to your program before kreepy moves for the first time to change 
+the trail to blue: 
+ kreepy.setColor (Color.blue); 
+ Save, compile and run. You will get an error message. 
+We need to get access to the Color class (American spelling). To do so we need to tell Java to import 
+the package which contains the Color class, just like we imported the it package.  
+ Add a statement above the class heading to import the Java package to which the Color 
+class belongs, above (or below) the import it.*; statement (above the class heading): 
+ import java.awt.*;  
+ Save, compile and run.  
+Your program should work correctly now, with the Gogga object being blue and drawing a blue trail. 
+  
+The "set..." methods are used to give 
+values to the fields (variables in memory). 
+The label field requires a text or String 
+value, which is a set of characters in 
+double quote marks. 
+The text that is to be displayed for the 
+label is enclosed in double quote marks 
+inside round brackets. 
+===== PDF PAGE 22 =====
+Exploring IT: Java Programming Grade 10 
+Page 12 Learning Unit 1 Introduction to Java Programming 
+1.6 Errors 
+Learning to cope with errors is part of programming. When you first run a program that you have 
+created it will probably have errors. Luckily an error message and the location of the errors are 
+pointed out and most errors are usually easy to fix. It is useful to get to know what different error 
+messages mean. 
+ACTIVITY 8 
+Error messages.  
+ Open the MakeSquare program if you do not still have it on your screen. 
+ In the first line bug.move (); remove the semi-colon from the end of the line   
+bug.move () 
+ Compile the program (or run the program). 
+Your program editor should show you where the error has occurred by drawing your attention to the 
+line bug.move() with the missing semi-colon. It may show you the error on the following line, as it 
+has looked for the semi colon along the previous line and now it is still expecting a semi colon before 
+the beginning of the next line. 
+The error messages may not seem very helpful now, but should make more sense as you understand 
+more about programming, so you should try to understand them. 
+ Do not put back the semi-colon. Use the Backspace or Delete key to remove the closing bracket 
+at the end of the line of code 
+bug.move ( 
+ Compile or run the program.  
+Note that if your editor expects you to compile your program before you run it, it will not run the 
+program if it cannot compile successfully.  
+ Look carefully at the position of the cursor/highlighted text and the description of the error in the 
+error message. 
+ Fix the above errors and check that your program compiles and runs. 
+ Add code to give the bug the label "Thabo". Place this code before the first bug.move(); line 
+and after Gogga bug = new Gogga();  The code to give the bug the label "Thabo" is: 
+ bug.setLabel("Thabo"); 
+ Compile and run the program.  
+ Now remove the bracket, the semi colon and second inverted comma, so that the instruction is:  
+ bug.setLabel("Thabo 
+ Compile or run the program.  
+The error message should describe that the second set of double quotes is missing. 
+ Fix the above errors and now change move to be spelt incorrectly in the first bug.move(); line, 
+as in bug.moove() 
+ Fix the move() error and change bugg to be misspelt, as in bugg.move(); 
+You should get a similar error to the one above, as the Java IDE program does not understand what 
+bugg is. It knows that bug is an object from the statement Gogga bug = new Gogga (); A syntax 
+error is generated since no bugg has been created. In the same way it does not know of a method 
+moove(). 
+===== PDF PAGE 23 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 13 
+All the above errors are known as syntax errors or compilation errors since they prevent the 
+program from compiling successfully. A syntax error occurs because of a misspelling or incorrect or 
+missing characters such as semi colons and brackets. It can also occur as a result of a command or 
+word that has not been defined, so the Java IDE program does not understand it. 
+EXERCISE 3 
+The following Java program was coded to create a Gogga object which would draw the letter S as 
+shown on the output grid. Unfortunately, when this program was run, it produced several errors. Your 
+task is to correct the errors in this program. 
+// The LetterS class. 
+public class LetterS 
+{ 
+   public static void main (String[] args)  
+   { 
+      Gogga bug = new Gogga; 
+      tick.setTrailWidth (12); 
+      tick.setPosition (8, 22); 
+      tick.setDirection (Gogga.LEFT); 
+      tick.move (); 
+      tick.move (); 
+      tick.move (); 
+      tick.turnLeft (); 
+      tick.move (); 
+      tick.move (); 
+      tick.move (); 
+      tick.turnLeft (); 
+      tick.move (); 
+      tick.move (); 
+      tick.move (); 
+      tick.turnLeft (); 
+      tick.move (); 
+      tick.move (); 
+      tick.move (); 
+   } // main method 
+} // LetterS class 
+ Start a new application in your Java IDE called LetterS and type in the program, exactly as 
+given. 
+ Add your name and today's date as a comment above the class heading. 
+ Save it and run it. 
+ There are at least three syntax errors preventing this program from compiling.  
+ Add in or fix the statements needed to make the program compile. 
+ When all the syntax errors have been corrected the program should compile and run.  
+The Gogga grid appears but it may be empty!  There may be no Gogga object anywhere on it if you 
+have not changed the statement: 
+ tick.setPosition (8, 22);   
+ Change this statement so that the Gogga does appear at the correct starting place on the grid. 
+When the error above has been corrected the Gogga object appears and, if you have not yet changed 
+other statements, it draws a square instead of the letter S as shown!   
+ Change and/or add statements so that when the program is run, the Gogga object draws the 
+letter S in the correct position on the grid, as shown. 
+
+===== PDF PAGE 24 =====
+Exploring IT: Java Programming Grade 10 
+Page 14 Learning Unit 1 Introduction to Java Programming 
+ Save the corrected program. 
+The errors in this exercise that are not syntax errors are called logical errors. They are errors the 
+programmer has made in the logical steps of the solution and they produce incorrect output. Logical 
+errors do not prevent a program from compiling; the program runs but produces unexpected or 
+illogical output. 
+CHECK POINT 2 
+Read the details carefully on the SUMMARY page that follows, then answer the following questions 
+about the program on that page: 
+1. What is the name of the class? 
+2. What are the 2 sets of curly brackets for in the program?  In particular, 
+2.1. the Outer Set and 
+2.2. the Inner Set: 
+3. Write down the name of the default constructor method used to create a Gogga object. 
+4. How do you know if a method is a constructor? 
+5. Write down the name of the Gogga object created in the program.  
+6. Why does the program have a main method? 
+7. What is the purpose of the statement import java.awt.*;  
+8. Why is this statement put above the class heading? 
+9. Name four different methods of the Gogga class used in the program. 
+10. TRUE or FALSE?  
+10.1. The Gogga object, louse, can only be used with methods of the Gogga class. 
+11. Write down the Java statement to make louse face LEFT. 
+12. Does it make a difference where the setColor() method is put in a program?  Explain. 
+13. Roughly draw a simplified Gogga grid and show the output that will be produced by the above 
+program when it is run. 
+14. TRUE or FALSE 
+14.1. A comment is a statement that displays what the program does when it is running. 
+14.2. Not all method calls need to include round () brackets. 
+14.3. A Gogga object can only be given names of insects. 
+14.4. The default size of the Gogga grid is 15 columns across and 10 rows down. 
+14.5. All Java programs that can be run must contain a main method. 
+15. Write down the Java statements that you should add to the ColouredLines program to draw 
+another line, in yellow, parallel to the other 2 lines and 2 lines further down the grid: 
+16. Type in the code for the ColouredLines program and add your statements from 3. 
+17. Add statements to make the Gogga object draw lines of 10 units instead of 2 units. Save your 
+program. 
+  
+===== PDF PAGE 25 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 15 
+Answer the following more general questions: 
+18. Write down Java statements to:  
+18.1. create a Gogga object called jo  
+18.2. set its position at the top right-hand corner of the grid 
+18.3. set its direction facing DOWN  
+18.4. make it move 3 units 
+18.5. Write down two methods of the Gogga class that begin with set… For each of the 
+methods that you wrote down, explain the method's effect on the values of a Gogga 
+object. 
+19. Write a line of code to give the Gogga object named parktownPrawn a label with the name 
+'Parky'. 
+20. What punctuation marks do you need to place around the name in brackets? 
+21. What line do you need to include at the top of the program above the class heading in order to 
+execute the method setColor()? 
+22. Give one example of a syntax error and explain how to fix it. 
+23. Name another type of error that can occur when a program is run and give an example of this 
+type of error. 
+ 
+ 
+ 
+===== PDF PAGE 26 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 16 
+1.7 Summary of a Java Program using the Gogga Class 
+ 
+ 
+ 
+ 
+// The ColouredLines class. 
+// Your name & today's date 
+import it.*; 
+import java.awt.*; 
+  
+public class ColouredLines 
+{ 
+    public static void main (String[] args) 
+    { 
+        Gogga louse = new Gogga (); 
+        louse.setPosition (2, 1); 
+        louse.setDirection (Gogga.RIGHT); 
+        louse.setColor (Color.black); 
+        louse.move ();    
+  
+    louse.move (); 
+ 
+        louse.setPosition (2, 3); 
+        louse.setDirection (Gogga.RIGHT); 
+       louse.setColor (Color.blue); 
+       louse.move (); 
+  louse.move (); 
+ 
+    } //end of main method 
+} // end of ColouredLines class 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The import it.*; statement  means that all 
+the classes relating to a Gogga object are 
+made available to be used in this program. 
+A single line comment in Java 
+starts with //. Comments are 
+ignored when the program is run. 
+The main() method is the 
+starting point from which a Java 
+program is run. 
+ 
+The main() method contains 
+the program instructions that are 
+carried out when the program is 
+run. These instructions or 
+commands must be inside the 
+main method's opening and 
+closing curly brackets. 
+Methods in Java always have 
+round brackets ()after their 
+names to identify that they are 
+methods. Some methods have 
+values in the brackets, some do 
+not. 
+ 
+The values in brackets are called 
+parameters. It is important to 
+call a method with the correct 
+number of parameters.  
+The methods used in this 
+program are dependent on the 
+object, louse, as they affect the 
+object's properties. 
+The statement import java.awt.*; 
+means that the Gogga objects in this program 
+can use colours from the Color class. 
+This statement creates a Gogga object using 
+the new operator and the Gogga() 
+constructor method. 
+The setPosition() method requires 2 values 
+in brackets (parameters). The first value 
+gives the column across and the second value 
+gives the  row down. 
+The setDirection() method needs a direction 
+value, which is either UP, DOWN, LEFT or 
+RIGHT. The direction must be prefixed with 
+the class name Gogga. 
+The setColor() method needs a Color value, 
+which must be prefixed with the class name 
+Color. 
+Some fields and methods are independent of 
+any objects. These are class fields or 
+methods and they are used with the name of 
+their class (using dot notation) instead of 
+being used with a specific object. For 
+example, Color.black is a fixed colour value 
+which can be applied to any object; and so is 
+the direction RIGHT which is a class value of 
+the Gogga class. 
+Only one object, louse, has been created in this program and this 
+object is used with several different methods, such as move(), 
+setPosition() and so on. 
+ 
+The object and the methods used with it have to be from the 
+same class. 
+===== PDF PAGE 27 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 17 
+1.8 What Happens when a Program is Run? 
+The Java IDE enables you to type in code for a Java program and provides options to compile and 
+run your program. The IDE possibly highlights certain Java words and comments in a different colour 
+or in bold. Some IDEs even provide functions that will help you find errors in your code while it is 
+running.  
+When you have a program such as MakeSquare.java (called the source code) open in your IDE, 
+and you select the Compile or the Run the following takes place: 
+1. The Java statements in the program MakeSquare.java are first checked for syntax errors. A 
+program cannot be compiled if it contains syntax errors. If any errors are found, error messages 
+are displayed. When no more errors are found, then step 2 is performed. 
+2. The Java program is translated into a program in Java bytecode format (close to computer 
+machine code) and this new file is saved with the same name as the Java program but with the 
+extension class: MakeSquare.class. A message is displayed saying "Successful compilation" 
+or something similar. 
+3. On successful compilation, the bytecode program can be run or executed by running the 
+program. The .class bytecode file is interpreted by the Java Virtual Machine into a format that 
+can be run using the operating system (OSX, Linux or Windows) of the computer on which the 
+program is saved.  
+ 
+https://www.quora.com/As-Java-is-said-to-be-platform-independent-then-why-can%E2%80%99t-we-run-it-directly-on-Android-
+devices 
+4. during execution (running) of the program, which occurs from the first statement in the main 
+method onwards, the output is displayed when the relevant statements are carried out. 
+Note that some Java IDE's compile and then run a program with one action; others require that you 
+first compile a program and then run in two separate steps. 
+  
+
+===== PDF PAGE 28 =====
+Exploring IT: Java Programming Grade 10 
+Page 18 Learning Unit 1 Introduction to Java Programming 
+1.9 Changing the Size of the Gogga Grid 
+The default size of the Gogga grid is 15 blocks across and 10 down. It can be made larger with the 
+code: 
+ Gogga.setGridSize (numAcross, numDown); 
+For example, Gogga.setGridSize (25, 20); will produce a grid with columns 0 to 24 and rows 
+0 to 19. 
+The setGridSize() method is a class method, so it is used with the class name Gogga, not with an 
+object of the class. 
+ACTIVITY 9  
+Using a larger grid. 
+ Start a new Java Application (program). Name the class Cross.  
+ In the first line of the main method, add the statement Gogga.setGridSize (20, 10); 
+ Add a statement to instantiate a Gogga object called fred after the statement above as follows: 
+Gogga.setGridSize (20, 10); 
+Gogga fred = new Gogga (); 
+ Save and run. 
+Setting the grid size uses the Gogga class name Gogga.setGridSize() and not a Gogga object.  
+This is because the grid is independent of any Gogga objects that will be on it and it must be set up 
+before any Gogga objects are created, so that it exists for objects to be placed on.  
+The maximum grid size that can be set is (31, 19). This may vary depending on your screen. 
+EXERCISE 4 
+Code a program called HeartBeat that will draw a 
+picture that looks like a person's heartbeat on a 
+monitor.  
+Your output should be the same as that shown in the 
+screen shot here. Set the grid size as shown.  
+Plan your program solution first by writing an algorithm.  
+ 
+ 
+ 
+  
+
+===== PDF PAGE 29 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 1 Introduction to Java Programming Page 19 
+CHECK POINT 3 
+1. What is an IDE and why is it used? 
+2. Write down the steps that take place when a Java program is compiled. 
+3. What is the name of the method that is used to change the size of the Gogga grid? 
+4. Write down the line of code to make the grid 11 columns across and 6 rows down. 
+5. Why must the size of the grid be changed before any objects are created? 
+6. What is the maximum size of the grid? 
+ 

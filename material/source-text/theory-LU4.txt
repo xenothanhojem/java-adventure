@@ -1,0 +1,592 @@
+
+===== PDF PAGE 48 =====
+Exploring IT: Theory Grade 10 
+Page 40 Learning Unit 4 System Software 
+Learning Unit 4 System 
+Software 
+System software consists of the operating system, utilities, compilers and drivers. 
+4.1 Parts of System Software 
+4.1.1 Operating Systems 
+Operating systems are a large part of system software. Operating systems usually provide several 
+management and housekeeping tools and utilities that allow the user, normally with administrative 
+permissions, to configure the computer to run as efficiently as possible, according to the user(s) 
+needs. The specific management tools, housekeeping tools and utilities may differ in appearance and 
+location for different operating systems, but they generally provide similar tools and utilities. 
+Every computer needs to have an operating system installed and running on it. The kernel is loaded 
+when the computer is turned on. Every operating system has three main functions: 
+• Provide a user interface 
+• Load and run programs 
+• Manage the computer's resources 
+4.1.1.1 The User Interface 
+Command Line Interface 
+Early operating systems, such as MS DOS, used a text-based interface, with commands being typed 
+at the command prompt. Linux today provides both a GUI and a text interface.  
+ 
+https://www.ictlounge.com/html/operating_systems_new.htm 
+  
+
+===== PDF PAGE 49 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 41 
+Graphical User Interface 
+The operating system provides a user interface for a person to communicate with the computer. Most 
+operating systems provide a Graphical User Interface (GUI), with Windows, Icons, Mouse Control and 
+pull-down menus (WIMP). Smart devices, tablets, some lapbooks and computers have a touch screen 
+which allows a stylus or finger pressure to replace the pointing device. 
+ 
+https://www.ictlounge.com/html/operating_systems_new.htm 
+4.1.1.2 Load and Run Programs 
+The operating system loads, runs and controls application programs. 
+4.1.1.3 Resource Management 
+The operating system manages the computer's resources, such as the CPU, the RAM, the monitor, 
+storage devices, the keyboard, mouse and printer. It controls all the activities taking place in the 
+computer. It controls: 
+• Input and Output (I/O) by helping the user interact with the computer through the monitor, 
+keyboard, and mouse by hiding the details of how these devices work. 
+• File Management by allowing users to create, save, delete, move, and copy files onto 
+secondary storage such as hard disk or flash drive or clouded storage. 
+• Memory management by making sure that each program loaded by the user has enough 
+memory allocated to it and no two programs use the same memory space. 
+• Process management. A program in memory can, in simple terms, be referred to as a process. 
+The operating system must make sure each process will get enough CPU time in order to run 
+successfully. Remember that the user may have many programs loaded and could be running 
+them at the same time. 
+4.1.2 Drivers 
+The operating system uses the device drivers to link a hardware device to the software in such a way 
+that the computer can perform its tasks when applications need to send instructions to the particular 
+hardware device. 
+Every device connected to a computer system has a small, specific program called a driver that 
+provides the operating system with information needed for it to work with that device. There can be 
+more than one driver programs that can be used with a device, but the more up to date the driver 
+program is, the better it will make the device work.  
+
+===== PDF PAGE 50 =====
+Exploring IT: Theory Grade 10 
+Page 42 Learning Unit 4 System Software 
+ 
+http://cs.sru.edu/~mullins/cpsc100book/module05_SoftwareAndAdmin/module05-02_softwareAndAdmin.html 
+In the above diagram, a user can interact with an application or directly the operating system or 
+utilities. The Control Panel and Task Manager are two programs that allow the user to manage and 
+control the operating system and utilities. When a user interacts with an application program, the 
+application program interacts with the operating system which in turn communicates with a driver 
+which communicates with the hardware.  
+For example, if a user, working in word processing application, prints a document, the word 
+processing program communicates with the operating system. The operating system sends the file to 
+the driver which translates the document into a format that the printer can understand. If the user 
+wishes to print a spreadsheet, which is a different application package, on the same printer, the same 
+driver would be used. 
+4.1.3 Programming Tools and Related Applications 
+A programming tool is simply anything that is classified as a computer program that can be used to 
+create programs that work on their own, support other programs or applications and/or interact with 
+the resources on a device. The IDE (Integrated Development Environment) that you use when you 
+write code in your programming course is a programming tool. Most of these tools use an IDE that 
+consists of a source code editor and a compiler or interpreter with other add-ons that make the 
+environment easy to work with to develop applications. Some IDEs support multiple programming 
+languages. For example, NetBeans IDE supports Java desktop, mobile, and web applications, PHP 
+and C/C++ development and more.  
+Game development applications such as Unity give developers the ability to create both 2D and 3D 
+games for multiple platforms such as Android, iOS and Windows Phone. Detailed tutorials are 
+provided to help new developers learn how to code games for any type of device. 
+https://unity3d.com/learn/tutorials 
+Mobile app development can be complex considering the different platforms on which the app must 
+execute. Cross-platform mobile app development tools support the concept of write once, run 
+anywhere (WORA). The developer writes code once on any one platform and runs it on multiple 
+platforms. These tools save time and effort on the part of the developer. For example, Codename 
+One and PhoneGap. 
+  
+
+===== PDF PAGE 51 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 43 
+4.1.3.1. Source Code vs Executable Code 
+Source code is the original code written by the programmer. In Delphi the file name will have a .pas 
+extension and in Java the file will have a .java extension. The source code is compiled to a separate 
+file called object code which is the executable code. In Delphi this file will end in .exe and in Java it 
+will end with .class. In Windows all files ending with .exe can be executed, hence exe. A .class file 
+cannot be directly executed in Windows unless a Java Runtime Environment (JRE) is installed.  
+ 
+https://techblogmu.blogspot.com/2017/03/define-compiler-interpreter-assembler.html 
+4.1.4 Utilities 
+System software provides many utilities to help a 
+user manage, analyse, maintain, optimise and 
+control their computer. As you can see from the 
+graphic alongside, there are many utilities available 
+in the Control Panel area of most operating 
+systems. The Control Panel is a program that is 
+part of your system software to perform such tasks. 
+We will explain the following utilities in this Learning 
+Unit: 
+• Defragmentation 
+• Scheduling tasks 
+• Updating 
+• File compression and extraction 
+• Archive 
+• Backup 
+• Install and uninstall software 
+• Security – firewall and anti-malware 
+4.1.4.1 Defragmentation 
+A Disk Defragmenter rearranges fragmented data 
+on a mechanical hard disk so your disk can work more efficiently. This might take several minutes to a 
+few hours to finish, depending on the size and degree of fragmentation on the disk and 
+defragmentation may be impossible if there is not enough space to create a copy of the files being 
+rearranged.  
+Note that flash drives and solid-state drives do not need to be defragmented as they do not have 
+moving parts. The speed of loading and saving files is not compromised. The Task Scheduler and 
+other utilities will be discussed later in this Learning Unit. 
+  
+
+===== PDF PAGE 52 =====
+Exploring IT: Theory Grade 10 
+Page 44 Learning Unit 4 System Software 
+4.2 Software Distribution and Licensing Models 
+A software license legally describes how software can be used and copied. It protects the copyright 
+of the software. Copyright laws establish that the authors of the software have ownership of the 
+software. The software license is often controlled by a program called a license manager that will 
+enforce the license terms to protect the software vendor from piracy. Piracy being the illegal copying 
+of software. Most software that is bought off the shelf has the license included with the software. This 
+license will normally restrict the copying of the software onto multiple machines. 
+Software licenses are varied but can be grouped into two main types: proprietary or free and open 
+source licenses. 
+4.2.1 Proprietary License 
+This license does not allow the software to be freely distributed or copied. This is usually achieved 
+using product or activation keys. More importantly, it does not give you access to the source code. 
+When you buy software, you are buying the rights to use that software normally described in an End 
+User Licence Agreement (EULA), this model is used by Microsoft for most of its products. Purchasing 
+one of the packages does not entitle you to load the software on more than one machine unless you 
+have a multiple licence agreement.  
+4.2.2 Free and Open Source License 
+As the name indicates, open source licenses share the source code of the software; and are referred 
+to as copyleft licenses. These are in direct contrast to proprietary licenses that try to restrict the 
+user's use of the software. An example of copyleft free software is General Public License (GNU) 
+which gives the user permission to change, modify and even redistribute the software. The user is 
+obliged to include the source code when the software is redistributed so that others can use the new 
+improvements. This provides a community that contribute to a software product sharing the 
+enhancements. A typical example of this type of software licence is Linux.  
+Within the free and open source licensing models, there are several sub-categories: 
+4.2.2.1 Creative Commons License 
+A Creative Commons license allows you to keep the copyright of your work but still allows people to 
+copy and distribute your work on condition they acknowledge your work. This form of licensing is in 
+response to the wave of collaboration that has occurred through the Internet, in particular Web 2.0. 
+Whilst you want to share your ideas, you would still like to be acknowledged for your contribution. 
+4.2.2.2 Freeware  
+Freeware software is software that is copyrighted but given away by the author without any cost for a 
+user to use, but not to resell. The author still retains the copyright, which means that you cannot alter 
+it as you are not given the source code. This software is usually available on the Internet. 
+www.genderit.org/en/index.shtml 
+4.2.2.3 Freemium Software 
+Freemium software is a variant of freeware where limited functions are provided free at no cost, but 
+additional or more advanced features incur a cost. The user normally pays for a licence key that 
+unlocks the additional features. 
+www.netc.org/openoptions/appendices/glossary.html 
+ 
+  
+===== PDF PAGE 53 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 45 
+CHECK POINT 1 
+1. List THREE functions of an operating system. 
+2. What does WIMP mean in a GUI? 
+3. What is a command line interface? 
+4. Name TWO other parts of system software besides the operating system. 
+5. Look up and write down the latest versions of iOS, Android, Windows, MacOS and Linux. 
+6. What is the purpose of utility programs? 
+7. Name THREE utility programs 
+8. What does the Disk Defragmentation program do? 
+9. Why are utility programs not considered to be application programs? 
+10. What is a device driver? 
+11. Explain the difference between source code and executable code.  
+12. What is a programming IDE? 
+13. Why do companies provide license agreements with their software? 
+14. There are a number of license schemes listed in this book, list FOUR of them and explain each 
+one. 
+15. What is creative commons licencing? How does it differ from freeware? 
+16. What is freemium software and give TWO examples. 
+ 
+4.3 Structuring Data in Secondary Storage 
+The next two sections provide practical activities to manage, analyse, maintain, optimise and control 
+their computer. 
+4.3.1 User Profile 
+Each User Profile (on a computer that allows more than one user) will have 
+a unique profile that includes Documents folder, Pictures folder, Desktop 
+and many others. When a user logs onto the computer, these folders will 
+contain files that relate to that user. 
+The user logs on using a username and password and he/she can 
+personalize and customize settings such as Desktop Theme and the 
+structure of files/folders and shortcuts on the Desktop. Only an administrator 
+or the user can make changes to his or her profile; no other users have 
+access to a user's profile. Users only have access to their own profiles and 
+applications/folders that are installed that the administrator gives them 
+permission to access. Usually, users don't have permission to perform 
+many of the Control Panel (like adding or deleting programs) or System 
+Settings functions. However, there may be a Public Profile on a computer 
+where the documents can be shared by all the users. 
+The desktop is one of the folders that is linked to a particular user. 
+  
+
+===== PDF PAGE 54 =====
+Exploring IT: Theory Grade 10 
+Page 46 Learning Unit 4 System Software 
+4.3.2 Desktop 
+Any operating system that makes use of a GUI will, no doubt, have a Desktop, for each user profile in 
+a multi-user environment. The desktop is the first window that appears after a user logs on. Like the 
+top of an actual desk, it serves as a surface for your work. When you open programs or folders, they 
+open on the desktop. You can also put things on the desktop, such as files, folders and short-cuts, 
+and arrange them in any order. If you minimize or close all of the running applications and open 
+documents on your computer, you end up back at the Desktop. 
+The Desktop usually includes the taskbar at 
+the bottom of the screen. It shows you which 
+programs are running and allows you to switch 
+between them; it also contains the Start button 
+that you can use to access programs, folders, 
+and computer settings. You can easily pin an 
+application to the taskbar if you use it often or if 
+you want it to start straight away when your 
+profile is loaded. The picture alongside shows 
+the expanded start menu if you click on the 
+Start button. To go back to the Desktop, you 
+can simply press 'Esc'. 
+https://www.techonia.com/5219/windows-10-pro-technical-preview-screenshots/windows-10-desktop-expanded-start-menu 
+4.3.2.1 Desktop Management 
+As was mentioned before, you can pin applications and files or folders to the taskbar for easier 
+access. You can also add files, folders and shortcuts to the Desktop itself; however, except for 
+shortcuts, this is not advisable for several reasons: 
+• When a user logs on, one of the first things that the profile loads is the desktop. If the desktop 
+has large files or folders on it, the logon will be much slower. 
+• A mixture of files, folders and shortcuts on the desktop causes it to become cluttered and 
+difficult to see where everything is. Rather leave shortcuts only on the desktop and place files 
+and folders elsewhere within your profile. 
+• If the operating system needs to be reinstalled, the user desktops may be deleted, and files and 
+folders may be lost. 
+4.3.3 Management of Files and Folders 
+A file structure is necessary for the computer to know where files are stored. A computer uses a 
+hierarchical structure to make this orderly and functional: 
+ 
+
+===== PDF PAGE 55 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 47 
+The highest level is the drive which is the physical hard drive. 
+The drive may have any number of immediate child folders 
+and the folders may also have many sub-folders. Files live in 
+these folders and the drive\folder\folder… address is known 
+as the path of any file. 
+In a GUI based operating system, a utility exists to view, edit, 
+save and delete folders and files, usually named as the File 
+Explorer utility.  
+A real folder tree (on the left) shows sub-folders indented below 
+their parent folders. Folders on the same level of indentation are not 
+sub-folders of one another. Files are saved in the existing folders 
+and these files may be created, moved, edited and/or deleted using 
+the 'Save' or 'Save As' options in some applications, or by using the 
+menu options. Files and folders may not have the same names 
+within the same folder, but most operating systems will warn the 
+user if such an attempt is made and it will offer the option of creating 
+a copy of the file/folder with a different name. 
+ 
+ 
+4.3.3.1 Cloud-Based Storage 
+Cloud-based storage also needs to be managed in the same way, as it 
+is an extension of your secondary storage. Cloud storage is simply data 
+that is stored remotely (off your computer) as opposed to locally (on your 
+computer). The storage is accessible through the Internet and 
+applications such as Google File Stream, iCloud and Dropbox allow the 
+folders on your computer to synchronise with the clouded storage. Some 
+applications make copies, others don't (Google File Stream does not). 
+The image alongside shows the synchronised and cloud-based drives in 
+the Quick access area of Windows Explorer. A user can have multiple 
+cloud-based storage areas provided they install the relevant software. 
+The software will allow the user the convenience of treating the cloud 
+storage as a folder on their local storage 
+https://download.parallels.com/desktop/v13/docs/pt_BR/Parallels%20Desktop%20User%27s%20Guide/37237.htm 
+4.3.3.2 Sharing and Permissions Cloud-Based vs Local 
+On a local computer, access to folders and files is controlled 
+by the default profile settings of the operating system and the 
+administrator. Sharing and Permissions can be set on 
+folders and files that exist on multi-user computers with user 
+profiles for each user on the local computer or on files and 
+folders on servers connected by the network. 
+
+===== PDF PAGE 56 =====
+Exploring IT: Theory Grade 10 
+Page 48 Learning Unit 4 System Software 
+A user can allow other users access to a folder by right clicking on the folder and selecting Properties 
+and the sharing tab. In the diagram alongside, the folder called Creative is not shared, but access can 
+be allowed by clicking the Share… button. 
+ 
+ 
+ 
+Once the Share... button has been clicked, a window is 
+displayed displaying the users or group of users that have 
+access to the folder. The permissions that each user has 
+ranges from Full Control, Modify, Read & Execute, List folder 
+contents, Read and Write.  
+ 
+ 
+ 
+ 
+Google Drive is a good example of how cloud sharing can be 
+managed. The person who created a shared folder is the owner and can add users (by adding their 
+email addresses to a newly created folder or an existing one): 
+ 
+ 
+ 
+ 
+Using the dropdown on the edit option (on the right), the owner can provide permissions such as 
+organise, add & edit or view only. 
+ 
+4.3.4 Compressing and Decompressing Folders and Files 
+4.3.4.1 Compression 
+File compression programs reduce the size of files, so they take up less storage space or can be 
+transferred more quickly over the Internet. Compression applications make use of advanced 
+programming techniques to reduce file sizes. Common examples are WinZip, 7-Zip and WinRAR and 
+recent versions of Windows have a built-in file compression utility. While text files compress 
+successfully, images do not allow for a high degree of compression. 
+You can work with compressed files and folders in the same way that you work with uncompressed 
+files and folders. You can also combine several files into a single compressed folder, making it easier 
+to share a group of files, since you only need to attach one file to an email message instead of several 
+files. If you transfer files over the Internet, you will save significantly on bandwidth by transferring 
+smaller compressed files. 
+
+===== PDF PAGE 57 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 49 
+Remember, from the 
+previous section, if you are 
+using clouded storage with 
+the correct permissions in 
+place, there is no need to 
+compress and email as an 
+attachment – users have 
+shared access to the 
+relevant files. 
+The original folder called 
+'Bingo' consists of files 
+amounting to 9.61MB in 
+size and was compressed 
+to 4.363MB which is much smaller. 
+4.3.4.2 Decompression of Extraction 
+All compression utilities contain a decompression utility to extract the compressed file. 
+A very convenient feature in the Windows environment allows you to use the 'Send To' option (right-
+click on a folder) to create a compressed file; this creates a compressed, single file, of the entire 
+folder which will be considerably smaller than the original folder and can be sent as an attachment in 
+an email as a single file. Google Drive, interestingly, will download a compressed file to your computer 
+automatically when you select the download option. 
+4.3.5 Archive and Backup 
+4.3.5.1 Archiving 
+As folders and mailbox folders are filled 
+with constant additions, many files stay 
+resident without being used over long 
+periods of time. This causes unnecessary 
+space to be occupied, but it may be 
+necessary to keep the files for future 
+reference. By using an archiving utility, you 
+can remove the files and store them in a 
+compressed separate archive location for 
+space saving and later use.  
+4.3.5.2 Backup 
+Backup is a way of making a copy of files or folders in case of data loss to a separate location. 
+Backup locations include remote (cloud storage), local drives, network drives or external drives. A 
+backup is usually made of data files but can include applications and possibly entire operating 
+systems or drives. A backup protects the user in case their normal place of storage becomes 
+unusable due to damage, space restrictions or corruption. Backing up may take the form of simple 
+copying or using compression before copying.  
+The backup utility usually has options for: 
+• The types of files to be backed up 
+• How often the data is backed up 
+• Whether previous backups should be overwritten, or not 
+• Setting a backup schedule from within the utility 
+• Saving the backup settings for future use 
+Some operating systems offer a separate system backup facility that allows users to restore the 
+system to a previous stable state should the system, for any reason, become unstable.  
+
+===== PDF PAGE 58 =====
+Exploring IT: Theory Grade 10 
+Page 50 Learning Unit 4 System Software 
+ACTIVITY 1 
+ Select a folder on your hard-disk and check the folder size by right-clicking and selecting 
+Properties.  
+ Create a compressed file of the folder by right-clicking, selecting Send To and then select 
+Compress File.  
+ Check the size of the compressed file. How does it compare to the size of the original folder? 
+4.4 System Management 
+4.4.1 Installing and Uninstalling Software 
+When you obtain new software, a dedicated program called the installation program is used to 
+install the program so that it is ready to be used. Today, operating systems make use of a registry to 
+record settings and changes that affect the system when installations take place. An installer program 
+takes care of placing the executable files, creating folders for the supporting software and registering 
+the necessary software in the registry, so that the application will run successfully. 
+Some software products allow the user to have options in the way the product is installed.  
+• If you are going to only use the standard 
+features of the software package, then a 
+typical/standard installation can be chosen.  
+• If you need to adapt the way the software will be 
+installed and change settings, a custom 
+installation can be used.  
+• Finally, if you want to use all the features then a 
+full installation is recommended. Obviously, a 
+full installation will take up more hardware space 
+than a typical installation. 
+If the software is licensed, then you will need to enter 
+a product key which is a unique code that ensures 
+that the software was purchased legally, and the 
+product is licensed to you. This can also be referred to 
+as an activation key (activation code) as it activates 
+the software so it can be run. 
+Google and Office 365 may have licenses attached to email addresses (pay per month per email 
+address) although you don't need to install anything because you are using a cloud-based version on 
+the Internet. 
+Uninstall programs safely remove all parts of programs from your computer system by removing all 
+files, folder and icons and updating the registry. In a typical Windows environment, the Control Panel 
+has a Programs and Features option that allows you to uninstall or modify an installed program. 
+ 
+  
+
+===== PDF PAGE 59 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 51 
+4.4.2 Adding Devices and Drivers 
+Previously, if an operating system did not have the driver for a device pre-loaded, CD's were used to 
+load the drivers into the operating system. Drivers loaded on a CD have become somewhat unpopular 
+and are often not the latest version. Most drivers that are not provided with a device are downloadable 
+from the Internet.  
+Devices, such as 3G cards and flash drives, have the driver 
+software embedded on the device and are installed together 
+with any application software when the device is connected to 
+the computer for the first time. Modern operating systems have 
+a plug and play feature meaning that they detect new 
+hardware as soon as it is connected to the computer system, 
+and then lead the user through a series of steps, or no user 
+intervention is required at all. The driver program is then 
+installed and the settings for the device are stored on the 
+computer. If the device is hot swappable it means that it can 
+be successfully installed without restarting the computer. Most 
+USB devices are hot swappable. 
+ 
+4.4.3 Scheduling and Updating 
+4.4.3.1 Scheduling 
+A task scheduler utility may exist in the operating system on your computer. This utility allows you to 
+run programs automatically at specified times with specified conditions, allowing the system to update 
+and/or process configurations in the background while you are running the computer. You can 
+schedule just about any task involving an application or utility that is resident on the computer. For 
+example, you can schedule a backup when you shut down or to run at a certain time. 
+ACTIVITY 2 
+ Plan a backup procedure for the data on your computer. Choose the files to be backed up, how 
+often the backup must run and where the files must be copied.  
+ Locate the Task Scheduler utility on your computer and execute the backup you planned above. 
+4.4.3.2 Updating 
+Older operating systems, especially the Windows™ environment, used to update their operating 
+system software by means of service packs which were distributed on CD; today, most updating is 
+done over the Internet where a scheduled task is set to check on the vendor update site for available 
+update downloads. You may choose, in the operating system's update utility, whether you want to 
+update automatically or only when you request the download. Java and Windows make updates 
+available on a regular basis and, if the system is not configured to automatically update, a pop-up 
+window usually appears to inform the user that updates are available.  
+ 
+
+===== PDF PAGE 60 =====
+Exploring IT: Theory Grade 10 
+Page 52 Learning Unit 4 System Software 
+The update utility may include a scheduling option which works independently of the operating 
+system's scheduled tasks. 
+Google, however, is not actually installed on a computer; it is essentially a website where the update/s 
+are done on the Google site and when the user next opens the application using their browser the 
+updates are already done. That way a user can't refuse to have the update but may choose to use the 
+previous product version before the update is enforced. 
+4.5 Security Features 
+4.5.1 Firewall 
+A firewall is a device or set of devices designed to permit 
+or deny network transmissions based upon a set of rules 
+and is used to protect networks from unauthorised 
+access and permitting legitimate communications only. 
+Many computer operating systems provide software-
+based firewalls to protect against threats from the 
+Internet. Firewalls and routers are explained in more 
+detail in Learning Unit 5. 
+ 
+4.5.2 Malware  
+Malware, or malicious software, is any program or file 
+that is harmful to a computer. Malware includes computer 
+viruses, spyware and adware. 
+4.5.2.1 Virus 
+Before Internet connectivity was popular, viruses were transferred by inserting an infected disk (flash, 
+from an infected computer) into a computer; since Internet connectivity has become commonplace, 
+transferring viruses has become a lot easier, from bogus Internet sites and email attachments. 
+Viruses are programs, illegally loaded onto a computer, that cause damage to the system. They can 
+modify themselves to avoid detection and can spread from one computer to another via removable 
+media or downloading from the Internet. This is done by infecting files on the computer to which they 
+have been downloaded, or by attaching themselves to outgoing emails. Some viruses can even send 
+themselves to all email addresses found in the computer's email program's address book.  
+4.5.2.2 Spyware 
+Spyware is computer software that is installed surreptitiously on a personal computer to intercept or 
+take partial control over the user's interaction with the computer, without the user's informed consent. 
+One form of spyware is a keystroke-logging program. This program can be used to record each 
+keystroke of the user of an infected computer and then transmits this data via the Internet to the white 
+collar criminal responsible for its creation. The criminal then reconstructs the relevant login data and 
+passwords used by the original computer and so can gain illegal access to other people's bank 
+accounts, for example. 
+4.5.2.3 Adware 
+Adware is unwanted and annoying software that automatically displays or downloads to a computer. 
+An example of adware is popup windows that display while you are surfing the Internet. Adware is 
+usually benign software which can slow down the operation of your computer. They access cookies, 
+small text files containing personal data, stored by the Internet browser to customise the displayed 
+adverts according to the activity detected in the browser. 
+  
+
+===== PDF PAGE 61 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 4 System Software Page 53 
+4.5.3  Anti-Malware 
+Anti-malware are programs necessary to safeguard from malicious threats commonly. One strategy 
+for protecting a computer against malware is to prevent the malware software from gaining access to 
+the computer. Antivirus software and firewalls (which will be discussed in Learning Unit 5) are 
+strategies used to help protect a computer against the introduction of malware as well as checking for 
+the presence of malware and malicious activity and recovering from attacks. 
+4.5.3.1 Anti-Virus 
+As viruses become more complex and difficult to trace, anti-virus software needs to be continuously 
+updated to find the signature, an identifying piece of code embedded in the virus program, and take 
+appropriate action, usually to delete or quarantine the offending file, depending on its severity. Any 
+good anti-virus software should be able to supply features such as: 
+• Updating the signature database from the Internet; 
+ 
+https://www.getavast.net/support/update 
+• Offering a variety of protection categories, such as network security, email security and 
+computer protection; for example, network security offers protection against malware in the 
+traffic on you network, email security offers protection for emails and their attachments and 
+computer protection offers protection for the files and folders on the computer. External (flash) 
+drives that attach to a computer can be scanned as soon as they become attached. 
+• A variety of scanning options: Full system, selected drives or even individual files. 
+ 
+Scanning a computer for malware can take a long time, most anti-virus software will provide a 
+variety of options to scan select devices, limit the scan to recent activity or scan all local drives.  
+
+===== PDF PAGE 62 =====
+Exploring IT: Theory Grade 10 
+Page 54 Learning Unit 4 System Software 
+CHECK POINT 2 
+1. What is a user profile? 
+2. What is a desktop? 
+2.1. Why is it not a good idea to store files and folders on your desktop?   
+2.2. What is a better option? 
+3. Why will each user that logs onto a system have a different desktop?  
+4. A user logs onto a computer and the log on process takes a very long time. What could be the 
+problem? 
+5. What does a scheduler do? 
+6. Explain the difference between an archive and back up. 
+7. Where would you store your backup files so that the backup will be reliable? 
+8. Why is it important to allow Windows to update your computer's system software?   
+8.1. What if you do not have an Internet connection? 
+9. How does a firewall protect your computer? 
+10. What is malware? 
+11. Name THREE categories of protection that are available from a good ant-virus software. 
+12. What scanning options would you expect from good anti-virus software? 
+13. List the advantages and disadvantages of cloud-based storage. 
+14. List the benefits and dangers of sharing files stored in the cloud. 
+15. Anti-virus and Internet security programs protect computers against what type of attacks? 
+16. Why is it important to uninstall a program? 
+17. Devices and drivers: 
+17.1. Which is software? 
+17.2. Which is hardware? 
+17.3. What does hot swappable mean? 
+17.4. Which port do hot swappable devices use? 
+17.5. Where would you find the driver for a new device? 
+ 

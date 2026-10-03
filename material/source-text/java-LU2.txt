@@ -1,0 +1,979 @@
+
+===== PDF PAGE 30 =====
+Exploring IT: Java Programming Grade 10 
+Page 20 Learning Unit 2 Integer and Real Numbers 
+Learning Unit 2 Integer and 
+Real Numbers 
+This Learning Unit requires you to complete Learning Unit 1 in Exploring IT: Theory Grade 10. 
+In the previous Learning Unit, you were introduced to Object-Oriented Programming (OOP) using 
+the Gogga class. We need to cover input, variables and arithmetic operations in Java. 
+2.1 Variables and Input from the User 
+2.1.1 Reading in Strings from the Keyboard 
+You and a friend have decided to write a Java program to print labels for all your school books. You 
+want each label to include your name and the subject's name. It should look something like this: 
+**************** 
+Tina Farinha 
+Geography 
+**************** 
+You will first code a solution that will display labels with a fixed name and subject on the screen. If 
+your IDE can easily print the output, then you will be able to print the labels on paper. In Grade 11, 
+you will learn to save the output to a text file. 
+ACTIVITY 1  
+ Start a Java Application called MakeLabels.  
+ Add your name and today's date as a comment.   
+ Insert the following code, typing it exactly as shown: 
+public class MakeLabels 
+{ 
+   public static void main (String[] args) 
+   { 
+      System.out.println("****************"); 
+      System.out.println("Tina Farinha"); 
+      System.out.println("Geography"); 
+      System.out.println("****************"); 
+   } // main method 
+} // MakeLabels class  
+ Save and run the program and check that it displays the label on the screen. 
+We can use variables to store the person's name and subject so that the program can print a label for 
+any person with any subject. 
+2.1.2 Variables 
+Variables can be thought of as boxes in memory. Each variable (or box) can only store one item of 
+data of one data type. In Java, each variable has a data type. The data types that are commonly 
+used are integers (whole numbers), real numbers (numbers with decimals) and Strings (text data). 
+Each of these types store different data and take up a different amount of space in memory. It is 
+important to tell Java what data type a variable will be so that it knows how much space in memory to 
+allocate for each variable. 
+===== PDF PAGE 31 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 21 
+In the following activity, you will create a variable to store the person's name and subject name. For 
+input, you will use the showInputDialog method of the JOptionPane class. 
+In programming, we often need to join two or more words together to create a meaningful variable 
+name. To make it easy to read, we capitalise the first letter of each word other than the first. This is 
+called Camel Case. 
+ACTIVITY 2 
+ Type in the following code that will declare two variables, subject and name and then input 
+their values from the keyboard. These values will be displayed in the label. 
+ In order to call the showInputDialog method, we will need to import the javax.swing.* 
+package. Add the import statement to the beginning of your code. 
+import javax.swing.*; 
+public class MakeLabels 
+{ 
+    public static void main (String[] args) 
+    { 
+        String name, subject; 
+     
+        name = JOptionPane.showInputDialog ("Enter your name"); 
+        subject = JOptionPane.showInputDialog ("Enter the subject");         
+ 
+        System.out.println ("****************"); 
+        System.out.println (name); 
+        System.out.println (subject); 
+        System.out.println ("****************"); 
+    } // main method 
+} // MakeLabels class 
+ 
+ 
+ Save, compile and run the program using your name and IT as data. Check that the program 
+works. 
+The variable declaration String name, subject; states what type of data will be stored in the 
+variable and gives the variable a name or identifier. It does not give the variable a value. 
+Using the showInputDialog method, data (e.g. Tina) typed on the keyboard is stored in the variable 
+box called name (The = means "gets the data"). The text in the method will be displayed on the 
+screen to indicate to the user what the program requires. It is called an input prompt. 
+The data in the variable is displayed on the screen by using the identifier (name) of the variable 
+(which must not be in quotes). 
+ Run the program twice more and type in "12345" and then "@#$%^&*" as input for the subject 
+and see what happens when you run the program. 
+"12345" and "@#$%^&*" are also examples of Strings. The computer does not know that they are 
+not subject names! 
+A String in Java is a collection of text characters and can be made up of letters, numbers and 
+symbols.  Strings are enclosed in double quotes. String is spelt with a capital letter as it is a class 
+similar to Gogga. All classes in Java must start with a capital letter. 
+  
+The variables name and subject are 
+both declared as Strings as they will 
+store text data. They could be 
+declared in two statements: 
+String subject; 
+String name; 
+ 
+ 
+The showInputDialog 
+method is used to read data 
+typed on the keyboard into 
+the variables called name 
+and subject. 
+ 
+The variable's identifier is used, so that whatever is 
+stored in the variables name and subject will be 
+displayed. 
+ 
+===== PDF PAGE 32 =====
+Exploring IT: Java Programming Grade 10 
+Page 22 Learning Unit 2 Integer and Real Numbers 
+Examples of Strings:  "Geography",  "This is a string";  "123456";    
+"876−221";  "#$%^";  " Hello there, how are you?";   
+"How R U 2?";   "Any collection of characters in double 
+quotes is a String". 
+Your friend wants to change the format of the labels to become: 
+************************** 
+Name : Tina          
+Subject : Geography 
+**************************   
+ Change the lines that display the name and subject to include the headings, as shown here: 
+ System.out.println ("Name : " + name); 
+ System.out.println ("Subject : " + subject);     
+ Save, compile and run the program to check that it works. 
+A variable in Java can be joined/concatenated to a text String using a + (plus) sign. 
+2.1.3 Assignment Statements 
+The following Java statement is called an assignment statement. 
+ subject = JOptionPane.showInputDialog ("Enter the subject");  
+It contains an equals sign that does not have the same meaning as an = in Mathematics. In Java, the 
+(=) equals sign is used to store what is on the right-hand side of the equals into the variable on the 
+left-hand side of the =.  
+We say that the subject variable has been assigned (or gets) a value. The value that it is assigned 
+has been produced (we say returned) by the showInputDialog method. 
+Every variable has 3 characteristics: 
+• an identifier or name; 
+• a data type, stating what type of data can be stored in it; 
+• a value that is stored in it. 
+In a program, every variable that is used must be  
+• declared (created) given an identifier and a data type 
+• given a value   this is done using an assignment statement. 
+EXERCISE 1 
+1. Code a Java program which asks for any word to be entered and which then displays a 
+message using the word that was typed in. Follow the steps outlined below: 
+ Start a new class called InOutWord.  
+ Add a statement to import all the classes in the swing package. 
+ Declare a String variable word. 
+ Add code to input the word and display it with the message "Your word was: xxxxx". 
+2. Code a new interactive Java program using the class name SchoolInfo to prompt for and input 
+a person's full name, the name of the school they attend and the grade and class in which they 
+are currently enrolled. 
+===== PDF PAGE 33 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 23 
+ Display the information that the user has entered on three lines, one below the other, with 
+a heading, as shown in the following example: 
+SCHOOL DETAILS 
+-------------- 
+NAME: Peter Tumner 
+SCHOOL: Waterfall High School 
+GRADE: 10 K 
+CHECK POINT 1 
+1. What does it mean if a program is interactive? 
+2. We work with many computer systems every day. Each system has inputs and outputs. 
+Consider the following systems and write down an example of an input and an output for each 
+system. 
+• ATM (Automatic Teller Machine) 
+• POS (Point of Sale) i.e. the checkout device at a supermarket 
+• Washing Machine 
+• Spreadsheet 
+• Drone (Unmanned Aerial Vehicle UAV) 
+3. Is a program of any use if it does not produce output? 
+4. Name the three characteristics of a variable. 
+5. Why is it important to give a variable a type? 
+6. What is the difference between an input prompt and output − both appear on the output screen? 
+7. What do you need to import to use the showInputDialog method? 
+8. What class does the showInputDialog method belong to? 
+9. What does the showInputDialog method do? 
+  
+2.1.4 Reading in Strings and Converting them to Numbers 
+In the previous section you learned how to input data of the String data type using the 
+showInputDialog method. String data is text data that cannot have arithmetic calculations carried out 
+on it. What if we want to input numbers so that calculations can be done?  We still use the 
+showInputDialog method, but we need to convert the data from a String to an integer or real type. 
+Numeric data such as integer numbers and real numbers are stored in the computer's memory in 
+different sized boxes to Strings.  
+Integers are positive and negative whole numbers and zero, with no decimal places. They are 
+different from real numbers, which are numbers with a decimal point. 
+Examples of integers:   −55 7 0 −1 
+Examples of real numbers:  2.5 −0.000879 6523.4  −77.99 
+In Maths, the set of real numbers includes the set of integers. In programming, the 2 types of numbers 
+are separated because the computer deals with them in different ways. 
+2.1.5 Input of Numbers as Strings and Converting to Integers 
+Strings are enclosed in double quotes so that Java identifies the data type and knows what operations 
+can be performed on it. A String such as a telephone number "0827869876" cannot have 
+calculations performed on it.  
+===== PDF PAGE 34 =====
+Exploring IT: Java Programming Grade 10 
+Page 24 Learning Unit 2 Integer and Real Numbers 
+ACTIVITY 3 
+ Type in the program Add2Numbers below that inputs two numbers and stores them in 
+variables, num1 and num2. These numbers are added, and the results displayed on the screen. 
+import javax.swing.*; 
+public class Add2Numbers 
+{ 
+    public static void main (String[] args) 
+    { 
+        String num1, num2; 
+ 
+        num1 = JOptionPane.showInputDialog ("Type the first number"); 
+        num2 = JOptionPane.showInputDialog ("Type the second number");       
+        System.out.println ("The sum of the numbers is " + num1 + 
+num2); 
+ 
+    } // main method 
+} // Add2Numbers class 
+ Run the program and input 4 and 3 when you are prompted.  
+You would expect that the program displays 7 for the sum but notice that program displays 43. What 
+has happened is that num1 and num2 are declared as String variables and by coding num1 + num2, 
+the two string values are joined together (concatenated) and not added.  
+To solve this problem, we need to declare num1 and num2 as integers.  
+ Change the program to declare num1 and num2 as integers. In Java, you must use the 
+reserved word int to declare integer types.  
+ int num1, num2; 
+ Compile the program. You should get a syntax error which states that you have incompatible 
+types, or that you cannot assign a "Java.lang.String" expression to an int variable. This is 
+caused by the two lines 
+num1 = JOptionPane.showInputDialog ("Type the first number"); 
+num2 = JOptionPane.showInputDialog ("Type the second number");       
+num1 and num2 are now declared as type int, but the method showInputDialog returns what the 
+user typed in as a String. A String cannot be placed in a variable of type int as they are incompatible 
+types. They are not stored the same way in memory. 
+ To solve this problem, we need to input the two numbers as a String and then convert them to 
+integers. Luckily, there is a built-in Java method parseInt() of the Integer class that will 
+perform the conversion. 
+ Change your program as shown: 
+import javax.swing.*; 
+public class Add2Numbers 
+{   
+    public static void main  
+                (String[] args) 
+    { 
+        String num1Str, num2Str; 
+        int num1, num2; 
+ 
+ 
+        num1Str = JOptionPane.showInputDialog  
+         ("Type the first number"); 
+  
+You need to declare two string 
+variables to store the input. It is a 
+good idea to use meaningful 
+names to show what they store. 
+ 
+ 
+The two int variables will store the 
+number values when they have 
+been converted from Strings. 
+===== PDF PAGE 35 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 25 
+        num2Str = JOptionPane.showInputDialog  
+            ("Type the second number"); 
+        num1 = Integer.parseInt (num1Str); 
+        num2 = Integer.parseInt (num2Str); 
+        System.out.println ("The sum of the numbers is " + (num1 +  
+    num2)); 
+ 
+    } // main method 
+} // Add2Numbers class 
+ 
+ 
+ Type in the changes and ensure that the program runs and displays 7 when 4 and 3 are 
+entered. 
+ Test your program with other numbers to check that it works. Be sure to include negative 
+numbers and 0 so that your program is tested more thoroughly. 
+ Remove the set of brackets around num1 + num2 from the last line. What happens?  
+Without the brackets around num1 + num2, the statement System.out.println joins the String 
+message to num1 and then joins this to num2. By placing brackets around (num1 + num2) it forces 
+the numbers to be added first before they are concatenated. 
+The + operator can perform different functions (joining or adding) depending on the types of the 
+variables or values on either side of the + sign.  
+This program uses four variables. The data values stored in num1Str and num2Str are stored as 
+Strings and cannot be used in any arithmetic calculations. String data takes up much more memory 
+than int data and different operations are available for the different data types. Basically, any data 
+values can be stored as a String, but this is not the case for the type int.  
+Variable Name num1Str num2Str num1 num2 
+Data Type String String int int 
+Value Stored "4" "3" 4 3 
+Unlike String, int is not a class, so it is spelled starting with a lowercase letter. int is one of the 
+primitive data types. 
+The input and conversion can be performed in one statement and stored directly into the integer 
+variables, removing the need for temporary String variables. 
+Change the program to combine the inputs statements and conversion statements into one. 
+import javax.swing.*; 
+public class Add2Numbers 
+{   
+  public static void main (String[] args) 
+  { 
+    int num1, num2; 
+ 
+    num1 = Integer.parseInt (JOptionPane.showInputDialog ("Type the 
+first number")); 
+    num2 = Integer.parseInt (JOptionPane.showInputDialog ("Type the 
+second number")); 
+    System.out.println ("The sum of the numbers is " + (num1 + num2)); 
+ 
+  } // main method 
+Integer.parseInt() converts the Strings in the 
+variables num1Str and num2Str to integers which are 
+then assigned to the integer variables num1 and num2. 
+Lastly, you need to put brackets around num1 + num2 to 
+force the numbers to be added before they are joined to the 
+String message "The sum of numbers is ". 
+The parseInt method uses the result 
+from the showInputDialog as a 
+parameter and converts it to an integer. 
+The String input entered by the user is 
+not stored. 
+===== PDF PAGE 36 =====
+Exploring IT: Java Programming Grade 10 
+Page 26 Learning Unit 2 Integer and Real Numbers 
+} // Add2Numbers class 
+ Save and run the program to test that it works. 
+ Run the program again and this time type in "hello" for the first number and "there" for the 
+second number.  
+Your program will terminate with a run time error NumberFormatException which occurred when 
+you called the method parseInt(). This means that the data you entered cannot be converted to an 
+integer. 
+A run time error occurs in a program that can compile but has an error that causes the program to 
+halt unexpectedly when the program is running. 
+2.1.6 Input of Numbers as Strings and Converting to Real Numbers 
+What happens if you input real numbers when you run the program?  Real numbers are numbers with 
+decimal points. For example, 4.0,  2.3,  -1.0,  0.9384,  -987.456,  0.0 are all real numbers.  
+ACTIVITY 4 
+ Run the Add2Numbers program again and input 2.3 and 4.7. You will find that you get the 
+same NumberFormatException run-time error message, telling you that the number 2.3 
+cannot be assigned to an integer type.  
+We need a new type to be able to store real numbers. The data type double stores real numbers. 
+ Change the program to declare num1 and num2 as double instead of int.  
+Long ago programmers stored real numbers as either single precision or double precision. 
+(Single or double for short.)  Double precision could store real numbers more accurately and so the 
+name for the data type double has remained.  
+double num1, num2; 
+ Run the program again and you will see that the error has remained as a String cannot be 
+converted to a double using the parseInt method of the Integer class.  
+ Change both method calls to use Double.parseDouble to convert the String to double: 
+ num1 = Double.parseDouble (JOptionPane.showInputDialog  
+         ("Type the first number")); 
+ num2 = Double.parseDouble (JOptionPane.showInputDialog  
+         ("Type the second number")); 
+ Run the program and check that it works. Use integers, 0 and real numbers as test data.  
+Notice that if you input integers, such as 5 and 7, the program still works, because integers are a 
+subset of real numbers (on the number line). The result is displayed with a decimal place, showing 
+that the integers have been converted from Strings to double (real numbers). Sometimes real 
+numbers display using scientific notation. 
+  
+===== PDF PAGE 37 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 27 
+EXERCISE 2 
+A variable must be (i) declared and (ii) given a value before it can be used elsewhere in a program. 
+It is important that your programs work for ANY data − not just the data given to test the program. You 
+should run your programs with a variety of different data to make sure that they work properly. 
+1. PersonalDetails 
+This program will ask for a person's first name, surname, telephone number, year of birth and 
+height in metres to be entered. The details will then be displayed, with suitable text messages. 
+ Type in statements in Java code to do the following, in the order given: 
+ Declare five variables (the first name and the surname must be entered separately): the 
+first three variables must be of data type String; the year of birth variable will store 
+integers and the height variable will store real numbers. 
+ Write user-friendly prompts for the five details to be entered so that when the program is 
+run, it is clear what is required as input. Read the input values into String variables and 
+convert the input values for year and height before storing them in the appropriate 
+variables. 
+• Display a blank line using System.out.println(); 
+• Display a heading: "PERSONAL DETAILS" 
+• Display another blank line. 
+• Then display the details as follows (in the order specified): 
+• The subheading "NAME: " followed by the first name and surname on one line with 
+a space between the names; 
+• The subheading "YEAR OF BIRTH:" followed by the integer year of birth 
+• The subheading "HEIGHT(m): " followed by the height 
+• The subheading "TELEPHONE NUMBER: " followed by the telephone number. 
+ Save and run your program, correcting any errors if necessary. Input your details when 
+prompted. 
+ Check that your output is well spaced out and easy to read. Make changes to make it 
+clearer if necessary. 
+ When you think your program is working well, run it again and input your friend's details, 
+checking that the output is still clear. 
+2. Load the program MakeSquare and add statements in the correct place to ask the user to input 
+how wide to make the trail width of the Gogga. Store the input value in an int type variable.  
+ Using the user's input value; change the trail width before the Gogga object starts drawing 
+the square.  
+ Run the program with several different trail widths and check that it changes each time. 
+3. Prices 
+This program will ask for three products and their prices to be input. It must then leave a blank 
+line and display the products and prices in a list, below a heading. 
+ Declare three String variables and three real number variables. 
+ Type in Java statements to  
+• use user-friendly prompts for three product names to be typed in and for the price of 
+each product to be typed in 
+• store the input values in the appropriate variables 
+===== PDF PAGE 38 =====
+Exploring IT: Java Programming Grade 10 
+Page 28 Learning Unit 2 Integer and Real Numbers 
+• display a blank line 
+• display a heading in capital letters "SHOPPING LIST" 
+• display each product and its price next to it, with the three items and their prices next to 
+each other. 
+• display the total cost of all the items 
+ Save and run your program and input the following data to check that your program works 
+properly: 
+ Potatoes  121.99    
+ Beans   33.85 
+ Sweetcorn  38.15 
+ Total  193.99 
+4.  
+4.1. Code a program NumberResults that asks the user to enter a whole number and then 
+displays the input number and the number doubled, with a meaningful message. 
+4.2. Extend your program to ask the user to enter another whole number. Your program 
+should then display the value of the first and second input numbers multiplied. For 
+example, if the user enters 40 and 10, your program should display 400. 
+4.3. Rename the class to be RealNumberResults. Change the program to work with real 
+numbers. 
+ 
+2.1.7 Identifier Names 
+The names or labels given to variables, methods and classes are called identifiers. Some of the 
+identifier names we have used are num1, showInputDialog and MakeSquare. 
+2.1.7.1 Rules for Variable names/identifiers  
+• Identifiers can contain numbers but may not start with a number. 
+• Spaces are not allowed in a variable identifier. 
+• No special characters (such as %, @, *, −, " ) may be used in an identifier. 
+• Reserved words (keywords that have a special meaning in Java) may not be used.  
+By convention,  
+• identifiers of variables and methods in Java start with lowercase letters.  
+• identifiers that are names of classes start with a capital letter. 
+• the identifier should reflect the contents of the variable, method or class. 
+• any identifier that contains more than one word must have the words joined together using 
+camel case. This means the first letter of each word (after the first) is a capital letter − for 
+example, instead of num1 we could have used the identifier firstRealNumber. (This is not a rule, 
+but a convention to make identifiers more readable.) 
+It is essential that you follow the rules for identifier names. It is also important to follow the 
+conventions as they make your program readable for other people and easy to understand. Most 
+people use the standard conventions so that if they make their programs publicly available, others will 
+understand them. 
+The following are valid variable identifiers and follow conventions:  num2,  firstName,  fieldWidth,  ch 
+The following are NOT valid variable identifiers:  2num,  first name,  char,  tel-num 
+The following are valid but do not follow conventions: FieldWidth (for a variable), a (for a person's 
+name), firstname. 
+===== PDF PAGE 39 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 29 
+CHECK POINT 2 
+1.  
+1.1. What are the three Java data types that you have learned about in this chapter?  
+1.2. What types of values can be stored in each type? 
+2. Write down examples of a) real numbers, b) integers and c) Strings. 
+3.  
+3.1. Can you read an integer value into a variable declared to store real numbers?  In other 
+words, if the user entered 5 in the program section below, would an error be produced? 
+3.1.1. double number; 
+3.1.2. str = JOptionPane.showInputDialog ("Enter a number"); 
+3.1.3. number = Double.parseDouble (str); 
+3.2. Write down the declaration statement for the variable str. 
+4. Can you read a real number into a String variable?  An integer into a String?  A String into an 
+integer?  A String into a real number?  Check your answers by typing in Java statements in a 
+program to check. 
+5. A friend of yours has seen your programs and does not understand why you are using 
+variables. Write a short explanation why variables are important in programming. 
+6. Write down the name of a method that returns a String that is typed into the keyboard. What 
+class does the method belong to? 
+7. What is an assignment statement?  Explain briefly what it is, what it is used for and give an 
+example to illustrate your answer. 
+8.   
+8.1. Write down the rules for identifier names. 
+8.2. Which of the following are valid identifier names?  Give reasons if an identifier does not 
+follow a rule and/or convention. 
+8.2.1. MyFirstProgram  
+8.2.2. myFirstProgram 
+8.2.3. 1program 
+8.2.4. Program1 
+8.2.5. Program 1 
+8.2.6. Percentage num 
+8.2.7. PercentageNum 
+8.2.8. %num 
+8.2.9. num% 
+8.2.10. num 5 
+8.2.11. x 
+8.2.12. thingy 
+8.2.13. a2 
+8.2.14. a.2 
+8.2.15. 2a 
+8.2.16. 'a' one 
+8.2.17. aone 
+8.2.18. x_1 
+8.2.19. miXedUp 
+8.2.20. pay day 
+8.2.21. Pay_Day 
+8.2.22. S.D.G. 
+8.2.23. min*2 
+8.2.24. native 
+ 
+  
+===== PDF PAGE 40 =====
+Exploring IT: Java Programming Grade 10 
+Page 30 Learning Unit 2 Integer and Real Numbers 
+2.1.8 Summary 
+So far you have learned to use three common data types: int, double and String.  
+NOTE that the names of all data types except for String start with a lowercase letter. String has an 
+initial capital letter, because, in Java, declaring a variable as a String is actually creating a String 
+object from the String class. String is not a primitive data type like int and double. 
+In order to read in String data from the keyboard, use the showInputDialog() method of the 
+JOptionPane class with a helpful prompt in brackets telling the end user what to input. For example: 
+ name = JOptionPane.showInputDialog ("Enter your name"); 
+If you need to input an integer, the number must be entered converted to an integer as the 
+showInputDialog returns a String. 
+ num = Integer.parseInt (JOptionPane.showInputDialog  
+              ("Enter a number")); 
+If you need to input a real number, the number must be converted to a double before it is assigned 
+using the Double.parseDouble method. 
+ num = Double.parseDouble (JOptionPane.showInputDialog  
+              ("Enter a real number ")); 
+2.2 Java Primitive Data Types 
+Refer to Learning Unit 1 in Exploring IT: Theory Grade 10 for more details about binary and 
+hexadecimal numbers and calculations relating to the maximum and minimum numbers in a fixed 
+number of bits. 
+Java has several primitive data types, of which int and double are examples. The primitive data type 
+char can store a single character such as 's', '$' or '7'. Note that letters, numbers and 
+punctuation are all considered to be characters. In Java, a char value is enclosed in single quotes.  
+The different data types and their properties are summarised in the table that follows. This table is 
+provided for reference purposes - you will come across most of these types sooner or later.  
+A char variable in Java, strictly speaking, is represented with Unicode instead of ASCII code. ASCII is 
+an old system that used 8 bits to store a character and Unicode stores a character in 16 bits, however 
+the first 127 characters of Unicode are the same as the first 127 in ASCII, so we often interchange 
+these terms.  
+The range of char values \u0000 to \uFFFF in the table below are the Unicode values in hexadecimal 
+representation. \u0000 corresponds to 0000000000000000 in binary and \uFFFF corresponds to 
+1111111111111111 in binary. F16 in hexadecimal is equivalent to 15 and is 11112 in binary.  
+A boolean data type can store a true or a false and can be used to store the result of conditions or 
+values that are yes or no. 
+Notice that String is not listed in this table of primitive data types. In Java, a String is not a primitive 
+data type, but an object. 
+Type Contains Default Size Minimum Value Maximum Value 
+boolean true or 
+false 
+false 1 bit   
+char Unicode 
+character 
+\u0000 16 
+bits 
+Unicode 0 (\u0000) Unicode 65536 (\uFFFF) 
+byte Signed 
+integer 
+0 8 bits -127 +127 
+===== PDF PAGE 41 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 31 
+Type Contains Default Size Minimum Value Maximum Value 
+short Signed 
+integer 
+0 16 
+bits 
+-32 768 +32 767 
+int Signed 
+integer 
+0 32 
+bits 
+-2 147 483 648 +2 147 483 647 
+long Signed 
+integer 
+0 64 
+bits 
+-9 223 372 036 854 775 808  +9 223 372 036 854 775 807 
+float Floating 
+point 
+0.0 32 
+bits 
+±3.40282347E+38  ±1.40239846E-45 
+double Floating 
+point 
+0.0 64 
+bits 
+±1.7976931348623157E+308  ±4.94065645841246544E-324 
+The size relates to how much space in memory it takes to store a value of that type. If you look at the 
+size of an int (32 bits) compared to the size of a double (64 bits), you see that each double or real 
+number takes twice as much memory space as that of an int type number.     
+The range specifies the biggest and smallest number that can be stored in a variable of that type. The 
+biggest number than can be stored in an int variable is 2147483647. The range that can be stored by 
+a signed integer type can be calculated using the formula 2n-1 – 1 for the largest positive number and -
+2n-1 for the smallest negative number. For example, the integer type short is represented in 16 bits: 
+the largest positive number will be 216-1 – 1 = 215 – 1 = 32767 and the smallest negative number is -
+216-1 = -32768. Note that the primitive type char does not lose a bit for the sign and can store 216 = 
+65536 different characters. 
+ACTIVITY 5 
+ Code a program TestInt that will declare an integer variable called tooBig and assign the value 
+tooBig = 2147483648; 
+ Explain why the error occurred.  
+ Change the data type to another primitive numeric data type so that an error does not occur 
+when you run the program. 
+2.2.1 Declaring Variables 
+There are two main types of variables used in Java programs: 
+• a variable of a primitive data type, i.e. the name given to a storage location which will hold a 
+value of a primitive data type, such as an int or a double. E.g. int num = 564; num is a 
+variable of the primitive data type, int. 
+• an object reference, i.e. the name of an object, such as bug (a Gogga object) or str (a String). 
+Objects are stored differently in memory to primitive type variables. 
+All variables in a program must be declared by stating the type of the variable (either a primitive type, 
+or a class, such as Gogga or Color) and the name (or identifier) of the variable.  
+ int x;    // x is of type int 
+ int y;    // y is of type int 
+ String userResponse;    // userResponse is of type String  
+ Gogga sue;    // sue is of type Gogga 
+ Color col;    // col is of type Color    
+Note that there is no real difference between the way primitive variables (such as x, y and 
+userResponse) and objects (such as sue and col) are declared. In both cases we must specify the 
+type and give the variable a name. A class such as Gogga or Color can be thought of as a data type. 
+Although primitive variables and objects are declared in a similar way, they are in fact completely 
+different in the way they are stored and how they behave.  
+===== PDF PAGE 42 =====
+Exploring IT: Java Programming Grade 10 
+Page 32 Learning Unit 2 Integer and Real Numbers 
+Several variables of the same type can be declared at the same time, for example the declarations of 
+the two integers above could have been declared instead as follows: 
+ int x, y;    // x and y are of type int 
+Notice the commas between the variables and the semi-colon to finish it off.  
+2.2.2 Initialising Variables 
+After a variable has been declared, it must be initialised (assigned a value). If you use a variable in a 
+program without initialising it, the compiler generates an error. Using the variable declarations above, 
+the following are examples of initialisation statements: 
+ x = 10;     //x is assigned a value of 10 
+ y = x * 50;    //y is assigned x times 50 
+ userResponse = JOPtionPane.showInputDialog ("Continue? (y/n)"); 
+      //is assigned the user input  
+      //from the keyboard 
+ sue = new Gogga();  //sue and col are initialised using the Java  
+      //keyword new and the class constructor.  
+//The Java keyword, new, is used to create 
+col = new Color(255,0,255); //objects along with the constructor method 
+      //of their class.  
+double balance = 5.6;  //The double variable balance is declared  
+      //and assigned the value of 5.6 in one step. 
+String is a special type of object and is the only object that can be declared and initialised like 
+primitive types, because it is so commonly used in programs. 
+It is important to only declare a variable once. For example, say you wrote the following code: 
+ double num; 
+ double num = 3.56; 
+With the first statement, you are asking Java to create a variable called num. With the second 
+statement, you are asking Java to create a second variable, also called num. This will create 
+confusion, as there cannot be two boxes in memory with the same identifier. Java reports an error 
+that the variable. 
+2.2.3 Assigning Values to Variables 
+Instead of inputting values into variables when a program is run, values can be assigned to variables 
+in the program in an assignment statement, as discussed previously.  
+E.g. If 2 variables called num1 and num2 of data type int are declared, they can be given values 
+directly in the program, using the = sign: 
+int num1, num2; 
+num1 = 7; 
+num2 = 55; 
+  
+===== PDF PAGE 43 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 33 
+2.2.4 Overwriting 
+A variable's value will be overwritten when we assign a new value to the variable. Study the following 
+program: 
+// The "Overwrite" class. 
+import javax.swing.*; 
+public class Overwrite 
+{ 
+    public static void main (String[] args) 
+    { 
+        String name; 
+ 
+        name = JOptionPane.showInputDialog ("Enter your name"); 
+        name = JOptionPane.showInputDialog ("Enter your name"); 
+ 
+        System.out.println ("The name is " + name); 
+ 
+    } // main method 
+} // Overwrite class 
+There is one variable called name, but it is assigned two values from the user input. If the user 
+entered "Fred" then "Alan", only "Alan" would be displayed. The variable name would now store 
+"Alan" and all record of "Fred" would be lost as the value "Fred" would have been overwritten. 
+EXERCISE 3 
+Show what will happen in memory and what will be displayed on the screen if the following code 
+segments are carried out in a program: 
+1.  
+// over_write1;  
+int num; 
+num = 4; 
+System.out.println("num is " + num); 
+num = 10; 
+System.out.println("num is " + num); 
+2.  
+// over_write2; 
+int num; 
+num = 4;           
+num = 10; 
+System.out.println("num is " + num); 
+3.  
+// over_write3; 
+int num;  
+num = 4;     
+System.out.println("num is " + num); 
+num = 10; 
+  
+===== PDF PAGE 44 =====
+Exploring IT: Java Programming Grade 10 
+Page 34 Learning Unit 2 Integer and Real Numbers 
+4.  
+// over_write4; 
+int num;  
+num = 4;     
+System.out.println("num is " + num); 
+num = Integer.parseInt(JOPtionPane.showInputDialog ("Enter a  
+          number")); 
+System.out.println("num is " + num); 
+CHECK POINT 3 
+1. Write down the appropriate data type to store the following data items: 
+1.1. a postal code (such as 3409 or 0003) 
+1.2. an age 
+1.3. an ID number 
+1.4. a telephone number (011) 455 6519 
+1.5. the number of HIV positive people in the world 
+1.6. the temperature in degrees Celsius 
+1.7. the weight of a diamond 
+1.8. your height in metres 
+1.9. if a person is a smoker 
+2. What are the primitive data types in Java? 
+3. How is the initialisation of an object variable different to that of a primitive type variable? 
+4. Why can the type byte not store the value 200?  What would be a more suitable type? 
+5. In Java, we only use the types int and double for numbers that we want to do calculations with. 
+Why? 
+6. What happens if a primitive type variable is not assigned a value and is later used in the 
+program? Type in a short program to check your answer. 
+7. What does it mean if the value in a variable has been overwritten? 
+8. Does overwriting only apply to variables in memory?  Try to think of another example of 
+overwriting. 
+9. Assume Java creates a new type called little which is an unsigned integer using 8 bits. 
+Calculate the largest and smallest possible values that could be stored in this type. 
+10. Write down two different ways of putting a value into a variable and give an example of each. 
+ 
+2.3 Operators, Expressions and Assignments  
+Java provides addition (+), subtraction (-), multiplication (*), integer and real division (/) and 
+modulus (%). 
+The plus (+) operator is overloaded in that it can add numbers together (7+6) and join Strings 
+("sun" + "shine" = "sunshine"). 
+In compound output statements, consisting of more than one item joined using plus signs, the items 
+are converted to strings and then joined together.  
+===== PDF PAGE 45 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 35 
+E.g.  The output statement:  
+ System.out.println("The cost of the shirt is " + 375.99);  
+will result in the real number 375.99 being converted to a string, then joined onto the text 
+message so that the line of output displayed will be the string "The cost of the shirt is 
+375.99". 
+If two numbers are added in an output statement, the FIRST will be joined to the text message and 
+the second number will be joined to that. 
+System.out.println ("The sum is " + 4+5); will display The sum is 45  
+where as  
+System.out.println("The sum is " + (4+5)); will display The sum is 9 
+Subtraction (−) and multiplication (*) perform as expected and are not overloaded, unlike division (/). 
+(/) can be used for division with integers or real (double) numbers. It will, however, produce different 
+results depending on the type of data with which it is used. 
+2.3.1 DIV and MOD in Java 
+Java has a mod operator that is depicted with a percentage sign % and finds the remainder after the 
+first number has been divided by the second. For example, 5 % 2 = 1, 16 % 2 = 0 and 25 % 7 = 4. 
+DIV is called integer division and depends on the types that it is working with, so does the division 
+operator. If the division operator occurs between two int types, integer division will be performed, 
+where the remainder is ignored, and the result is an integer. For example, 12/5 = 2 and 16/3 = 5 and 
+9/3=3. 
+When division takes place between two real numbers, or one real number and one integer, the result 
+will be real and is considered as real division. For example, 5.0/2 = 2.5, -12.6/5.2 = -2.423 and 
+9/20.5 = 0.439. As long as one of the numbers in the division is declared as a real number, the result 
+will be real and should be assigned to a variable declared as double. 
+The type of the variable that the result is assigned to does not influence the division.  
+For example, double ans = 5 / 2; will produce a result of 2.0 since 5 / 2 will be 2 and 2 will be 
+converted to a double when it is assigned giving 2.0. 
+EXERCISE 4 
+Work out the result of the following calculations: 
+43 / 5   = ..........     43 % 5   = .......... 
+63 / 9   = ..........     63 % 9   = .......... 
+12 / 15 = ..........     12 % 15 = .......... 
+−14 / 8   = ..........   −14 % 8   = .......... 
+7 / 7    = ..........       7 % 7   = .......... 
+10.0 / −3   = ..........     10 % −3  = .......... 
+ 
+  
+===== PDF PAGE 46 =====
+Exploring IT: Java Programming Grade 10 
+Page 36 Learning Unit 2 Integer and Real Numbers 
+2.3.2 Incrementing and Decrementing the Values of Variables 
+In any programming language it is useful to increase (or decrease) the value of a variable. This is 
+called incrementing (or decrementing). For example, if a variable called count exists in a program to 
+count the number of times something happens; it may be useful to increase it by 1.  
+To increment in Java, we can say num = num + 1 or use the shortened way of num++. Both take the 
+current value of num, add 1 and overwrite num with the new value. 
+ACTIVITY 6 
+ Start a new class called Incrementing. 
+ Declare two integer variables called num1 and num2 and assign the values 7 and 10 to num1 
+and num2 respectively. 
+ Add output statements which display the values that are stored in the two variables: 
+ System.out.println("The first integer is " + num1); 
+ System.out.println("The second integer is " + num2); 
+ After the two output statements for num1 and num2, add the incrementing statements on the 
+next two lines: 
+ num1 = num1 + 1; 
+ num2 = num2 + 1; 
+ Add output statements which display the values that are NOW stored in the 2 variables: 
+ System.out.println("After incrementing:"); 
+ System.out.println("The first integer is now " + num1); 
+ System.out.println("The second integer is now " + num2); 
+ Save and run the program. Ensure that 8 and 11 are given as output.  
+Instead of typing the code num = num + 1; the shorter version num++ can be used. 
+ Change the incrementing statements in the above program so that they both use the shorter 
+form. (i.e. in place of the statement num1 = num1 + 1; type num1++ instead.) 
+In a similar way, the values stored in variables can be decremented (decreased) by 1, using the code   
+num = num − 1; or the shorter version num--.  
+Incrementing (and decrementing) will be used a great deal later on when you learn how to code 
+programs with loops. 
+So, for example, c++ is the same as the slightly more long-winded c = c + 1. (Did you realise that 
+this is where the programming language C++ gets its name? C++ is one more than C.)  
+2.3.3 Compound Assignment Operators 
+The simple assignment operator is the equal sign (=). You have seen many examples of its use. The 
+expression on the right of the assignment is evaluated and its value is assigned to the variable on the 
+left, e.g. 
+ x = a + 2*b – 3*a*c; 
+  n = n + 1;          // increase the value of n by 1 (or n++) 
+Note the direction of the assignment: from the right-hand side of the equals sign to the left; the 
+variable on the left changes. It is a common programming error to get the assignment the wrong way 
+around, as in 
+ n + 1 = n;       // wrong way!  wrong way!  wrong way! 
+Java expects a single variable on the left-hand side and will give an error message if it finds anything 
+else.  
+===== PDF PAGE 47 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 37 
+Other than the simple assignment operator (=), there are operators called compound assignment 
+operators. A statement like 
+ sum = sum + x;  
+occurs so frequently in Java that it may be written more concisely as 
+ sum += x;  
+The double symbol += is called a compound assignment operator. There are other compound 
+assignment operators, such as  −=,  *=,  /= and %=, which work in a similar way. For example, 
+consider the following code: 
+ int x = 10; 
+   x *= 5; // equivalent to:  x = x * 5; 
+  System.out.println(x); 
+The variable x is initially set to 10. The 2nd statement sets x to the original value of x (10) multiplied 
+by 5. The value inside x has therefore been changed to 50, which is the value that is printed out by 
+the final statement. 
+ What is wrong with each of the following Java statements? 
+1. n = n++; 
+2. number + 1 = answer; 
+3. sum =+ x; 
+Note that n = n++; may not generate a syntax error. 
+2.3.4 Summary 
+Common arithmetic operators used with numbers in Java are listed in the table below, showing what 
+operation they perform: 
+Operator Arithmetic Operation 
++ Addition 
+− Subtraction 
+* Multiplication 
+/ Division (integer division and real division) 
+% Modulus (used to find the remainder of integer division) 
+++ Increment 
+−− Decrement 
++=, -=, *=, %=, /= Compound Operators 
+ 
+  
+===== PDF PAGE 48 =====
+Exploring IT: Java Programming Grade 10 
+Page 38 Learning Unit 2 Integer and Real Numbers 
+2.3.5 Order of Arithmetic Operators 
+The order of operations in Java follows a set of strict rules. The computer works out arithmetic 
+expressions in this order: 
+ FIRST    Brackets 
+ SECOND  *, /, (both integer and real division), % 
+THIRD   +, − 
+Operations with the same importance are evaluated from left to right, as they appear in the 
+expression. 
+Example 1 
+  4 + 5 * 3 - 12 % 5 
+= 4 +  15   -     2 
+=   19      -     2 
+=      17 (Integer) 
+Example 2 
+   (10 + 4) / (25 - 2 * 11) 
+=     14    /  (25 - 22) 
+=     14    /   3 (Integer Division) 
+=         4 (Integer) 
+ 
+Example 3 
+    (10 + 4) / (24 - 2.2 * 11) 
+=     14    /  (24- 24.2) 
+=     14    /      -0.2 (Real Division) 
+=         -70.0 (Real)   
+ 
+2.3.6 Where to Declare Variables in a Java Program  
+Variables can be declared at the beginning of a method or they can be declared the first time they are 
+used in a program. It is useful to declare all the variables at the beginning of a method as it gives a 
+summary of the variables that are going to be used in the method.  
+ACTIVITY 7 
+ Start a new class called VarValues. 
+ Add the following code:    
+     // Declaring variables 
+     int num1; 
+     int num2; 
+     int num3;          
+ 
+     // Assigning values to variables    
+     num1 = 7;       
+     num2 = 15; 
+ 
+     // Getting a value into a variable from the keyboard 
+     String message = "Type in any integer and <Enter>: "; 
+     num3 = Integer.parseInt (JOptionPane.showInputDialog( message ) ); 
+ 
+     // Displaying output         
+ System.out.println(); 
+     System.out.println("The first integer is " + num1); 
+     System.out.println("The second integer is " + num2);  
+ System.out.println("The third integer is " + num3); 
+         
+     // Declaring and assigning in one statement 
+     int sum = num1 + num2 + num3; 
+===== PDF PAGE 49 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 2 Integer and Real Numbers Page 39 
+ 
+ // More output 
+     System.out.println("The sum of the 3 integers is " + sum); 
+ Save and run, entering any integer values when prompted. (e.g.: 17) 
+ Add another output statement that declares and assigns the product of the three integers to a 
+variable called product. 
+ Also add an output statement to display this product (with a meaningful message) after the sum 
+output statement. 
+EXERCISE 5 
+1. Work out the answers to the following expressions as the computer would work them out. 
+Remember that / and % are performed before + and −.  (Show all steps of working.) 
+ 1.1 32 / 3      1.5 32 % 3 
+ 1.2 444 % 2     1.6 27 / 5 + 27 % 5  
+ 1.3 43 / 12 −  16 / 7    1.7 65 / 9  +  38 % 6  − 76 % 8  
+ 1.4 1 + 15 / 4    1.8 8 + 5 / 7 − 3 % 4 
+ Type the expressions in 1.1 - 1.8 in output statements in a program. Compile, save and 
+run the program to check your answers. 
+   e.g. System.out.println(32 / 3); 
+2. Work out the answers to each of the following if carried out in a Java program, showing each 
+step. Also say whether the final result will be real or an integer: (Remember that / division 
+depends on the types of numbers on either side of it (integer or real)) 
+ 2.1 19 − 15 / 2 + 1     2.5 7 *  3  +  7 % 3   
+ 2.2 8 − ( 27 / 6 ) * 2     2.6 19 − (26 % 3) * 3 + 10.0 / 4 
+ 2.3 32 / 4 + 27 / 10 / 2 − 16 /  7    2.7 64.2 + 5 % 7 
+ 2.4 (7 + 2 * 5 ) / ( 64 - 6 * 10 + 2 ) + 35 / 5 * 2 + 15 % 11  
+CHECK POINT 4 
+1. Why are the brackets around num1 + num2 necessary in the statement: 
+System.out.println("The sum of the 2 numbers is " + (num1 + num2)); 
+2. Explain why 5 / 2 = 2 and 5.0 / 2 = 2.5 in Java. 
+3. Why do the answers given by the computer to some calculations appear to be inaccurate? 
+4. What is the shortened form of num = num + 1 and num = num - 1? 
+5. Explain in your own words the function of the % operator. 
+6. List the arithmetic operators that we have studied in this learning unit. 
+7. Explain why the output of System.out.println( 20 % 4 ) is zero. 
+8. In what order will the computer evaluate this arithmetic expression?  Rewrite the expression and 
+above the expression, number the operators in the order they will be carried out in Java. Use a 
+===== PDF PAGE 50 =====
+Exploring IT: Java Programming Grade 10 
+Page 40 Learning Unit 2 Integer and Real Numbers 
+1 for the first operator to be executed, a 2 for the next operator and continue till the last 
+operator. 
+5 + ( 7 * 2 ) % 4 − 13 / 8 + 1 
+9. What will the answer be if this expression is carried out in a Java program? 
+10. Your friend in your Maths class sees the statement x = x+1 in your code. Your friend says that 
+this is not possible in Maths as x cannot equal x+1. Explain to your friend what this statement 
+means in programming. 
+ 

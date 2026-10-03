@@ -1,0 +1,576 @@
+
+===== PDF PAGE 63 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 55 
+Learning Unit 5 Computer 
+Networks 
+5.1 What is a Network? 
+A network consists of two or more devices called nodes that are connected by some type of 
+communications channel. A node is any device connected to the network. While a node is typically a 
+computer, it can also be something like a printer or a mobile device. The communication channel can 
+be either bounded using wires or unbounded using a form of wireless technology.  
+One node in a network could be a server. A network server is a computer designed to act as central 
+network computer that provides various resources like network security, hardware access, disk 
+space, printer access. The server has server software which manages logins and user access to 
+computers on the network. Network devices such as printers and routers to name a few are 
+connected network and managed by the server. Many uses can print to centralised printers and 
+access the Internet. A server may manage and provide resources to several LANs which are 
+connected to it. 
+A network which exists in a geographical area such as a home, school, computer laboratory, office 
+building or group of buildings is called a Local Area Network (LAN).  
+ 
+https://previews.123rf.com/images/ohmega1982/ohmega19821311/ohmega1982131100279/23981423-lan-network-diagram-
+illustrator-for-business-and-technology-concept.jpg 
+The trend today is not for companies to set up LAN networks using expensive devices and servers, 
+but rather to use cloud computing. Cloud computing is making use of computing services like 
+storage, databases, software, networking and more over the Internet, “the cloud”. You pay only for the 
+services that you use, removing the need to upgrade servers and software. Cloud services are 
+lowering the cost of computing for individuals and businesses.  
+https://www.kcsitglobal.com/images/cloud-computing.png  
+
+===== PDF PAGE 64 =====
+Exploring IT: Theory Grade 10 
+Page 56 Learning Unit 5 Computer Networks 
+ 
+https://www.kcsitglobal.com/images/cloud-computing.png 
+5.2 Nodes 
+The nodes on a network can be a: 
+• device that users use such as a laptop, desktop or mobile device 
+• device to connect nodes to each other, namely a switch 
+• device to connect to the Internet, such as a router 
+• device to provide a service such as a server or a printer 
+A switch connects nodes in a network using communication media such as cables. Each node is 
+connected to the ports in the switch. The server and printer are connected to the switch so that each 
+node can print and access the server. 
+ 
+https://creately.com/app/?tempID=gc7qvpsj1&login_type=demo# 
+
+===== PDF PAGE 65 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 57 
+The server could be a file server where users can store their files in a central location and access 
+these files from any of the nodes, provided that the user has the correct permissions. Similarly, the 
+user can print from any of the nodes. 
+5.3 Communication Media 
+Irrespective of the distance covered by a network, it has 3 parts.  
+• firstly, hardware that acts as a source or sender,  
+• secondly, hardware that is the destination or receiver and  
+• thirdly, some sort of connection between source and destination.  
+ 
+https://scienceaid.net/Computer_Network 
+The connection is usually called the communication channel or transmission medium. The 
+sending and receiving devices can each be any node such as a computer, a cell phone, a printer, or 
+any other networkable device. 
+A communication channel has a bandwidth, which is the maximum amount of data that it can transfer 
+per unit time (usually the quantity of bits per second). The rate at which data is transferred over a 
+communication channel is usually measured in thousands of bits per second (kilobits per second 
+Kbps), millions of bits per second (megabits per second Mbps) or billions of bits per second 
+(gigabits per second Gbps). The higher the bandwidth the faster the transmission rate. 
+Bounded communication channels, consisting of physical cabling, are commonly used for wired 
+LANs, while unbounded media, with no cables, carry signals for wireless LANs and larger networks. 
+5.4 Bounded Media 
+5.4.1 Unshielded Twisted Pair (UTP) 
+The most common bounded media cabling in small LANs is 
+Unshielded Twisted Pair (UTP) cabling, which consists of several 
+pairs of twisted wires in an outer protective plastic cover. The 
+twisting of the wires helps to eliminate interference from signals on 
+other wires and from other electrical devices. 
+http://fsit.usf.edu/network/chap4/chap4.htm 
+ 
+
+===== PDF PAGE 66 =====
+Exploring IT: Theory Grade 10 
+Page 58 Learning Unit 5 Computer Networks 
+UTP cabling has an RJ45 connector on each end of it like the one shown 
+here. One end connects to a port on a computing device and the other 
+connects to a switch.  
+ 
+http://fsit.usf.edu/network/chap4/chap4.htm 
+5.4.1.1 Problems with Copper Cables 
+Attenuation: The signal loses strength over a distance. 
+Electro-Magnetic Interference: Signals from other sources such as machinery can corrupt the 
+signals traveling in copper cables nearby. 
+Eavesdropping: Signals traveling along copper cables can be intercepted by outsiders. 
+Crosstalk: Signals in adjacent wires can interfere with each other as in a crossed telephone 
+conversation. 
+5.4.1.2 Advantages of UTP 
+• It is inexpensive and easy to install 
+• it supports fast transmission rates 
+• It is widely used and tested 
+• It can be used in many different types of networks 
+5.4.1.3 Disadvantages of UTP 
+• It is susceptible to interference from other devices. 
+• Crosstalk can be a problem when signals on wires close together corrupt each other. 
+• There are distance limitations. A cable can be a maximum of 100m before the signal 
+degenerates due to attenuation. A device called a repeater can be used to join two long 
+lengths of cable. A repeater will boost or amplify the signal on the cable. 
+5.4.2 Shielded Twisted Pair (STP) 
+There is a more expensive, bulkier type of cable called 
+Shielded Twisted Pair which has twisted pairs enclosed 
+in protective foil. This type of cable is less affected than 
+UTP by interference and crosstalk.  
+http://www.trynci.com/cat/i-229004.jpg 
+5.4.3 Fibre Optic Cable 
+Fibre optic cable consists of a central glass or plastic core surrounded by several layers of protective 
+materials. Cladding is used to surround the core and reflects light back into the core. It transmits light 
+pulses rather than electronic signals, eliminating interference. 
+ 
+ 
+ 
+http://fsit.usf.edu/network/chap4/chap4.htm 
+
+===== PDF PAGE 67 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 59 
+ 
+https://img.cdndtl.co.uk/umbraco2017/23575/fibre-optic-cable-diagram.jpg 
+  
+The light travels through the core and is 
+bounced off the cladding even if the cable is 
+bent. 
+http://static.howstuffworks.com/gif/fiber-optic-
+transmission.gif 
+ 
+ 
+There have been various types of connectors used with fibre optic cable. 
+The most common these days is called an SC connector, as shown on 
+the right.  
+http://hdcabling.co.za/images/fibre_optic_lc_to_sc_cable_duplex_multimode_50_125_type.jpeg 
+5.4.3.1 Advantages of Fibre Optic Cable 
+• It supports much faster transmission rates because light travels faster than electronic signals. 
+• It is more secure than UTP since light signals cannot easily be tapped. 
+• It can transmit over much longer distances than UTP because the light signals do not weaken 
+like the electronic signals in copper wires. 
+• Light signals are not susceptible to interference unlike electronic signals which are very 
+susceptible to EMI. 
+• The light signals are also immune to lightning and electrical surges. 
+
+===== PDF PAGE 68 =====
+Exploring IT: Theory Grade 10 
+Page 60 Learning Unit 5 Computer Networks 
+5.4.3.2 Disadvantages of Fibre Optic Cable 
+• It is very expensive to purchase and install. 
+• It is complex to install - and strict installation criteria must be met to ensure that the cabling will 
+be certified. 
+5.4.4 Fibre Optic Cabling as a Backbone 
+Fibre optic cable is often used to join LAN segments together, especially when the LANs are in 
+different buildings. This is because lightning does not affect fibre optic cable. When several LAN 
+segments hang off one fibre optic cable, it is called a backbone.  
+ 
+ 
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCOjIQoGsFXrMX-RVrx-Yk6kSK8i6q_qFPUavJlN7e1N09oc22 
+
+===== PDF PAGE 69 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 61 
+CHECK POINT 1 
+1. What is a network? 
+2. Give THREE examples of nodes commonly used in networks. 
+3. Name ONE item of hardware often shared on a network. 
+4. What is meant by each of the following commonly used networking terms: 
+4.1. node 
+4.2. server 
+4.3. communications channel 
+4.4. switch 
+5. What is cloud computing? 
+6. What unit is a communication channel's bandwidth measured in? 
+7. Describe the physical features of each of the following types of cable: 
+7.1. UTP 
+7.2. Fibre optic 
+7.3. Use a table to compare any THREE aspects of UTP and Fibre Optic cable. 
+8. Name and describe four problems with copper cables. 
+9. What is a “backbone cable” and what is it used for? 
+10. List FOUR advantages of fibre optic cables. 
+ 
+5.5  Unbounded Media 
+5.5.1 Wireless Networks  
+Nodes in a network do not have to be connected with cabling. Wireless 
+networks use the air to transmit radio signals such as Bluetooth, infrared 
+beams, microwaves, satellites or laser light signals. Each type of wireless 
+signal uses a different frequency (measured in Hertz or cycles per second) so 
+that the signals remain separate from each other.  
+
+===== PDF PAGE 70 =====
+Exploring IT: Theory Grade 10 
+Page 62 Learning Unit 5 Computer Networks 
+ 
+https://images.techhive.com/images/article/2013/09/smb-wireless-network_1160-100052356-large.jpg 
+5.5.2 Types of Wireless (Unbounded) 
+Transmissions 
+5.5.2.1  Microwave Transmissions - Long 
+Distances 
+Microwave transmissions can either be terrestrial (land-
+based) or satellite (above the surface of the earth).  
+Terrestrial microwave systems use the line-of-sight method 
+for transmitting data between two antennas and can transmit 
+over ranges of 50 km provided there is no obstacle in the way.  
+Satellite transmissions use satellites orbiting the earth to receive and pass on communications to 
+the destination. 
+Satellites have transponders which transmit signals 
+they have received to stations on the ground below. A 
+transponder is a device which receives signals and 
+converts them into a different frequency, boosts the 
+signals and then sends them to a station on the ground 
+below which must be in line-of-sight of the satellite.  
+ 
+ 
+ 
+http://www.delmar.edu/Courses/CIS306/Primer/hardware.html 
+Satellites can be geo-stationary which means they are in a fixed position above the earth's surface 
+and they rotate at the same speed as the earth, therefore they appear to stay in the same place all 
+the time. Satellites can also be low orbit which means they are much nearer the earth's surface. 
+These rotate around the earth every few hours. Low-orbit satellites are better for interactive 
+
+===== PDF PAGE 71 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 63 
+communications because the distance from earth is not as great as with geo-stationary satellites so 
+there is little delay. Geo-stationary satellites are excellent for TV broadcasting. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+http://www.pcmag.com/encyclopedia_term/0%2C2542%2Ct%3DGEO&i%3D43743%2C00.asp 
+All microwave transmissions are affected by adverse weather conditions such as lightning. 
+5.5.2.2 Radio-Wave Transmissions – Short Distances 
+Radio-wave transmission is used by radio, TV, cellular phones etc. The radio waves can travel 
+through walls and through an entire building (these would be radio waves at low frequencies). 
+Depending upon the frequency of the waves, they can travel long distances or short distances. Wi-Fi 
+and Bluetooth all utilise radio waves to transmit signals. 
+ 
+http://www.hearingreview.com/2017/06/wireless-hearing-aids-present-health-risk/ 
+  
+ 
+===== PDF PAGE 72 =====
+Exploring IT: Theory Grade 10 
+Page 64 Learning Unit 5 Computer Networks 
+CHECK POINT 2 
+1. Explain the difference between bounded and unbounded transmission media. 
+2. List TWO types of unbounded media. 
+3. Describe the TWO different types of microwave transmission: 
+3.1. terrestrial 
+3.2. satellite 
+4. What does geo-stationery mean? 
+5. What devices can be connected using radio transmissions? 
+6. Which type of wireless transmission is suited to long distances? 
+7. Name TWO types of radio wave transmissions used by computing devices. 
+ 
+5.6 Network Classification 
+Networks can be classified according to the distances covered as in LAN, MAN, WAN, GAN, PAN 
+and HAN.  
+5.6.1 Local Area Network (LAN) 
+A LAN is a network setup in a limited physical location such as in a building, or on a campus. A 
+school network with computers connected in many different locations is a typical example of a LAN, 
+as shown in the diagram on the right. 
+5.6.2 Metropolitan Area Network (MAN) 
+A MAN is made up of LANs interconnected using high-speed connections across a city or 
+metropolitan area. A MAN would be used by a company with offices scattered across a city. 
+www.c2kni.org.uk/future/wan1.htm 
+5.6.3 Wide Area Network (WAN) 
+A WAN is made up of interconnected LANs and/or MANs 
+in different cities or different countries. A large company 
+such as Edgars or a bank with branches in many cities 
+will use a WAN. The WAN of a large company is often 
+called an enterprise WAN. 
+5.6.4 Global Area Network (GAN) 
+A worldwide WAN such as the Internet is called a GAN.  
+www.soi.wide.ad.jp 
+5.6.5 Personal Area Network (PAN) 
+The PAN is used by an individual for communicating between devices such as a desktop computer, 
+Laptop, smartphone, smart wear and tablet. A PAN exists where a user transfers data and 
+synchronises data between cell phone, laptop, printer, camera, wearable devices and many other 
+devices.  
+
+===== PDF PAGE 73 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 65 
+ 
+https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/649ddb0e92fd71329f68111d9c4a87f56c1bcb88/1-Figure1-1.png 
+The data can be transferred wirelessly using Bluetooth, for example, or using bounded media such as 
+a USB cable.  
+5.6.6 Home Area Network (HAN) 
+A Home Area Network (HAN) is a network found within a user's home that connects the devices of all 
+individuals within the home. All digital devices, from multiple computers, smartphones, tablets and 
+their devices to routers, televisions, home security systems, smart appliances and other digital 
+devices that are wired into the network. The PAN's of the individuals in the home, sharing resources 
+make up the HAN. 
+5.7 The Home Network 
+An Internet connected home network consists of a variety of hardware and software components. 
+5.7.1 Router 
+A router is a small electronic device that joins computer networks together using either wired or 
+wireless connections.  
+ 
+
+===== PDF PAGE 74 =====
+Exploring IT: Theory Grade 10 
+Page 66 Learning Unit 5 Computer Networks 
+ 
+https://www.lifewire.com/thmb/1u-UXdbyKXOQr7pUpspHYZa-
+JMo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/wlan-3131127_1920-5b885b40c9e77c0025b3e270.png 
+In a home or small office setup the router connects all nodes in the network to other networks outside 
+the home, namely the Internet. ADSL lines and fibre lines require routers. For an ADSL connection 
+the telephone line is plugged into the ADSL router connecting the home network to the Internet. 
+Similarly, the fibre line is plugged into the fibre router for a fibre Internet connection. 
+A Wi-Fi Router creates a Wi-Fi hotspot which enables all computers and devices which have Wi-Fi 
+capabilities to connect to the router. These devices must also be within range and have access rights 
+(valid passwords) to connect to the router wirelessly. With correct setup, devices connecting 
+wirelessly to the router would be able to connect to one another. 
+5.7.2 Fibre in the Home 
+The diagram that follows simplifies the setup of fibre in the home. To get fibre to your home a fibre optic 
+backbone cable is connected from a local distribution node to your street. The fibre is connected from 
+the distribution box at your boundary wall into your home . An ONT (Optical Network Terminal) is the 
+device that connects the fibre that has been wired to the outside of your house, to your router. Copper 
+cables ma y then be run from the router to devices in the home or you may connect your devices 
+wirelessly to the router.  
+http://www.mweb.co.za/Portals/29/Images/Content_IMG/Fibre/Fibre%20Basics/fibre%20home.png 
+
+===== PDF PAGE 75 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 67 
+5.7.3 Firewall  
+ 
+https://s.hswstatic.com/gif/firewall.gif 
+A firewall is a system designed to prevent unauthorized access to or from a private network. You can 
+set up a firewall in either hardware or software form, or a combination of both. Firewalls prevent 
+intruders on the Internet from accessing a private network which is connected to the Internet. 
+It effectively acts like a one-way digital gate blocking access to your network from devices on the 
+Internet, but at the same time allowing devices on your network to connect to devices on the Internet.  
+CHECK POINT 3 
+1. Explain the types of networks classified by area: LAN, MAN, WAN, GAN, HAN, PAN. 
+2. For each type above, give an example of a typical use of the network. 
+3. What is the function of a router? 
+4. Explain why it important to setup a firewall on a network when connecting to the Internet. 
+5. A firewall is not the only way of protecting a network from malicious attacks. Describe other 
+strategies that should be included to secure a network. 
+ 
+5.8 Client-Server Network 
+5.8.1 Role of the Server 
+A server computer is a computer which shares resources with other computers in a network. The 
+computers that connect to the server are called client computers because they use the services of the 
+server. In a client/server network there may be several servers, each with a specific purpose, 
+depending on the resources the server shares. For example, there may be:  
+• a file server with large hard disk capacity can store many files which can be accessed by 
+network users.  
+• a print server to which one or many high-speed printers are attached. These printers can be 
+shared by computers on the network. 
+• a web server is usually a combination of hardware and software which accepts requests for 
+web pages and sends the pages to the client machines.  
+• an email server stores incoming mail for distribution to users on the network and sends out 
+outgoing messages.  
+• a proxy server is a server through which all web content passes. It is positioned between the 
+client computers and servers and it intercepts and checks all traffic maintaining security by 
+disallowing access to unauthorised users. It also stores web documents, in a process called 
+caching, that have been previously accessed, in order to speed up download time. If a 
+
+===== PDF PAGE 76 =====
+Exploring IT: Theory Grade 10 
+Page 68 Learning Unit 5 Computer Networks 
+document is requested, the proxy server first checks its cache and, if the document is there, 
+serves it to the client. If the document is not there, it will obtain the document from the Internet. 
+In some networks, one server performs more than one function. For example, one server could be 
+used to share files and printers. 
+5.8.1.1 Local Servers vs Cloud Servers 
+Organisations have the choice to use local servers, servers located in the organisation, or to use 
+cloud servers.  
+Having a local server means that the company has physical control over their server setup and 
+storage of critical data. There is no need to rely on the Internet connection for access to the server 
+and data. This also means that you need to have the expense of setting up and managing the server 
+by IT staff. 
+ 
+Network diagram created using https://creately.com 
+Cloud based servers would not require the expense of continued upgrading of on-site hardware. 
+Storage can be added when needed and you only pay for what you use. Data can be backed up to 
+the cloud service as often as every 15 minutes preventing any data losses. Unfortunately, if the 
+Internet connection is down the users would have no access to data. 
+
+===== PDF PAGE 77 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 69 
+ 
+Network diagram created using https://creately.com 
+5.8.2 Role of the Client 
+The functions of an operating system on a client computer (or workstation) in a client/server network 
+must enable the client computer to connect to the server and use the resources of the server.  
+The server should not be used as a workstation; its purpose is to provide services to the computers 
+on the network. The server in the network will have advanced functions which allow it to manage all 
+the users and computers connected to it.  
+Some functions of a server operating system include: 
+• Storing and maintaining details of users (with their logons and access rights). 
+• Enabling computers to connect to/disconnect from the network, allocating IP addresses as 
+necessary. 
+• Allowing file and printer sharing. 
+• Monitoring all traffic on the network. 
+The server should have higher hardware specifications that the clients, such as a faster processor, 
+more RAM and more local storage.  
+5.9 Network Access Control (NAC) 
+Any computer accessing a network will only be able to access the network if the settings of the 
+computer and the login of the user complies with the protocols (rules) of the network. When potential 
+users log onto the network, they are authenticated by verifying their logon information. They will also 
+be restricted in terms of the data that they can access. User profiles and permissions were previously 
+discussed in Learning Unit 4.3.1 
+Access to the network will be given according to profile of the user. Once a user is authenticated, 
+rights are awarded to the user according to the user's profile. The user will be allocated permissions 
+to use certain resources on the network. For example, a student on the school network will only have 
+access to student files, they may not be able to change settings of the workstation or access the 
+
+===== PDF PAGE 78 =====
+Exploring IT: Theory Grade 10 
+Page 70 Learning Unit 5 Computer Networks 
+administration files of the school. They can be allocated permission to print to the printer in the 
+computer centre but not in the administration building. 
+5.10 Advantages of Using Computer Networks 
+5.10.1 Communication 
+Networking allows for ways of communication that would be previously impossible. Instant messaging 
+such as email allows users to talk in real time and send files to other people wherever they are in the 
+world. It facilitates the sharing of ideas, facts, news events and research. 
+5.10.2 File Sharing 
+File sharing enables a computer user to access a file saved onto 
+another computer within the network. A person sitting at one 
+workstation of a network can easily see the files on the other 
+workstation, as long as he/she is authorised to do so. File sharing saves 
+time which is wasted in copying a file from one storage system to 
+another, by using a storage device, such as a hard drive. Many people 
+can access or update the information stored in a database, ensuring 
+that it is up-to-date and accurate. File sharing also allows the sharing of 
+storage memory. When many computers are on a network, memory of 
+different computers can be used for storage. By placing a storage 
+server on the network huge storage capacity can be made available to 
+those using the network.  
+http://www.johnpopes.com/wp-content/uploads/2009/01/file-sharing.jpg 
+5.10.3 Printer and Resource Sharing 
+Expensive devices such as printers and routers can be 
+shared by computers in a network. For example, in a 
+home if several people, each having their own 
+computer, wished to access the Internet or print, at the 
+same time as each other, they would require four 
+routers and four printers. A computer network would 
+be cheaper as all the four computers can be 
+interconnected, and just one router and one printer 
+can provide the services to all four users.  
+http://support.microsoft.com/library/images/support/kbgraphics/public/EN-US/MSPressPilot_WinME_SharingPrinter.gif 
+5.10.4 Centralisation 
+5.10.4.1 Network Applications  
+Sometimes applications are not loaded on each and every machine in a network, but rather on a 
+central server. These applications are delivered from the server to the local machines when the user 
+loads the application. This happens each time the user requests the application.  
+With cloud computing (see Learning Unit 5.1) becoming increasingly popular, many users are using 
+online web-based applications. For example, Google docs or MSOffice 365, where documents are 
+created, edited and stored online. Users can control who can view or edit their documents. The 
+benefit of online applications is that as long as your device has access to the Internet, and you have a 
+Google or MSOffice 365 account you can access, create and share documents, calendars, surveys 
+and more from any device.  
+  
+
+===== PDF PAGE 79 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 71 
+5.10.4.2 File Storage 
+Instead of a user loading their files on every machine in a network, the files can be stored in a central 
+file server and the user can access these files from any computer on the network provided they have 
+access.  
+ 
+https://www.techquark.com/2014/03/filediva-best-search-engine-for-file.html 
+5.10.4.3 Sharing Data 
+Often managers need their secretaries to make appointments using an online calendar. The manager 
+also needs to access the same calendar. This calendar file is shared between users each receiving 
+immediate updates. These calendars can be synchronised (updated) with mobile devices such as 
+Smartphones. Members of an organisation can check colleague's calendar to see when they are free 
+for a meeting, they can schedule the meeting, invite colleagues and even book a venue. 
+ 
+https://www.officecalendar.com/products/share-outlook.aspx 
+Many calendar applications are linked to an email application, together with a storage facility for email 
+contacts. These applications are bundled into a suite of applications such Office 365 or Google's G-
+Suite. Users are identified by their email address, and each user has their own email, contacts and 
+calendar which can be shared with other users. 
+
+===== PDF PAGE 80 =====
+Exploring IT: Theory Grade 10 
+Page 72 Learning Unit 5 Computer Networks 
+Sharing and collaborating of documents can be done using web-based applications or cloud storage. 
+The document is shared by the creator and the user receiving the valid link to the document is able to 
+view, or edit the document depending on the sharing permissions set up by the owner of the 
+document. 
+5.10.5 Data Transfer 
+When accessing or storing data on local servers or in the cloud, data needs to be transferred from 
+one device over a network. Data transfer rate is the amount of data that can be sent between two 
+points on a network in a given time. This is very important in networks. Transferring large amounts of 
+data to cloud storage would not be a good idea if you have a low transfer rate. The setup of the 
+network and the type of network hardware installed will have an impact on the data transfer rate. The 
+transfer of data over the Internet will also depend on the bandwidth which is available. The bandwidth 
+is the maximum transfer capacity of a certain point on the network.  
+5.10.6 Productivity 
+Computer networking has made global communication possible on a grand scale. This has improved 
+the productivity of individuals and businesses by making communication fast and efficient. The 
+Internet has made information easily accessible and enabling the collaboration of people to build 
+knowledge. Companies have a pre-existing knowledge and are not required to start every project from 
+scratch. Cloud storage and remote access of data enhance productivity as data is easily available and 
+easily shared. 
+Email was the first form of global communication to change the way businesses communicated. 
+Today businesses rely on far more than email to improve productivity. Not only can documents be 
+accessed, shared and edited by many users, other network applications also improve productivity. 
+There are many network apps available to download or use online. Sharing calendars and events on 
+calendars, surveys, making team video calls, task organisers to name but a few.  
+5.11 Disadvantages of Computer Networks 
+The section below is a brief outline of the disadvantages of computer networking. These concepts will 
+be discussed in greater detail later on. 
+5.11.1 Security Issues 
+Networked computers are more susceptible to unauthorised access than stand-alone computers. 
+Computers on a network need additional network security software to prevent the theft of any 
+confidential and private data. Users working on a network will be allocated rights to enable them to log 
+onto the network and they are allocated access to specific devices (like printers) on the network. Their 
+Internet access may be filtered depending on the policy of the organisation, not allowing access to 
+certain sites. Control of access to the network from within the organisation as well as from outside the 
+organisation the is one of the key issues to maintaining good security. 
+5.11.2 Spread of Computer Viruses 
+If any computer in a network gets affected by a computer virus, there is a possibility that other 
+computers may become affected too. The spread of viruses on a network is rapid as all computers 
+are connected. This problem is compounded when the network is connected to the Internet. 
+5.11.3 Cost 
+The initial set up cost of a computer network can be high. Expensive devices like routers, switches 
+and file servers may be required. Workstations would need network interface cards if they don't have 
+built in network cards. In addition, the computers would need to be connected using cables. Should 
+you choose to connect the computers using wireless technology, you will need a device called a 
+wireless access point to send out wireless signals and the computers must either be able to receive 
+wireless signals, or you will need to buy wireless network cards. Cloud storage can reduce the cost 
+===== PDF PAGE 81 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 5 Computer Networks Page 73 
+of physical storage devices needed on the network, but network enabled devices and Internet 
+connections cost still need to be considered. 
+5.11.4 Dependency on the Central Servers 
+If a server such as the file server or email server of a computer 
+network is faulty, the system will lose its functionality. Servers can 
+be expensive machines to repair or replace and need constant 
+maintenance. 
+http://information-security-resources.com/wp-content/uploads/2009/08/computer-
+and-network-security-hand-thumb4123007.jpg 
+ 
+ 
+CHECK POINT 4 
+1. List TWO advantages and disadvantages of using a network. 
+2. Discuss why a network would be used to make each of the following tasks easier: 
+2.1. backups 
+2.2. unnecessary duplication of data 
+2.3. transfer of data 
+3. What is a stand-alone computer?   
+3.1. What is the opposite of a stand-alone computer? 
+3.2. What are the advantages of having a stand-alone machine? 
+4. A certain school has 1200 students ranging from Grade 0 to Grade 12.  
+4.1. What would be needed for each student to gain access to a computer? 
+4.2. Why would it be essential to allocate user's rights to each user? 
+4.3. A file server would be a really good idea. For what purpose would it be used? 
+4.4. List TWO types of servers and explain what their purpose. 
+4.5. Would you recommend a local server or a cloud-based server? Justify your answer. 
+5. Name 2 devices you could use to set up a home/home office network. 
+5.1. If you have TWO computers at home list FOUR reasons why you would want to connect 
+them together. 
+6. Name and describe THREE advantages of a computer network. 
+ 

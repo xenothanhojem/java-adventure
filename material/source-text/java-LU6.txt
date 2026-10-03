@@ -1,0 +1,615 @@
+
+===== PDF PAGE 113 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 103 
+Learning Unit 6 More About 
+Objects 
+6.1 Declaring and Instantiating Objects 
+You know that a Gogga object is created using the statement Gogga bug = new Gogga(); The 
+method Gogga() has the same name as the class: Gogga. This is a special method called a 
+constructor. The purpose of this method is to assign values to the object's fields when an object is 
+created. This Gogga () constructor has no parameter values in the brackets after its name so it will 
+assign the default values to the fields of the new object.  
+Before an object can have values assigned to its fields, it needs to exist!  The reserved word new is 
+used with the constructor to create a new object which must be given an identifying name, such as 
+bug:  
+    Gogga    bug    =    new    Gogga();   
+ 
+ 
+The object, bug, will be of type Gogga. The constructor Gogga() will allocate to the new object the 
+fields defined in the class and allow it to use the available methods in the class.  
+An object can also be said to be an instance of a class.  When an object is created, we say it is 
+instantiated. The code to declare and instantiate a Gogga object can be done in two lines instead of 
+one: 
+ Gogga bug; 
+ bug = new Gogga (); 
+Instead of declaring and instantiating the code in two separate lines the code is often written as one 
+line (which does exactly the same as the two separate lines): 
+ Gogga bug = new Gogga (); 
+The constructor for the Gogga class will give default values to the object bug which place it 
+approximately in the middle of the screen, by assigning xPos = 7 and yPos = 5. The direction will be 
+set to 1 for UP and the colour will be set to Color.red. The trailWidth will be set to 5, the showTrail 
+field will be set to true, meaning that the object will draw a line as it moves. The label will be set to "" 
+(empty String), meaning that it has no label. 
+ int xPos = 7 
+ int yPos = 5 
+ int direction = 1 (UP) 
+ Color = Color.red 
+ int trailWidth = 5 
+ boolean showTrail = true 
+ String label =  "" 
+Once methods are applied to the object bug, the values in these fields will change.  
+  
+Class to 
+which object 
+belongs Variable 
+Operator used 
+to create the 
+object 
+Constructor 
+method 
+===== PDF PAGE 114 =====
+Exploring IT: Java Programming Grade 10 
+Page 104 Learning Unit 6 More About Objects 
+6.2 What Happens in Memory when a Gogga Object is 
+Instantiated? 
+When the statement Gogga bug; is executed, a space in memory is made and it is labelled bug. 
+bug 
+  
+ 
+When the code bug = new Gogga(); is executed the bug variable stores the address of another 
+location in memory which stores the object with all the fields' default values. 
+bug 
+  
+    
+Object bug 
+xPos 7 
+yPos 5 
+direction 1 
+color Color.red 
+trailWidth 5 
+showTrail true 
+label "" 
+6.3 A Program with More than One Gogga Object 
+Many different objects can be created from the Gogga class. Just as a dress pattern can be used to 
+create many dresses, a class can be used to create many objects.  
+In a program the new operator and the Gogga() constructor method can be used to create more than 
+one Gogga object. Each of these objects is independent of any other but has the same structure in 
+terms of their fields and the methods they can use. Each Gogga object will have its own x and y 
+position, direction, color, trail width etc. The values in these fields can be different for each object and 
+these values will change as the objects use methods such as move() or setColor(). 
+If you have two Gogga objects kreepy and bug, then the statement bug.move() will only change the 
+values of the bug object. 
+ACTIVITY 1 
+ Start a new Application Template called TwoGoggas. 
+ Import the it package at the top of the program. 
+ Add instructions in the main method to  
+• declare and instantiate one Gogga object called bug1 
+• declare and instantiate another Gogga object called bug2 
+• make bug1 have the colour cyan and bug2 have the colour magenta 
+• make bug1 and bug2 face in opposite directions 
+• make bug1 and bug2 both move forward three units. 
+null 
+AddrX 
+The bug variable contains a value that is the 
+address in memory of the Gogga object. 
+===== PDF PAGE 115 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 105 
+ Save and run the program and check that the two Gogga objects do what is intended. 
+ Write down the x and y value that stores the position on the grid of bug1 
+ Write down the x and y value that stores the position on the grid of bug2 
+ Write down as many other characteristics (field values) of bug1 and bug2 as you can. 
+6.4 Other Gogga Constructors 
+Once an object has been declared and then instantiated / created (with the new operator), a 
+constructor of the class is called to assign values to the fields of this newly created object.  
+Most classes from which objects are created have several different constructors allowing the 
+programmer the freedom to choose the most appropriate starting values for the fields when creating 
+an object.  
+When we use the constructor Gogga() the default values are automatically assigned to the new 
+object. But what if we want to make a Gogga object that starts out as blue, or one that starts in the top 
+left-hand corner of the screen in position 1,1, without explicitly having to change the object's state 
+using methods. At the moment, we would have to write three lines of code to achieve this. 
+ Gogga flea = new Gogga (); 
+ flea.setColor(Color.blue); 
+ flea.setPosition (1,1); 
+There are several different constructors in the Gogga class that can be used to create Gogga objects 
+with different initial states which will allow us to change the default values given by the default 
+constructor. 
+6.4.1 Using the Gogga Documentation to find out about Gogga 
+Constructors 
+ACTIVITY 2 
+ Copy and extract the IT Docs file available at www.funworks.co.za in the Java files section.  
+ Open the index.html file and then open documentation for the Gogga class using the hyperlink. 
+This is in the same format used by the Java Application Programming Interface (API) 
+documentation supplied with (or in addition to) the Java SDK. This API documentation for Java (which 
+you also have access to whenever you use the Help with Java Class Libraries) gives information on 
+all Java packages, classes and methods. 
+ Open this Gogga.html file in a Web Browser. 
+The Gogga.html file gives details about all the components of the Gogga class.  
+ Scroll down until you get to the Constructor Summary which gives details of all the available 
+constructor methods. 
+  How many constructors are listed there? 
+ Write down the method signatures of all the constructors. A method signature is the method 
+name followed by the list of parameters. 
+ Start a new Application called ManyGoggas and type in the following code in the main method 
+to create four Goggas, each using a different constructor. Leave the screen the default size. 
+ Gogga one = new Gogga ();  
+    Gogga two = new Gogga (8, 2); 
+    Gogga three = new Gogga (Color.yellow); 
+    Gogga four = new Gogga (2, 7, Color.blue); 
+The word blue in Color.blue, can be written in lowercase or in capitals. 
+===== PDF PAGE 116 =====
+Exploring IT: Java Programming Grade 10 
+Page 106 Learning Unit 6 More About Objects 
+ Save and run this application. 
+ Write down the number of Goggas that you can see displayed on the screen. 
+ Can you explain this? 
+ What colour is the Gogga called two and why? 
+ Add the following code after the constructors and run the program: 
+one.setLabel("1"); 
+two.setLabel("2"); 
+three.setLabel("3"); 
+four.setLabel("4"); 
+three.move(); 
+three.move();  
+ Now add  Gogga five = new Gogga (2, 7, Gogga.RIGHT, Color.blue); 
+ Save and run. How many Goggas are visible? 
+ Does it make any difference where you add the Gogga object called five constructor in the 
+program? Explain your answer. 
+6.4.2 Method Overloading 
+In early examples, you created Gogga objects using the default constructor. Now you have five 
+different Gogga constructors that can be used to create a Gogga object. The last four constructors 
+create Goggas with starting values that are different from the default and from each other. 
+Gogga()     //using default values 
+Gogga (int across, int down)  //to set the starting position of  
+       //the Gogga object 
+Gogga (Color col)    // to set the colour of the Gogga 
+Gogga (int across, int down, Color col)  
+        //to set the starting position  
+        //and the colour 
+Gogga (int across, int down, int direction, Color col)  
+        // to set the starting position  
+        //and direction and colour 
+The fact that there can be more than one method with the same name, but different parameters is 
+called method overloading.   
+How does Java know which method to use?   It is really quite simple. The method whose signature 
+matches the statement used in a program will be used. So Gogga(4,3) will invoke the second 
+constructor above.  
+The process whereby Java searches for the correct method to match the call statement is called 
+method resolution. There cannot be two methods with the same signature in the same class. That 
+is, methods with the same name must have different parameter lists so that Java knows by looking at 
+the parameters, which method to use when it is called. 
+  
+===== PDF PAGE 117 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 107 
+EXERCISE 1 
+1. Rewrite each section of code below as a single statement by using constructor methods. 
+1.1.    
+Gogga pam = new Gogga (); 
+pam.setPosition (3,5); 
+pam.setColor(Color.green); 
+1.2.     
+Gogga sipho = new Gogga (); 
+sipho.setColor(Color.blue); 
+sipho.setDirection(2); 
+sipho.setPosition(1,1); 
+2. Code a Java application called TwoBugs and add code:  
+• using the most appropriate constructors, to create 2 Gogga objects, bug1 and bug2, with 
+• bug1 being green and starting at position (7, 9), facing up 
+• bug2 being red and starting at position (7, 0) and facing downwards. 
+• to make bug1 and bug2 move forward alternately until their feelers are touching. 
+2.1. Save and run. Ensure you complete this exercise, since you will need this program later 
+on.  
+3. Pyramid (use Color.blue) 
+3.1. Code a Java application to produce the shape below. Think about the solutions before you 
+start coding and use an algorithm to plan your solution. You can use one or more Gogga 
+objects depending on how you approach the solution. You should try to minimise the 
+amount of code used to draw the output.  
+3.2. Decompose the problem into tasks such as the steps going up, the steps going down and 
+the horizontal line. 
+3.3. Identify the repetition in each task. 
+3.4. Use for loops to draw the steps and a for loop to draw the base line of the pyramid. 
+ 
+ 
+
+===== PDF PAGE 118 =====
+Exploring IT: Java Programming Grade 10 
+Page 108 Learning Unit 6 More About Objects 
+CHECK POINT 1 
+1. What is the purpose of a constructor method in a Java class? 
+2. Explain the words instance and instantiated in terms of an object. 
+3.     
+3.1. Write code to declare and instantiate a Gogga object flea in two lines. 
+3.2. Rewrite the code in 3.1 to do the same in one line. 
+4. What does the reserved word new do? 
+5. What are the default values of a Gogga object that is instantiated with the default constructor 
+Gogga ()? 
+6. Can you have more than one Gogga object in a program? 
+7.     
+7.1. Give an example of a Gogga constructor that is NOT the default constructor. 
+7.2. Why is it useful to have a variety of constructor methods? 
+7.3. Which code will execute faster, 7.3.1 or 7.3.2? 
+7.3.1. Gogga sam = new Gogga ();  
+sam.setPosition (5,10); 
+sam.setColor(Color.blue); 
+7.3.2. Gogga sam = new Gogga (5,10,Color.blue); 
+7.4. Write a program to check your answer in 7.3. 
+8. Explain the terms: method signature, method overloading and method resolution. 
+9.     
+9.1. Use the Gogga.html file to look up all the possible colours that are available for Gogga 
+trails. Were you able to find them? 
+9.2. The available colours are listed in the Color class. Use the Java APIs to look up the Color 
+class. You will find a list of colours listed in the field summary. You will also notice that 
+each colour has been listed twice, once in capitals and once in lowercase letters.  
+9.3. By convention, typing the colours in capitals is more correct. All constants in Java, like the 
+Gogga directions UP, DOWN, LEFT, RIGHT, should be in capitals. 
+ 
+6.5 State Diagram 
+The current values in an object's fields can be called the state of the object and these can be shown 
+using a state diagram. The state diagram is a tracing tool (similar to trace tables) used to show the 
+current values in the fields of an object at any given point in a program.  
+The state diagram of a newly created Gogga object called bug facing UP before and after 
+bug.move() was executed would be: 
+  
+===== PDF PAGE 119 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 109 
+ 
+Object bug  Object bug 
+xPos 7  xPos 7 
+yPos 5 After executing bug.move()-> yPos 4 
+direction 1(UP)  direction 1(UP) 
+color Color.red  color Color.red 
+trailWidth 5  trailWidth 5 
+showTrail true  showTrail true 
+label ""  label "" 
+EXERCISE 2 
+1. Start a new Application Template called SetValues and import it.*; at the top. Add your name 
+and the date as a comment. 
+1.1. Add code in the main method to do the following, using the "set ... " methods of the Gogga 
+class.  
+begin 
+create a new Gogga object called sam  
+place sam at starting position x = 3 and y = 7   
+make sam face RIGHT 
+give sam the colour green (add import java.awt.*; above the class name) 
+make the trail width 8 
+set the label to be "sam" 
+make sam move forward once    
+end 
+1.2. Save and run. Check that the attributes of the Gogga on your screen appear correct. 
+1.3. Draw a state diagram with four columns to show the values of object sam. Write down the 
+names of the fields in the first column. In the second column write down the values of the 
+sam object after 1.1 has executed. 
+1.4. Add code after the above statements to make the object called sam do the following: 
+begin 
+change the colour to black 
+make it move forward once     
+change the colour to yellow  
+make it move forward once 
+end 
+1.5. Save and run and check that your new code works correctly. 
+1.6. In the third column of the state diagram, write down the values of sam after 1.2 has 
+executed. 
+1.7. Add code after the above statements to make the Gogga object sam do the following: 
+===== PDF PAGE 120 =====
+Exploring IT: Java Programming Grade 10 
+Page 110 Learning Unit 6 More About Objects 
+begin 
+change its colour to gray 
+change its label to be your name (do not change the object or create another 
+one) 
+move to the position x = 2 and y = 1, drawing a trail from its previous position 
+finish facing DOWN 
+end 
+1.8. Save and run and check that your new code works correctly. 
+1.9. In the fourth column of the state diagram, write down the values of sam after 1.3 has 
+executed. 
+2. Complete the two state diagrams to show the final positions of bug1 and bug2 after the 
+TwoBugs program has finished executing. 
+Object bug1  Object bug2 
+xPos   xPos  
+yPos   yPos  
+direction   direction  
+color   color  
+trailWidth   trailWidth  
+showTrail   showTrail  
+label   label  
+3. Start a new application and use class name FourBugs. Add statements to import it.*; and the 
+package that enables you to use the Color class in your program.  Add your name and the date 
+as a comment. 
+3.1. Add code in the main method to do the following, using the "set ... " methods of the Gogga 
+class.  
+begin 
+create a blue Gogga object named bug1 at position 2,7 and is facing right 
+create a grey Gogga object named bug2 at position 2, 3 and is facing down 
+create a green Gogga object named bug3 at position 7, 2 and is facing left 
+create a yellow Gogga object named bug4 at position 7, 8 and is facing up 
+end 
+3.2. Add statements to make each bug move 4 units in the direction in which it is facing. 
+3.3. Save and run and check that your program works correctly. 
+ 
+6.6 Investigating the Color Class 
+The Java Application Programmer's Interface (API) available at https://docs.oracle.com/javase  
+consists all the classes that are a standard part of Java. It seems difficult to use at first, but it is worth 
+persevering, as it can be very helpful, and you can use it in exams. 
+===== PDF PAGE 121 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 111 
+ACTIVITY 3 
+ To browse the classes in the API, go to the https://docs.oracle.com/javase address using 
+your Internet browser. 
+ Scroll down on the left-hand side to find the Color class and click on the Color class. The Color 
+class API will appear in the window on the right.  
+ Scroll down until you find the Field Summary section. Find the field GREEN or green. As an 
+exception, the colors can be in CAPITALS or lowercase.  
+ 
+ Click on the colour GREEN and notice that the field is declared as final which means the color 
+value is constant and cannot be changed. This makes sense as the colour of green should not 
+change! 
+ Display the value of the colour in the screen by using the System.out.println() method. 
+ List all the colours that are available in the Color class.  
+These colours can be used for any Gogga object. 
+ Remain in the Color class and scroll down past the field summary. The next section is the 
+Constructor Summary. There are many constructors listed here to create new Color objects. 
+  Find the constructor that accepts three integers as parameters and click on it to see its 
+details. 
+ 
+ 
+Note that it is only declared as public. This means that the method is available outside of the class 
+and we can use it. It would be silly if a constructor was not made public!   
+
+===== PDF PAGE 122 =====
+Exploring IT: Java Programming Grade 10 
+Page 112 Learning Unit 6 More About Objects 
+Refer to section 1.7.2 in Learning Unit 1 of Exploring IT: Theory Grade 10 about how colour is s 
+represented using RGB. 
+6.6.1 Creating your Own Colours 
+In a similar way to creating object variables of the Gogga class you can create object variables of the 
+Color class to store new colours to use in programs. 
+ACTIVITY 4 
+Load the TwoBugs program that you created earlier. 
+Just before the statement to create bug1, add the following statement to create a new Color variable, 
+col1: 
+ Color col1 = new Color( 120, 200, 80 ); 
+One constructor method of the Color class requires three parameters, each in the range 0 to 255, 
+specifying the amount of red, green and blue used in the colour being created. 
+ Add a statement to import the package to use the Color class. 
+ Change the parameters in the constructor method for bug1, so that the line to create bug1 
+becomes: 
+ Gogga bug1 = new Gogga (7, 9, col1); 
+ When you use a built-in colour such as blue, you must type Color.blue but when you create a 
+Color variable, you just use the variable identifier. 
+ Remember to add the statement at the very top of your program to import the necessary 
+package when using the Color class. 
+ Save and run the program. What colour is bug1? 
+ Add a line of code to create a new colour col2 with a red value of 67, a green value of 134 and 
+a blue value of 188. 
+ Change the parameter in bug2's constructor method to use col2 instead of Color.red 
+ Save and run the program. 
+ Add code to create a new colour col3 after bug1 has moved 2 units. Choose any values for red, 
+green and blue as long as they lie between 0 and 255 (inclusive). You must not use the 
+constructor to change the colour as the object already exists and you would get a duplication 
+error. Use the setColor() method to change the colour.  
+Your code should be: 
+Color col3 = new Color( ..., ..., ... ); 
+bug1.setColor (col3); 
+ Save and run your program to check that it works.  
+You could have reused the variable col1 instead of creating a new object col3. 
+col1 = new Color( ..., ..., ... ); 
+bug1.setColor (col1); 
+Note that you don't have to re-declare col1. In fact, you will get an error if you do. You could have 
+used col1 to create all the colours in the program. 
+  
+===== PDF PAGE 123 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 113 
+Let's examine the four objects, bug1, bug2, col1 and col2. They can be represented in memory as 
+follows: 
+bug1     bug2 
+ 
+AddrX   AddrY  
+xPos 7  xPos 7 
+yPos 9  yPos 0 
+direction 1  direction 2 
+color col1  color col2 
+trailWidth 5  trailWidth 5 
+showTrail true  showTrail true 
+label ""  label "" 
+ 
+col1     col2 
+ 
+AddrA   AddrB  
+red 120  red 167 
+green 200  green 134 
+blue 80  blue 188 
+6.6.2 Investigating Colours 
+ACTIVITY 5 
+ Load an application such as Paint that allows you 
+to mix colours given the red, green and blue 
+values.  
+ If you look at the Edit Colours dialog box from MS 
+Paint, you can see that you can either choose a 
+colour from the palette or you can enter in values 
+for red, green and blue. 
+If you click on the colour palette, the values for red, 
+green and blue will appear. 
+ 
+ Now change the TwoBugs class so that bug1 and bug2's initial colours are entered by the 
+user. Allow the user to input the red, green and blue values (each in the range 0 to 255). 
+Instantiate a Color object for each of the bugs and use that object when instantiating the bug 
+objects. 
+  
+AddrX AddrY 
+AddrA AddrB 
+
+===== PDF PAGE 124 =====
+Exploring IT: Java Programming Grade 10 
+Page 114 Learning Unit 6 More About Objects 
+6.7 Random Numbers 
+The computer can generate random numbers in a specific range which can be useful in some 
+problems, such as generating values between 0 and 255 (inclusive) for red, green and blue to mix a 
+totally random colour.  
+The built-in Math class has a random() method which produces a real number between 0 and 1 (but 
+not including 1).  
+The resulting value returned by random is not very useful, but we can multiply the fractional number 
+by an integer (N) which will produce a random real number in the range 0 ≤ random number < N. This 
+is converted to an integer using the cast (int). 
+ACTIVITY 6 
+ Type in the code below in a class called RandomTest. 
+public class Random 
+{ 
+    
+    public static void main (String[] args) 
+    { 
+      System.out.println(Math.random ()); 
+    } 
+} 
+ Run the program three times and write down the answers which are displayed. 
+ Now change the code to be System.out.println(Math.random()*10); 
+ Run the program three times and write down what was produced. 
+The code thus far produces a real number. 
+ Change the code as shown below so that an integer is produced. 
+System.out.println( (int) (Math.random ()*10) ); 
+Make sure that you add in the extra brackets around (Math.random()*10) as this expression must be 
+evaluated first before the real number is cast to an integer. 
+ Save and run the program three times. 
+ Write down the answers that are displayed.  
+ Is the integer 10 ever displayed? 
+6.7.1 Storing the Generated Random Number 
+The random number that has been generated can be stored in a variable for later use.  
+ Change the statement  
+ System.out.println((int) (Math.random ()*10));  
+to become the following two lines: 
+ int randomNum = (int) (Math.random ()*10); 
+ System.out.println(randomNum); 
+The value generated in stored in a variable randomNum. The value is displayed on the screen. 
+  
+===== PDF PAGE 125 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 115 
+6.7.2 How Does Random Work? 
+Math.random(); 
+The random() method of the Math class 
+produces a number between 0 and 1. 
+Let's say it generates 0.453. 
+(Math.random() * 10); 
+Brackets are essential to force the multiplication to be done first 
+Multiply by 10:   0.453 * 10 = 4.53 
+(int) (Math.random() * 10); 
+(int) casts (converts) the real number 
+4.53 to an integer by dropping the 
+decimals, so it becomes 4 
+randNum = (int) (Math.random() * 10); 
+The result (4 in this example) is stored in 
+the variable randNum 
+System.out.println(randNum); 
+System.out.println displays the value in 
+the variable on the screen 
+ 
+To produce one random integer between 0 and 9 (inclusive), use the code: 
+  int randNum = (int) ( Math.random() * 10 );   
+The variable randNum will contain one integer from the set { 0;1;2;3;4;5;6;7;8;9 }. 
+ 
+To produce one random integer between 1 and 10 (inclusive), use the code: 
+ int randNum = (int)( Math.random() * 10 ) + 1; 
+The variable randNum will contain one integer from the set { 1;2;3;4;5;6;7;8;9;10 }. 
+ 
+ Change the code to produce a number between 1 and 10.  
+ Save and run the program a few times to check that it works. 
+ Now change the code to produce a number between 0 and 5. 
+ Save and run the program a few times to check that it works. 
+ Change the code again to produce a number between 1 and 5. 
+ Save and run the program a few times to check that it works. 
+ 
+In general,  
+ to produce one random integer between A and B (inclusive), use the code: 
+  int randNum = (int) ( Math.random() * (B-A+1) ) + A; 
+OR 
+ int randNum = (int) ( Math.random() * (No of Options)) + Start Num; 
+===== PDF PAGE 126 =====
+Exploring IT: Java Programming Grade 10 
+Page 116 Learning Unit 6 More About Objects 
+EXERCISE 3 
+1. Code a new Application called DiceThrow which simulates a throw of a dice by producing one 
+random integer in the range {1;2;3;4;5;6}. Declare a variable, num, of type int, to store the 
+random number generated. Display this integer on the Standard Input/Output screen using 
+System.out.println() with a suitable message. 
+1.1. Save your program and then run it several times. Check that you only get values in the 
+specified range. 
+2. Start a new Application called LongJumpGogga.  
+2.1. Create two Gogga objects called sam and fred, as follows:  
+2.2. Add code to instantiate the Gogga object called sam which has the colour black and is 
+positioned at 1, 4 and faces right.  
+2.3. Also instantiate a new Gogga object fred which is yellow and is positioned at 1, 7 and 
+faces right.  
+2.4. Now add code to generate an integer y-value between 1 and 5 for both sam and fred. 
+Use each y-value to position sam and fred in column 1 and row y. This will make both 
+Gogga objects appear in any of the first 5 rows on the grid before they jump horizontally.  
+2.5. Generate a random integer in the range 1 to 10, which represents sam's new x-position. 
+Now make sam jump to this new horizontal position while keeping the vertical position the 
+same. 
+2.6. Now do the same for fred. Generate a random integer, in the range 1 to 10, representing 
+his new x-position and make fred jump to this new horizontal position while keeping the 
+vertical position the same. 
+2.7. Save and run your program at least three times, checking that it works correctly. 
+ 
+6.8 Generating Random Colours 
+You can create colours that are random by generating values for red, green and blue. These values 
+can be stored in variables of type integer. 
+ACTIVITY 7 
+ Start a new class called RandCol and type in the following code in the class' main method: 
+Gogga flea = new Gogga (); 
+       
+int red = (int) (Math.random ()*256); 
+int green = (int) (Math.random ()*256); 
+int blue = (int) (Math.random ()*256); 
+ 
+Color newCol = new Color (red, green, blue);  
+          
+flea.setColor(newCol); 
+flea.move (); 
+flea.move (); 
+flea.move (); 
+ Add the necessary import statements above the class header. 
+ Save and run the code a few times to see the different colours of flea's trail. 
+===== PDF PAGE 127 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 6 More About Objects Page 117 
+6.8.1 What is Stored in Memory at the End of the Program's 
+Execution? 
+Assuming that 134 was generated for red, 59 for green and 83 for blue 
+   flea     newCol 
+ 
+AddrX   AddrY  
+xPos 7  red 134 
+yPos 8  green 59 
+direction 1  blue 83 
+color newCol  red  
+trailWidth 5  134  
+showTrail true  green  
+label ""  59  
+   blue  
+   83  
+Note that the variables red, green and blue are stored as separate boxes in memory as they are not 
+Objects but primitive data type (int) variables.   
+ Add code to declare an integer variable trail that will have a random value between 1 and 10. 
+Use this variable to change the width of the trail of the Gogga object.  
+CHECK POINT 2 
+1. What is a state diagram and why is it useful? 
+2. What is the purpose of a Java API? 
+3. What would you expect to find in the Field Summary of the Color class? 
+4. Write down a constructor method of the Color class to create your own colours. 
+5. Write down code to instantiate a new Color object called col with values of 0, 0, 0 for red, green 
+and blue.  
+6. Now instantiate a new Gogga object called buggy with the Color col. 
+7. What colour will the above Gogga be? 
+8. Write down the general formula to create a random number between a and b. 
+9. Write down the code to assign a random number to num if the number is between: 
+9.1. 10 and 25 incl 
+9.2. 51 and 63 incl 
+9.3. 143295 and 500000 incl 
+ 
+AddrX AddrY 

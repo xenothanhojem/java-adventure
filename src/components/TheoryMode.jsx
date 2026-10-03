@@ -3,7 +3,7 @@ import {
   ChevronLeft, ChevronRight, BookOpen, Brain, Check, X, Lightbulb,
   Star, ArrowRight, RotateCcw, Trophy, Sparkles, ListChecks,
 } from 'lucide-react';
-import { getTheoryUnit, getAllTheoryQuestions } from '../data/theory.js';
+import { getTheoryUnit } from '../data/theory.js';
 
 /*
  * TheoryMode: a two-phase learning experience.
@@ -12,7 +12,7 @@ import { getTheoryUnit, getAllTheoryQuestions } from '../data/theory.js';
  *   2. QUIZ   - answer theory questions drawn from the unit's content
  *
  * Props:
- *   unitId       - which theory unit to show (e.g. 'U2', 'UB')
+ *   unitId       - which theory unit to show (e.g. 'U2', 'T1')
  *   worldColor   - CSS variable name (e.g. 'cyan', 'magenta')
  *   onBack       - return to world/level view
  *   onComplete   - callback with quiz results
@@ -345,6 +345,10 @@ function QuizPhase({
   onAnswer, onNext, onBack, worldColor,
 }) {
   const isLast = questionNum === totalQuestions;
+  const mcOrder = useMemo(
+    () => (question.type === 'mc' ? shuffle(question.options.map((_, i) => i)) : []),
+    [question],
+  );
 
   function handleMcSelect(idx) {
     if (quizState !== 'answering') return;
@@ -426,7 +430,7 @@ function QuizPhase({
         {/* MC options */}
         {question.type === 'mc' && (
           <div className="space-y-2">
-            {question.options.map((opt, idx) => {
+            {mcOrder.map((idx, pos) => {
               let state = '';
               if (quizState === 'answering' && selected === idx) state = 'selected';
               if (quizState === 'feedback') {
@@ -444,9 +448,9 @@ function QuizPhase({
                 >
                   <div className="flex items-center gap-3">
                     <span className="ja-mono text-xs flex-shrink-0" style={{ color: 'var(--ink-mute)', width: '20px' }}>
-                      {String.fromCharCode(65 + idx)}
+                      {String.fromCharCode(65 + pos)}
                     </span>
-                    <span className="text-sm">{opt}</span>
+                    <span className="text-sm">{question.options[idx]}</span>
                   </div>
                 </button>
               );

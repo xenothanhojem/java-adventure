@@ -1,0 +1,393 @@
+
+===== PDF PAGE 82 =====
+Exploring IT: Theory Grade 10 
+Page 74 Learning Unit 6 Boolean Logic 
+Learning Unit 6 Boolean Logic 
+6.1 Introduction  
+A computer is made up of millions of switches which can be either on, represented by a 0, or off, 
+represented by a 1. A single switch in known as a bit. These switches are grouped together to form 
+codes which can represent any piece of data. In Learning Unit 1, we learnt how these groups of bits 
+can represent integers, real numbers, characters and colours. 
+Besides storing data, a computer also needs to decide: 
+• if this switch is on, then do this action 
+• if this switch is on and that switch is off then do this action, otherwise do another action  
+These statements use 'logic'. The statement 'if this switch is on' produces a result of either TRUE or 
+FALSE. TRUE is represented in a bit with a 1 and FALSE is represented as 0. Computers are 
+electronic and represent 0s and 1s electronically. A 1 is represented by 5 volts and a 0 is represented 
+by 0 volts. Since the voltage may not be exact, any value between 2 to 5 volts will be detected as a 1 
+and any value between 0 and 0.8 volts will be a 0. To ensure there is no confusion the values 
+between 0.8 and 2 volts are not used. 
+ 
+http://2010-2014.itech-planet.net/content/introduction-digital-concepts-4-representing-binary-quantities 
+A value that can only be TRUE or FALSE (0 or 1) is a called a Boolean value. A variable that stores a 
+Boolean value is known as a Boolean variable. 
+6.2 Boolean Logical Statements 
+A Boolean logical statement is either true or false. The following are examples of true and false 
+statements: 
+• Johannesburg is in South Africa. (TRUE) 
+• Botswana is north of the Equator. (FALSE) 
+• 3 + 3 = 6 (TRUE) 
+• 12 < 8 (FALSE) 
+
+===== PDF PAGE 83 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 6 Boolean Logic Page 75 
+6.2.1 Relational Operators 
+Relational operators compare two values. These are  
+• > (greater than) 
+• < (less than) 
+• = (equal to) 
+• != or <> (not equal to) 
+• >= (greater than and equal to) 
+• <= (less than and equal to) 
+When programming, we do not have a single key on the keyboard for ≠ so we combine keys on the 
+keyboard to represent these symbols.  
+• ≠ is != or <>    we will use != in this Learning Unit 
+• ≥ is >= 
+• ≤ is <= 
+The result of a statement with a relational operator is TRUE or FALSE.  
+• 3 + 3 = 6 (TRUE) 
+• 12 < 8  (FALSE) 
+• 2 >= 1 (TRUE) 
+ACTIVITY 1 
+ Complete the table below by writing down the result of each statement: 
+Statement Result (TRUE/FALSE) 
+6 < 2?  
+5 >= 4?  
+5 >= 5?  
+5 > 5?  
+0 != 0?  
+10 < 10.01?  
+10 = 10.01?  
+0.000001 > 0.0001?  
+ 
+6.2.2 Logical Operators 
+Logical statements, also called logical expressions, can be combined using logical operators and 
+define how the statements should be processed.  
+Boolean logic uses the following operators: 
+• NOT  
+• AND  
+• OR 
+  
+===== PDF PAGE 84 =====
+Exploring IT: Theory Grade 10 
+Page 76 Learning Unit 6 Boolean Logic 
+6.2.2.1 NOT 
+A single switch represented by the Boolean variable A, can have two values: 0 or 1 shown in the 
+following table. We can also represent the switch as a Venn diagram.  
+ 
+A 
+0 
+1 
+ 
+ 
+http://electronics-micros.com/img/electronics/venn-logic1.jpg 
+The NOT operator swaps the values for variable A. 0 will be 1 and 1 will be 0. In a Venn diagram, 
+NOT A is everything outside A. 
+ 
+A NOT A 
+0 1 
+1 0 
+ 
+ 
+http://electronics-micros.com/img/electronics/venn-logic1.jpg 
+EXERCISE 1 
+Complete the table below. 
+Number Statement Result (TRUE or FALSE) 
+1 NOT 5 > 3  
+2 NOT 3 = 2  
+3 Johannesburg is NOT in Egypt  
+4 NOT 4 != 2  
+ 
+6.2.2.2 AND 
+When you use this operator, BOTH statements must be TRUE for the combined statement to be 
+TRUE. This statement can be represented using two switches A and B connected in series. For the 
+lamp to go on (result is 1 or TRUE), BOTH switches must be closed (a value of 1 or TRUE). If either is 
+open (0 or FALSE) then the result will be 0 or FALSE. 
+
+===== PDF PAGE 85 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 6 Boolean Logic Page 77 
+ 
+https://www.electronics-tutorials.ws/boolean/bool_1.html 
+The values for switches A and B have four possibilities. Recall that if there are 2 binary digits the 
+number of possibilities is 22 = 4 which are 00,10,10 and 11. 
+The results for each possible combination of values for switches A and B are shown together with the 
+outcome for the AND operator. The Venn diagram shows that the result is represented as the 
+intersection.  
+ 
+A B A AND B Description 
+0 0 0 Both A and B are open – lamp is OFF 
+0 1 0 A is open and B is closed – lamp is OFF 
+1 0 0 A is closed and B is open – lamp is OFF 
+1 1 1 Both A and B are closed – lamp is ON 
+ 
+ 
+http://electronics-micros.com/img/electronics/venn-logic1.jpg 
+EXERCISE 2 
+Complete the table below. 
+Number Statement Result (TRUE or FALSE) 
+1 5 > 3 AND 4 = 2  
+2 3 = 2 AND Cape Town is a City  
+3 Johannesburg is in Egypt AND 3 <= -9  
+4 4 != 2 AND 'L' is a capital letter  
+5 5 >= 1 AND 5 <= 10  
+6 1 <= 3 AND 1 <= 5  
+ 
+ 
+  
+
+===== PDF PAGE 86 =====
+Exploring IT: Theory Grade 10 
+Page 78 Learning Unit 6 Boolean Logic 
+6.2.2.3  OR 
+The OR operator produces a result of TRUE when EITHER switch A or B is TRUE. This operator can 
+be represented with the two switches in parallel. When either A or B or both A and B are closed 
+(TRUE) the lamp goes on (TRUE). 
+ 
+https://www.electronics-tutorials.ws/boolean/bool_2.html 
+The next table shows the results of the OR operator. The Venn diagram represents the OR operator 
+as the union of both switches.  
+ 
+A B A OR B Description 
+0 0 0 Both A and B are open – lamp is OFF 
+0 1 1 A is open and B is closed – lamp is ON 
+1 0 1 A is closed and B is open – lamp is ON 
+1 1 1 Both A and B are closed – lamp is ON 
+ 
+ 
+http://electronics-micros.com/img/electronics/venn-logic1.jpg 
+EXERCISE 3 
+Complete the table below. 
+Number Statement Result (TRUE or FALSE) 
+1 5 > 3 OR 4 = 2  
+2 3 = 2 OR Cape Town is a City  
+3 Johannesburg is in Egypt OR 3 <= -9  
+4 4 != 2 OR 'L' is a capital letter  
+5 5 >= 1 OR 5 <= 10  
+6 1 <= 3 OR 9 >= 6  
+ 
+  
+
+===== PDF PAGE 87 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 6 Boolean Logic Page 79 
+6.2.2.4 Order of Operations 
+When a logical expression has more than one logical operator there is an order in which they are 
+executed. Logical expressions will be evaluated in the order: 
+1 Brackets 
+2 NOT  
+3 AND  
+4 OR 
+A logical expression can be evaluated just as you would an arithmetic expression. 
+Example 1 
+Evaluate the expression by first determining the truth of each statement then determining the result of 
+the combination of the logical operators. 
+5 > 3 OR 5 < 10 AND Cape Town is in Canada Determine the result of each statement 
+= TRUE OR TRUE AND FALSE   AND is executed first 
+= TRUE OR FALSE 
+= TRUE 
+Example 2 
+A tomato is not edible AND a tomato is a fruit OR a potato is a vegetable  
+= FALSE AND TRUE OR TRUE   Determine the result of each statement 
+= FALSE OR TRUE     AND is executed first 
+= FALSE 
+Example 3 
+NOT (fish swim in water) AND NOT (pink is the same colour as blue OR humans have 2 legs) 
+= NOT TRUE AND NOT (FALSE OR TRUE) Determine the result of each statement 
+= NOT TRUE AND NOT TRUE   Brackets executed first 
+= FALSE AND FALSE    NOT is executed after brackets 
+= FALSE 
+EXERCISE 4 
+Evaluate the following logical expressions showing all workings. 
+1. 7 is an integer AND (a rectangle has 3 sides OR a cat is a mammal) 
+2. NOT(9 = 9 AND 5 >25) 
+3. 25 is a perfect square AND 36 is a perfect square AND 8 is not a perfect square 
+4. Humans can walk AND dogs can fly OR NOT (insects can fly AND insects can do Math) 
+5. Ice is cold AND 4 is even OR 7 is positive AND NOT water is liquid 
+ 
+===== PDF PAGE 88 =====
+Exploring IT: Theory Grade 10 
+Page 80 Learning Unit 6 Boolean Logic 
+6.2.3 Truth Tables 
+In the previous section each statement had a definite TRUE or FALSE value. The statement 'ice is 
+cold' is TRUE. But what if we did not know the value of the statement and the statement is combined 
+with other statements for which we do not know their values?  
+A truth table examines ALL possible values for the logical expression based on the combination of 
+statements. A truth table assigns values (TRUE or FALSE) to each statement in a combined 
+statement. Once the system has assigned a truth value to an individual statement, a truth value can 
+be determined for the combined statements, depending on the operator that is used to link the 
+statements. 
+6.2.3.1 Two Variables 
+Consider the statement 'Fazul is in Grade 10 AND NOT (tennis is on Wednesday)'. We cannot say if 
+Fazul is in Grade 10 without knowing Fazul, neither do we know when tennis is scheduled. We could 
+consider all possibilities to determine when the combined statement will produce TRUE or FALSE. 
+Let Boolean variable A = 'Fazul is in Grade 10'  
+Let Boolean variable B = 'tennis is on Wednesday'  
+The statement 'Fazul is in Grade 10 AND NOT (tennis is on Wednesday)' would become  
+A AND NOT B 
+The number of possible combinations will be 22 = 4. A truth table would show all values equivalent to 
+decimal values 0 to 3 or, with the right column switching between 0 and 1 every line (20) and the left 
+column switching between 0 and 1 in groups of 2 (21).  
+The value 0 is the same as FALSE and 1 is the same as TRUE. 
+A B WORKINGS A AND NOT B RESULT 
+0 0 0 AND NOT 0 0 AND 1 0 FALSE 
+0 1 0 AND NOT 1 0 AND 0 0 FALSE 
+1 0 1 AND NOT 0 1 AND 1 1 TRUE 
+1 1 1 AND NOT 1 1 AND 0 0 FALSE 
+The truth table above shows that A AND NOT B is only TRUE when A is 1 (TRUE) and B is 0 
+(FALSE) or, when Fazul is in Grade 10 and tennis is not on Wednesday. 
+For all other values for A and B the result is false i.e. A=0 and B=0, A=0 and B=1, A=1 and B=1. This 
+result can be represented using mathematical functional notation.  
+• OR is represented as + 
+• AND is represented as a dot (.) 
+• NOT is represented using a ' 
+The Boolean expression A AND NOT B will be F(A,B) = A.B'. NOT B is written as B'. 
+The result of the truth table shows that the function will be true when A=1 and B=0. In functional 
+notation B=0 can be written as B' (or NOT B). A=1 and B=0 will become A.B'. 
+Hence, F(A,B) = A.B' which is the exact expression we started with.  
+Note that the function could produce more than one case where the result is true. 
+  
+===== PDF PAGE 89 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 6 Boolean Logic Page 81 
+Example 4 
+Evaluate the Boolean expression NOT(X AND Y) or F(X,Y) = (X.Y)' 
+X Y WORKINGS (X.Y)' RESULT 
+0 0 NOT (0 AND 0) NOT (0) 1 TRUE 
+0 1 NOT (0 AND 1) NOT (0) 1 TRUE 
+1 0 NOT (1 AND 0) NOT (0) 1 TRUE 
+1 1 NOT (1 AND 1) NOT (1) 0 FALSE 
+F(X,Y) = (X.Y.)' is TRUE when X=0 AND Y=0 OR X=0 AND Y=1 OR X=1 AND Y=0 which can be 
+simplified to: 
+F(X,Y) = X'Y' + X'Y + XY'.  
+Just as in mathematics, it is not necessary to write the dot. It can be left out. 
+The function would be read as – NOT X AND NOT Y OR NOT X AND Y OR X AND NOT Y 
+Example 5 
+Prove that  X + X'Y = X + Y 
+LHS = X + X'Y and RHS = X + Y 
+X Y LHS = X + X'Y RHS = X + Y 
+0 0 0 + 0'0 0 + 1.0 0 + 0 0 0 + 0 0 
+0 1 0 + 0'1 0 + 1.1 0 + 1 1 0 + 1 1 
+1 0 1 + 1'.0 1 + 0.0 1 + 0 1 1 + 0 1 
+1 1 1 + 1'.1 1 + 0.1 1 + 0 1 1 + 1 1 
+LHS = RHS hence X + X'Y = X + Y 
+EXERCISE 5 
+1. Evaluate the following expressions: 
+1.1. 1 OR 0 
+1.2. (1 AND 0) AND 1 
+1.3. 1 AND 0 (AND 1) 
+1.4. 1 OR 0 OR 0 AND NOT 1 
+1.5. NOT 0 OR NOT 1 OR NOT(NOT 0) 
+2. Evaluate the following functions: 
+2.1. F(X,Y) = XY' + X given the values F(0,1) 
+2.2. F(X,Y,Z) = Z + X'YZ given the values F(1,0,1) 
+3. Create a truth table to determine when the following Boolean expressions will be TRUE. 
+3.1. I have IT homework OR Maths homework  
+3.2. NOT (I have IT homework) AND Maths homework 
+  
+===== PDF PAGE 90 =====
+Exploring IT: Theory Grade 10 
+Page 82 Learning Unit 6 Boolean Logic 
+4. Create a truth table for the following functions: 
+4.1. F(A,B) = A' + AB 
+4.2. F(X,Y) = X(X + Y') 
+5. Prove using a truth table that  A' + AB = A' + B 
+ 
+6.2.3.2 Three Variables 
+A truth table could have three Boolean variables. 
+Example 6 
+I have a yellow book OR the sun is shining AND it is winter. 
+Let A = 'I have a yellow book' 
+Let B = 'the sun is shining' 
+Let C = 'it is winter' 
+The Boolean function would be F(A,B,C) = A + B.C 
+Since there are three variables the number of combinations will be 23 = 8. 
+A B C WORKINGS A + B.C 
+0 0 0 0 + 0.0 0 + 0 0 
+0 0 1 0 + 0.1 0 + 0 0 
+0 1 0 0 + 1.0 0 + 0 0 
+0 1 1 0 + 1.1 0 + 1 1 
+1 0 0 1 + 0.0 1 + 0 1 
+1 0 1 1 + 0.1 1 + 0 1 
+1 1 0 1 + 1.0 1 + 0 1 
+1 1 1 1 + 1.1 1 + 1 1 
+F(A,B,C) = A'BC + AB'C' + AB'C +ABC' +ABC 
+EXERCISE 6 
+1. Create truth table for each of the following functions: 
+1.1. F(X,Y,Z) = X'Y + Y'Z' 
+1.2. F(X,Y,Z) = (X + Y')(Y + Z) 
+1.3. F(X,Y,Z) = X(Y + Z) 
+2. Use a truth table to determine whether AB + A'C + BC = AB + A'C 
+3. Create a truth table to determine when the following Boolean expressions will be TRUE. 
+3.1. The food is delicious AND the cool drink tastes sweet OR it is not a school night 
+3.2. I have IT homework OR Maths homework AND NOT(tomorrow is the weekend) 
+ 
+  
+===== PDF PAGE 91 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 6 Boolean Logic Page 83 
+6.2.4 De Morgan's Law 
+Boolean expressions can be simplified in many ways using the laws of Boolean Algebra. Whilst 
+Boolean Algebra is beyond the scope of this course, De Morgan's law is useful when an entire 
+expression needs to be negated. Later on, when you write programs, SQL statements or use search 
+engines you may need to find the opposite of a particular statement. 
+De Morgan's Law states (A + B)' = A'.B' and similarly, (A.B)' = A' + B'. 
+Consider the statement 'I do NOT want to find any cats OR dogs'.  
+This could be written as F(C,D) = NOT(C OR D) = (C + D)' where C represents wanting to find cats 
+and D represents wanting to find dogs. 
+Using De Morgan's Law (C + D)' = C'.D' which we can prove using a truth table. 
+C D WORKINGS (C + D)' (C + D)' WORKINGS C'.D' C'.D' 
+0 0 (0 + 0)' (0)' 1 0'.0' 1.1 1 
+0 1 (0 + 1)' (1)' 0 0'.1' 1.0 0 
+1 0 (1 + 0)' (1)' 0 1'.0' 0.1 0 
+1 1 (1 + 1)' (1)' 0 1'.1' 0.0 0 
+hence (C + D)' = C'.D') 
+In essence, NOT A AND B is not the same as NOT A AND NOT B. The operator AND must also 
+change to OR. When you negate a Boolean expression, negate each variable and change each AND 
+to OR and each OR to AND. 
+Example 7 
+Use De Morgan's Law to negate F(X,Y,Z) = X + Y'Z 
+F ' (X,Y,Z) = (X + Y'Z)' 
+             = X'.(Y + Z')   Note to keep the brackets around the second term  
+We can prove the statement using a truth table.  
+X Y Z WORKINGS LHS = 
+(X + Y'Z)' WORKINGS RHS = 
+X'Y + Z' 
+0 0 0 (0 +0'.0)' (0 + 1.0)' (0 + 0)' 1 0'.(0 + 0') 1.(0 + 1) 1.1 1 
+0 0 1 (0 + 0'.1)' (0 + 1.1)' (0 + 1)' 0 0'.(0 + 1') 1.(0 + 0) 1.0 0 
+0 1 0 (0 + 1'.0)' (0 + 0.0)' (0 + 0)' 1 0'.(1 + 0') 1.(1 + 1) 1.1 1 
+0 1 1 (0 + 1'.1)' (0 + 0.1)' (0 + 0)' 1 0'.(1 + 1') 1.(1 + 0) 1.1 1 
+1 0 0 (1 + 0'.0)' (1 + 1.0)' (1 + 0)' 0 1'.(0 + 0') 0.(0 + 1) 0.1 0 
+1 0 1 (1 + 0'.1)' (1 + 1.1)' (1 + 1)' 0 1'.(0 + 1') 0.(0 + 0) 0.0 0 
+1 1 0 (1 + 1'.0)' (1 + 0.0)' (1 + 0)' 0 1'.(1 + 0') 0.(1 + 1) 0.1 0 
+1 1 1 (1 + 1'.1)' (1 + 0.1)' (1 + 0)' 0 1'.(1 + 1') 0.(1 + 0) 0.1 0 
+ 
+  
+===== PDF PAGE 92 =====
+Exploring IT: Theory Grade 10 
+Page 84 Learning Unit 6 Boolean Logic 
+Example 8 
+Use De Morgan's Law to negate F(A,B,C,D) = AB + CD 
+F ' (A,B,C,D) = (AB + CD)'  Treat AB as one term and CD as one term 
+                  = (AB)' . (CD)'  Now apply De Morgan's Law to each term keeping the brackets 
+                  = (A' + B')(C' +D') 
+EXERCISE 7 
+1. Rewrite a Boolean expression the statement 'I do not want any tea or coffee' with variables T for 
+tea and C for coffee. 
+1.1. Use De Morgan's Law to negate the expression. 
+1.2. Write your solution in as an English statement. 
+2. A computer is only backed up when there are changes to the files or it is the end of the week or 
+it is the end of the month.  
+2.1. Write this statement as a Boolean function to describe when to computer is to be backed 
+up using C to represent changes, W to indicate the end of the week and M to indicate the 
+end of the month.  
+2.2. Use De Morgan's Law to write the expression when the computer will NOT be backed up. 
+3. A learner will get full colours for a sport if they have attended 80% of their practices and have 
+either won 75% of their games or have achieved provincial colours. 
+3.1. Write the statement as a Boolean function assuming P represents 80% of their practices, 
+W represents winning 75% or their games and C represents provincial colours. 
+3.2. Use De Morgan's Law to write the expression when the learner will not get colours. 
+3.3. Draw a truth table of your result above. 
+ 
+ 

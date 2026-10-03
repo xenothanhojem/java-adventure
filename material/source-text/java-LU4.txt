@@ -1,0 +1,1055 @@
+
+===== PDF PAGE 66 =====
+Exploring IT: Java Programming Grade 10 
+Page 56 Learning Unit 4 Problem Solving using Computational Thinking 
+Learning Unit 4 Problem Solving 
+using Computational Thinking  
+4.1  Introduction to Computational Thinking 
+We use computers to help us solve problems, but before we can go about solving the problem, we 
+need to understand the problem and have a method that we can use to produce a solution. 
+Computational thinking provides us with this method by taking a complex problem and using four key 
+techniques in the problem-solving process. 
+The four techniques to computational thinking: 
+• decomposition – dividing a complex problem or system into smaller, more manageable parts 
+• pattern recognition – looking for similarities between and within each part 
+• abstraction – focusing on the important information only, ignoring irrelevant detail and 
+focussing on solving each part in turn so that the combined parts solve the problem 
+• algorithms - developing a step-by-step solution to the problem, or the rules to follow to solve 
+the problem 
+ 
+https://evolutioninaction.mit.edu/parents 
+Each of these techniques are vitally important in the process of problem solving. Computational 
+Thinking is not limited to programming or Computer Science, it can be used to solve problems in any 
+subject area like English, History, Mathematics and Science. 
+
+===== PDF PAGE 67 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 57 
+ 
+http://digitalpromise.org/wp-content/uploads/2017/12/CT_Blog_Venn.jpg 
+Computational thinking involves analysing a complex problem and breaking it down into smaller, more 
+manageable parts (decomposition). Each of these smaller parts are sub-problems in themselves 
+that again can be analysed. These smaller problems may have existing solutions (pattern 
+recognition) and by focusing only on the important details of each part, while ignoring irrelevant 
+information (abstraction), a solution for each part can be found. Next, simple steps or rules to solve 
+each of the smaller problems can be designed (algorithms). 
+https://www.bbc.com/education/guides/zp92mp3/revision 
+Each of these stages work together when solving a problem. You may read a problem and ignore 
+some irrelevant detail (abstraction), then decompose the problem into parts, some parts may need to 
+be further decomposed. You may find one part is similar to previous code (pattern recognition) and 
+two parts are also similar in nature (again pattern recognition). To write an algorithm for each part you 
+will focus on each part (abstraction), test each part and then combine the parts to form the solution. 
+4.2 Decomposition 
+4.2.1 Understanding the Problem 
+The problem may not be clearly defined and may be stated by someone who is unfamiliar with 
+computers in a vague and ambiguous manner. There may be information that is not relevant to the 
+solution like the type of computer they are using, or the day of the week they use the program. As a 
+programmer, you need to make sure that you are solving the problem that the user intended. 
+Otherwise a lot of time and effort will be wasted. 
+When you analyse a problem statement, do the following:  
+• Read the problem carefully and make sure you understand it. 
+• Underline words that describe what is to be done, such as find the average, calculate VAT. 
+• State in your own words what you need to do. 
+• List all the facts that are given about the problem. 
+  
+
+===== PDF PAGE 68 =====
+Exploring IT: Java Programming Grade 10 
+Page 58 Learning Unit 4 Problem Solving using Computational Thinking 
+Once you understand the problem, it needs to be broken down into subproblems. Think of it as taking 
+a big task and breaking it into smaller tasks. These smaller tasks are later combined to create the 
+solution. One of the most effective way to do this for simple problems is to use the Input, Processing 
+and Output model. 
+4.2.2 Decompose the Problem 
+ 
+http://wiki.schoolcoders.com/gcse/algorithms/computational-thinking/decomposition/ 
+4.2.3 Input, Processing and Output Model (IPO) 
+The IPO model works well for simple problems that we will encounter this year. A problem is broken 
+down into: 
+• what data will be entered? – Input 
+• what calculations need to be done or what needs to be worked out? – Processing 
+• what do we need to display to the user? – Output 
+It is important to understand the devices that are involved in a simple IPO problem. Input at this stage 
+is from the keyboard, the data entered by the user is stored in variables in RAM, the processing is 
+performed by the CPU with calculations are done by the ALU. For this year, output will be to the 
+screen or monitor. 
+ 
+http://slideplayer.com/slide/6112732/ 
+ break into combine into 
+KEYBOARD 
+MONITOR 
+RAM 
+CPU 
+===== PDF PAGE 69 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 59 
+EXERCISE 1 
+For each of the following questions, decompose the problem into separate tasks. You may able to use 
+Input, Processing and Output in some cases. Do not code the solution, merely identify a list of tasks 
+needed to solve the problem. 
+1. Code a program to input 2 numbers and calculate the square root of 
+each number. 
+2. Input 10 numbers and determine the sum and average of all 10 
+numbers. 
+3. Code a picture of a house using a Gogga object as shown alongside.  
+ 
+ 
+ 
+ 
+ 
+ 
+4.3 Pattern Recognition 
+Before you code a solution to a problem or subproblem you find that the problem is similar to others: 
+1. there may be an existing program that can be used to solve the problem. This is always the 
+first option. If the code exists, it has been tested and is probably error free.  
+2. there may be pre-written methods that can be called to completely or partially solve the 
+problem. Before we write more code, try to look for a method that may be useful in solving the 
+problem. Java has many prewritten classes that are reliable. For example, we do not need to 
+write code to manipulate and validate dates as Java has many classes to do this. 
+3. there may be existing generic algorithms that can be adapted to solve the problem. If we can 
+model the problem on a similar problem, we will have some idea how to solve the new problem. 
+This year we will learn generic algorithms such as swopping variables, finding the highest, 
+lowest, the sum and average of a set of numbers. Sometimes these algorithms can be slightly 
+adapted to solve similar type problems.  
+4. some of the code may need to be repeated. Later on, you will learn how to use loops to repeat 
+programming statements.  
+  
+
+===== PDF PAGE 70 =====
+Exploring IT: Java Programming Grade 10 
+Page 60 Learning Unit 4 Problem Solving using Computational Thinking 
+EXERCISE 2 
+For each of the following questions, identify the pattern. These will be any tasks or part of a task that 
+is repeated. 
+1. Input 10 numbers and determine the sum and average of all 10 numbers. 
+2. The pattern alongside is made up of 4 identical shapes. What 
+is the shape and how is it repeated? 
+3. Identify the shape that is repeated below on a diagonal line. 
+Explain how the shape is repeated. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.4 Abstraction 
+Abstraction is a useful tool and its main purpose is to focus on what is important to the problem and 
+ignore the rest. It can be used for the main problem, or for each part of the problem. For the main 
+problem, a programmer needs to determine what information do they need, and what can they ignore. 
+For example, if a problem requires a simple calculation to be done, then the day the calculation is 
+done, the person doing the calculation and the type of pen they used are not important to solving this 
+problem. 
+Most problems are very complex and one way to manage this complexity is to break the problem into 
+parts (decomposition) and then focus on each task individually. Focussing on each task can be 
+thought of zoom in – zoom out. Think of a camera that zooms in to a picture. It can only see what is 
+in the view finder. It eliminates everything else. Abstraction is also the zooming in on one task, 
+ignoring other tasks. It is used repeatedly in problem solving. Initially, we abstract the relevant details 
+to determine the problem to solve, then we decompose the problem into tasks and again zoom into a 
+task to find a solution to that task ignoring the other tasks. Once that task is solved, we zoom out and 
+zoom into the next task, systematically working through each until all the tasks are solved and are 
+combined to solve the main problem. 
+
+===== PDF PAGE 71 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 61 
+ 
+https://decisionanalyticsjournal.springeropen.com/articles/10.1186/2193-8636-1-8 
+The production of a computer is a good example. The company that makes the computer case is only 
+concerned with the dimensions of the case, the fixtures to house the motherboard, the drives, slots 
+and power supply. They are not interested in the how the motherboard works, or the speed of the 
+LAN card. Similarly, the motherboard manufacturer needs to know how the motherboard will be 
+housed in the computer case but not the colour of the case or the labels that are stuck on the case. 
+Some facts are common for both the computer case manufacturer and the motherboard manufacture 
+such as the specifics on how the motherboard is mounted in the case, but other facts are not relevant 
+to both. 
+EXERCISE 3 
+For each of the following problems, identify what is relevant to the problem and what is not relevant.  
+1. Nazim, a budding programmer, wants to code a program to show her friend, Lethabo, that she 
+can draw a picture of a castle using Gogga. The castle must be in primary colours and fill the 
+whole screen. 
+2. A scientist wants to code a program to check his formulas for his experiment on force and mass. 
+He needs to input his values in kilograms and calculate the force for each mass. The results 
+must be rounded to six decimal places. He needs to send this data to his supervisor. 
+ 
+4.5 Algorithms 
+An algorithm is a step by step solution to a problem. It can be either a flow chart or pseudocode. A 
+flow chart is a visual representation of the steps in the solution where steps are written in a variety of 
+connected shapes.  
+Pseudocode is a generic fictitious language that can be converted into ANY programming language. 
+Given an algorithm in pseudocode, a programmer can write the solution in their choice of language.  
+4.5.1 Data Structure 
+The information in the problem is stored in a data structure, which is the main variables that are used 
+to store the data for input, processing and output. Some variables are used to store data right 
+throughout the program and others are needed to store data temporarily. The temporary or 
+intermediate variables are not considered part of the main data structure. The algorithms and the data 
+
+===== PDF PAGE 72 =====
+Exploring IT: Java Programming Grade 10 
+Page 62 Learning Unit 4 Problem Solving using Computational Thinking 
+structure are related. The algorithms determine the variables and vice versa. This concept will be 
+explored throughout this programming course. 
+4.5.2 Flow Charts 
+Flow charts can be used in place of pseudocode to represent an algorithm. A flow chart has different 
+symbols, each showing a different type of statement or process, which are connected with arrows to 
+show the flow or sequence of the statements. Inside each symbol, pseudocode is written. 
+The following table provides a summary of symbols you will need this year to successfully represent 
+your algorithms as a flow chart: 
+Symbol Purpose 
+ Start or End 
+ Statement 
+ Input or Output 
+ 
+ 
+ 
+Decision (to be 
+covered later) 
+ Connecting arrow 
+between processes 
+Flow charts take up a lot of space and need to be carefully thought out. They can easily become 
+complicated however they are great at providing a more visual representation of a problem. 
+  
+===== PDF PAGE 73 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 63 
+4.5.2.1  Flow Chart Examples 
+Flow Chart Java 
+ 
+num = 
+Integer.parseInt(JOptionPane.showInputDialog(""));          
+num = num + 4; 
+System.out.print (num); 
+ 
+area= Math.PI * Math.pow(10,2); 
+System.out.println(area); 
+
+===== PDF PAGE 74 =====
+Exploring IT: Java Programming Grade 10 
+Page 64 Learning Unit 4 Problem Solving using Computational Thinking 
+Flow Chart Java 
+ 
+Gogga bug = new Gogga(); 
+bug.move(); 
+bug.turnLeft(); 
+4.5.3 Pseudocode 
+The following rules can be used to write an algorithm in pseudocode. 
+• start the code with the word "begin" and finish with the word "end". Indent all instructions 
+between "begin" and "end".  
+• one line of pseudocode code is similar to a line of Java code 
+• an assignment statement is an arrow  pointing left, not an equals = sign 
+• no semi colons at the end of a statement 
+• variable types vary from one language to another, so do not include any variable declarations 
+• do not use any method names that only belong to one language. For example, an algorithm will 
+not use bug.move() but rather say something like move bug 1 block.  
+• mathematical symbols such as <,>. =, ≠, ≥ and ≤ are universal in any language and can be used 
+• use the word input when entering data from the keyboard  
+• use display when displaying data on the screen 
+4.5.3.1 Pseudocode Examples 
+Pseudocode Java 
+begin 
+    input num 
+    num  num + 4 
+    display num 
+end 
+{ 
+    num =  
+    Integer.parseInt(JOptionPane.showInputDialog("")); 
+    num = num + 4; 
+    System.out.print (num); 
+} 
+begin 
+    area  pi * 102 
+    display area 
+end 
+{ 
+    area= Math.PI * Math.pow(10,2); 
+    System.out.println(area); 
+} 
+  
+
+===== PDF PAGE 75 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 65 
+begin 
+    move bug one block 
+    turn bug left 
+end 
+{ 
+    Gogga bug = new Gogga(); 
+    bug.move(); 
+    bug.turnLeft(); 
+} 
+EXERCISE 4 
+1. Draw the shape used in a flow chart each type of statement. 
+1.1. Input and output 
+1.2. Start and end 
+1.3. Statement 
+1.4. Connect shapes to show sequence 
+1.5. Decision 
+2. Write the algorithm using both a flow chart and an algorithm in pseudocode to solve the 
+following: 
+2.1. Code a program to input 2 numbers and calculate the square root of each number. 
+2.2. Find the average of three numbers. 
+2.3. Input a number, display the number, double the number and display the number again. 
+Lastly square the number and display the number. 
+3. Write down the pseudocode for the following flow charts. 
+3.1. 
+ 
+3.2. 
+ 
+
+===== PDF PAGE 76 =====
+Exploring IT: Java Programming Grade 10 
+Page 66 Learning Unit 4 Problem Solving using Computational Thinking 
+4. Represent the pseudocode as a flow chart. 
+4.1.  
+begin 
+input m, x, c 
+y  mx +c 
+display y 
+end 
+4.2.    
+begin 
+create Gogga object called ant 
+move ant to position 3,4 
+make ant red 
+move ant 3 blocks forward 
+end 
+ 
+4.6 Coding 
+Together with the algorithm and the data structure, code the algorithm in the programming language 
+you are using. 
+4.6.1 User Friendliness 
+The term "user-friendly" is used to describe programs which are well designed from the user 
+interface perspective. If a program is user-friendly, it does not mean that the program is full of friendly 
+greetings, but rather that it is relatively easy to use by the end user (we also say that usability is high). 
+A user-friendly program should use clear prompts to tell the user exactly what data to input. It should 
+also display well lined up output, in an uncluttered way, with meaningful messages, in particular error 
+messages. 
+A user-friendly program can help to avoid run-time errors because the user will know exactly what to 
+type in. 
+4.6.2 Designing a Simple User Interface 
+Refer to section 7.8 of Learning Unit 7 in Exploring IT: Theory Grade 10 for the principles of User 
+Interface Design. 
+The user interface is how your program communicates with the user. It is important to choose the 
+right method of communication. The showMessageDialog is useful for shorter messages; however, 
+System.out.println provides a larger area to display data. If you have a lot of information to give the 
+user, try to structure it so that it is laid out in columns or is spaced out in such a way the user can read 
+the information easily. Also remember that each time the showMessageDialog is used, the user 
+must click OK to close the box. If you are displaying a large amount of data with each line of data 
+being displayed by separate showMessageDialog calls, the user could get frustrated having to click 
+many times. Rather combine all the information into one statement and use \n to put the data on 
+separate lines or use System.out.println. 
+The statement  
+ JOptionPane.showMessageDialog (null, "Hello "+ name  
+         +".\nHow are you?\nI am fine"); 
+may look messy but it is better than 
+===== PDF PAGE 77 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 67 
+JOptionPane.showMessageDialog (null, "Hello "+ name); 
+JOptionPane.showMessageDialog (null, "How are you?"); 
+JOptionPane.showMessageDialog (null, "I am fine"); 
+since the user only must click once in the first case and three times in the second case, even though 
+the first case is less readable. 
+ACTIVITY 1 
+The following section of a program calculates the average of a student's two marks. It is NOT user-
+friendly.  
+String name; 
+int mark1, mark2, average; 
+       
+//Input 
+System.out.println("Type in a person's name and marks");  
+name = JOptionPane.showInputDialog(""); 
+mark1 = Integer.parseInt(JOptionPane.showInputDialog(""));  
+mark2 = Integer.parseInt(JOptionPane.showInputDialog(""));  
+ 
+ //Processing 
+average = (mark1 + mark2) / 2; 
+ 
+ //Output 
+System.out.println(average); 
+ What output will this program display on the screen if the following are input (and <Enter> is 
+pressed after each):   
+ Jo  56      63 
+The program has at least two problems: 
+• it does not clearly tell the user how the data should be input 
+• the average of the two marks is displayed without any text. 
+A program can be made to be more user-friendly by using a prompt with every statement that reads 
+data into a variable, so that a user knows exactly what data to enter. 
+Output should be displayed on the output screen with suitable messages to make it meaningful. The 
+output should also be well laid out and lined up if possible. 
+4.6.3 Readability     
+A program is user-friendly if an end user can use it easily when it is run. A program is readable if 
+another programmer can understand its code easily. The more readable a program is, the easier it is 
+to find errors. 
+In business, more than one person is usually involved in developing a program or a set of programs. 
+Often the person who originally wrote the code for a program has left the company for which he wrote 
+the code. In this case, another programmer must maintain the code by correcting errors or adding 
+enhancements. It could take a long time for another programmer to understand the code if it is badly 
+written and time costs money! 
+At school level, there are some simple techniques that can make your program more readable. 
+  
+===== PDF PAGE 78 =====
+Exploring IT: Java Programming Grade 10 
+Page 68 Learning Unit 4 Problem Solving using Computational Thinking 
+1. Use descriptive variable names 
+If a variable is going to store a sum call it sum (or total). It can be misleading when a variable 
+determines the average but is called sum. 
+2. Place one statement on a line 
+Code is easier to read if there is only one statement on a line including brackets.  
+3. Indent your code correctly 
+Any code between an opening and closing curly bracket must be indented. This will be particularly 
+helpful to identify errors when you use loops and selection statements later on. Your IDE may provide 
+a function to indent code. 
+4. Include comments 
+If the variable name does not make the code easy to understand, include comments. At this stage, 
+the method names are fairly explanatory, but if you are doing something new that you doubt you will 
+understand later, add in some explanations in the form of comments. 
+5. Separate code 
+Use blank lines to separate sections of code. Try to group code that performs a similar function 
+together. For example, use sections to: declare variables; perform calculations and produce output. 
+Later on, we will write our own methods to break the code into sections. 
+6. Follow conventions 
+• By convention, identifiers in Java start with lowercase letters.     
+• The identifier should reflect the contents of the variable.  
+Your teacher may have other conventions that should be followed. Use them as it makes marking 
+quicker for your teacher and it's easier to understand your friends' programs. 
+EXERCISE 5 
+Study the following unreadable program. 
+import javax.swing.JOptionPane; 
+public class X{public static void main (String[]args) { 
+double a = Double.parseDouble(JOptionPane.showInputDialog("What is the 
+cost of a cooldrink?")); 
+int b = Integer.parseInt(JOptionPane.showInputDialog("How many 
+cooldrinks?")); 
+System.out.println("You ordered: " + b + " cooldrinks"); 
+double c = a * b; System.out.println("You owe: " + c); 
+int d = Integer.parseInt(JOptionPane.showInputDialog("Payment?")); 
+double e = d - c;e = e * 100; e = Math.round(e); e = e / 100; 
+System.out.println("Your change: R" + e);}} 
+1. What does this program do? 
+2. List what makes this code unreadable. 
+3. Explain why this program is user friendly. 
+ 
+4.6.4 Errors 
+Once the program is coded it may produce three types of errors: 
+===== PDF PAGE 79 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 69 
+4.6.4.1 Syntax, Run time and Logical Errors 
+• a syntax error is an error picked up by the compiler, such as a semi colon missing. It is the 
+lowest level of errors and is the easiest to find as your IDE should give some kind of error 
+message. 
+• a run time error is when a program compiles but does not run, for example trying to determine 
+the square root of a negative number. Run time errors are one level up from syntax errors. 
+When the program unexpectedly stops, your IDE should indicate where in the code the program 
+halted and give an error message. 
+• logical errors occur when there is an error in the logic of a program statement or a sequence of 
+statements are in the incorrect order. The program compiles and runs but does not do what you 
+wanted. There is no error message making logical errors more difficult to find.  
+4.7 Testing 
+The problem has not been solved until it has been tested. While it is not possible to test each and 
+every data value, you need to choose data that will effectively test your program. You need to predict 
+what result your test data should produce and then run the program to check that you are correct.  
+Try to choose test data that will expose the logical errors in your program. Testing should not be done 
+by the original programmer but rather by someone who is not familiar with the program. The 
+programmer who wrote the program usually has become accustomed to the way it runs and generally 
+is unable to test it objectively. 
+4.7.1 Standard, Extreme and Abnormal Data 
+Use three types of test data, standard, extreme (boundary) and abnormal. Standard data has 
+values within the allowable range, extreme data are values on the limits of the range and abnormal 
+data are incorrect values. For example, if a variable can have values between 1 and 10, then 
+standard data would be any value from 2 to 9. Extreme data would have values on the limits 0, 1 and 
+10, 11. Values 1 and 10 would be correct extreme values but 0 and 11 would be extreme incorrect 
+values. Abnormal values would be 'p', <F7> and -3.  
+4.7.2 Acceptance Testing 
+A program is tested for acceptance in that it satisfies all the criteria that were originally stated. If a 
+program or system of programs do not meet the original criteria, then they are not acceptable. 
+Consider if a client commissions a company to write a product to solve a certain problem. For 
+example, to record and determine the wages of each employee paid weekly. The system that is 
+designed must do exactly that. The client is involved in the acceptance test procedure and only once 
+the client is fully satisfied that the system meets all their criteria, that the product is signed off and the 
+client will then complete all payments.  
+EXERCISE 6 
+1. Write down the type of error (syntax/run time/logical) for each scenario below: 
+1.1. The program produces an error "missing semi colon". 
+1.2. The user enters 5.3 for an integer value. 
+1.3. The program determines the sum and not the average of four numbers. 
+2. The programmer codes the following segment to display the value of a fraction. 
+public class Subtract 
+{ 
+   public static void main () 
+   { 
+===== PDF PAGE 80 =====
+Exploring IT: Java Programming Grade 10 
+Page 70 Learning Unit 4 Problem Solving using Computational Thinking 
+      String n1 = 4; 
+      String n2 = 0; 
+      n3 = n1 / n2;          
+      System.out.println(n3); 
+   } 
+} 
+2.1. Identify the syntax error(s). 
+2.2. Identify the run time error(s). 
+2.3. Explain why the program is not readable. 
+2.4. How could the program be altered to be more user-friendly? 
+3. Provide suitable standard, extreme and abnormal test values for each of the program 
+descriptions. 
+3.1. An IT test result with a maximum possible mark of 40. 
+3.2. A user name which can be a maximum of 20 characters. Only letters and numbers are 
+acceptable. 
+3.3. The height of a person. 
+3.4. An IPv4 address. 
+ 
+4.7.3 Trace Tables 
+A trace table is a tool that is used to work out, line by line what will happen when a program executes. 
+It is also a good way of locating a logical error. Trace Tables are done on paper to work out the values 
+of the variables in a program. Not only does this help to find logical errors but it also helps to 
+understand the purpose of the program. 
+Errors in programs are often called bugs. Long ago computers were so big that actual bugs crept into 
+them and caused problems. In those days, you could debug by calling the exterminators! 
+ACTIVITY 2 
+ Study the following section of a Java program which will be used to show you how to set out a 
+trace table: 
+public static void main (String [] args) 
+{     
+      int num1, num2, num3, num4, num5; 
+1  num1 = 9; 
+         
+2  System.out.println ("Type in 2 integers,  
+    press <Enter> after each"); 
+3  num2 = Integer.parseInt(JOptionPane.showInputDialog("")); 
+4  num3 = Integer.parseInt(JOptionPane.showInputDialog("")); 
+             
+5  num5 = num1 - (num2 - num3) % 5; 
+6  num4 = 2 * num2; 
+7  num2 = num4 + num5; 
+8  num3 = num2 % 6; 
+9  num1 = (num5 / 2) + (num3 * num3); 
+        
+10  System.out.print (num1); 
+11  System.out.print (num2);      
+} // main method 
+===== PDF PAGE 81 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 71 
+Number the statements in the program from 1 to 15, starting with the statement num1 = 9; that is, 
+write the number of each statement to the left of each statement.  
+e.g. 1  num1 = 9;  
+ 2  System.out.println ("Type in 2 integers,  
+  press <Enter> after each"); 
+ 3  num2 = Integer.parseInt(JOptionPane.showInputDialog("")); 
+ and so on ... 
+4.7.3.1 Steps to Make a Trace Table 
+1. Turn a page sideways and divide the page into 2 sections. One section for all the VARIABLES 
+IN MEMORY and one for SCREEN OUTPUT. 
+2. Make one column in the memory section for line numbers and a column for each variable.  
+3. Number each line / statement of the program starting with the line after the variable 
+declarations. 
+4. Start from the statement you numbered 1 and in the correct column in the trace table, write 
+down the line number and the value of each of the variables, as you go from statement to 
+statement. 
+5. If there are any input statements in the program, use the given data values. 
+6. If there are any output statements, write down exactly what will be displayed in the screen 
+output section. 
+ Copy the table that follows and fill in each variable's value in the correct column. Also, under the 
+heading SCREEN OUTPUT show what will appear on the screen, as you "carry out" each 
+statement, in order. (The first few values have been filled in for you.) The values of the variables 
+in a program are put into the columns of a table.  
+Write down the value of each variable in the correct column, as each statement is carried out. 
+Assume that 4 and 2 are entered. 
+ 
+ 
+The current value of 
+the variable is its 
+last value; all the 
+other values are 
+overwritten. 
+ 
+VARIABLES IN MEMORY 
+Line 
+No 
+num1 num2 num3 num4 num5 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+9 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+4 
+ 
+ 
+ 
+15 
+ 
+ 
+ 
+ 
+2 
+ 
+ 
+ 
+3 
+ 
+ 
+ 
+ 
+ 
+8 
+ 
+ 
+ 
+ 
+7 
+ 
+SCREEN OUTPUT 
+Type in 2 integers, 
+press <Enter> after 
+each 
+ 4 
+ 2 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+12 
+15 
+ 
+num5 = num1 - (num2 - num3) % 5; 
+num5 = 9 - (4 - 2) % 5 
+num5 = 9 – 2 % 5 
+num5 = 9 – 2 
+num5 = 7 
+ 
+ 
+num1 = (num5 / 2) + (num3 * 
+num3); 
+num1 = (7 / 2) + (3 * 3) 
+num1 = 3 + 9 
+num1 = 12 
+ 
+ 
+===== PDF PAGE 82 =====
+Exploring IT: Java Programming Grade 10 
+Page 72 Learning Unit 4 Problem Solving using Computational Thinking 
+We have put the variables and the screen output sections next to each other, but it is often best to put 
+the screen output section underneath the variables section, because trace tables can become very 
+wide. 
+EXERCISE 7 
+1. Consider this segment of a Java program which has been designed to calculate the average of 
+three numbers. 
+int m1,m2,m3; 
+double ave; 
+... 
+ave = m1 + m2 + m3 / 3; 
+System.out.println("The average is:" + ave); 
+1.1. Use a trace table to determine what will be displayed by this program. 
+1.2. How would you correct this error?  
+2. Draw up trace tables to show what will be stored in memory and what will be output in each of 
+the following programs: 
+2.1. This program was written to calculate the total amount due after doing some grocery 
+shopping.  
+int num;  
+double price, cost, total; 
+String item; 
+ 
+total = 0; 
+item = "Baked beans"; 
+num = 3; 
+price = 23.29; 
+cost = num * price; 
+total = total + cost; 
+item = "Kewl drink"; 
+num = 5; 
+price = 21.95; 
+cost = num * price; 
+total = cost; 
+System.out.print("Total amount to pay: R "); 
+System.out.println(total); 
+2.1.1. Draw up a trace table for this section of code. 
+2.1.2. The program has a logical error. Write a short description of the problem. 
+2.1.3. Write the line number of the incorrect statement and next to it, write the correct 
+statement. 
+  
+===== PDF PAGE 83 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 73 
+2.2. Draw a trace table for the following section of a program and show what will be displayed 
+when it is run. 
+int a, c;  
+double b; 
+ 
+a = 17 - 3 * 4; 
+b = 7 - a*a; 
+c = (a + b) - b / a; 
+b = c / 4; 
+a = a % c;         
+System.out.print(a); 
+System.out.print(b); 
+System.out.print(c); 
+ 
+4.8 Evaluating and Optimising 
+Once the problem has been solved, you need to take a critical look at it and question whether it was 
+the best, most efficient solution. Does the solution solve the problem? Was there a better data 
+structure?  Are the algorithms the most appropriate? 
+CHECK POINT 1 
+1. List the four techniques in Computational Thinking. 
+2. Explain in your own words each of the four techniques. 
+3. What is difference between pseudocode and a flow chart? 
+4. What are the rules for pseudocode? 
+5. List and classify the symbols for a flow chart. 
+6. List the three types of error than can occur when coding. 
+7. Name and explain the three types of data that can be used to test a variable in a program. 
+8. What is the purpose of a trace table? 
+9. Explain the difference between readability and user friendliness 
+ 
+4.9 Examples 
+To illustrate computational thinking, we will use programming examples. 
+4.9.1 Calculating Sales Price 
+A shopkeeper needs to determine the selling price of a T-shirt after 5% is deducted and VAT is 
+included. We will call this problem CalcPrice. 
+4.9.1.1 Abstraction 
+We need to determine what is relevant to the problem. The problem we need to solve is to take a 
+price and work out the sales price after discount and VAT have been calculated.  
+===== PDF PAGE 84 =====
+Exploring IT: Java Programming Grade 10 
+Page 74 Learning Unit 4 Problem Solving using Computational Thinking 
+The shopkeeper and T-shirt are not relevant. The problem can be generalised to work out the sales 
+price for any item. We can assume that the shopkeeper will run the program, but it can be run by any 
+user. 
+4.9.1.2 Decomposition 
+The problem can be divided into three parts. 
+Input price 
+Processing discount is 5% of the price 
+VAT is 15% of the price after the discount has been taken off 
+Output result 
+Once IPO has been determined, we need to select the data structure. 
+4.9.1.3 Data Structure 
+Once you have analysed a problem into IPO, you need to select the main and temporary variables 
+and choose an appropriate type for each variable. As data structures become more complex, the 
+choice of data structure will have consequences and implications for how the problem can be solved. 
+In the above example, we will need to store the price, discount, VAT and the final result. Since the 
+problem deals with money, double will be a suitable type. 
+4.9.1.4 Algorithm 
+Represent the solution in either pseudocode or a flow chart. 
+The pseudocode for the CalcPrice problem using the decomposed Input, Processing and Output: 
+Input input price 
+Processing 
+discount  price * 0.05 
+VAT  price * 0.15 
+result  price – discount + VAT 
+Output display "The final amount is" + result 
+ 
+  
+===== PDF PAGE 85 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 75 
+The flow chart for the CalcPrice problem using Input, Processing and Output: 
+ 
+ 
+4.9.1.5  Code the Program 
+Create a Java program called CalcPrice and code the above algorithm in Java. 
+import javax.swing.*; 
+ 
+public class CalcPrice 
+{ 
+ 
+   public static void main (String [] args) 
+   { 
+1 int price = Integer.parseInt 
+    (JOptionPane.showInputDialog("Enter the price")); 
+2     double discount = price * 0.05; 
+3     double VAT = price * 0.15; 
+4     double result = price - discount + VAT; 
+5     System.out.println("The final amount is " + result); 
+   } 
+} 
+  
+
+===== PDF PAGE 86 =====
+Exploring IT: Java Programming Grade 10 
+Page 76 Learning Unit 4 Problem Solving using Computational Thinking 
+4.9.1.6 Test the Program 
+Once the program compiles, run the program. The program has only one value that is inputted into 
+the program. This variable needs to be tested. Choose suitable test data for the variable price.  
+Variable name: price   type: double 
+Test type Value Explanation Expected Result Actual Result 
+Standard Data 250 A possible value of an item 273.125 275 
+Extreme Data 0 A value on the edges of the 
+allowable range 0  
+Abnormal 
+Data -20 An incorrect value -21.85  
+The abnormal value of -20 should be rejected by the program. At this stage we have not learnt 
+enough to do this until the learning unit on selection statement. 
+There is a logical error in the above program.  
+ACTIVITY 3 
+ Use a trace table to determine the error. The headings for the trace table have been provided. 
+Use the line numbers in bold in the program. 
+Line No price discount VAT result 
+ The logical error calculates the incorrect result. VAT should be calculated on the reduced 
+discounted price.  
+ Write down how you would correct the code. 
+4.9.2 Swopping Two Numbers 
+Zinzi wants to write a program to swop two numbers around. The user will input the two numbers 
+called num1 and num2. The program will place num1's value in num2 and vice versa, then output 
+the results. 
+4.9.2.1 Abstraction 
+Make sure you understand what is required and extract the relevant details. The program is required 
+to input two numbers, swop them and display both. What is not relevant is the person who needs the 
+program, Zinzi.  
+4.9.2.2 Decompose the Problem into IPO 
+At first it may be easier to write down what is required in words. 
+Input Two numbers num1 and num2 
+Processing Swop the numbers around 
+Output num1 and num2 with swopped values 
+4.9.2.3 Write the Algorithm 
+To swop two numbers, we cannot assign num1 to num2 and num2 to num1. 
+num1  num2 
+num2  num1 
+We can show this by use of a small trace table assuming num1 is 5 and num2 is 10. 
+===== PDF PAGE 87 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 77 
+Algorithm num1 num2 
+num1  num2 
+ 
+num2  num1 
+5 
+10 
+10 
+ 
+10 
+When num1 is assigned num2's value num1's value is overwritten and lost. We need to keep a 
+copy of num1's value in a variable called temp before we perform num1  num2. Then num2 can 
+get its value from temp. The code will be: 
+temp  num1 
+num1  num2 
+num2  temp 
+The IPO table will become: 
+Input num1, num2 
+Processing 
+temp  num1 
+num1  num2 
+num2  temp 
+Output A message with num1, num2 
+The algorithm could be written as a flow chart. 
+ 
+  
+
+===== PDF PAGE 88 =====
+Exploring IT: Java Programming Grade 10 
+Page 78 Learning Unit 4 Problem Solving using Computational Thinking 
+4.9.2.4 Code the Solution 
+ACTIVITY 4 
+ Type in the following code. 
+  //Your Name: xxxxxxxxxx Date: xx/xx/xxxx  
+import javax.swing.JOptionPane;  
+public class Swop  
+{  
+   public static void main (String [] args)  
+   {  
+int num1, num2; 
+ 
+num1 = Integer.parseInt(JOptionPane.showInputDialog 
+      ("Type in a number <Enter>")); 
+num2 = Integer.parseInt(JOptionPane.showInputDialog 
+    ("Type in another number and press 
+<Enter>"));  
+int temp = num1; 
+num1 = num2; 
+num2 = temp; 
+             
+System.out.println("The swopped numbers are: " + num1 +"\t" + 
+num2); 
+     } // main method  
+} // Swop 
+ Save, compile and run the code checking for any errors. 
+ Choose suitable standard, extreme and abnormal data to test the program. 
+4.9.2.5 Tracing Using the IDE 
+What if the programmer wrote the following code? 
+    int num1, num2; 
+     
+    num1 = Integer.parseInt(JOptionPane.showInputDialog 
+       ("Type in a number <Enter>"));  
+ num2 = Integer.parseInt(JOptionPane.showInputDialog 
+    ("Type in another number and press <Enter>"));  
+             
+System.out.println("The swopped numbers are: " + num2 +"\t" + num1); 
+The values would appear to have been swopped to the user, by displaying their values in reverse 
+order. To work out if their values have indeed been swopped, we would need to use a trace table or 
+use the IDE to do a trace while the program is running. 
+ACTIVITY 5 
+In this activity, we will use the jGrasp IDE to show how you can trace through a program and watch 
+the values of variables change while the programming is running. Tracing using your IDE is a 
+convenient way of finding logical errors. 
+If you are using another IDE, you will need to look in the help to find out how to perform a trace. 
+ Load your program called Swop. 
+ Make sure the program compiles, otherwise it cannot be traced. 
+===== PDF PAGE 89 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 79 
+In jGrasp you need to tell the IDE when to start the trace. This is useful if you know the error is not at 
+the start of the program. You can run the program normally up to the line where you want to start the 
+trace to watch closely. 
+ Move your mouse over the left of your code screen until you see a red dot appear. Click on the 
+red dot next to the first num1 assignment statement. (You can remove the red dot by moving 
+your mouse over the red dot and white dot will appear over the red dot, to remove the red dot.) 
+ Now click on the lady beetle icon to debug (pun) your code. 
+ A window will appear on the left-hand screen showing the arguments (from String args in the 
+main method) and the local variables. At this stage, it does not show num1 or num2. 
+ Now click on the arrow at the top of the left-hand side of the screen above the variable window 
+to step through each line of the code. An arrow will appear in the code window showing you 
+which line is being run. Slowly click on the step arrow to step line by line through your code. 
+ 
+ Watch the values in num1 and num2 to see if they change. Check that the variable temp is 
+created to store num1's value. 
+Now, if we had the code where the two values were just displayed in reverse order, we would detect 
+this using the trace supplied by the IDE. 
+4.9.2.6 Testing the Solution 
+The code has been designed to swop two integers. Will it work for real numbers or Strings?  If we 
+declare the numbers as Strings, the user can enter any data and the values will be swopped. This will 
+work as long as the data is never needed in any calculations. 
+ Change the type of num1, num2 and temp to be Strings. You will also have to remove the 
+Integer.parseInt method calls to convert the input to an int. 
+ Test that the two values are still swopped. 
+Select test data to test your program. 
+Type num1 num2 Expected Result Actual Result 
+Standard 5 15 Swopped  
+Standard 23.87 89.07 Swopped  
+Extreme 400000 -2753123 Swopped  
+Extreme 0 0 Swopped  
+Abnormal Hello There Swopped  
+This program will work for even abnormal data. If we had declared num1 and num2 as double then 
+the program would have produced a run time error for the abnormal data. Declaring the variables as 
+Strings will work in this case, however if we had used num1 and num2 in calculations we would have 
+to use the double type and call the parseDouble method to convert the Strings. int is not the correct 
+type as it will not work for all types of numbers.  
+
+===== PDF PAGE 90 =====
+Exploring IT: Java Programming Grade 10 
+Page 80 Learning Unit 4 Problem Solving using Computational Thinking 
+4.9.2.7 Evaluate the Solution 
+Is this the best solution?  Since it is so simple, the answer is yes. However more complex solutions 
+would need to be analysed. 
+4.9.3 Temperature Conversion 
+Water freezes at 32° and boils at 212° on the Fahrenheit scale. If C and F represent Celsius and 
+Fahrenheit temperatures respectively, the following formula converts from Celsius to Fahrenheit:   
+𝐹 =  9𝐶
+5 +  32 
+We would like to write a program to convert any temperature in Celsius entered by the user into a 
+temperature in Fahrenheit. 
+4.9.3.1 Abstraction 
+Make sure you understand what is required in the problem statement. 
+4.9.3.2 Decompose the Problem 
+Input The temp in °C 
+Processing Convert C to F using the formula 
+Output The temp in °F 
+4.9.3.3 Write the Algorithm 
+The algorithm in pseudocode: 
+begin 
+    input c 
+    f  (9*c)/5 + 32 
+    display "The temp in Fahrenheit is" + f 
+end 
+The algorithm as an IPO table: 
+Input input c 
+Processing f  (9*c)/5 + 32 
+Output display "The temp in Fahrenheit is" + f  
+4.9.3.4 Code the Solution 
+ Type in the following code: 
+// The "TempConversion" class. 
+import javax.swing.*; 
+ 
+public class TempConversion 
+{    
+   public static void main (String[] args) 
+   { 
+       double celsius = Double.parseDouble(JOptionPane.showInputDialog 
+        ("Enter a temperature in Celsius: ")); 
+         
+       double fahr = (9 * celsius)/5 + 32; 
+              
+       JOptionPane.showMessageDialog(null,  
+===== PDF PAGE 91 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 4 Problem Solving using Computational Thinking Page 81 
+                          "Temperature in Fahrenheit: " + fahr); 
+       
+   } // main method 
+} // TempConversion class 
+4.9.3.5 Test the Solution 
+Before you can devise a test plan, you need to understand what is going to be entered as input. In 
+this example the data entered is of type double, requiring test data with decimal fractions. Since 
+temperature can be any value, it would be difficult to find definite extreme data, so choose a very 
+small or large number. 
+Here is our range of test cases: 
+Type Input value (Celsius) Expected output value (Fahrenheit) Actual output value 
+Standard 0 32  
+Standard 37.2 98.96  
+Standard 100 212  
+Standard -3.5 25.7  
+Extreme 1999 3630.2  
+Abnormal One Error  
+ Run the program with each of the test values and check that the program produces the results 
+that were expected. 
+Note that the abnormal data causes a run time error. We cannot input the data as a String as we 
+did in the last case, since we will need it in a calculation. Using a String value (e.g. "5.2") in a 
+calculation would cause a compiler error. 
+4.9.3.6 Evaluate the Solution 
+Again, the program is simple and there are not many alternative possible solutions.  
+EXERCISE 8 
+1. RandsToEuros 
+Write a program that converts Rands to Euros (use the Internet to obtain the latest exchange 
+rate). The user must be able to enter any value in Rands and your program should display the 
+value in Euros. Use the planning, test cases, implementation and testing approach. 
+2. DistanceFormula 
+This problem you might encounter if you study Science. Write a program to work out the 
+distance a rock will travel if it is dropped from a height and fell for 2 seconds. The formula to 
+determine the distance is s = ½gt2 
+where:   s is distance (displacement) 
+ g is gravity =9.8m/s2 
+ t is time in seconds. 
+Now if a smaller ball was dropped and travelled for 2 seconds, how far will it have travelled?  
+Use your program to answer this question.  
+ What can you conclude?  Is the height relevant?  
+===== PDF PAGE 92 =====
+Exploring IT: Java Programming Grade 10 
+Page 82 Learning Unit 4 Problem Solving using Computational Thinking 
+3. QuadraticEquation 
+Write a program to work out y, if y = ax2 + bx + c (the equation of a parabola). The user will 
+enter values for a, b, c and x.  
+4. BondRepayments 
+Calculate the monthly repayments (A) of a house, if the house costs R1 000 000 (P) and the bond 
+will take 20 years to pay off at an interest rate of 10% per annum (yearly) (i = 0.10). The 
+repayments must be calculated monthly (t = 12). The years 20, so n = 20. 
+Use the following formula calculate x – where P is the cost of the house, i is the interest per 
+month, n is the number of months for the loan and t = 12. . Input values for P, i and n. 
+𝒙 = 𝑃 ∗ 
+𝑖
+𝑡
+1 − (𝑖
+𝑡 + 1)−𝑛𝑡
+ 
+ 

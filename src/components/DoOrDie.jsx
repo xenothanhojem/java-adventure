@@ -3,7 +3,7 @@ import {
   ChevronLeft, Skull, Timer, Loader2, AlertCircle, Trophy, RotateCcw, Home,
 } from 'lucide-react';
 import { tickerScheduleFor, scoreRun, GRADE_COLOR } from '../data/scenarios.js';
-import { UNITS as JAVA_UNITS } from '../data/skills.js';
+import { getSubjectModule } from '../subjects/index.js';
 import NewsTicker from './NewsTicker.jsx';
 
 /*
@@ -311,7 +311,8 @@ function ScoreBlock({ label, value, sub, color }) {
 }
 
 export default function DoOrDie({ scenario, subject = 'java', units, onBack, onComplete, dispatch, renderChallenge }) {
-  const unitRegistry = units || JAVA_UNITS;
+  const subjectModule = getSubjectModule(subject);
+  const unitRegistry = units || subjectModule.UNITS;
   const [phase, setPhase] = useState('briefing');
   const [challenges, setChallenges] = useState([]);
   const [error, setError] = useState(null);
@@ -342,6 +343,9 @@ export default function DoOrDie({ scenario, subject = 'java', units, onBack, onC
           unitId: scenario.unitId,
           unitName: unit ? unit.name : '',
           skills: scenario.skills,
+          skillHints: Object.fromEntries(scenario.skills.map((id) => [
+            id, subjectModule.SKILL_HINTS?.[id] || subjectModule.SKILLS?.[id]?.description || '',
+          ])),
           count: scenario.questionCount,
           scenarioContext: `${scenario.title}: ${scenario.briefing}`,
           difficulty: 'medium',

@@ -6,6 +6,9 @@ dist
 .vercel
 *.local
 
+# Textbook PDFs (copyrighted source material)
+material/*.pdf
+
 # Cursor AI rules
 .cursor/rules/codacy.mdc
 .cursor/ 

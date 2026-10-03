@@ -1,0 +1,650 @@
+
+===== PDF PAGE 51 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 41 
+Leaning Unit 3 Characters, 
+Strings and Math Class 
+3.1 Characters 
+A variable of the primitive data type char holds a single character. Character values are written 
+between single quotation marks:  
+ char c = 'a'; 
+Characters are represented in Java by the Unicode character set which is a set of integer code 
+values. More information on Unicode can be found at: http://www.unicode.org. 
+You can imagine the Unicode set as a big table of all the characters on the keyboard as well as many 
+more characters from different languages, Braille patterns and all sorts of symbols. Each character 
+has a unique number so that the computer can identify one from another.  
+For example, the lowercase letters of the alphabet are represented by the actual integer values 97, 
+98, …, 122, i.e. 'a' is represented by the integer 97, 'b' is represented by the integer 98, etc. Here 
+are some more examples: 
+Character Unicode  Character Unicode  Character Unicode 
+(Enter) 13  Z 90  a 97 
+@ 64  [ 91  b 98 
+A 65  \ 92  c 99 
+B 66  ] 93  d 100 
+C 67  ^ 94  z 122 
+ACTIVITY 1 
+ Look at the table of ASCII codes given in the Appendix. You will see that the Unicode values 
+above are the same as the ASCII code values (for the first 127 characters). 
+Consider the following code: 
+   char ch1 = 'a'; 
+   System.out.println(ch1); 
+ char ch2 = 97; 
+   System.out.println(ch2); 
+   ch1++; 
+ System.out.println(ch1);   
+ Try to work out what this code will produce as output 
+ Type this code in a program and run it to check your output. 
+Is this what you expected?  Both ch1 and ch2 refer to the character 'a'. This is because the 
+character 'a' is represented by the integer code value 97. The second println statement outputs the 
+character 'a' because we declared ch2 as a char. If we had declared ch2 as an int i.e. (int ch2 = 
+97;) then the number 97 would have been printed out. 
+The last two statements in this section of code emphasise that characters are in fact integers. 
+Although ch1 is a character, we can perform arithmetic operations with it (ch1++). Before the 
+increment, the value of ch1 was 'a', which is the integer 97. When 1 is added to ch1, it changes to 
+===== PDF PAGE 52 =====
+Exploring IT: Java Programming Grade 10 
+Page 42 Leaning Unit 3 Characters, Strings and Math Class 
+the value 98. With the final println statement, Java knows to display the character 'b' and not the 
+value 98, because the type of ch1 is char. 
+3.1.1 Escape Sequences 
+There are some special characters which we use quite often but which do not have single character 
+symbols on our keyboard. For example:  the newline character (return or enter) and the tab character. 
+Although these have unique Unicode values, it is more convenient (and understandable) to express 
+them using something called an escape sequence which is a backslash (\) followed by a special 
+character.  
+Escape sequence Meaning 
+\n Move the cursor to the beginning of the next line (equivalent to pressing the 
+Enter key) 
+\t Move the cursor to the next tab stop 
+\\ Display a backslash character 
+\' Display a single-quote character 
+\" Display a double-quote character 
+3.1.2 Output using a Method of the JOptionPane Class for Output 
+Instead of using System.out.println() to display text output on the screen, you can use the 
+showMessageDialog() method of the JOptionPane class to display the output in a GUI. 
+ACTIVITY 2 
+ Copy the code below into a new class GUIOutput that will display a message on the screen. 
+import javax.swing.*; 
+public class GUIOutput 
+{ 
+    public static void main (String[] args) 
+    { 
+        JOptionPane.showMessageDialog (null, "Hello. How are you?  I  
+       am fine"); 
+ 
+ 
+    } // main method 
+} // GUIOutput  class 
+ 
+ Change the program to input a person's name and then display the name and the message 
+ Hello XXX. How are you?  I am fine 
+Remember to place the variable name outside the double quotes: 
+ JOptionPane.showMessageDialog (null,  
+    "Hello " + name + ". How are you? I am fine"); 
+3.1.3 Formatting Characters 
+3.1.3.1 \n (new line) 
+The output in the dialog box can be placed on separate lines by adding the formatting character \n to 
+force a new line. 
+ Change the program by adding in \n so that each sentence appears on a separate line. 
+You will need to import the 
+javax.swing.* package to gain access 
+to the showMessageDialog method. 
+The parameter null refers to the GUI component this 
+message is displayed in, such as a frame. Since we do 
+not have any GUI components, we use null for the first 
+parameter, which means 'nothing'. 
+===== PDF PAGE 53 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 43 
+ JOptionPane.showMessageDialog (null, "Hello "+ name + 
+         ".\nHow are you?\nI am fine"); 
+The formatting characters could also have been added outside the String messages and would need 
+to be enclosed in quotes. 
+ Change the output statement as follows: 
+ JOptionPane.showMessageDialog (null, "Hello " + name  
+       + ".\n" + "How are you?" + "\n" + "I am fine"); 
+3.1.3.2 \t (tab space) 
+The formatting character \t indicates a tab space. It cannot be used with the showMessageDialog 
+method, but it will work with the standard text output System.out.println. It leaves as many spaces 
+as have been set up for a tab on the computer you are using (usually 8 spaces). 
+ Type in the program Tabs that will display a message using a tab character. 
+public class Tabs 
+{ 
+    public static void main (String[] args) 
+    { 
+        System.out.println("Hello\tHow are you?\nI am fine."); 
+    } // main method 
+} // Tabs class 
+EXERCISE 1 
+1. Start a new class called Stock. Type in code to display the following output in three columns.  
+Use the tab formatting character to align the output in three columns. 
+ ITEM   ITEM CODE  QUANTITY 
+ T-shirt  537   350 
+ Dress   7231   480 
+ Earrings  7732   90 
+2. In a new class called PersonalDetails2. Type in the following code: 
+// The "PersonalDetails2" class. 
+import javax.swing.*; 
+public class PersonalDetails2 
+{ 
+  public static void main (String[] args) 
+  { 
+     String name; 
+     String surname; 
+     String telnum; 
+     String yearOfBirth; 
+     String height; 
+ 
+     name = JOptionPane.showInputDialog ("First name?"); 
+     surname = JOptionPane.showInputDialog ("Surname?"); 
+     telnum = JOptionPane.showInputDialog ("Cell number?"); 
+     yearOfBirth = JOptionPane.showInputDialog  
+         ("Year of birth YYYY ?"); 
+     height = JOptionPane.showInputDialog  
+      ("Height in metres (with 1 dec. pl.)"); 
+ 
+    JOptionPane.showMessageDialog (null, "NAME: " + name + " " +  
+    surname + "\nYEAR OF BIRTH: " + yearOfBirth 
+===== PDF PAGE 54 =====
+Exploring IT: Java Programming Grade 10 
+Page 44 Leaning Unit 3 Characters, Strings and Math Class 
+               + "\nHEIGHT(m): " + height 
+                  + "\nTELEPHONE NUMBER: " + telnum ,  
+     "PERSONAL DETAILS" ,  
+     JOptionPane.PLAIN_MESSAGE); 
+ 
+    } // main method     
+} // PersonalDetails2 class 
+ Experiment with the different types of message available. Instead of PLAIN_MESSAGE, the 
+other possible values are:  
+ERROR_MESSAGE, INFORMATION_MESSAGE, WARNING_MESSAGE, QUESTION_MESSAGE.  
+Each of these produces a different icon when the output dialog is displayed. 
+CHECK POINT 1 
+1. What does the statement import javax.swing.*; do? 
+2. Why is the following statement not used in the PersonalDetails2 program? 
+import java.awt.*; 
+3. Write down the name of the Java method used  
+3.1. for input using the JOptionPane class 
+3.2. for output using the JOptionPane class 
+4. Write down one statement from the PersonalDetails2 program in which 
+4.1. a variable is declared  
+4.2. an input prompt is used  
+4.3. a variable has a value stored in it  
+5. Why does null have to be put as the first parameter in the beginning of the brackets with 
+JOptionPane.showMessageDialog? 
+ 
+3.2 Strings 
+A String is a series of characters treated as a single unit. The String data type is not a primitive data 
+type, like int, char, etc. As we have seen, String is a class. However, Strings are fundamental to Java; 
+the String class therefore has a number of features that we don't find in other classes. One such 
+feature is the way a String object may be initialised: 
+ String leader = "Mandela"; 
+Here the object leader is created without using new, as we do for Gogga and Color objects. This is a 
+special short-cut case for strings. The statement above is in fact equivalent to the following: 
+ String leader = new String("Mandela"); 
+As previously mentioned, the '+' operator is used for concatenating strings. The '+' operator can 
+also be used to concatenate strings and characters, for example: 
+String st = "Run"; 
+System.out.println(st + '!');    //These 2 statements print: Run! 
+In addition to the plus operator there are many methods you can use with objects of the String class. 
+One very useful method is the method charAt(i) which returns the character at position i in a String. 
+The first character in a String is at position zero, the second character is at position one etc. 
+===== PDF PAGE 55 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 45 
+ACTIVITY 3 
+The following Java statements illustrate some of these points (remember that the character '\n' 
+represents the newline character):  
+    String s1 = "hello"; 
+    String s2 = "there"; 
+    System.out.println(s1 + ' ' + s2);    // one space between ' '     
+    String s3 = "Line 1\nLine 2"; 
+    System.out.println(s3); 
+    String wrd = "" + s2.charAt(0)+s1.charAt(4); 
+ 
+    System.out.println(wrd);        
+    char ch = s2.charAt(3);                
+    System.out.println(ch);        
+ Write down what you think the output will be before continuing. 
+ Type this code in a program and run it to check your output. 
+In the case of the 1st output statement, the string s1 is joined to the character "  " (which is simply a 
+space) and the string s2 and the resulting string is displayed. 
+In the 4th statement, the string s3 is initialised to "Line 1\nLine 2". Notice the special character 
+(\n) in the middle of the string. When the string s3 is displayed in the 5th statement, the '\n' is 
+output as a new line, resulting in the string being displayed on 2 lines. 
+In the next two statements, two characters are joined, and the resulting String is stored in the variable 
+wrd, which is then displayed. 
+In the 2nd last statement, the character ch is assigned to the 3rd character in s2.  
+ACTIVITY 4 
+The character numbering for the string "there" works as follows: 
+Position 0 1 2 3 4 
+Character 't' 'h' 'e' 'r' 'e' 
+Therefore, although the string "there" has five characters, the characters are numbered from 0 to 4. 
+The character at position 3 is therefore 'r', which is displayed.  
+What is the output of these statements? First work it out on paper then type the statements in a 
+program and run it to check your answers. 
+String s1 = "polo"; 
+String s2 = "call"; 
+System.out.print(s2.charAt(0)); 
+System.out.print(s1.charAt(3)); 
+System.out.print(s1.charAt(1)); 
+System.out.print(s2.charAt(2)); 
+System.out.println("!"); 
+3.2.1 The length() Method of the String Class 
+Another very useful method of the String class is the length() method, which returns the number of 
+characters in a String. The length() method has no parameters in brackets, but Java requires that 
+any method name must be followed by an opening and closing bracket. The length() method can 
+only be used with String types. 
+ System.out.println( "ETHNIC AFRICA".length() ); 
+Add "" to convert the character to a String type. 
+===== PDF PAGE 56 =====
+Exploring IT: Java Programming Grade 10 
+Page 46 Leaning Unit 3 Characters, Strings and Math Class 
+will output the integer 13 as the blank space also counts as one character. 
+ System.out.println( "Hi there!".length() ); 
+will output the integer 9 
+ System.out.println(   875.length() ); 
+will output an error message as 875 is an integer. 
+ACTIVITY 5 
+ Start a new Application called StringLengths and type in the following code: 
+String name1, name2, message; 
+  
+name1 = "Jane"; 
+name2 = "Sam Nkomo"; 
+message = "Computers are great fun!"; 
+System.out.println (name1 + " has " + name1.length() + " characters in  
+               it "); 
+System.out.println (); 
+System.out.println (name2 + " has " + name2.length() + " characters in  
+               it "); 
+System.out.println ();      
+System.out.println (message + " has " + message.length() + "  
+          characters in it "); 
+ Save and run this program and view the output. 
+ Change the code to allow a user to input the two names and a message instead of having them 
+assigned to variables. 
+ Add code to display the first character of each name. 
+ Run the program and check that the output is correct. 
+EXERCISE 2 
+1. Start a new class called ThreeWords. Add code which asks a user to enter three words which 
+must be stored in three separate variables. Determine the number of characters in each word 
+and the total number of characters in the three words together. Display each word, with the 
+number of characters in each next to it and the total number of characters below this, with a 
+suitable message. 
+2.  
+2.1. Start a new class called NumberOfDigits. Add code which asks for any integer to be 
+typed in. Store this number in a variable of type String. Display the number and the 
+quantity of digits in the number. For example, the number 76465 has 5 digits in it. 
+2.2. Add code to declare a variable called wholeNum of type int. Convert the String into an 
+integer and store the integer in the variable wholeNum. 
+ Can you use the length() method to determine and display the number of digits in 
+wholeNum? 
+ You cannot to do this!  Why not? 
+ 
+  
+===== PDF PAGE 57 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 47 
+3.3 Typecasting 
+There are two data type conversions in Java:  
+1. A widening conversion, which occurs when a value of one type is converted to a data type 
+that has a larger range of values. Java performs widening conversions automatically, such as 
+when an integer value is assigned to a variable of the double data type.  
+    E.g. double realNum; 
+    realNum = 7; 
+2. A narrowing conversion, which occurs when a value of one type is converted to a data type 
+that has a smaller range of values (such as double to integer). Narrowing conversions are not 
+always safe, because data can be lost if the value is outside the possible range of values in the 
+new data type. 
+Java can be forced to perform a narrowing conversion using a construct know as a typecast, or cast 
+for short, by placing the name of the desired data type in round brackets before the value to be 
+converted.  
+ E.g.  int num; 
+   num = (int) 13.456; 
+Firstly, we will look at converting real numbers to integers. 
+ACTIVITY 6 
+ Start a new application called TypeCast. 
+ Add code to declare one variable called realNum of data type double and one integer variable 
+called intNum.  
+ Assign the real number value 654.875 to realNum. 
+ Then add the statement:  
+intNum = (int) realNum; 
+ Add two lines of output which should display, one line below the other, the values of the 
+variables, together with suitable messages: 
+System.out.println ("The real number is " + realNum); 
+System.out.println ("This number, cast to an integer, is " + intNum); 
+ Save and run your program. 
+ Write down the output that is produced 
+ Change the assignment statement to an input statement, so that any real number can be typed 
+in and stored in the variable realNum. 
+ Run the program, entering the different real values given below.  
+ Write down the results for the following data. 
+Real Numbers: Typecast integer values: 
+0.375  
+76354.54  
+−532.976  
+15.0  
+0.97  
+===== PDF PAGE 58 =====
+Exploring IT: Java Programming Grade 10 
+Page 48 Leaning Unit 3 Characters, Strings and Math Class 
+A narrowing conversion truncates (chops off) the decimals of a real number when it converts it to an 
+integer. e.g. 7.9 will be converted to a 7 and 7.1 will also be converted to a 7. (This explains why there 
+is no truncate method in Java as in some other programming languages.)  
+Conversions should be avoided if accuracy is to be preserved. Just think what a problem this would 
+be if you achieved 79.9 for IT and the program cast it to 79. 
+Secondly, we have seen that a real number can be converted to an integer with some loss in 
+accuracy. Now we will investigate converting characters to integers: 
+ACTIVITY 7 
+ Start a new class called TypeCastChar and type in the following code: 
+ int num; 
+ String numStr; 
+ char letter; 
+     numStr = JOptionPane.showInputDialog ("Type in a number"); 
+     num = Integer.parseInt (numStr); 
+ letter = (char) num; 
+ System.out.println (letter); 
+ Enter the following integer values and write down the integer values and the corresponding 
+characters. 
+Integer Value Character Output 
+63  
+65  
+90  
+97  
+122  
+47  
+32  
+127  
+Java converts the integer values to characters using UNICODE or ASCII code values. Each character 
+found on the keyboard has a unique integer code value. The first 127 ASCII code values from 32 
+(space)  to 126(~) can be cast into characters.  
+ Rename the program as TypeCastChar2 and change the code so that a character is entered, 
+converted to the integer num and then num is displayed. 
+int num; 
+String numStr; 
+char ch; 
+numStr = JOptionPane.showInputDialog ("Type in a character"); 
+ch = numStr.charAt(0); 
+num = (int) ch; 
+System.out.println (num); 
+ Save and run the program.  
+ Check to see if the conversion works in reverse. Use the characters and values that you used 
+previously. 
+  
+===== PDF PAGE 59 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 49 
+3.3.1 Cast Operators and Integer Division 
+When an integer is divided by another integer, the decimal part of the result is lost (truncated) even if 
+it is assigned to a float or double variable. For example, consider the following: 
+ double x; 
+ x = 15 / 2; 
+ System.out.println(x); 
+The output of this portion of code would be:  7.0   
+This is because the right-hand side of the assignment statement (15/2) is evaluated first, producing an 
+answer of 7. This integer is then assigned to (stored in) the variable x, which is of type double. This 
+results in the integer 7 being converted into a double, so the println statement outputs the real number 
+7.0. 
+To prevent this integer division, we can use a cast operator as follows:  
+ x = (double)15 / 2; 
+The cast operator, (double), converts (or casts) the integer immediately in front of it (15) to a double 
+(real number) before the division takes place. The division becomes 15.0 / 2. The result of this is 
+therefore 7.5 (rather than 7), which is assigned to x.   
+3.3.2  Converting Between Variable Types 
+Cast operators are available for several data types and are formed by placing parentheses around the 
+data type name immediately in front of the value to be converted. Java allows casting to be used for 
+some data type conversions, such as converting from a char type to an integer or a real number and 
+converting between integer numbers and real numbers.  
+You cannot, however, use casting to convert from String to integer or double. 
+While the println method will convert all types to Strings before displaying them, we use methods to 
+change from String to integer and String to double. We use the parseInt() method of the Integer 
+class to convert a String to an integer and parseDouble() of the Double class to convert a String to 
+a double (real number) value. Although methods are available for converting from int or double to a 
+String, the easiest way of doing this conversion is by joining the number to empty double quotes. 
+  
+===== PDF PAGE 60 =====
+Exploring IT: Java Programming Grade 10 
+Page 50 Leaning Unit 3 Characters, Strings and Math Class 
+SUMMARY - CONVERTING TYPES 
+FROM TO HOW 
+String int int num = Integer.parseInt(str); 
+String double double num = Double.parseDouble(str); 
+double int int intNum = (int) dblNum; 
+The decimals are truncated when a real is cast to an integer in a 
+narrowing conversion. 
+int double double dblNum = intNum;   
+All integers assigned to a double are automatically cast in a widening 
+conversion and no data is lost. 
+int char char ch = (char) intNum; 
+The integer is converted to a character based on its value in the ASCII 
+table. 
+char int int intNum = (int) ch; 
+The character is converted to its ASCII value. 
+int String String str = "" + intNum; 
+By first adding the integer to a String, the integer is converted to a 
+String so that the String can be joined. By adding an empty String "" to 
+the integer the conversion can be successfully performed. 
+double String String str = "" + dblNum; 
+This relies on the same principle as int 
+char String NOTE: String str = ch; is incorrect. 
+A character cannot be directly assigned to a String. This will give an 
+error message. It can be converted as in String str = "" + ch; 
+but this can sometimes produce odd results with ASCII values. 
+String char char ch = str.charAt(position); 
+One character in a String can be stored in a char variable by isolating 
+the character using the method charAt(position). Characters in a 
+String are numbered from the left starting from zero. 
+  
+===== PDF PAGE 61 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 51 
+EXERCISE 3 
+1. What will the statement "How are you".charAt(5);  produce?  
+2. Code a program ChangeTypes using the following algorithm written in pseudocode. 
+Pseudocode will be explained in detail later on): 
+begin 
+input an integer between 0 and 97 
+add 2 to the integer  
+convert it to the character with the corresponding ASCII  
+display the ASCII value and the character on the screen, with a meaningful message 
+end 
+3. Write down the steps of an algorithm to solve the following problem: 
+3.1. Display a number giving the position in the alphabet of the first letter of a person's name. 
+For example, the name "Doris" starts with a "D" which is the fourth letter of the 
+alphabet, so a 4 should be displayed. (Write down the steps you would follow in English 
+as shown in 1 above.) 
+3.2. Code the solution using your algorithm into a Java program with the class name 
+AlphNumber. 
+ 
+3.4 The Math Class 
+3.4.1 Methods of the Math Class 
+There are some mathematical operations, such as square root ( ), which do not have operators in 
+Java (i.e. they do not have corresponding symbols on the keyboard, such as * or %). For these 
+operations, we must use methods.  
+The developers of Java have written a class called Math which contains useful mathematical 
+methods. An important skill in programming is to find and use methods that have already been written 
+to achieve your goal before you try to code your own solutions. 
+The Math class is different to the Gogga class. The methods are static and are called using the class 
+name. No object needs to be instantiated to call the methods. Each method returns the result of the 
+method's execution. 
+Here are some sample statements which use some of the methods of the Math class: 
+System.out.println("10 to the power of 2 = " + Math.pow(10,2)); 
+System.out.println("2 to the power of 5 = " + Math.pow(2,5)); 
+System.out.println("square root of 25 = " + Math.sqrt(25)); 
+System.out.println("square root of -16 = " + Math.sqrt(-16)); 
+System.out.println("2.6 rounded off = " + Math.round(2.6)); 
+System.out.println("absolute value of -16 = " + Math.abs(-16)); 
+The output of these statements is: 
+10 to the power of 2 = 100.0 
+2 to the power of 5 = 32.0 
+square root of 25 = 5.0 
+square root of -16 = NaN 
+2.6 rounded off = 3 
+absolute value of -16 = 16 
+===== PDF PAGE 62 =====
+Exploring IT: Java Programming Grade 10 
+Page 52 Leaning Unit 3 Characters, Strings and Math Class 
+The first statement uses the pow method (short for power) to display the value of 102 (i.e. 10 x 10) 
+using Math.pow(10,2), while the 2nd statement prints out the value of 32 (i.e. 2 x 2 x 2 x 2 x 2) using 
+Math.pow(2,5). The 3rd statement prints out the square root of 25 using the sqrt method of the Math 
+class. In the 4th statement, when we try to use the Math.sqrt method with a negative number, the 
+result is NaN, which stands for 'Not a Number'. This is another example of a run time error. 
+The Math.round() method can be used for rounding off real numbers to the nearest integer value and 
+the Math.abs() method can be used for converting negative numbers into positive numbers (i.e. the 
+'absolute value' of a number).  
+For example,     System.out.println(Math.sqrt(-16)); will produce an error, but we can use 
+the Math.abs () method to ensure that the result is positive. 
+ System.out.println(Math.sqrt (Math.abs(-16))); 
+By first applying the abs() method the number is converted to a positive number which can then be 
+square rooted. The inner method (closest to the number) is applied first, then its result is square 
+rooted. 
+ACTIVITY 8 
+ Start a new class called UsingMathMethods. 
+ Type in code which asks for any real number to be input. Store it in a variable called num. 
+ Add the following code which uses several methods from the Math class: 
+System.out.println( Math.round (num) ); 
+System.out.println( Math.sqrt (num) ); 
+System.out.println( Math.abs (num) );         
+System.out.println( Math.pow (num,2) );         
+ Save and run the program.  
+ Write down the output that is produced when each of the following values are input: 
+ num = 16.75 
+Math.round(num)=  
+Math.sqrt(num)=  
+Math.abs(num)=   
+Math.pow(num,2)=  
+ 
+ num = 4 
+Math.round(num)=  
+Math.sqrt(num)=  
+Math.abs(num)=   
+Math.pow(num,2)=  
+Math.pow(num,num)= 
+ num = −23.45 
+Math.round(num)=  
+Math.sqrt(num)=  
+Math.abs(num)=   
+Math.pow(num,2)=  
+Math.pow(num,3)=  
+3.4.2 PI in the Math Class 
+Another useful value to use in mathematical calculations like area and circumference of circles is Pi. 
+The Math class provides a field called PI. This field is defined as final and cannot change. By 
+convention all fields that are constant are written in capital letters. PI is not a method and is not 
+followed by round brackets. It is declared as double and called by Math.PI. 
+The following code calculates and displays the area of a circle with a radius of 10 units using the 
+formula: 
+𝑎𝑟𝑒𝑎 = 𝜋𝑟2 
+     double area; 
+     area= Math.PI * Math.pow(10,2); 
+     System.out.println(area); 
+===== PDF PAGE 63 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 53 
+CHECK POINT 2 
+1. Write Java statements to evaluate the following expressions and display the answers. 
+Remember to use brackets for expressions in the denominators, for example 1/(2*3)  
+1.1. 
+1
+2∗3 
+1.2. 22x3 
+1.3. 1.5 x 10-4 + 2.5 x 10-2 
+1.4. 
+3+4
+5+6 
+2. Evaluate the following expressions, given that 
+double a = 2, double b = 3, double c = 5 and int i = 2, int j = 3. 
+2.1. a * b + c  
+2.2. a * (b + c) 
+2.3. b / c * a               
+2.4. a / i / j  
+2.5. 4 / b / 4         
+2.6. 4 / (j / 4)       
+2.7. 17 % (4 % b)  
+3. Complete the following table which summarises what each of the methods does. 
+Method from Math class What it Does What Types can be used 
+as Parameters 
+round Rounds a real number to the 
+nearest integer  double 
+sqrt  
+ 
+ 
+abs   
+pow   
+4. The methods round, sqrt and abs only have one parameter (which is the value in brackets). 
+Why does the pow method have 2 parameters?  Explain the purpose of each of these 2 
+parameters (e.g. the num and the 2 in Math.pow(num,2) ) 
+5. What will be output for Math.sqrt(−37.59)?  Explain this. 
+6. Write down the answer the computer will determine for each of the following. Show working 
+where applicable. 
+6.1. Math.pow( 3.5, 2 ) 
+6.2. Math.abs( −5 ) 
+6.3. Math.round( −3.8 ) 
+===== PDF PAGE 64 =====
+Exploring IT: Java Programming Grade 10 
+Page 54 Leaning Unit 3 Characters, Strings and Math Class 
+6.4. Math.pow( 65 % 9, 2) 
+6.5. Math.round( Math.sqrt( 150 ))  
+6.6. 43 % 2 + 18 * Math.sqrt(36/4) 
+6.7. Math.sqrt( 7 + 18 / 7 − 23 % 10) 
+6.8. Math.sqrt( 16 ) 
+6.9. Math.round( 0.75 ) 
+6.10. Math.pow( Math.round( 4.75 ),2) 
+6.11. Math.round( Math.abs (14.75 − 20)) 
+6.12. Math.sqrt( 6 + 76 % 10 / 2 ) 
+6.13. Math.abs (7.88 − Math.pow(12.5,2)) 
+6.14. Math.round(14.7 − 0.95) + 2.5 * Math.abs (−6−4) 
+6.15. 4 * Math.PI * Math.pow(5,3) 
+7. Why is Math.PI not a method call, in other words, why is it not written as Math.PI()? 
+7.1. Why is PI written in capital letters? 
+EXERCISE 4 
+1. Convert2DecPlaces 
+Code a program that will input a real number with more than 2 decimal places and convert it to a 
+real number rounded to 2 decimal places. Use the algorithm below to help you: 
+Example 
+input a real number         5.6983 
+multiply it by 100         569.83 
+round the number to the nearest integer (using the round method)  570 
+divide the number by 100        5.70 
+2. Write a Java program called MathCalc to calculate the solutions for x in each of the following 
+equations: 
+2.1. x:=√(25.7) − (2.2)2  
+2.2. x:=
+√122+52
+13  
+2.3. x:=56.75
+1
+3 ∗ √100 
+3. Write a Java program called PICalc to calculate the circumference and area of the circles with 
+the following dimensions: 
+Note the formulas: 
+Area of a circle = r2   Circumference of circle = 2r 
+3.1. radius = 9 
+3.2. diameter = 30 
+===== PDF PAGE 65 =====
+ Exploring IT: Java Programming Grade 10 
+Leaning Unit 3 Characters, Strings and Math Class Page 55 
+4. NumResults1 
+4.1. Ask for any real number and any integer to be input. Display the real number and its 
+square root. Also determine and display the real number raised to the integer power. Use 
+suitable headings, displaying the results across the screen. 
+E.g. If the real number 13.5 and the integer 2 are input, display: 
+REAL NUMBER  SQUARE ROOT RAISED TO POWER 2  
+13.5   3.6742  182.25 
+ Write down the results produced by your program when the real number 7.8985 and the 
+integer 3 are input. 
+4.2. Change your program so that instead of inputting an integer power, a real number power 
+can be input.  
+ Write down the results produced by your program when the following are input: 
+the number 16 and the real number power 0.5 (1/2) 
+the number 8 and the real number power 0.33 (1/3) 
+5. NumResults2 
+Input any positive integer. Display the number, its square, cube and its square root (to 4 decimal 
+places). Make sure that you state clearly what the numbers in your output mean. You can 
+modify the algorithm in question 1 to convert a number to 4 decimal places. 
+6. ColdDrinks 
+6.1. You are selling cold drinks at R23.89 each. Ask a customer how many they want to buy, 
+input this amount, then display the number wanted, as well as the amount to be paid. 
+6.2. Extend your program so that you enter the amount (in whole Rand) given by the customer 
+and the computer determines and displays the change.   
+6.3. Line up the output as well as you can using tabs.  
+  

@@ -1,0 +1,563 @@
+
+===== PDF PAGE 203 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 193 
+Learning Unit 10 Nested loops 
+10.1 Simple Nested loops 
+In the following activity, you will start with one loop and then enclose this in another loop to make one 
+loop completely inside the other - i.e. a nested loop! 
+ACTIVITY 1 
+ Add code in a new class called NestedFor to display one single exclamation mark!  
+ Extend your program so that it uses a loop to display twelve exclamation marks next to each 
+other:  !!!!!!!!!!!!  The cursor must end on the same line as the exclamation marks. 
+ Add a statement to your program AFTER the loop, so that the cursor moves to the beginning of 
+the next line when it has displayed the exclamation marks. 
+ Extend your program again so that it uses another loop around the first one to display five rows 
+of twelve exclamation marks. 
+ Indent your code so that the inner for loop is set inside the outer for loop. 
+Check carefully that every opening curly bracket has a corresponding closing curly bracket. The curly 
+brackets of the outer loop must be outside the inner loop so that the inner loop is completely enclosed 
+in the outer loop. Therefore, it is called a nested loop! 
+ Extend your program again so that it asks a user to enter the character to be displayed and then 
+generates a block of five rows and twelve characters in each row. 
+ Now ask the user to enter how many characters s/he would like in each row and how many 
+rows s/he wants. 
+ Test your program with a star (*) with 50 per row and 20 rows. 
+ Extend your program once more to display three identical blocks one under the other, with a 
+blank line between each block. i.e. if a user wants a hash (#) displayed in 4 rows and 56 
+characters per row, you must display three blocks like this: 
+################################################################## 
+################################################################## 
+################################################################## 
+################################################################## 
+ 
+################################################################## 
+################################################################## 
+################################################################## 
+################################################################## 
+ 
+################################################################## 
+################################################################## 
+################################################################## 
+################################################################## 
+  
+===== PDF PAGE 204 =====
+Exploring IT: Java Programming Grade 10 
+Page 194 Learning Unit 10 Nested loops 
+ACTIVITY 2 
+ Type in the following code using a class called Nested2 and run it. 
+    for (int i = 1; i <= 10; i = i + 1) 
+    { 
+        System.out.print ("ABCDE"); 
+    } 
+The programmer wanted to display ten rows of ABCDE, one below the other but as you will see when 
+you run the program, you don't get the correct output. 
+ Change the program so that it displays the output correctly. 
+ Now change the program so that it makes use of a loop inside the outer loop to generate the 
+letters instead of just being displayed by the System.out.println("ABCDE"); statement. 
+ for ( ch = 'A'; ch <= 'E'; ch++)   
+ {  
+     System.out.println (ch);  
+ } 
+ Extend your program so that: 
+• the number of rows is entered by a user (instead of being fixed at ten rows) 
+• it displays the whole alphabet.  
+ACTIVITY 3 
+ Open the program MakeSquareWithLoop. 
+ Add an outer loop so that the square is drawn in each of the directions. You can use the loop 
+control variable dir to set the direction, using integers for each direction:  
+The direction Gogga.UP is a named constant which corresponds to the value 1, Gogga.DOWN has a 
+value of 2, Gogga.LEFT is 3 and Gogga.RIGHT is 4. 
+In the outer loop and before the inner loop call the method setDirection using dir as a parameter. 
+Your code should produce a block of squares that were drawn in all different directions. 
+ Your code should look something like this: 
+Gogga bug = new Gogga (); 
+     
+for (int dir = 1; dir <= 4; dir++) 
+{ 
+     bug.setDirection (dir); 
+ 
+     for (int sides = 1; sides <= 4; sides++) 
+     { 
+         bug.move (); 
+         bug.move (); 
+         bug.turnLeft ();     
+     } 
+} 
+  
+===== PDF PAGE 205 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 195 
+The program can be shown diagrammatically as a flowchart: 
+ 
+  
+
+===== PDF PAGE 206 =====
+Exploring IT: Java Programming Grade 10 
+Page 196 Learning Unit 10 Nested loops 
+EXERCISE 1 
+Code programs which use nested loops to display each of the following patterns: 
+1. Pattern1 
+%%%%%%%   7 % signs in each row 
+%%%%%%% 
+%%%%%%% 
+%%%%%%% 
+%%%%%%% 
+%%%%%%%   11 rows 
+%%%%%%% 
+%%%%%%% 
+%%%%%%% 
+%%%%%%% 
+%%%%%%% 
+2. Pattern2 
+9876543210 
+9876543210 
+9876543210 
+9876543210 
+9876543210 
+3. Pattern3 
+( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) 
+( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) 
+( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) 
+( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) 
+ 
+10.2 Using Nested Loops to Repeat a Section Inside Another 
+Nested loops are very useful when a section must be repeated inside a bigger section which must be 
+repeated itself!  It is important to decide what must be repeated and where. Look at the following 
+example: 
+One of the Beatles great hits was "She Loves You". 
+The opening chorus is: 
+She loves you, Yeah Yeah Yeah! 
+She loves you, Yeah Yeah Yeah! 
+She loves you, Yeah Yeah Yeah!  
+The Yeah Yeah Yeah part of one line can be done in a loop which is repeated three times: 
+ACTIVITY 4 
+ Fill in the three parts of the for loop header: 
+count = ....... 
+ 
+count <= ...... 
+ 
+count = count + ...... 
+ 
+ 
+display "Yeah" 
+===== PDF PAGE 207 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 197 
+ What must be displayed before Yeah Yeah Yeah is displayed in one line?  
+ What must be displayed at the end of the first line after Yeah Yeah Yeah is displayed?  
+Now the whole line She loves you, Yeah Yeah Yeah! must be repeated three times. 
+We can represent nested loops by drawing one loop totally inside the other. 
+ Fill in the missing values: 
+  
+line = ........ 
+ 
+ 
+ 
+line <= ........ 
+ 
+ 
+ 
+line = line + ........ 
+display "She loves you " 
+ 
+count = ....... 
+ 
+count <= ........ 
+ 
+count = count + ........ 
+ 
+ 
+display "Yeah" 
+ 
+display "!" and move to the next line 
+ Code the program to display the first three lines of this song in a class called Song1. 
+ACTIVITY 5 
+ Open the program MakeSquareWithLoop.  
+ Replace the code  
+bug.move (); 
+ bug.move (); 
+with another for loop completely inside the loop 
+for (int sides = 1; sides <= 4; sides++) 
+{ 
+for (int length = 1; length <= 2; 
+length++) 
+    { 
+        bug.move (); 
+    } 
+    bug.turnLeft (); 
+} 
+ Replace the class name and save the program as MakeSquareWithManyLoops. 
+ Now change the code so that the sides on the squares are five units long. You may have to 
+change the size of the Grid. 
+ Save and run again. 
+  
+
+===== PDF PAGE 208 =====
+Exploring IT: Java Programming Grade 10 
+Page 198 Learning Unit 10 Nested loops 
+EXERCISE 2  
+1. Write programs to display the following lines from the various songs. Use the previous example 
+(Song1) as a guide and use class names Song2 and Song3 for 1.1 and 1.2 respectively. 
+1.1.      
+The wheels on the bus go round and round, round and round, round and round, 
+The wheels on the bus go round and round, round and round, round and round, 
+The wheels on the bus go round and round, round and round, round and round, 
+All over town! 
+1.2.      
+Ooh watch me, watch me 
+Ooh watch me, watch me 
+Ooh watch me, watch me 
+Ooh ooh ooh ooh 
+2. Code a program MakeX to draw the X alongside by following the 
+steps below: 
+2.1. Instantiate the Gogga object.  
+2.2. Set the position of the Gogga object in co-ordinates 9.9 
+2.3. Code a for loop to draw the top right-hand zig zag spoke.  
+2.4. Use an outer loop to repeat the spoke in all four directions. 
+3. A class has five students, each student takes three subjects.  
+3.1. In a class called StudentAverages, input the name and the marks (out of 100) for each 
+subject that each student takes. Work out each student's average. Display the name and 
+average for each student. 
+3.2. Extend the program to find the class average of all the averages. 
+3.3. Extend the program to find the student with the highest average. Make sure you use the 
+first student's average to set the variable that will store 
+the highest average. 
+4. Code a program FourPyramids to draw the shape alongside.  
+4.1. Position your Gogga object at 9.9. 
+4.2. Write code to create the pyramid on the top right. You 
+will need three separate, for loops. One to do the zig 
+zag up the pyramid, one to do the zig zag down the 
+pyramid and one to complete the base of the pyramid. 
+4.3. Use an outer loop to rotate and draw the pyramid 
+through all four directions. 
+5. StockExchange 
+The prices of shares on the Stock Exchange are recorded twice daily - in the morning and the 
+evening. 
+5.1. Input the morning and evening prices for any one share. Work out the percentage 
+increase / decrease for that share from morning to evening.  
+
+===== PDF PAGE 209 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 199 
+5.2. Run your program with the following test data: 
+NAME OF SHARE MORNING PRICE EVENING PRICE 
+Fregold   3500   3475 
+5.3. Extend your program so that it determines and displays the % increase / decrease for 
+each of the five days in the working week (Monday to Friday). Use the following data: 
+NAME OF SHARE: Fregold 
+DAY MORNING EVENING  
+PRICE  PRICE 
+MON 3605  3575 
+TUES 3600  3625 
+WED 3600  3550 
+THU 3500  3500 
+FRI 3500  3475 
+5.4. Extend your program again so that it determines the % increase / decrease for the five-
+day working week for four different shares. 
+NAME OF SHARE: SA Brews 
+DAY MORNING EVENING 
+PRICE  PRICE 
+MON 13225  13250 
+TUES 13255  13270 
+WED 13265  13250 
+THU 13250  13300 
+FRI 13300  13275 
+ 
+NAME OF SHARE: Stocks 
+DAY MORNING EVENING 
+PRICE  PRICE 
+MON 780   785 
+TUES 790   800 
+WED 800   850 
+THU 880   900 
+FRI 850   850 
+ 
+NAME OF SHARE: Rainbow  
+DAY MORNING EVENING 
+PRICE  PRICE 
+MON 185   190 
+TUES 190   190 
+WED 190   190 
+THU 190   185 
+FRI 185   180 
+ 
+NAME OF SHARE: Wooltru  
+DAY MORNING EVENING 
+PRICE  PRICE 
+MON 1975   2025 
+TUES 2050   2000 
+WED 2000   1950 
+THU 1975   2000 
+FRI 2075   2000 
+5.5. Add statements to your program to determine and display the name of the share with the 
+highest % increase / decrease over the 5 days (assume that there will only be one). Also 
+display the day of the week on which this increase / decrease occurred. 
+===== PDF PAGE 210 =====
+Exploring IT: Java Programming Grade 10 
+Page 200 Learning Unit 10 Nested loops 
+5.6. Now determine and display the name of the share with the highest price and the day on 
+which the highest price was recorded and whether it was a morning or evening price. 
+   
+10.3 More Complex Nested Loops 
+ACTIVITY 6 
+ Open the program MakeSquareWithManyLoops.  
+Your code should look similar to that shown below, with the output in 
+the screen shot alongside: 
+Gogga.setGridSize (18, 18);  
+         
+Gogga bug = new Gogga (); 
+ 
+for (int dir = 1; dir <= 4; dir++) 
+{ 
+   bug.setDirection (dir); 
+   for (int sides = 1; sides <= 4; sides++) 
+   { 
+      for (int length = 1; length <= 5; length++) 
+      { 
+          bug.move (); 
+      } 
+      bug.turnLeft (); 
+   } 
+} 
+To produce the three separate squares below, only small 
+modifications would be necessary.  
+ Replace the class name as Make3HorizSquares and 
+save with this new name. 
+ Make the changes shown below. 
+ 
+Gogga.setGridSize (20, 9); 
+         
+Gogga bug = new Gogga (); 
+ 
+int x = 5; 
+        
+for (int numSquares = 1; numSquares <= 3; numSquares++) 
+{ 
+ 
+     bug.setPosition (x,7);     
+    for (int sides = 1; sides <= 4; sides++) 
+      {   
+          for (int length = 1; length <= 5; length++) 
+          { 
+              bug.move (); 
+           }  
+           bug.turnLeft ();  
+       } 
+       x = x+6; 
+} 
+Change the size of the Grid. 
+Declare a variable x to store changing x values. 
+Use x to set the horizontal positions. 
+Change the outer for loop to 
+draw each of the squares. 
+Change the name of the loop 
+variable so it is more readable. 
+Increase x by 6 so that the starting point of the 
+next square will be moved right by 6 positions. 
+
+===== PDF PAGE 211 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 201 
+ 
+ Change the outer for loop so the loop control variable 
+determines the x position of the square. 
+ Change the class name to Make3DiagSquares and save with 
+the new name. Change the code in this class so that the 
+squares are displayed diagonally, as shown here. You will need 
+to introduce a y variable and change its value after each square 
+is drawn.  
+ 
+ 
+EXERCISE 3 
+1. Open the program ThickCross and adapt it so that three 
+crosses are shown in a diagonal line.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. Make a minimal amount of changes to enable the crosses to 
+overlap. Save as ThickCross2. 
+ 
+ 
+ 
+ 
+ 
+3. Now make up your own shape that needs a loop to create it. 
+Then add another loop so that it is repeated on the screen. 
+ 
+  
+
+===== PDF PAGE 212 =====
+Exploring IT: Java Programming Grade 10 
+Page 202 Learning Unit 10 Nested loops 
+10.4 Nested Loops Where the Outer Loop Controls the Inner 
+Loop 
+10.4.1 A Simple Set of Stars 
+Code a program to print a triangle of 5 rows of stars.  
+* 
+** 
+*** 
+**** 
+***** 
+We could simply write 5 System.out.println statements to print each row of stars. 
+System.out.println("*"); 
+System.out.println("**"); 
+System.out.println("***"); 
+System.out.println("****"); 
+System.out.println("*****"); 
+but we want to use only one System.out.print("*"); statement and use loops to call the print 
+method many times. 
+We need two loops, one to print the number of stars on each line and one to control each line. The 
+inner loop always executes more than the outer loop, so we use the inner loop to print the stars on 
+one line and the outer loop to print each line.  
+We need to identify a pattern between the number of stars on each line and the number of lines: 
+Line No Number of Stars 
+1 1   * 
+2 2   ** 
+3 3   *** 
+4 4   **** 
+5 5   ***** 
+ 
+So, when the out loop is 1, the inner loop must run from 1 to 1 
+when the outer loop is 2, the inner loop must run from 1 to 2 
+when the outer loop is 3, the inner loop must run from 1 to 3 
+when the outer loop is 4, the inner loop must run from 1 to 4 
+when the outer loop is 5, the inner loop must run from 1 to 5 
+Pseudocode: 
+begin 
+    for loop  1 to 5 
+        for numStars  1 to loop 
+            print "*" 
+        end for 
+        go to a new line 
+    end for 
+end 
+The loop control variable loop of 
+the outer loop is the termination 
+value of the inner loop. 
+===== PDF PAGE 213 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 203 
+The inner loop control variable is dependant of the outer loop control variable. Previously the inner 
+loop control variable was independent on the outer loop control variable as there was no relation 
+between the two. 
+ACTIVITY 7 
+ Code the above algorithm and save the program as Stars1. 
+ Change the program so that user inputs the number of rows for the stars. 
+ Test your program with positive and negative numbers and 0. 
+10.4.2 A More Complex Set of Stars 
+To make things a bit more exciting, we could try to print the following triangle where each line has an 
+odd number of stars starting from 1. 
+    *        4 spaces 1 star 
+   ***    3 spaces 3 stars 
+  *****    2 spaces 5 stars 
+ *******     1 space 7 stars 
+*********..   0 spaces 9 stars 
+To make the problem simpler and break it down, lets ignore the spaces and get the stars printed on 
+the margin: 
+* 
+*** 
+***** 
+******* 
+********* 
+In the same way we call analyse the line number and the number of stars on each line. 
+Line No Number of Stars 
+1 1   * 
+2 3   *** 
+3 5   ***** 
+4 7   ******* 
+5 9   ********* 
+What we are looking at is the odd numbers from 1 to 9 in relation to integers 1 to 5. There is a 
+standard formula called the odd number generator 2n – 1 where n is an integer 1, 2, 3, .... 
+In this case if n = 1 then 2n – 1 will be 1; if n = 2 then 2n – 1 will 3; if n = 3 then 2n – 1 will 5; and so 
+on. 
+Using this formula, the termination value of the inner loop will be 2*loop – 1 if the loop control variable 
+of the outer loop is called loop. 
+Pseudocode: 
+        begin 
+  for loop  1 to 5 
+  for numStars  1 to 2*loop - 1 
+ print "*" 
+  end for 
+  go to a new line 
+===== PDF PAGE 214 =====
+Exploring IT: Java Programming Grade 10 
+Page 204 Learning Unit 10 Nested loops 
+   end for 
+        end 
+ACTIVITY 8 
+ Code the above solution to check that it works and save the program as Stars2.  
+Now we need to work out the spaces. If you look at the number of spaces and the lines number, you 
+will see that they both add up to 5. In line 1 the number of spaces is 4, 1 + 4 = 5. In line 2 the number 
+of spaces is 3, 2 + 3 = 5. 
+Line No (loop) Number of Stars Formula Number of Spaces Formula 
+1 1   * 
+2 * loop - 1 
+4 
+5 - loop 
+2 3   *** 3 
+3 5   ***** 2 
+4 7   ******* 1 
+5 9   ********* 0 
+We could add a second inner loop before the loop to print stars to print the spaces. 
+Pseudocode: 
+        begin 
+for loop  1 to 5 
+for numSpaces  1 to 5 - loop 
+ print " " 
+end for 
+for numStars  1 to 2*loop - 1 
+ print "*" 
+end for 
+go to a new line 
+end for 
+       end 
+Note in the last line, loop will be 5 and 5 – loop will be 0. The first inner loop that controls the number 
+of spaces will become: 
+ for (int numSpaces = 1; numSpaces <= 0; numSpaces++) 
+The loop will NOT execute as 0 is less than 1, hence NO spaces will be printed which is what we 
+wanted. 
+ Adapt the program Stars2 to print the final triangle of stars. 
+  
+===== PDF PAGE 215 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 10 Nested loops Page 205 
+EXERCISE 4 
+1. Code programs to print the following patterns of stars: 
+1.1 1.2 
+* 
+** 
+*** 
+**** 
+***** 
+**** 
+*** 
+** 
+* 
+     * 
+    *** 
+   ***** 
+  ******* 
+ ********* 
+  ******* 
+   ***** 
+    *** 
+     * 
+1.3 1.4 
+     *     *     * 
+    **    **    ** 
+   ***   ***   *** 
+  ****  ****  **** 
+ ***************** 
+      * 
+     * * 
+    *   * 
+   *     * 
+  *       * 
+ *         * 
+************* 
+ 

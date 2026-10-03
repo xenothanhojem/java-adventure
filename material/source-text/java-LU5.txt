@@ -1,0 +1,935 @@
+
+===== PDF PAGE 93 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 83 
+Learning Unit 5 For Loops 
+Pattern recognition is an important part of computational thinking. Most programming languages have 
+special statements to repeat code. Once a programmer has identified the code to repeat and the 
+number of times this repetition must take place, the programmer can create a single statement known 
+as a for loop to repeat code a set number of times. In Java, a for loop is known as a counting loop. 
+5.1 Coding a For Loop 
+ACTIVITY 1 
+ Load the program MakeSquare we coded in Learning Unit 1.  
+// your name and today's date 
+import it.*; 
+ 
+public class MakeSquare 
+{ 
+   public static void main (String [] args) 
+   {     
+      Gogga bug = new Gogga (); 
+       
+      bug.move ();    
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+      bug.move (); 
+      bug.move (); 
+      bug.turnLeft (); 
+   } // main method 
+} // MakeSquare class 
+ Save the program as MakeSquareForLoop and run the program. 
+ Change the code to use a for loop to repeat the code four times. 
+// your name and today's date 
+import it.*; 
+public class MakeSquareForLoop 
+{ 
+   public static void main (String [] args) 
+   {     
+      Gogga bug = new Gogga (); 
+       
+      for ( int i = 1; i <= 4; i++) 
+      {     
+         bug.move ();          
+         bug.move (); 
+         bug.turnLeft (); 
+      } 
+    } // main method 
+  } // MakeSquareForLoop class 
+The code is repeated 4 times to 
+draw each side of the square. 
+The for loop consists of three parts, 
+one to initialise the counter i to 1, 
+one to stop the counter when it 
+reaches 4 and one to increase the 
+counter each time the loop is run. 
+The code to be repeated is encased in 
+curly brackets {} and is indented to show it 
+is inside the loop. 
+===== PDF PAGE 94 =====
+Exploring IT: Java Programming Grade 10 
+Page 84 Learning Unit 5 For Loops 
+ Save and run the program to check that a square is displayed. 
+5.1.1 For Loops in Pseudocode 
+Pseudocode: 
+for loop from 1 to 2; inc by 1 
+draw two blocks 
+turn left 
+draw one block 
+turn left 
+end for 
+Rules for Loops in Pseudocode: 
+for var from start to end; inc by value 
+ <statements to be repeated> 
+ <indent statements inside loop> 
+ <finish loop with end for> 
+end for 
+ACTIVITY 2 
+Create a rectangle that is two blocks high and one block across. We will use a for loop to draw the 
+long side and short side twice to complete the rectangle. In Java, we can specify the starting and 
+ending numbers of the for loop.  
+ Type in the following code: 
+// your name and today's date 
+import it.*; 
+ 
+public class MakeRectForLoop 
+{ 
+   public static void main (String [] args) 
+   {     
+      Gogga bug = new Gogga (); 
+       
+      for ( int i = 1; i <= 2; i++) 
+      {     
+         bug.move ();          
+         bug.move (); 
+         bug.turnLeft (); 
+         bug.move (); 
+         bug.turnLeft (); 
+      } 
+       
+   } // main method 
+} // MakeRectForLoop class 
+ACTIVITY 3 
+ Start a new application. Call the class PrintStars. 
+ Type in an output statement to display one single star (*) on the standard input/output screen. 
+ Save and run the program and check that it does display one single *. 
+ Add a for loop around this output statement, so that ten stars are displayed across the screen 
+instead of only one, as follows:   
+Above the output statement, type the statement     
+ for (int count = 1; count <= 10; count++ ) 
+ Press <Enter> so that the cursor moves to the next line and type an opening curly bracket     { 
+ Check that your original output statement is after the opening curly bracket. 
+Indenting shows the pattern of code that is 
+repeated. 
+===== PDF PAGE 95 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 85 
+ After the output statement, press <Enter> and type a closing curly bracket  } in line with the 
+opening curly bracket. 
+ Check that your code looks the same as the following: 
+ for (int count = 1; count <= 10; count++) 
+ { 
+     System.out.println ('*'); 
+ } 
+ Indent your code as shown above. The opening and closing curly brackets of the for loop should 
+be in line with each other so that the start and end of the loop can be clearly seen. This is 
+another method to aid to the readability of a program. 
+ Save and run the program. 
+ Change your code so that fifty-five stars are displayed across the screen. 
+ Change your code again so that 765 stars are displayed across the screen. 
+ Change your program so that before the loop starts, you ask the user to type in the number of 
+stars wanted. Store this integer value in a variable of type int called numStars. Use this variable 
+(instead of a number such as 765) to display the number of stars wanted. 
+ Change your program again so that before the loop starts, you also ask the user to type in the 
+character they want displayed (instead of a star). Run your program and type in $ and 50 so 
+that fifty-dollar signs are displayed.  
+ Run several times entering different characters and quantities to check that your program works 
+properly. 
+Your code should look as follows: 
+int numStars; 
+char character; 
+numStars = Integer.parseInt (JOptionPane.showInputDialog  
+    ("Enter the quantity of characters")); 
+character = JOptionPane.showInputDialog  
+  ("Enter the character to be displayed").charAt (0); 
+for (int count = 1; count <= numStars; count++) 
+{ 
+    System.out.println (character); 
+ } 
+ 
+ 
+ACTIVITY 4 
+ Start a new application. Call the class PrintNums. 
+ Add the following Java statements to display the number of times the loop is carried out: 
+int num = 0; 
+for (int loop = 1; loop <= 5; loop++) 
+{ 
+   num++; 
+   System.out.println ("The loop has been carried out " + num + "  
+              time(s)."); 
+   System.out.println (); 
+} 
+System.out.println ("The loop has ended now."); 
+ Save and run the program and write down the number of times the loop was carried out. This is 
+the same as the number of times the statement   
+numStars is read from the keyboard and used 
+in the condition to terminate the loop. The user 
+is able to control the number of times the loop 
+is executed. 
+===== PDF PAGE 96 =====
+Exploring IT: Java Programming Grade 10 
+Page 86 Learning Unit 5 For Loops 
+ "The loop has been carried out xx time(s)"   was displayed 
+ Make the following changes and write down what happens each time as a result  
+1. Change the loop header to   for (int loop = 1; loop <= 10; loop = loop + 1) 
+2. Change the loop header to   for (int loop = 1; loop < 10; loop = loop + 1) 
+3. Change the loop header to   for (int loop = 1; ; loop = loop + 1) 
+4. Change the loop header to   for (int loop = 1; loop <= 10; ) 
+5. change the loop header to   for (int loop = 1; loop <= 10; loop++) 
+6. Change the loop header to   for (int loop = 1; loop <= 5; loop++);   Put the semicolon here 
+7. Change the loop header to   for (int loop = 5; loop <= 5; loop++) 
+8. Change the loop header to   for (int loop = -5; loop <= 5; loop++) 
+9. Change the loop header to   for (int loop = 10; loop >= 1; loop++) 
+10. Change the loop header to   for (int loop = 10; loop <= 1; loop++) 
+11. Change the loop header to   for (int loop = 10; loop >= 1; loop--) 
+12. Change the loop header to   for (int loop = -10; loop <= 1; loop--) 
+13. Change the loop header to   for (int loop = 1; loop >= 10; loop--) 
+5.2 Infinite Loops and Loop Errors 
+An infinite loop is a loop that never ends. In the cases above, the following loops were infinite: 
+3. for (int loop = 1; ; loop = loop + 1) //the loop has no terminating condition 
+4. for (int loop = 1; loop <= 10; ) //loop never increments it will always be 1 
+9. for (int loop = 10; loop >= 1; loop++) //loop will always be greater than 1 
+12. for (int loop = -10; loop <= 1; loop--)//loop will always be less than 1 
+Some loops were never executed: 
+If the condition at the beginning of the loop is false, the loop will never be executed. 
+10. for (int loop = 10; loop <= 1; loop++) //10 is greater than 1 
+Some loops were executed only once: 
+7. for (int loop = 5; loop <= 5; loop++) //The loop counts from 5 to 5 
+6. for (int loop = 1; loop <= 5; loop++);   
+The semi-colon ends the statement, indicating that the loop is finished, so any code that follows in 
+curly brackets after the loop is executed once only, not 5 times. The for loop has a semi colon at the 
+end of the statement. 
+ 
+===== PDF PAGE 97 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 87 
+5.3 Explaining For Loops 
+A for loop is the most frequently used type of loop in Java. It is also called a counting loop as it repeats a section of code a fixed (or countable) number of 
+times. 
+The initialiser is also called the loop control 
+variable.  
+This initialiser variable is usually an 
+integer (or a char), as it counts the 
+number of times the loop repeats E.g. 
+1,2,3, ...  
+The loop control variable is also declared 
+here in the brackets, as it is only valid in 
+the for loop. Traditionally the letter 'i' is 
+used as the loop control variable, but other 
+more meaningful variable names such as 
+count or loop are also used. 
+The three parts in brackets after the word 
+for are three separate statements, so 
+there must be a semi-colon after each of 
+these statements, inside the for brackets. 
+A semi-colon ends a Java statement.  
+The first statement in the for loop header 
+initialises the variable, the second tests it 
+and the third increments it. These three 
+stages are needed to code a for loop that 
+should terminate. 
+All the statements that must be repeated 
+are enclosed in the opening and closing 
+curly brackets.  
+The syntax of a Java for loop is: 
+for (int initialiser; condition; increment)  
+{  
+  //statements to be repeated  
+  //in the loop  
+} 
+The syntax of the for loop in the previous example is: 
+ 
+for (int loop = 1; loop <= 5; loop++) 
+{ 
+     System.out.println ("The loop has been  
+        carried out " + loop + " time(s)."); 
+     System.out.println (); 
+} 
+System.out.println ("The loop has ended 
+                                     now."); 
+The variable loop is initialised to 1. The value in loop is 
+tested every time the loop carries out. The value in loop 
+changes by one every time.  
+ 
+Each time the loop is carried out (called a 
+pass of the loop) a boolean condition is 
+tested to see if the final value has been 
+reached. The loop will be run again if the 
+test returns true. The loop will end when 
+the test expression returns false.  
+With each pass of the loop, the value of 
+the loop control variable is incremented 
+(increased). 
+There must NOT be a semi-colon after 
+the round closing bracket here, otherwise 
+nothing will be repeated in the loop. If a 
+semi-colon is put there, the statements in 
+the curly brackets will be carried out once 
+only.  
+loop = loop + 1 can also be written as 
+loop++ which reads "loop plus" 
+===== PDF PAGE 98 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 88 
+The following flowchart based on the PrintNums class should help you to see how a for loop works: 
+ 
+  
+loop is set to 1 
+before the loop. 
+The condition is 
+tested and if the 
+result is true, the 
+loop is executed. 
+If the condition is 
+false, the body of 
+the loop is 
+bypassed to the 
+code after the loop. 
+ 
+===== PDF PAGE 99 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 89 
+5.3.1 Rules for Representing a For Loop in a Flow Chart 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+EXERCISE 1 
+1. RepeatName 
+1.1. Draw a flow chart to input any person's name, leave a blank line and then use a counting 
+loop to display the name twenty times, one below the other.  
+1.2. Code a program from your flowchart once you are satisfied with your flowchart. 
+1.3. Change the program so that the name is displayed fifteen times across the screen, with a 
+space between each name. 
+1.4. Ask the user to enter the number of times to display the name. Then use this amount in 
+your program, instead of 15. Run your program using 100. Run it again using 5000. 
+2. BumpsWithLoop 
+The code below is a solution to the Bumps problem.  
+2.1. Draw a sketch showing the output of this program before you change it. 
+import it.*; 
+    public class Bumps 
+    { 
+    public static void main (String [] args) 
+    { 
+        Gogga bug = new Gogga (); 
+ 
+        bug.move (); 
+        bug.turnRight (); 
+        bug.move (); 
+        bug.turnRight (); 
+Initialise the loop control 
+variable before the loop. 
+Use the diamond shape to 
+test the loop control variable. 
+Label the vertical exit of the 
+condition as "True". Place all 
+the statements to be 
+executed in the loop below 
+the "True" label. 
+After the last statement in 
+the loop, draw an arrow to 
+the condition in the diamond 
+to determine whether the 
+loop should be repeated. 
+Label the 
+horizontal exit 
+from the condition 
+as "False". 
+Draw an arrow 
+from the false exit 
+to bypass the 
+statements in the 
+loop. 
+===== PDF PAGE 100 =====
+Exploring IT: Java Programming Grade 10 
+Page 90 Learning Unit 5 For Loops 
+        bug.move (); 
+        bug.turnLeft (); 
+        bug.move (); 
+        bug.turnLeft (); 
+        bug.move (); 
+        bug.turnRight (); 
+        bug.move (); 
+        bug.turnRight (); 
+        bug.move (); 
+        bug.turnLeft (); 
+        bug.move (); 
+        bug.turnLeft (); 
+    } 
+} 
+2.2. Identify the statements that are repeated. 
+2.3. Delete the repeated code and use a for loop counting from 1 to 2 to enclose the code that 
+should be repeated. Code your solution and call it BumpsWithLoop. 
+2.4. Check that your program with a loop draws the same output as before. 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PDF PAGE 101 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 91 
+5.4 Trace Table of a For Loop 
+To illustrate how to do a trace table when a 
+program contains a for loop, we will again 
+use the code we added in the PrintNums 
+class: 
+ 
+1 int num = 0; 
+ 
+2 for (int loop = 1; loop <= 5; 
+                        loop++) 
+3 { 
+4   num++; 
+5   System.out.println("The loop  
+       has been carried out " +   
+       num + " time(s)."); 
+7   System.out.println (); 
+8 } 
+ 
+9 System.out.println ("The loop  
+               has ended now."); 
+ 
+ 
+The line numbers have been put in for 
+reference only. 
+num loop loop <= 5 SCREEN OUTPUT 
+0 1 true  
+1   The loop has been carried out 1 time(s). 
+   <leave a blank line> 
+ 2 true  
+2   The loop has been carried out 2 time(s). 
+   <leave a blank line> 
+ 3 true  
+3   The loop has been carried out 3 time(s). 
+   <leave a blank line> 
+ 4 true  
+4   The loop has been carried out 4 time(s). 
+   <leave a blank line> 
+ 5 true  
+5   The loop has been carried out 5 time(s). 
+   <leave a blank line> 
+ 6 false  
+   The loop has ended now.   
+ 
+Line 1: The variable num is 
+declared and initialised before the 
+loop starts. 
+Line 2: The loop control variable is 
+declared and initialised to 1. 
+Line 2: The condition (loop <= 5) is 
+tested and found to be true, so the 
+statements in loop (lines 4 to 7) are 
+carried out. 
+Line 8: The closing curly bracket of 
+the for loop makes the computer go 
+back to the for header statement in 
+Line 2. 
+Line 2: The value of loop is 
+increased by 1 (to 2) and then the 
+condition (loop <= 5) is checked 
+again. It is still true, so the loop 
+(Lines 4  - 7) is carried out a 
+second time. 
+This process continues until the 
+loop has been carried out five 
+times.  
+Line 2: The loop value is then 
+increased to 6 and the condition 
+(loop <=5) tested. This time, it is 
+false, so the loop is not carried out. 
+Line 9: The computer continues 
+after the loop and carries out the 
+remaining statement to display a 
+message on the screen. 
+===== PDF PAGE 102 =====
+Exploring IT: Java Programming Grade 10 
+Page 92 Learning Unit 5 For Loops 
+EXERCISE 2 
+Draw trace tables for each of the following program segments, showing the values of the variables in 
+memory and results of the conditions as they are tested and the output that will be displayed upon the 
+screen: 
+1.  
+double sum = 1.5; 
+int j; 
+ 
+for (j = 2; j <= 5; j++) 
+{ 
+System.out.println (j); 
+System.out.println (sum); 
+sum = sum + j; 
+} 
+System.out.print ("sum = \t"); 
+System.out.println (sum); 
+    
+int loop, value = 3; 
+char lett; 
+2.  
+for (loop = 65; loop <= 70; loop++) 
+{ 
+lett = (char) loop; 
+System.out.print(' '+ "\t"); 
+System.out.print(lett); 
+value++; 
+} 
+System.out.println(value); 
+2.1. What is the purpose of the variable lett? 
+2.2. How could the variable lett be removed without changing the output or the purpose of the 
+code? 
+ 
+5.5  Counting Backwards 
+So far, all the loops we have used started at 1 and counted "forwards". Loops can also be used to 
+count "backwards". This means that the loop variable is initialised to a larger value, which decreases 
+on each pass of the loop, until it becomes less than the value in the condition. 
+ACTIVITY 5 
+ Open the class called PrintNums. 
+ Change the for header, so that the loop control variable is initialised to 10, the condition 
+becomes loop > 5 and the increment changes to a decrement (loop = loop − 1) as shown below. 
+ Also add in a statement to display the value of the loop control variable at each pass of the loop, 
+as shown. 
+ int num = 0; 
+ for (int loop = 10; loop > 5; loop = loop - 1) 
+ { 
+===== PDF PAGE 103 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 93 
+    num = num + 1; 
+    System.out.println ("The loop has been carried out " + num + "  
+               time(s)."); 
+    System.out.println ("The value of the loop control variable is " +  
+               loop); 
+    System.out.println ();    
+ } // end for loop      
+     System.out.println ("The loop has ended now."); 
+ Save and run the program and write down what is displayed. 
+ Change the code in the program so that loop is executed three times. 
+ Change the code again so that the loop is carried out twelve times. 
+CHECK POINT 1 
+1. Consider the following code: 
+String name; 
+name = JOptionPane.showInputDialog 
+      ("Type in the name of your business"); 
+ 
+for (int count = 10; count <= 20; count = count + 1) 
+{ 
+    System.out.print (name + " "); 
+} 
+1.1. What is the identifier used for the loop control variable in this code? 
+1.2. How many times will the business name be displayed when this code is run in a program?   
+1.3. What data type is the loop control variable?  
+1.4. What is the initial value of the loop control variable?  
+1.5. What will the final value of the loop control variable be? (Hint: What value must it become 
+so that the condition being checked becomes false, which stops the loop?) 
+1.6. How many times will the business name be displayed if the loop were changed to:   
+1.6.1. for (int count = 10; count < 20; count = count + 1) 
+1.6.2. for (int count = 20; count <= 10; count = count + 1) 
+1.6.3. for (int count = 10; count <= 10; count = count + 1) 
+2. Consider the following for loops where a and b have been declared as data type int. Explain 
+what will be displayed for the different values of a and b. 
+2.1.    
+ 
+for (int i = a; i <= b; i = i + 1) 
+{ 
+    System.out.println("Think again"); 
+} 
+a b 
+50 40 
+50 50 
+40 50 
+===== PDF PAGE 104 =====
+Exploring IT: Java Programming Grade 10 
+Page 94 Learning Unit 5 For Loops 
+3. Describe the purpose of each of the three statements in a for loop header and show how they 
+work together so that the loop will terminate. 
+EXERCISE 3 
+1. Start a new class called ManyLoops. 
+Add code which uses three separate loops in the same program to display the following 
+sequences of numbers across the screen, with a blank line between each one: 
+1.1. 10   9   8  ... 1 
+1.2. 25   26   27   28   29   30 
+1.3. 0   −1   −2   −3 ... −20 
+2. Start a new Java application called InputLine. Write code to execute the following algorithm: 
+begin 
+instantiate a Gogga object bug facing the right of the screen in the first column 
+num  input a value from 5 to 10 from the user 
+for loop  1 to num; inc loop by 1 
+move bug by 1 block 
+end for 
+end 
+3.    
+3.1. Write an algorithm to use a for loop to input ten numbers. Display the value of each 
+number doubled before the next number is read in. 
+3.2. Now code a program Double10 using your algorithm to check if your algorithm is correct. 
+ 
+5.6 Using a Loop Control Variable of Data Type Char  
+You have already been introduced to UNICODE / ASCII characters. You know that each character on 
+the keyboard has a unique UNICODE / ASCII code value and, when the computer compares 
+characters or Strings, it compares the UNICODE / ASCII code values of the characters. Because 
+characters are treated like numbers in Java, a for loop control variable can be of type char. 
+ACTIVITY 6 
+ Type the following code in a new class called PrintChars.  
+for (char ch = '*'; ch <= '?'; ch++)   //1 
+{ 
+   System.out.println (ch + " ");      //2 
+} 
+2.2.    
+for (int i = a; i >= b; i = i - 1) 
+{ 
+    System.out.println("Think again"); 
+} 
+a b 
+20 40 
+20 20 
+30 20 
+===== PDF PAGE 105 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 95 
+ Run the program and copy down the output produced. 
+ Make the following changes to the code one at a time and write down what is displayed each 
+time the program is run. Try to explain the output in each case. (Look at the ASCII table in the 
+Appendix) 
+1. Change line 1 to   for (char ch = '!'; ch <= '&'; ch++)  
+2. Change line 1 to   for (char ch = 'A'; ch <= 'a'; ch++) 
+3. Change line 1 to   for (char ch = 'a'; ch <= 'A'; ch++) 
+4. Change line 1 to   for (char ch = '1'; ch <= '6'; ch++) 
+5. Change line 1 to   for (char ch = 1; ch <= 6; ch++)  
+6. Change line 2 to   System.out.println ("ch  "); 
+CHECK POINT 2 
+1. Consider the following code: 
+String message; 
+message = JOptionPane.showInputDialog("Type in the message"); 
+for (char letter = 'a'; letter <= 'j'; letter++) 
+{ 
+    System.out.println (message + " "); 
+} 
+1.1. What is the identifier used for the loop control variable in this code?  
+1.2. How many times will the message be displayed when this code is run in a program?  
+1.3. What data type is the loop control variable?  
+1.4. What is the initial value of the loop control variable?  
+1.5. What will the final value of the loop control variable be?  
+1.6. How many times will the message be displayed if the loop were changed to:   
+1.6.1. for (char letter = 'j'; letter <= 'a'; letter++) 
+1.6.2. for (char letter = 'G'; letter >= 'C'; letter--) 
+2. What data types may be used for the loop control variable in any for loop? 
+3.    
+3.1. Give an example of a for loop that will be carried out only once. 
+3.2. Is there any point in using a for loop that will be carried out only once?  Discuss. 
+4. What is the effect of placing a semi colon after the loop header? 
+for (char letter = 'a'; letter <= 'j'; letter++); 
+ 
+  
+===== PDF PAGE 106 =====
+Exploring IT: Java Programming Grade 10 
+Page 96 Learning Unit 5 For Loops 
+EXERCISE 4 
+1. Change the code in the PrintChars program to display the alphabet from: 
+1.1. 'A' to 'Z' with one space between each letter. 
+1.2. 'Z' to 'A' with 3 spaces between each letter. 
+2. Add another loop to display all the UNICODE / ASCII characters with code numbers from 32 to 
+126 (ASCII character 127 is <Delete> and is not printable). Space them out well in columns 
+across the screen. 
+3. Extend your program to display the code numbers next to each character in. Save your 
+program.  
+4. Draw a flow chart of this last for loop section in your program. 
+ 
+5.7 Changing the Loop Control Variable by a Value Other 
+than 1 
+Consider the following problem to display the first ten positive even numbers across the screen.  
+You could code a solution that uses a loop control variable which starts at 1 and ends at 10 and then 
+use another variable to store and display the even numbers. It can also be done using the loop control 
+variable alone. 
+ACTIVITY 7 
+ Type the following code in a new class called EvenNumbers: 
+ for (int num = 2; num <= 20; num = num + 2) //num is increased by 2 
+     { 
+          System.out.print (num + " "); 
+     } 
+ Check that your output does consist of ten, positive, even numbers:    
+2  4  6  8  10  12  14  16  18  20 
+ Add a heading to make the output more meaningful.  
+ Write down:  
+• the name of the loop control variable  
+• its initial value  
+• the condition in the for loop header  
+• the amount by which num is increased every time the loop is carried out  
+• why the condition uses the number 20?  
+• why the loop control variable's initial value is 2 and not 1?  
+ Change your program to display the first hundred positive even numbers. Write down the last 
+three numbers displayed when you run your program: 
+ Change your program to display odd numbers from 11 to 39 down the screen. 
+  
+===== PDF PAGE 107 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 97 
+ACTIVITY 8 
+We need to code a program to draw a set of dashed lines. The 
+first line starts at coordinates (1,5) for one block, the second at 
+(4,5) for one block, the third at (7,5) for one block, the fourth at 
+(10,5) for one block and the last at block at (13,5) for one 
+block.  
+The y value remains constant with a value of 5, but the x value 
+is the sequence 1, 4, 7, 10, 13; each time increasing by 3. 
+We can use a for loop with x as the loop control variable 
+starting at 1, increasing by 3 until 13 is reached. The loop 
+control variable can be used to set the position of the Gogga 
+object each time. 
+The algorithm below draws the dashed lines on the grid shown on the right. 
+begin 
+instantiate a Gogga object rat 
+make rat face right  
+for x  1 to 13; inc x by 3 
+set rat's position to x, 5 
+move rat by 1 block 
+end for 
+end 
+ Code a program MakeLines using the algorithm above. 
+ Add code to draw similar lines in the 2nd and 8th rows. 
+5.8 Computational Thinking with Loops 
+5.8.1 Decomposition and Pattern Recognition 
+It is essential when coding with loops to determine the statements that are placed before the loop, 
+statements that are repeated in the loop and statements that occur after the loop. The problem 
+must be broken into three tasks, the first is not repeated and occurs before the loop, the second task 
+is repeated and forms part of the loop and lastly the task that is after the loop and is not repeated. 
+ 
+ 
+ 
+  
+You can use the loop control variable 
+x to position the Gogga object three 
+block along. 
+Code to be 
+repeated 
+Code before 
+the loop 
+Code after the 
+loop 
+
+===== PDF PAGE 108 =====
+Exploring IT: Java Programming Grade 10 
+Page 98 Learning Unit 5 For Loops 
+EXERCISE 5 
+1. The total mark for a Learner Drivers' test is 22. You are asked by your local Traffic Department 
+to produce a table to convert the test mark out of 22 to a rounded percentage.  
+The table must look as follows: 
+Mark out of 22   Rounded Percentage 
+0      0 
+... 
+... 
+...     ... 
+22     100 
+1.1. Decompose the problem to consider what will be before the loop, what is to be repeated in 
+the loop and what is to be after the loop (if any). 
+1.2. Write down the algorithm that you are going to use to solve this problem: 
+1.3. Code a program to produce this table. Call it DriverTestMark. Use tabs and line the 
+figures up as best as possible. 
+2. Code a Java application called NumSquares to display in 
+two columns the numbers from 1 to 20 and the square of 
+each number. Use suitable headings for each column and 
+make sure the output is lined up nicely. Before you start 
+using the computer write a brief explanation as to how you 
+are going to solve this problem. 
+3. Code a program ThickCross to use a for loop to draw a 
+blue cross as shown on the right. 
+4. The following sequence of numbers is known as the 
+Fibonacci sequence: 0 1 1 2 3 5 8 13… 
+(After the first two numbers, each number is the sum of the previous two numbers.) 
+4.1. You are required to code a program to generate the first twenty-two terms of this 
+sequence. Write the algorithm you will use to produce this sequence. 
+4.2. Code the algorithm in a program using class name Fibonacci.  
+4.3. Change your program so that the user can input the number of terms wanted. Then 
+display the desired number of terms across the screen with one space between each. Use 
+a suitable heading. 
+4.4. Run your program and display the first 15 Fibonacci terms.  
+4.5. Write them down. 
+ 
+  
+
+===== PDF PAGE 109 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 99 
+5.9 Adding Terms in a Series 
+Consider the series 11 + 12 + 13 + ... 
+You are required to calculate the sum of the first five terms of this series. 
+ACTIVITY 9 
+ Write down what the first five terms are: 11+12+13+ 
+   (The first three terms have been given to you - write down the rest of the terms) 
+Now that you know what the terms are it is easy to find their sum. However, it is better to develop a 
+more general method of finding the sum of a series of terms so that you do not have to work out what 
+the last term is.  
+ Write an algorithm for adding up the first five terms of this series that does not depend on 
+knowing the last number in the series. 
+ Code a Java program to work out the sum, using the method you have written down above. Call 
+it SumOfTerms.  
+ Draw a trace table to check that your program works properly. 
+ If it does not, correct it by comparing your code with the following: 
+    int sum = 0; 
+     int term = 11;  
+     int numTerms = 5; 
+ 
+     for (int j = 1; j <= numTerms; j++) 
+     { 
+         sum = sum + term; 
+         term = term + 1; 
+     } 
+    System.out.println ("The sum of the " + numTerms + " terms is " + sum); 
+ Write down the sum that is produced when you run your program. 
+ Trace through the code given above using the following column headings: 
+sum term numTerms i j<= numTerms? OUTPUT 
+ Change your program so that it works out the sum of the first ten terms of this series.  
+ Change your program so that it works out the sum of the first fifty terms of this series.  
+ Change your program so that the starting number of the series (instead of it starting at 11) and 
+the number of terms can be entered by the user. Use this adapted program to work out the 
+sums of the following: 
+1. 1 + 2 + 3 + 4 + ... (to 25 terms) 
+2. 100+101+102+... (to 100 terms) 
+5.10 Calculating the Average 
+To find the average of a group of numbers, we can calculate the sum of these numbers and then 
+divide the sum by the number of numbers in the sequence. 
+In this case the user will enter 10 numbers and we will code a program to input the numbers and 
+determine the sum and hence the average using the sum and then dividing by 10. We will not be able 
+to store all 10 values simultaneously with a single variable num. If we wanted to store all 10 values, 
+we would need a special data structure such as an array which we will learn about in Grade 11. We 
+can however use a single variable num to store the first value of num, in the loop, and then add the 
+value of num to sum straight away. The next time the loop is run, we input the next value entered by 
+===== PDF PAGE 110 =====
+Exploring IT: Java Programming Grade 10 
+Page 100 Learning Unit 5 For Loops 
+the user, store it in num losing the previous value, and add our new num's value to sum. This way we 
+only store the last value entered by the user but as the loop runs, each value entered will be stored in 
+num, and added to sum. This process is called overwriting, where a value of a variable is replaced 
+by another value removing previous data. 
+ACTIVITY 10 
+ Code a program called FindAve to find the average of 10 numbers entered by the user. 
+Pseudocode: 
+sum  0 
+for loop from 1 to 10; inc by 1 
+input num 
+display num 
+sum sum + num 
+end for 
+ave  sum / 10 
+display sum  
+ Code the program using the algorithm written in pseudocode. 
+ Declare the variables so that real numbers can be entered. 
+ Save and run the program to check that it works. 
+ Change the program to input only 5 numbers and determine the average. Does it still work? 
+ACTIVITY 11 
+To test the above program, we need to run the program a few times with different values for the 5 
+numbers. As a programmer, you are quite likely to use the same data each time you run the program. 
+To check a program more thoroughly we need to select better test data. In a perfect world, we would 
+try to test every possibility but, in this case, it is not possible. A number can have many values and 
+now we need to enter 5 such numbers. The combination of values is too large to even consider. 
+Load the program FindAve if it is not already loaded. 
+Test the program with Standard Data.  
+ First choose data that will produce obvious results such as 4, 4, 4, 4, 4 which should produce an 
+obvious average of 4.  
+ Similarly test that 0, 0, 0, 0, 0 produces an average of 0. 
+ Now test with different numbers 4,7,2,6,9. First determine what you would expect the average to 
+be and then run the program with the same data to see if you get the same results. 
+Test with Extreme Data. 
+Choose very large positive and negative numbers. 
+ Test with large and small numbers such as -4512, 94567, -6312467, 67543343, -24517823 
+Test with Abnormal Data. 
+ Test with the data: "p", "&", "W", "hello" and "Fred". What happened?  
+Your program will crash when the user enters non-numeric data. At this stage, this problem cannot be 
+solved. Next year we will cover exception handling that will allow a program to recover from incorrect 
+input. 
+We do not need to initialise num as we will 
+initialise num using the user's input. The value 
+stored in num will be that data entered by the user. 
+It will be overwritten each time the loop is run, and 
+the user enters data. 
+===== PDF PAGE 111 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 5 For Loops Page 101 
+EXERCISE 6 
+1.     
+1.1. Add code to a new class called SumOfInt to add a quantity of non-zero integers. Input the 
+number of integers to be entered from the user. Display the number of integers that were 
+entered and their sum. 
+1.2. Write an algorithm showing a solution for this problem before coding the program. 
+1.3. Add statements to the program to determine and display the average of the numbers that 
+have been entered. 
+1.4. Test your program with the following data: 10 numbers 
+10, 76, -3, -65, 121, 324, 26, -43, 256, 771, 7 
+1.5. Add statements to your program so that it also counts and displays: 
+1.5.1.          the number of positive integers that were entered 
+1.5.2.          the number of negative integers that were entered 
+1.5.3.          the number of integers that are greater than 10 
+2. Open the class called EvenNumbers which you saved previously. 
+2.1. Extend this program to determine the sum of the first 1000 positive even numbers. Display 
+all the numbers across the screen, leaving a blank line after all the numbers and then 
+display the sum, with a meaningful message. 
+2.2. Write down the sum of the first 1000 positive even numbers.  
+3. Find the sum of each of the series below to fifteen terms. Use a class called SumOfSeries and 
+add separate sections for each series. Use comments to identify the start of each different 
+section of code // part a. and so on. 
+3.1. 
+1
+2 +  
+2
+3 +  
+3
+4 +  
+4
+5 +  … . .. 
+3.2. 
+2
+3 +  
+4
+5 +
+6
+7 +  
+8
+9 +  … …. 
+3.3. 
+1
+4 +  
+9
+16 −
+25
+36 +  
+49
+64 −  … ….  
+4. Draw a trace table of the FindAve algorithm. The algorithm, line numbers and headings follow 
+the algorithm. 
+1    sum  0 
+2    for loop from 1 to 3; inc by 1 
+3        input num 
+4        display num 
+5        sum sum + num 
+6    end for 
+7    ave  sum / 3 
+8    display sum  
+===== PDF PAGE 112 =====
+Exploring IT: Java Programming Grade 10 
+Page 102 Learning Unit 5 For Loops 
+line number sum loop loop <= 10? num ave 
+4.1. Line 7 is moved inside the loop after line 5. Create a new trace table to show the effect of 
+this change. 
+4.2. Explain why this change will still produce the correct answer but is inefficient. 
+4.3. What standard, extreme and abnormal test data would you select for the variable num to 
+test this program? Choose three sets of numbers for each category of standard, extreme 
+and abnormal data. For example, 10, -20 and 30 could be an example of standard data. 
+         

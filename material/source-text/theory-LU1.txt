@@ -1,0 +1,751 @@
+
+===== PDF PAGE 9 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 1 
+Learning Unit 1 Data 
+Representation and Storage 
+1.1 Introduction 
+In the old days the 'Abacus', which was one of the first calculators, was used to perform calculations. 
+Once a calculation was completed, no record of the calculation could be kept, unless it was written 
+down. The method of calculation used something similar to the 'Hundreds, Tens & Units' system you 
+used in primary school – it was based on a number system where the arithmetic processes were 
+similar to what you used for the decimal number system. 
+school.discoveryeducation.com 
+An effective method of communication, before radio communication, between ships was a system 
+called 'Morse Code'. One ship understood the message received from the other by interpreting and 
+decoding a number of short and long light flashes. The important thing was that both ends of the 
+communication understood the codes because they were clearly laid out. 
+ 
+ 
+ 
+ 
+ 
+MS® ClipArt, http://tcfreenet.org/people/calguire/morse.html,  
+Although both examples above were successful at the time and in the contexts in which they were 
+used, they could not have been successful in an electronic environment like a computer for a number 
+of reasons. Neither could be successfully stored, unless written down and both were mechanically 
+operated, which is very slow. In the case of Morse code, the codes were of different number of dots or 
+dashes for each letter, complicating how the data is managed and stored. 
+Modern calculators and computers use a far more efficient coding method which is digital and 
+electronic; high and low voltages in groups of specific sizes can be interpreted as 0's and 1's so that 
+the computer can understand the representation (coding) of the data to process it and store it. A 
+computer is known as a two-state machine because it can only understand whether data is a 0 or a 1. 
+1.2 The Decimal, Binary and Hexadecimal Number Systems 
+Numbers are represented in in the decimal number system (base-10). Why? Probably because we 
+have ten fingers and basic calculations could be done using our fingers before calculators were 
+invented; if you were a mouse, you would want to use 'Octal' (base-8) because mice only have four 
+fingers on each front paw. The number system that uses 0's and 1's is known as binary (base-2) and 
+its relative, hexadecimal (base-16), is used in many computer contexts. 
+ 
+  
+
+===== PDF PAGE 10 =====
+Exploring IT: Theory Grade 10 
+Page 2 Learning Unit 1 Data Representation and Storage 
+ 
+Decimal Numbers  Binary Numbers 
+100 = 1  20 = 1 
+101 = 10  21 = 2 
+102 = 100  22 = 4 
+103 = 1000  23 = 8 
+104 = 10000  24 = 16 
+105 = 100000  25 = 32 
+106 = 1000000  26 = 64 
+107 = 10000000  27 = 128 
+108 = 100000000  28 = 256 
+Do you recognize these binary numbers? Many computer devices have capacities that are measured 
+in binary numbers. 
+1.2.1 Convert Binary to Decimal 
+Consider the Decimal number 106. Decimal numbers are known as base-10 because the base 
+of each column is 10. 
+H T U 
+102 101 100 
+100 10 1 
+1 0 6 
+Expanded form: 
+=  1 x 102  + 0 x 101  + 6 x 100 
+=  1 x 100 + 0 x 10  + 6 x 1 
+=  100  + 0  + 6 
+=  106 
+ 
+1.2.1.1 Example 1 
+Now consider the Binary number 11010102. Binary numbers are known as base-2 because the 
+base of each column is 2. 
+Each binary digit is known as a bit (abbreviation for binary digit). A binary digit or bit is either a 0 or 
+a 1. 
+A byte is a group of 8 bits. 
+  
+ 
+Anything to the power 0 =1 
+ 
+Just like decimal numbers are 
+powers of base-10, binary 
+numbers are powers of base-2 
+Notice that the 
+columns are based on 
+increasing power of 
+10, starting at 0, going 
+from right to left. 
+===== PDF PAGE 11 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 3 
+Notice that the columns are based on increasing powers of 2, starting at 0, going from right to left. 
+8 bits = 1 Byte 
+26 25 24 23 22 21 20 
+1 1 0 1 0 1 0 
+1 x 26 1 x 25 0 x 24 1 x 23 0 x 22 1 x 21 0 x 20 
+64 32 0 8 0 2 0 
+Expanded form:  
+= 1 x 26 + 1 x 25 + 0 x 24 + 1 x 23 + 0 x 22 + 1 x 21 + 0 x 20 
+= 64 + 32 + 0 + 8 + 0 + 2 + 0 
+= 106             
+When converting between numbers with different bases it is good practise to write the base of both 
+numbers. However, if you are only working with decimal bases it is not necessary to write base 10. If 
+you leave out a base, it is assumed to be base 10. 
+So, the binary number 11010102 is equal to the decimal number 10610 
+By convention and for clarity, we use subscripts to indicate the bases. 
+11010102 = 10610 
+1.2.1.2 Example 2 
+Convert 101102 to Decimal: 
+24 23 22 21 20 
+1 0 1 1 0 
+1 x 24 0 x 23 1 x 22 1 x 21 0 x 20 
+16 0 4 2 0 
+Expanded form: 
+= 1 x 24 + 0 x 23 + 1 x 22 + 1 x 21 + 0 x 20 
+= 16 + 0 + 4 + 2 + 0 
+= 22         
+101102 = 2210 
+EXERCISE 1 
+Convert to decimal: 
+a)  10112 b)  101112 c)  02  d)  111111112   e)  1010110102 
+ 
+  
+===== PDF PAGE 12 =====
+Exploring IT: Theory Grade 10 
+Page 4 Learning Unit 1 Data Representation and Storage 
+1.2.2 Convert Decimal to Binary 
+The previous examples show how we to calculate the decimal equivalent of a binary number. This 
+allows us to understand long chains of 0's and 1's. The following examples demonstrate how to 
+reverse the process by converting decimal numbers to binary. 
+1.2.2.1 Example 1 
+To convert 10610 from decimal to binary we continuously divide 106 by 2, writing down the 
+remainder until we reach an answer of 0: 
+Base 106 Remainder Comment 
+2 53 0 106 ÷ 2 = 53 remainder 0 
+2 26 1 53 ÷ 2 = 26 remainder 1 
+2 13 0 26 ÷ 2 = 13 remainder 0 
+2 6 1 13 ÷ 2 = 6 remainder 1 
+2 3 0 6 ÷ 2 = 3 remainder 0 
+2 1 1 3 ÷ 2 = 1 remainder 1 
+2 0 1 1 ÷ 2 = 0 remainder 1 
+ 
+ 
+ 
+Write down the results of the 'Remainder' column from bottom to top to produce the correct result: 
+10610 = 11010102 
+A summary of the process (algorithm) used to calculate a number of another base from a decimal 
+number: 
+• Divide the decimal number by the base required; 
+• Write down the quotient and the remainder; 
+• Repeat the previous steps until the quotient is 0; 
+• The answer is the remainders read from bottom to top 
+  
+Stop when you 
+reach 0 
+Write the number from 
+the bottom to the top 
+===== PDF PAGE 13 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 5 
+1.2.2.2 Example 2  
+Convert the number 16710 to its binary equivalent: 
+Divide 167 by 2, keeping the remainder, until zero is reached and read the remainders upwards: 
+Base 167 Remainder 
+2 83 1 
+2 41 1 
+2 20 1 
+2 10 0 
+2 5 0 
+2 2 1 
+2 1 0 
+2 0 1 
+16710 = 101001112 
+1.2.2.3 Alternative Method: 
+Another way of converting a decimal to binary is to represent the number as a sum of binary numbers 
+i.e.1, 2, 4, 8, 16, 32, 64, 128 etc..... 
+Start with 
+167 128 64 32 16 8 4 2 1 
+ 27 26 25 24 23 22 21 20 
+167-128 1        
+39-32 1 0 1      
+7-4 1 0 1 0 0 1   
+3-2 1 0 1 0 0 1 1  
+1-1 1 0 1 0 0 1 1 1 
+giving 16710 = 101001112 
+Using this method, the answer is the last row, read from left to right, starting at the second column. 
+Any method can be used if the answer is correct. 
+EXERCISE 2 
+1. Convert the following decimal numbers to their binary equivalents: 
+a) 140   b) 79   c) 31   d) 64  e) 42 
+2. Write out the binary equivalents of the decimal numbers 0 to 15 and then try to spot the 
+pattern and explain it. 
+ 
+===== PDF PAGE 14 =====
+Exploring IT: Theory Grade 10 
+Page 6 Learning Unit 1 Data Representation and Storage 
+1.2.3 Convert Decimal to Hexadecimal 
+Although binary is the basis for all that happens in a computer, the hexadecimal number system is 
+also used extensively. Hexadecimal, commonly known as 'hex', is base-16. Conversions from decimal 
+to hex take place in the same way as for binary, except that you divide by 16 instead of 2. Using the 
+number 22310: 
+Base 223 Remainder Comment 
+16 13 15 223 ÷ 16 = 13 remainder 15 
+16 0 13 13 ÷ 16 = 0 remainder 13 
+The answer, reading from bottom to top, is 131516 which is incorrect. 
+We can only have one digit for each remainder answer because when the remainders are joined, we 
+can only have one digit in each power of 16 column in the result. If we write the hex answer in powers 
+of 16 columns, as we did for binary earlier,  we get the columns as: 
+163 162 161 160 
+1 3 1 5 
+1 x 163 3 x 162 1 x 161 5 x 160 
+4096 768 16 5 
+In expanded form: 
+= 1 x 163 + 3 x 162 + 1 x 161 + 5 x 160 
+= 4096 + 768 + 16 + 5 
+= 4885       
+This results in 4885, which is clearly not the decimal number of 22310 we started with. The reason for 
+this error is that the 1 and the 3 are not separate numbers (and the 1 and the 5) – the 13 and 15 must 
+be represented by single digits. 
+Notice that the decimal number system makes use of the digits 0 to 9. The binary number system 
+uses only the digits 0 to 1. This creates a pattern. Any number system uses the digits from 0 to 1 less 
+than the base of the number system (10-1 = 9 and 2-1 = 1). So, base-5 would use the digits 0 to 4. 
+For base-16 (hexadecimal) we need the digits 0 to 15, but 15 is not one digit. 
+To solve the problem, any base larger than 10 uses alphabetical 'digits' for any values greater than 9. 
+For hex, the digits are: 
+Decimal Value 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+Digit 0 1 2 3 4 5 6 7 8 9 A B C D E F 
+For example, the 'digit' for 13 is D and the digit for 15 is F. 
+The correct representation of 22310 in hexadecimal is DF16 
+  
+===== PDF PAGE 15 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 7 
+To prove it: 
+161 160 
+D F 
+13 x 161 15 x 160 
+208 15 
+208 + 15 = 223 
+At last, we have 22310 = DF16 
+EXERCISE 3 
+Convert the following decimal numbers to their hexadecimal equivalents: 
+a) 140   b) 79   c) 31   d) 64  e) 42 
+ 
+1.2.4 Converting Hexadecimal to Decimal 
+Convert the hex number ACE16 to decimal using a similar table to the one above: 
+162 161 160 
+A C E 
+10 x 162 12 x 161 14 x 160 
+2560 192 14 
+In expanded form: 
+= 10 x 162 + 12 x 161 + 14 x 160 
+= 2560 + 192 + 14 
+= 2766     
+ACE16 = 276610 
+EXERCISE 4 
+Convert the following hexadecimal numbers to their decimal equivalents: 
+a) ABC16  b) FACE16  c) 1016   d) 7616  e) DID016 
+ 
+  
+===== PDF PAGE 16 =====
+Exploring IT: Theory Grade 10 
+Page 8 Learning Unit 1 Data Representation and Storage 
+1.2.5 Convert Hexadecimal to Binary 
+We have seen how to convert hexadecimal to decimal and decimal to binary, so we can use the 
+previous examples to convert from hexadecimal to decimal first, and then convert the decimal answer 
+to binary. This process will take two steps: 
+Converting DF16 to binary: 
+First, we create the hexadecimal table for conversion to decimal: 
+161 160 
+D F 
+13 x 161 15 x 160 
+208 15 
+208 + 15 = 223 
+DF16  = 22310 
+Next, we use the division method to convert decimal numbers to binary: 
+Base 223 Remainder 
+2 111 1 
+2 55 1 
+2 27 1 
+2 13 1 
+2 6 1 
+2 3 0 
+2 1 1 
+2 0 1 
+22310  = 110111112 
+Therefore,  DF16  = 22310  = 110111112 
+This method requires two steps to convert hexadecimal to binary. Because 16 is 24, it is logical that 
+every 4 bits make up 1 hex digit. 
+This relationship is explained in the following table showing the decimal, binary and hexadecimal 
+numbers in a table from 0 to 15: 
+  
+===== PDF PAGE 17 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 9 
+Decimal Binary (4-bit) Hexadecimal 
+0 0000 0 
+1 0001 1 
+2 0010 2 
+3 0011 3 
+4 0100 4 
+5 0101 5 
+6 0110 6 
+7 0111 7 
+8 1000 8 
+9 1001 9 
+10 1010 A 
+11 1011 B 
+12 1100 C 
+13 1101 D 
+14 1110 E 
+15 1111 F 
+Each hexadecimal number can be simply written as its binary equivalent. D16 = 11012 and F16 = 11112 
+161 160 
+D F 
+27 26 25 24 23 22 21 20 
+1 1 0 1 1 1 1 1 
+DF16  = 110111112 
+ 
+  
+The shaded rows show the 
+relationship between hexadecimal 
+powers of 16 and binary powers 
+from 0 to 7. 
+===== PDF PAGE 18 =====
+Exploring IT: Theory Grade 10 
+Page 10 Learning Unit 1 Data Representation and Storage 
+1.2.6 Converting Binary to Hexadecimal 
+This method reverses the previous process, but the number of bits must be a multiple of 4. For 
+example, the binary number 112, which is the decimal value 3, must have leading 0s inserted to make 
+up 4 bits, producing 00112. 
+1.2.6.1 Example 1 
+Convert 11110112  to hexadecimal: 
+11110112 (7 bits) = 011110112 (8 bits) 
+Splitting into groups of 4 bits: 
+ 0111 and 1011 
+27 26 25 24 23 22 21 20 
+0 1 1 1 1 0 1 1 
+0 x 23 1 x 22 1 x 21 1 x 20 1 x 23 0 x 22 1 x 21 1 x 20 
+0 4 2 1 8 0 2 1 
+7 11 
+161 160 
+7 B 
+11110112 = 7B16 
+1.2.6.2 Example 2 
+Convert 1000100012 to hexadecimal: 
+If the number of bits doesn't amount to a multiple of 4, then we add enough 0's to the left of the 
+number to make up a multiple of 4, for example: 
+So, 1000100012 (9 bits) = 0001000100012 (12 bits) 
+Splitting into groups of 4 bits: 
+0001  and          0001  and      0001 
+ 
+211 210 29 28 27 26 25 24 23 22 21 20 
+0 0 0 1 0 0 0 1 0 0 0 1 
+0 x 23 0 x 22 0 x 21 1 x 20 0 x 23 0 x 22 0 x 21 1 x 20 0 x 23 0 x 22 0 x 21 1 x 20 
+0 0 0 1 0 0 0 1 0 0 0 1 
+1 1 1 
+162 161 160 
+1 1 1 
+The result is… 
+1000100012 (9 bits) = 0001000100012 (12 bits) = 11116 
+===== PDF PAGE 19 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 11 
+EXERCISE 5 
+1. Convert the following hexadecimal numbers to decimal and then to binary. 
+1.1. 12316 
+1.2. F0016 
+1.3. A2B416 
+2. Convert each of the above hexadecimal numbers directly to binary. 
+3. Convert the following binary numbers to decimal and then to hexadecimal. 
+3.1. 101011112 
+3.2. 11000010112 
+3.3. 11101001011102 
+4. Convert each of the above binary numbers directly to hexadecimal. 
+5. Calculate X where: 
+5.1. X16 = 10011012  
+5.2. X2 = CCD16  
+5.3. X2 = 112016  
+5.4. X16 = 1002  
+5.5. X16 = 1012  
+ 
+1.3 Number of Combinations for Number of Bits 
+1.3.1 Word Size 
+The word size, also known as word length, is the number of bits that a computer, more precisely the 
+processor (which will be discussed later on), can work with at one time. It is too inefficient to work with 
+individual bits, so bits are grouped together into units called words, just like letters are grouped into 
+words. Word size generally increases as processors become more powerful. For example, current 
+word size is 32 or 64 bits. The number of bits in a word has many implications, one being the number 
+of possible combinations that can be stored in a fixed number of bits. 
+To illustrate this concept, we can consider a word size of 4 bits. The number of possible combinations 
+can be calculated using the formula 2n, where n represents the number of bits joined together. In the 
+case of 4 bits, it's 24 = 16. This is because each bit position can contain either a '0' or a '1'. With 2 
+possible values for each bit position, the number of combinations is: 
+2 x 2 x 2 x 2 = 24 = 16 
+  
+===== PDF PAGE 20 =====
+Exploring IT: Theory Grade 10 
+Page 12 Learning Unit 1 Data Representation and Storage 
+Another way to express this is to create a table of values to show all the unique combinations:  
+23 22 21 20 
+0 0 0 0 
+0 0 0 1 
+0 0 1 0 
+0 0 1 1 
+0 1 0 0 
+0 1 0 1 
+0 1 1 0 
+0 1 1 1 
+1 0 0 0 
+1 0 0 1 
+1 0 1 0 
+1 0 1 1 
+1 1 0 0 
+1 1 0 1 
+1 1 1 0 
+1 1 1 1 
+You can see that all possible unique combinations of '0's and '1's across the 16 rows are shown. In 5 
+bits, there would be 25 = 32 possible combinations and 6 bits would have 26 = 64 combinations. 
+EXERCISE 6 
+1. Write down the number of combinations in the following number of bits: 
+a) 7 b) 8 c) 9 d) 10 
+2. Draw up a table (as shown above) to indicate the number of combinations possible for 5 bits. 
+ 
+1.4 Data Storage 
+The size of memory capacity such as RAM and Hard Disk Drives is measured in multiples of bytes. 
+For example, a kilobyte (1KB) is 210 bytes which is 1024 bytes and not 1000 bytes. Note that a small 
+b usually indicates bits and a capital B indicates bytes. The following table summarises these units of 
+measurement.: 
+8 bits = 1 byte 
+1024 bytes = 210 bytes = 1 Kilobyte (abbreviated K or KB) 
+1024 x 1024 bytes = 220 bytes = 1 Megabyte (abbreviated MB) 
+1024 x 1024 x 1024 bytes = 230 bytes = 1 Gigabyte (abbreviated GB) 
+1024 x 1024 x 1024 x 1024 bytes = 240 bytes = 1 Terabyte (abbreviated TB) 
+1024 x 1024 x 1024 x 1024 x 1024 bytes = 250 bytes = Petabyte (abbreviated PB) 
+1024 x 1024 x 1024 x 1024 x 1024 x 1024 bytes = 260 bytes = Exabyte (abbreviated EB) 
+The right column under 20 = 1 
+contains one 0 followed by 
+one 1.  
+ 
+The next column under 21 = 2 
+repeats two 0s then two 1s.  
+The right column under 20 = 1 
+contains one 0 followed by one 1.  
+ 
+The next column under 21 = 2 
+repeats two 0s then two 1s.  
+ 
+The third column under 22 = 4 
+repeats four 0s then four 1s.  
+ 
+The fourth column under 23 = 8 
+repeats eight 0s then eight 1s.  
+The fourth column under 23 = 
+8 repeats eight 0s then eight 
+1s.  
+ 
+The third column under 22 = 4 
+repeats four 0s then four 1s.  
+ 
+===== PDF PAGE 21 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 13 
+In some cases, a megabyte is measured more inaccurately by multiplying 1024 by 1000 instead of 
+1024 producing 1 024 000 bytes. Strictly speaking this is not correct, but it is often used. The same 
+can be applied to a gigabyte and a terabyte. 
+1.5 Digital Representation of Numbers 
+Numbers are infinite and there is no restriction on how large a number can be. A computer's memory 
+is finite, and we need to allocate groups of bytes to store numbers. Representing these numbers in a 
+fixed number of bits limits the number to be stored.  
+Integers are numbers that don't have decimal parts; and are positive whole numbers, negative whole 
+numbers or 0. The number of bits allocated to store an integer determines the largest and smallest 
+numbers that can be represented in a fixed number of bits. An integer consists of two parts, the sign 
+(+ or -) and the value of the integer. For example, +56 consists of the + and the value of 56. Integers 
+are represented in two ways: either with the sign or without. Integers without a sign can only be 
+positive and are called unsigned. 
+1.5.1 Unsigned Integers 
+An unsigned integer uses all of the allocated bits to represent the value of the number. 
+1.5.1.1 Largest Number in an Unsigned Integer 
+In 8 bits, where all the bits are allocated to storing the number, the largest number that can be 
+represented is shown in the table below. Since the table represents how the number is represented in 
+a computer, it is not necessary to write base 2. 
+1 1 1 1 1 1 1 1 
+which is 1+2+4+8+16+32+64+127 giving a decimal value of 255. 
+There is a formula to calculate largest unsigned number, which is 2n − 1 where n is the number of 
+bits. Using 8 bits this will be 28 – 1 = 256 – 1 = 255. The number of possible combinations is still 28 = 
+256, but the largest value is 255, one less than the number of combinations since 0 is included as one 
+of the values. 
+For example, in 4 bits unsigned, the largest number is  
+1 1 1 1 
+= 1 + 2 + 4 + 8 = 15 and 24−1 = 16 −1 = 15. The number of possible combinations is 24 = 16 but the 
+largest number is one less at 15. 
+In 6 bits unsigned, the largest the largest number is 
+1 1 1 1 1 1 
+= 1 + 2 + 4 + 8 + 16 + 32 = 63 and 26−1 = 64 −1 = 63. The number of possible combinations is 26 = 
+64 but the largest number is one less at 63. 
+1.5.1.2 Smallest Number in an Unsigned Integer 
+The smallest unsigned number is  
+0 0 0 0 0 0 0 0 
+which is clearly 0. Since we do not have a bit to store the sign, we can only store positive numbers. 
+  
+===== PDF PAGE 22 =====
+Exploring IT: Theory Grade 10 
+Page 14 Learning Unit 1 Data Representation and Storage 
+Number of Bits Largest Number in 
+Binary 
+Largest Number in 
+Decimal 
+Number of 
+Combinations 
+8 111111112 28 – 1 = 256 – 1 = 255 28 = 256 
+6 1111112 26−1 = 64 −1 = 63 26 = 64 
+4 11112 24−1 = 16 −1 = 15 24 = 16 
+1.5.2 Signed Integers 
+1.5.2.1 Largest Number in a Signed Integer 
+To store negative numbers, we allocate the first bit to the sign leaving one less bit to store the 
+number. If the first bit is 0, the number is positive and if it is 1 the number is negative. The largest 
+value that can be stored in 8 bits is  
+0 1 1 1 1 1 1 1 
+which is 1+2+4+8+16+32+64 giving a decimal value of 127.  
+The formula for the largest signed number is 2n-1 − 1 where n is the number of bits. By using one bit 
+to represent the sign, we have less bits to store the number, reducing the exponent by 1.  
+For example, in 4 bits signed, the largest number is  
+ 
+0 1 1 1 
+ 
+= 1 + 2 + 4 = 7 and 24−1−1 = 23−1 = 8 -1 = 7 
+In 6 bits signed, the largest the largest number is 
+0 1 1 1 1 1 
+= 1 + 2 + 4 + 8 + 16 = 63 and 26-1-1 = 25-1 = 32 -1 = 31 
+1.5.2.2 Smallest Number in a Signed Integer 
+The formula for the smallest signed number is -2n-1 where n is the number of bits. We do not need 
+to subtract one from the total as we did for positive numbers since 0 has been accounted for in the 
+positive integers. 
+For example, in 4 bits signed, the smallest number is -24-1 = -23 = -8 
+In 6 bits signed, the smallest number is -26-1 = -25 = -32 
+In 8 bits signed, the smallest= -28-1−1 = - 27 = -128 
+Number of 
+Bits 
+Largest Number 
+in Binary 
+Largest Number in Decimal Smallest Number in 
+Decimal 
+8 011111112 28-1 – 1 = 128 – 1 = 127 -28-1 = -128 
+6 0111112 26-1−1 = 32 −1 = 31 -26-1 = -32 
+4 01112 24-1−1 = 8 −1 = 7 -24-1 = 8 
+ 
+  
+The first bit is a 0 indicating a 
+positive number. 
+===== PDF PAGE 23 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 15 
+1.5.3 Summary of Formulas 
+The number of combinations in n bits is 2n. 
+Integer in limited bits Smallest Number Largest Number 
+n unsigned bits 0 2n-1 
+n signed bits 2n-1 2n-1-1 
+The proof of the formula for the smallest number in n signed bits is beyond the scope of this course. 
+1.5.4 Primitive Data Types 
+Most programming languages provide basic data types to store characters, text (strings), real 
+numbers and integers. Each language decides on how many bits to allocate to each data type and 
+this affects the ability of that type to store extremely large or small numbers. For example, the 
+collection of primitive data types for C++ is shown below; other programming languages would 
+contain similar and different types: 
+Name Description Size Range 
+char Character or small integer. 1 byte signed: -128 to 127 
+unsigned: 0 to 255 
+short 
+int 
+(short) 
+Short Integer. 2 bytes signed: -32768 to 32767 
+unsigned: 0 to 65535 
+int Integer. 4 bytes signed: -2147483648 to 2147483647 
+unsigned: 0 to 4294967295 
+long 
+int 
+(long) 
+Long integer. 4 bytes signed: -2147483648 to 2147483647 
+unsigned: 0 to 4294967295 
+bool Boolean value. It can take one of 
+two values: true or false. 1 byte true or false 
+float Floating point number (real). 4 bytes +/- 3.4e +/- 38 (~7 digits) 
+double Double precision floating point 
+number (real). 8 bytes +/- 1.7e +/- 308 (~15 digits) 
+long 
+double 
+Long double precision floating 
+point number (real). 8 bytes +/- 1.7e +/- 308 (~15 digits) 
+EXERCISE 7 
+Complete the following table: 
+ Smallest Number Largest Number 
+8 unsigned bits    
+8 signed bits   
+16 unsigned bits   
+16 signed bits (Java data type short)   
+32 unsigned bits   
+32 signed bits (Java data type int)   
+ 
+===== PDF PAGE 24 =====
+Exploring IT: Theory Grade 10 
+Page 16 Learning Unit 1 Data Representation and Storage 
+1.6 Digital Character Representation 
+1.6.1 Early Character Representation, ASCII and the 80x25 Screen 
+In the early days of computing (1970's), a computer displayed characters on the screen in terms of 
+actual characters instead of individual pixels. The screen consisted of a rectangular grid of character 
+cells (80 characters across 25 rows), known as the 80 x 25 text mode screen. Each cell could contain 
+one character. 
+1.6.2 ASCII (American Standard Code for Information Interchange) 
+The first widely used character set was ASCII where each character was represented in 8 bits and 
+contained the alphabetic characters (A-Z and a – z), numeric characters (0 – 9, ½, ¼), some codes 
+for accented letters, some Greek letters, icons and a limited number of line drawing symbols which 
+gave the screen very limited graphical capabilities. In total, the character set was extended to 256 
+characters which, as shown previously in this Learning Unit, used the total number of combinations 
+for 8 bits for its codes (Remember, 28 = 256). 
+ASCII and other earlier character encodings had some significant failings: Languages (like Afrikaans) 
+require more codes than these encodings could provide to store all the all the letters, punctuation, 
+control and technical symbols required. Encodings were also not consistent; they often used different 
+numbers for characters. Computers using different encodings couldn't transfer data between them as 
+this would lead to corrupt data. 
+1.6.3 Unicode and UTF-8 
+1.6.3.1 Unicode 
+Unicode provides a standard that provides a unique number for every character, no matter what 
+operating system, device, application or language. All modern software providers have adopted 
+Unicode as the standard, thus removing the issues of the older encoding; Unicode can be interpreted 
+across different computers and operating systems and there is no chance of data corruption due to 
+inconsistent encoding. 
+1.6.3.2 UTF-8 (Unicode Transformation Format) 
+Each character in UTF-8 is represented by at least 8 bits per character (1 byte). Characters can use 
+up to 32 bits (4 bytes) where each group of 8 bits (1 byte) is called an 'octet'. A character set of 4 
+bytes, will have a total number of 232 (1,112,064) possible characters. 
+1.6.3.3 Inserting Symbols and Characters 
+If you are using a word processor like MS-Word, you can insert or add symbols or characters that are 
+not present on a keyboard by using the 'Insert Symbol' option or using <Alt>+nnnn (the four-digit 
+decimal code for the Unicode character). 
+Using the 'Insert Symbol' option for the 'Yin Yang' symbol in Wingdings: 
+ 
+
+===== PDF PAGE 25 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 17 
+Notice that decimal code is 91, which corresponds to the hexadecimal value 005B: 
+5 x 161 + 11 x 160 = 80 = 80 + 11 = 91 
+Characters that can be accessed using the <Alt>+nnnn method must use the numeric keypad for the 
+digits and 4 digits must be entered while holding down the alt key.  
+The character code for the ½ 
+character can also be found in the 
+'Insert Symbol' option but, if you hold 
+the alt key and type in 0189 on the 
+numeric keypad, a ½ character will 
+appear in your document. 
+1.7 Storing Screen Data 
+The computer needs to display the correct and readable data on the screen in real-time meaning 
+each change is updated immediately. This could be a result of the user switching between application 
+windows or entering in data. The computer uses a process of refreshing – it redraws the screen at a 
+certain rate. This rate is measured in hertz (Hz) which is the number updates per second.  
+1.7.1 The Older 80 x 25 Screens 
+The older 80 x 25 screens were very simple: there were only 80 characters across the screen and 25 
+rows down; there was no colour option and the only characters that could be displayed were from the 
+extended ASCII character set. Each ASCII character occupied 1 byte of memory, so a screen with 80 
+x 25 'cells' would then need 
+80 x 25 x 1 byte = 2000 bytes approximately 2KB 
+of memory to store one screen. A common refresh rate for these early computers was 60Hz (60 
+refreshes per second), requiring 
+60 x 80 x 25 x 1 byte = 120000 bytes approximately 120KB 
+to store one second of screen data. 
+These early computers stored their images in RAM which had a maximum capacity of 640KB, using 
+about 30% of available RAM. 
+1.7.2 Representing Colour 
+As screen technology developed over time, the resolution changed 
+from a simple character 'cell' to a matrix of 'pixels'. Pixels are tiny dots 
+on the screen. Each pixel has its own colour definition. Colour can be 
+defined either in RGB or some other colour definition. 
+RGB (Red Green Blue) is system of producing any colour light by 
+adding varying intensities of red, green and blue light. Each colour 
+red, green and blue is represented by a byte. Recall that a byte has 
+256 combinations numbering from 0 to 255. The colour black would be 
+represented with values of 0 for red, 0 for green and 0 for black.  
+https://www.lightwaveuk.com/led-technology/how-does-rgb-work/ 
+black red green blue 
+bytes 0 0 0 
+bits 00000000 00000000 00000000 
+hex 00 00 00 
+
+===== PDF PAGE 26 =====
+Exploring IT: Theory Grade 10 
+Page 18 Learning Unit 1 Data Representation and Storage 
+The colour white would be a mix of the maximum values for red, green and blue. 
+white red green blue 
+bytes 255 255 255 
+bits 11111111 11111111 11111111 
+hex FF FF FF 
+Similarly, the colour green would have a maximum value for green and 0 for red and blue. 
+green red green blue 
+bytes 0 255 0 
+bits 00000000 11111111 00000000 
+hex 00 FF 00 
+You may come across RGB in your programming course, but, for the 
+purposes of resolution, we just need to understand that each colour 
+can be one of 256 (Red) x 256 (Green) x 256 (Blue) values producing 
+16,777,216 possible colours. Each pixel requires 3 bytes of memory 
+to store the colour.  
+You can use the colour selector in MS Word, for example, to mix a 
+colour, by either selecting the colour in the colour palette or by 
+entering values for Red, Green and Blue. 
+Since it takes three bytes to store a single colour, the number of 
+possible colours will 234 = 16 777 216. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Currently, screen resolutions range from 360 x 640 to 1920 x 1080. If we use 360 x 640 pixels and 3 
+bytes for each pixel each screen will need: 
+360 x 640 x 3 bytes = 691200 bytes approximately 691.2KB 
+The refresh rate of modern screens ranges from 60Hz to 240Hz. We will use an average of 150Hz; 
+producing the calculation: 
+360 x 640 x 3 bytes x 150Hz = 103,680,000 bytes/second approximately 104MB per second 
+High-end gaming computers have their own RAM and processors mounted on a separate graphics 
+card to assist with the refreshing of screens to provide for the demanding resolutions.  
+  
+
+===== PDF PAGE 27 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 1 Data Representation and Storage Page 19 
+CHECK POINT 1 
+1. Convert the number 101011112 to decimal. 
+2. Convert the decimal number 65 to binary. 
+3. Convert the decimal number 82 to hexadecimal. 
+4. Convert the hexadecimal number EF16 into binary. 
+5. Convert the binary number 1001111012 into hexadecimal. 
+6. How many number combinations are there in 16 bits? 
+7. Complete the following table: 
+ Smallest Number Largest Number 
+64 unsigned bits   
+64 signed bits   
+8. Look up the ✓symbol in MS-Word. 
+8.1. Write down its hexadecimal (Unicode) code. 
+8.2. Convert the above hexadecimal code to binary. 
+9. Calculate the memory required, per second, to refresh a screen that has a resolution of 1920 x 
+1080 with a refresh rate of 120Hz. 
+10. A colour is represented by the number 200, 100 and 50. 
+10.1. What do the three numbers represent? 
+10.2. How many bits will it take to represent this number? 
+10.3. Write this number in binary. 
+10.4. Write this number in hexadecimal. 
+10.5. Why is it incorrect to represent a colour with the numbers 240 300 12? 
+ 
+  

@@ -1,0 +1,474 @@
+
+===== PDF PAGE 36 =====
+Exploring IT: Theory Grade 10 
+Page 28 Learning Unit 3 Hardware 
+Learning Unit 3 Hardware 
+Hardware is categorised into Input, Storage, Processing, Output and Communication. Essentially, 
+a computer follows the principle of Input, Processing and Output (IPO) which you will become well 
+acquainted with in your programming course. We will look at the essential devices in a computer 
+system. 
+ 
+lenoxcomputerstore.com 
+3.1 The Motherboard Components 
+The motherboard is the large printed 
+circuit board (PCB) that houses the 
+essential electronic components of a 
+device. The central processing unit 
+(CPU), primary memory (RAM) and 
+connectors between them and other 
+peripherals are all linked on the printed 
+circuit. 
+ 
+ 
+ 
+ 
+www.gigabyte.com/Motherboard/GA-H61-S3-rev-10#ov 
+
+===== PDF PAGE 37 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 29 
+3.1.1 The Central Processing Unit (CPU) 
+The CPU consists of the Arithmetic Logic Unit (ALU), Control Unit (CU) 
+and Registers. 
+Many people confuse the System Unit or computer case with the CPU. The 
+CPU is the largest chip on the motherboard. The CPU continually interprets 
+and executes the commands (or instructions) that are stored in RAM. The 
+CPU is square with pins that can be inserted onto the motherboard into a 
+socket. 
+http://benchmarkreviews.com/images/reviews/processor/Intel_Core_i7/Intel_Core_i7-920_CPU_Splash.jpg 
+The design of CPU the in relation to secondary storage and RAM was first developed in 1945 and is 
+called von Neumann architecture. All computers have followed this design, where programs and data 
+are stored permanently in secondary storage. In order for a program to be run, it must first be loaded 
+into RAM, since the CPU is directly connected to RAM.  
+ 
+https://sites.google.com/site/iebitwiki/hardware/cpu/von-neumann-architecture 
+3.1.1.1 Arithmetic Logic Unit (ALU) 
+This is an electronic circuit, made up of combinations of logic gates, that performs simple arithmetic 
+on integer binary numbers. It can only add the numbers, but, because subtraction is addition of a 
+negative number and multiplication is simply repeated addition, division is repeated subtraction and 
+exponentiation is repeated multiplication, it all boils down to addition of some sort.  
+The ALU also performs all logical calculations. It determines whether a condition will be evaluated to 
+be true or false. Logical calculations include relational operators such as >, <, =. Logical calculations 
+will be explored in Learning Unit 6.  
+3.1.1.2 Control Unit (CU)  
+This component is the 'co-ordinator' of program instructions sent to the processor. It controls the 
+instructions to be processed by the processor some form of processing cycle that what the processor 
+does and how the instruction needs to be processed in terms of the ALU, RAM and input/output 
+devices.  
+  
+
+===== PDF PAGE 38 =====
+Exploring IT: Theory Grade 10 
+Page 30 Learning Unit 3 Hardware 
+3.1.1.3 Registers 
+The instructions that are processed by the CPU are stored in small 'memory' holding places called 
+Registers. Each Register may hold an instruction, a memory address or data. Registers can also 
+refer to other registers as part of their instructions. 
+3.1.2 Primary Memory (BIOS, RAM, ROM) 
+3.1.2.1 BIOS (Basic Input Output System) 
+BIOS is non-volatile firmware (software that is programmed on a ROM chip) used to initialize 
+hardware when the computer starts up so that the operating system can take over and use the 
+hardware afterwards. 
+3.1.2.2 RAM (Random Access Memory) 
+Once data has been received as input, it must be stored long enough to 
+be processed and if it must be stored permanently, it must be saved to 
+secondary storage. RAM and other storage on the motherboard is known 
+as primary storage; it is volatile, meaning that the contents or data in 
+RAM are constantly changing during processing and is lost when the 
+computer is switched off. The type of storage that is non-volatile 
+(permanent) is known as secondary storage. 
+RAM holds the instruction related data that the user has loaded, and the 
+processor will access both when instructed to perform a task. RAM is Dynamic RAM (DRAM) as it 
+constantly needs to be refreshed otherwise it will lose its contents. RAM comes in long printed circuit 
+boards that can be clipped onto the motherboard. The motherboard can have one, two or four slots 
+for RAM. You can easily add more RAM to your computer which can also improve the speed of your 
+computer. RAM is part of the computer's primary memory. 
+http://www.webanswers.com/post-images/E/EB/1359FE46-16A3-438C-8C986559ADC309E8.jpg 
+3.1.2.3 ROM (Read Only Memory) 
+ROM is a non-volatile memory chip that can be used to permanently store data in computers and 
+other electronic devices, such as BIOS firmware, embedded operating systems and 
+appliance/robotics controllers. ROM data can sometimes be changed or not at all, depending on the 
+type of chip and its purpose. For example, the ROM chip on a robotics controller may need to change 
+data to perform a different task in which case an EEPROM (Electronically Erasable Programmable 
+ROM) would be used. An EEPROM can be changed using a software program.  
+The chip in some household appliances would never need re-programming, which is suitable for a 
+ROM chip where the data/firmware is programmed once when the device is manufactured. 
+The term firmware is used to describe software program or set of instructions programmed on a 
+hardware device. Firmware is typically stored in the flash ROM of a hardware device. Firmware can 
+be thought of as "semi-permanent" since it remains the same unless it is updated by a firmware 
+updater. 
+3.1.3 Components vs Peripherals 
+Input, output and secondary storage devices are peripherals which are connected to the 
+motherboard but are not directly placed on the motherboard. In general, anything placed directly on 
+the motherboard is considered a component like RAM or the CPU.  
+3.2 Secondary Storage 
+Secondary storage provides the permanent, non-volatile, storage that keeps data after the device 
+has been switched off, for retrieval later. Secondary storage can either be fixed inside a computer or 
+removable, known as removable media. The term media is the general word describing what the 
+
+===== PDF PAGE 39 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 31 
+data is stored upon. Examples of removable media are external hard drives, flash drives, SD cards 
+and CDs. 
+3.2.1 Hard Drives 
+The hard drive is housed inside the computer case. It stores all the user's programs and data 
+permanently.  
+3.2.1.1 Mechanical Hard Disk Drives (HDD) 
+HDD drives are designed with mechanical 
+parts that include a read/write head that 
+scans the disk for data that is represented 
+magnetically. It is vacuum sealed and stores 
+the data magnetically; this ensures that the 
+data is not lost after you turn off your 
+computer. It also explains why it is not a 
+good idea to wave a strong magnet past your 
+computer. 
+3.2.1.2 Solid State Drives 
+(SSD) 
+SSDs don't have any moving mechanical 
+parts (disks, read/write heads), only 
+electronic circuits. Because there are no 
+moving parts in an SSD as information is 
+stored in microchips, it makes them much 
+faster and less susceptible to shock or 
+damage. 
+SSDs can be either internal or external. 
+External SSDs will be considered as 
+removable media and will be connected via a 
+USB port, which will be discussed later. 
+The comparisons alongside clearly indicate 
+many of the better efficiencies of SSD's vs 
+mechanical HDD's. Although you won't deal 
+with many of the specific concepts during 
+your IT course, it's worthwhile looking at the 
+relative comparisons: 
+https://www.gamingscan.com/wp-content/uploads/2017/11/solid-state-drive-vs-hard-disk-drive.jpg 
+Although SSDs outperform HDDs on many levels, the cost per GB is still more favourable for HDDs 
+and can still perform successfully on computers where users perform tasks with little demand. 
+3.2.1 Hybrid Drives 
+Technology has developed to the point where Hybrid drives are used in some systems. This is 
+where an HDD is joined with a high-speed flash memory using SSD technology on the same drive, 
+to benefit from the efficiencies and cost benefits of both. 
+3.2.2 Flash Drives 
+A flash drive is a small, very portable storage device that uses solid state 
+technology with no moving parts, only electronic circuits. They connect 
+conveniently, using a USB port and their small size makes them useful for 
+transferring and backing up data. 
+www.gearbest.com/usb-flash-drives/pp_260106.html 
+
+===== PDF PAGE 40 =====
+Exploring IT: Theory Grade 10 
+Page 32 Learning Unit 3 Hardware 
+3.2.3 Optical Drives 
+Optical drives use (laser) light to etch (burn) data onto the disc for reading and writing. The drives that 
+are capable of this are CD, DVD and Blu-ray drives. This type of drive has lost popularity to flash 
+drives and many devices, particularly laptops, do not include them any longer. 
+With higher capacity flash drives available, optical drives are becoming less popular. A CD could only 
+store 700MB of data and a single-sided DVD, around 4.5GB. Flash drives of 8 to 16GB are 
+commonplace, although the relative cost, per GB, is much higher. Since optical drives use etching on 
+a plastic surface to place the data, they are not conducive to changing the data, whereas a flash drive 
+can have its data overwritten at will, like a normal hard drive. 
+3.2.4 SD Cards 
+SD (Secure Digital) cards are very small flash memory cards that provide 
+high memory for small size. Used mainly in portable devices like digital 
+video camcorders, digital cameras, tablets, audio players and mobile 
+phones, they provide 16GB upwards capacities and micro SD cards are 
+similar in size to mobile phone SIM cards. 
+www.amazon.ca/Memory-Adapter-Mobile-Tablets-Cameras/dp/B01M8L38I2 
+ 
+3.3 Input Devices 
+An input device is a hardware device that is used to get data into the computer. This data is stored in 
+RAM. The most common input devices are the keyboard and the mouse, although we'll discuss a 
+few more. 
+3.3.1 Keyboard 
+The keyboard consists of many keys that represent characters with a unique value. Most keyboards 
+have between 80 to 110 keys divided into sections for: 
+• Typing keys 
+• A numeric keypad 
+• Function keys 
+• Control keys  
+ 
+Computer-hardware-explained.com 
+The layout of the most common keyboard is called QWERTY, named after the first six letters on the 
+top left of the keyboard. 
+
+===== PDF PAGE 41 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 33 
+3.3.2 Pointing Device - Mouse  
+With the advance of a more graphical display of images and icons on your screen, a pointing device 
+like a mouse is needed to select and click on these icons. The mouse detects the change in position 
+when it is moved and makes a similar change on the screen. Optical mice have no mechanical parts 
+and are reliable - they use a Light Emitting Diode (LED) that bounces light off the mouse pad surface. 
+Wireless mice require a receiver to receive signals that are transmitted from the mouse. Devices that 
+provide touch screens do not require a mouse to select images and icons. 
+3.3.3 Scanners 
+A scanner is an input device that analyses an image and converts it to a file. Normally to a .jpg or 
+.bmp file. Some scanners provide software called Optical Character Recognition (OCR) that can 
+analyse an image that contains text and convert the text into UNICODE so that the text can be altered 
+and edited. The better the scanner, the higher the resolution of the image. Scanner resolution is 
+measured in dots per inch (dpi). For example, a scanner can be 600x600 dpi.  
+Many scanners are combined with multi-function printers. 
+3.3.3.1 Barcode Scanners  
+Barcode scanners are commonly used to scan the prices of an article at a Point 
+of Sale (POS) terminal when you check out at a supermarket. The barcode 
+stores information about the product, including a description and a price. The 
+barcode reader shines a red LED light onto the black and white barcode pattern 
+and then reads the pattern of reflected light. This information can be used to 
+update the stock levels and even signal reordering of a product if the company 
+is running low on stock. 
+http://www.explainthatstuff.com/barcodescanners.html 
+A barcode is a simple pattern of thin and wide lines that are decoded by the 
+scanner to represent data. 
+Barcode scanners can either be handheld devices or could be a scanner 
+built into the checkout lane. 
+ 
+ 
+https://www.scandit.com/types-barcodes-choosing-right-barcode/ 
+3.3.3.2 QR Codes 
+Quick Response (QR) codes have become increasingly popular as they are easily 
+read by the camera of a smartphone. They differ from barcodes as they are two-
+dimensional sets of different sized squares on a white background and can 
+contain a lot more information. 
+ 
+https://www.qrstuff.com/ 
+Both barcode and QR codes can be read and created with many proprietary and free apps that can 
+be easily downloaded. 
+
+===== PDF PAGE 42 =====
+Exploring IT: Theory Grade 10 
+Page 34 Learning Unit 3 Hardware 
+3.3.3.3 Magnetic Stripe Readers  
+Information is encoded on the magnetic stripe of a card or even an 
+employee's identification card. The card reader converts the information 
+encoded in the magnetic strip into a format that the computer can 
+understand. Credit cards and ATM cards are examples of the type of 
+cards that can be read by a magnetic stripe reader.  
+ 
+http://www.carolinabarcode.com/pos-system-components-4-a-64.html 
+3.3.3.4 Biometric Devices 
+Biometrics is a way of uniquely recognising humans, based on their physical characteristics, such as 
+fingerprints or retina scans. To recognise a person, the data about a person needs to be stored, such 
+as a sample fingerprint, and this sample is used to identify an individual by comparing the stored 
+information against the inputted data. If a match is found, then the user has been identified.  
+http://www.pcstelcom.com/content.php?parent=25&page=29&section=94 
+The most common biometric systems used are 
+fingerprints, iris/retinal scans and voiceprints. 
+Fingerprints are unique to each person and do not 
+change over a life span, except in the case of an injury, 
+making fingerprinting the most commonly used 
+biometrics. A fingerprint of a person is captured, 
+converted to a digital format and represented 
+mathematically. Scanners are used to input the 
+fingerprint and compared by the computers against the 
+stored fingerprint as a form of identification. 
+ http://www.pcstelcom.com/content.php?parent=25&page=29&section=94 
+The iris scan uses the unique patterns of the iris of the eye (the 
+coloured area that surrounds the pupil) as a method of 
+recognition. A digital camera is used to take a picture of the iris, 
+as well as a picture using near-infrared light to get a clear, high-
+contrast picture of a person's iris. This process does not need 
+the person to touch the camera. The patterns in the iris are 
+analysed and translated into a mathematical expression. Like 
+fingerprints, the iris is unique and does not usually change over 
+time, making it ideal for biometric identification. The process of 
+comparing irises against a database can be done quickly and 
+with a high level of accuracy.  
+http://www.pcstelcom.com/content.php?parent=25&page=29&section=94 
+3.3.4 Microphones 
+A Microphone converts sound energy into electrical/digital energy, which is understood by a 
+computer. Microphones differ in the way that they convert the energy, but they all use a diaphragm (a 
+vibrating membrane) that senses the sound wave and converts it into an electrical signal. 
+
+===== PDF PAGE 43 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 35 
+3.3.5 Sensors 
+Just as humans can detect the real world though our senses (touch, smell, 
+sight, hearing and taste), computers are able to receive information about the 
+physical world through sensors.  
+A sensor is a device that converts a real-world property into data that a 
+computer can process by converting the physical parameter (for example:  
+temperature, blood pressure, height, humidity, speed, etc.) into a signal which 
+can be measured electrically. In modern ICT technologies, there are many types 
+of sensors to measure light, sound or heat, to mention a few.  
+In Smart Homes, alarms and other controlling devices respond to these sensors to perform their 
+tasks. Many controllers in robotics rely on sensors to make decisions about what the robot must do. 
+An interesting form of sensor is an Accelerometer. This sensor gauges the tilting and orientation of a 
+smartphone to determine which orientation the phone must show on the screen. 
+Sensors are used by computers to detect the real world as input, make decisions and then provide an 
+output based on the input. This process occurs in real time meaning the output is adjusted as the 
+input is received. A good example is the Autopilot System in aircrafts which consists of several 
+sensors which are input to processes like speed, height, position, doors, obstacle, fuel, manoeuvring 
+and many more. A computer inputs data from these sensors and processes them by comparing them 
+with pre-set values. Based on the decisions made, the computer then signals different parts of the 
+aeroplane like engines, flaps, rudders etc. that help in a smooth flight. The combination of sensors, 
+computers and mechanics makes it possible to run the plane in Autopilot Mode. 
+ 
+https://www.sparkfun.com/products 
+https://www.electronicshub.org/different-types-sensors/ 
+  
+ 
+
+===== PDF PAGE 44 =====
+Exploring IT: Theory Grade 10 
+Page 36 Learning Unit 3 Hardware 
+CHECK POINT 1 
+1. What is the motherboard? 
+2. Which components are connected on the motherboard? 
+3. Name the three parts of the CPU. 
+4. Explain what the ALU does? 
+5. What is the purpose of a register? 
+6. Where is a register situated in a computer? 
+7. What is the purpose of BIOS? 
+8. Why is the CPU connected directly to RAM and not the hard drive? 
+9. What is the main difference between an HDD and an SSD? 
+10. Mention three reasons why an SSD is more efficient than an HDD. 
+11. What is a hybrid drive? 
+12. Write down THREE types of optical drives. 
+13. Write down TWO devices that would use an SD Card. 
+14. What is a QR code? 
+15. How does a QR code differ from a barcode? 
+16. What device is usually used to read a QR code? 
+17. What is a biometric scanner? 
+18. Mention TWO items that a biometric scanner can read. 
+19. Explain how a microphone works. 
+20. Are sensors input or output devices? 
+21. What is the purpose of an accelerometer? 
+ 
+3.4 Output devices 
+The most common output devices are monitors (screens) and printers. An output device is any 
+device that only receives information from the computer – it does not send information to the 
+computer. Some modern monitors are touch screens, which is both an input and output device.  
+3.4.1 Monitors (Screens) 
+The most commonly used monitors are Liquid Crystal Display (LCD) screens. Two important factors 
+when choosing a screen are the resolution and the screen size. 
+Resolution is the number of picture elements (pixels) on the monitor. Each pixel has its own colour. 
+Resolution is defined by the number of pixels across the monitor (rows) 
+and the number of pixels down the monitor (columns), such as 1024x768. 
+Resolution is affected by several factors, including the size of the screen. 
+The size of the screen is measured diagonally across the screen from the 
+top left to the bottom right (or vice versa). The measurement does not 
+include the casing of the screen. The larger the screen, the higher the 
+resolution of the screen. LCD screen sizes are 15, 17, 19 and 21 inches. 
+Laptop screen sizes are smaller, typically ranging from 12 to 17 inches. 
+http://computer-monitorshop.info/images/viewable-screen-size.jpg 
+
+===== PDF PAGE 45 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 37 
+A touch screen, which is used extensively in smartphones and tablets, but also in laptops, allows 
+your finger or stylus to emulate a pointing device (mouse) to achieve the same result. A touch screen 
+is both an input and an output device.  
+3.4.2 Printers 
+3.4.2.1 Laser and Inkjet Printers 
+Printers come in two types of technologies - laser and inkjet, which print in black and colour or only 
+black. Both types of printer are non-impact printers where nothing touches the paper besides the ink 
+or toner. Impact printers like the old dot-matrix have a hammer that touched a ribbon on the paper. 
+3.4.2.2 3D Printers 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+https://www.3dhubs.com/s3fs-public/styles/printer_main_picture/public/printer.jpg 
+3D printers are a new generation of output devices that can produce different kinds of objects, in 
+different materials, all from the same machine. A 3D printer can make anything from ceramic cups to 
+plastic toys, metal machine parts, stoneware vases, fancy chocolate cakes or even (one day soon) 
+human body parts. 
+The process of printing an object is like making a loaf of sliced bread, but in reverse. Imagine baking 
+each individual slice of bread and then gluing them together into a whole loaf (as opposed to making 
+a whole loaf and then slicing it, like a baker does).  
+The 3D printing process turns a whole object into thousands of tiny little slices, then makes it from the 
+bottom-up, slice by slice. Those tiny layers stick together to form a solid object. The process to create 
+and print a 3D object is usually in two stages.  
+• The first is to design the object (normally as a .STL file), although many predesigned objects 
+can be downloaded from the Internet.  
+• The second stage is to divide the object into thin layers for the printer to print, in a process 
+called slicing.  
+3D printers give users the ability to design (or download) any type of object and create it.  
+(Blieden. G, 2019) 
+ 
+  
+
+===== PDF PAGE 46 =====
+Exploring IT: Theory Grade 10 
+Page 38 Learning Unit 3 Hardware 
+3.4.3 Speakers  
+Speakers are commonly used output devices in computer systems. 
+They receive audio input (in a digital format) from the computer's 
+sound card and produce audio output in the form of sound waves that 
+we can hear. Most computer speakers have an internal amplifier which 
+allows you to increase the volume, or amplitude, of the sound. 
+Speakers usually come in pairs, to produce stereo sound from two 
+separate audio channels. 
+ 
+https://pc.net/glossary/definition/speakers 
+https://www.informationq.com/about-the-basic-parts-of-a-computer-with-devices/ 
+3.4.4 Headphones 
+Headphones and speakers are the exact opposite of microphones, using the same technology, in 
+reverse. Both use a diaphragm to convert the digital data into sound waves. Speakers are used to 
+project the sound over a wide area while headphones are connected to a band that fits your head and 
+only provides adequate sound quality to the person who is wearing the headphones. Headsets are 
+combinations of microphones and headphones that are used effectively by call centre agents, gamers 
+and others that need to speak and listen simultaneously but are essentially two different devices that 
+are attached to the same headband for convenience. 
+3.5 Ports 
+All the Input and Output devices mentioned above need some sort of connecting port to be able to 
+communicate with the computer/device that is appropriate for the device to send or receive the right 
+data. Although microphones and speakers may use jack plugs to connect via a sound card, most of 
+the devices (including speakers and microphones) use more versatile and universal ports known as 
+USB and HDMI. The reason for using such universal ports is to reduce the number of ports needed 
+on a computer for all the devices that may need to connect. Most modern computers only present 
+USB and HDMI ports for device connection; while LAN ports can still be found, it is possible to use a 
+LAN/USB adapter. 
+3.5.1 Universal Serial Bus (USB) Port 
+A Universal Serial Bus (USB) is a common interface that enables communication 
+between devices and a host controller such as a personal computer. It connects 
+devices such as digital cameras, mice, keyboards, printers, scanners, media 
+devices, external hard drives and flash drives. Because of its wide variety of 
+uses, including support for electrical power, the USB has replaced a wide range of 
+interfaces like the parallel and serial port. 
+https://www.techopedia.com/definition/2320/universal-serial-bus-usb 
+https://www.computerhope.com/jargon/u/usb.htm 
+3.5.2 High Definition Multimedia Interface (HDMI) Port 
+High Definition Multimedia Interface (HDMI) ports provide a 
+digital interface to receive and transmit both video and audio 
+signals. These ports have replaced the older graphics VGA port 
+and sound jack port and can transmit data from many source 
+devices to numerous display monitors. 
+The HDMI port looks like a USB port, but it has tapered edges at 
+the bottom. 
+https://stankikursk.ru/hdmi-port/ 
+
+===== PDF PAGE 47 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 3 Hardware Page 39 
+CHECK POINT 2 
+1. Secondary storage is said to be non-volatile and primary storage is said to be volatile. What 
+is the difference between volatile and non-volatile storage? 
+2. Why does a computer need to have volatile and non-volatile storage? 
+3. Copy and complete the following table to indicate whether the component mentioned is an 
+input or output component: 
+Component Input/Output 
+Monitor  
+Keyboard  
+Scanner  
+Headphone  
+Microphone  
+4. What are the TWO most common types of printers? 
+5. How is the size of a monitor measured? 
+6. What is a standard size of monitor available today for a desktop? Laptop? 
+7. What is the resolution of a screen/monitor? 
+8. Look up and write down the resolution of the screen you are currently using on your computer. 
+9. Name the TWO ports that are most commonly used to connect peripherals to computers today. 
+10. Why have computer manufacturers reduced the number of ports for connection of peripherals? 
+11. How does a headset differ from a headphone? 
+ 
+  

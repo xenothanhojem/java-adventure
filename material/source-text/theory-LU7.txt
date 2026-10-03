@@ -1,0 +1,588 @@
+
+===== PDF PAGE 93 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 85 
+Learning Unit 7 Internet and 
+WWW 
+7.1 What is the Internet? 
+The Internet is a worldwide collection of computer networks that 
+can be connected for the purposes of sharing resources or 
+communicating. The Internet can be seen as a Global network as 
+it spans the whole world. 
+When information is transferred using the Internet it usually 
+travels through several interconnected networks. Basic services 
+of the Internet include e-mail services and web sites. 
+Communication on the Internet involves hosts, routers and 
+links. A host is a sender or receiver computer, such as the 
+workstation you are using, or a server. Hosts are connected to 
+one another using communication links. These links are made 
+up of transmission media that can be either bounded (wired) or 
+unbounded (wireless). As we discussed in Learning Unit 5.7.1, 
+Routers are sophisticated devices that are used to determine 
+the path(s) along which data must travel to get from one host to 
+another using a communication link. A router is usually used to 
+connect an organisation's network to an ISP's network to enable Internet access.  
+7.2 Basic Services on the Internet  
+7.2.1 Cloud Storage 
+Cloud storage is the storage of data online – “in the cloud”. Cloud storage companies offer file storage 
+space for a fee.  
+There are many benefits to using cloud storage:  
+• you do not have to buy new equipment 
+• you do not have to manage and maintain expensive storage devices 
+• you can access the cloud storage at any time from any place and from any computer device as 
+long as you are connected to the Internet 
+• you have an automatic remote backup, and  
+• you only pay for the storage space that you are using. 
+There are many benefits to cloud storage but also some concerns:   
+• an unreliable Internet connection can stop data access  
+• security of your data is a concern as you have no control over the security of the cloud storage 
+company other than to trust their contract 
+• the company storing the data could close or have an irrecoverable disaster. 
+  
+
+===== PDF PAGE 94 =====
+Exploring IT: Theory Grade 10 
+Page 86 Learning Unit 7 Internet and WWW 
+7.2.2 Email 
+Email is short for 'electronic mail'. Similar to a letter, an email is sent via the Internet to any recipient 
+who has an email address. In order to send and receive emails different sets of rules or protocols are 
+used. For example, SMTP is used to send messages, while the POP or IMAP protocols are used to 
+retrieve messages from a mail server. When you set up an email account, you must set up an email 
+address, password, and the mail servers used to send and receive messages. Fortunately, most 
+webmail services configure your account automatically, so you only need to enter your email address 
+and password.  
+7.2.3 Web Sites  
+A web site is a collection of linked web pages which may be accessed using an application called an 
+Internet browser. Web sites are accessed by their domain name. Websites are usually created, 
+uploaded and managed on the Internet by a person a company or organisation.  
+7.3 IP Addresses 
+In order for computers to communicate with one another, sets of rules called protocols are required. 
+The most common protocols that are used by computers on the Internet are: 
+• TCP (Transmission Control Protocol) 
+• IP (Internet Protocol) 
+In simple terms TCP is responsible for making sure that the transmission gets from the sender host to 
+its destination host while IP identifies the different computers connected to the Internet. Collectively 
+these protocols are called the TCP/IP suite. The advantages of these protocols are that they allow 
+direct access to the Internet and they enable communication between computer systems that may be 
+totally different. 
+The path of a message sent from a sender to its destination involves a number of other hosts and 
+routers along the way. The Internet uses an addressing system called the Domain Name System 
+(DNS) to assign unique names and numbers to the hosts/computers that are connected. Each host 
+connected to the Internet has a hostname (also called a domain name) as well as a unique IP 
+address to identify it.  
+A hostname is made up of words and is easy for humans to understand, whereas an IP address is a 
+32-bit number or 128-bit number. This is difficult for humans to read. IPv4 addressing system uses 32 
+bits divided into four 8-bit numbers (ranging 0 to 255) separated by dots. For example, the IP address 
+1000 0011 0110 1011 0000 0010 1100 1000 is broken into four bytes: 
+1000 0011         .         0110 1011         .         0000 0010         .         1100 1000 
+Each byte is converted to its decimal equivalent. 
+131                .              107              .                 2                 .               200 
+The IP address is written with dots separating the decimal numbers. 131.107.2.200 
+An example of a hostname and IP address that identify a host is: 
+Hostname: funworks.co.za  IP Address: 41.185.16.10 
+If you know the IP address of a destination computer, you can type it in instead of the URL in a web 
+browser when connected to the Internet.  
+The 32 bits used to represent each IPv4 address allows for 232 different addresses giving around 4.29 
+billion addresses. That may seem like a lot, but all 4.29 billion IPv4 addresses have now been 
+assigned to various institutions, leading to a shortage of addresses. For this reason, a new version 
+===== PDF PAGE 95 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 87 
+IPv6 has been introduced. We will discuss IPv4 and IPv6 addressing systems in more detail in Grade 
+11.  
+ACTIVITY 1 
+ Connect to the Internet and use a web browser to connect to the “How Stuff Works” web site 
+using the URL: www.howstuffworks.com  
+ Open a Command Prompt Window by clicking the Start button and typing cmd into the search 
+programs and files text field. 
+ At the prompt symbol (>) type: tracert www.howstuffworks.com  and press <Enter> 
+ Count the number of “hops” from computer to computer required on the route from your 
+computer to www.howstuffworks.com. 
+ Notice that the IP address of the web site you traced is written in the last line of the list of hops.  
+ Open your web browser and enter the above IP address in the URL address bar. Check that 
+you are directed to the www.howstuffworks.com's web site. 
+ Work out what the IP address will be in binary. 
+To determine the IP address of the computer you are working on, use the Command Prompt and type 
+in the command ipconfig. If this command is run on a computer, certain details about the Windows IP 
+Configuration are shown. One of these details is the IP address of the host. 
+ACTIVITY 2 
+Find out the IP address of the computer you are working on. 
+ If you are using Windows, open the Command prompt  
+ Type: ipconfig and press <Enter> 
+7.4 What is Needed to Connect to the Internet? 
+There are many ways that a personal electronic device can connect to the Internet. Your device 
+needs certain hardware and software depending on the type of connection that you are going to use. 
+7.4.1 Hardware and Software  
+A computer with a: 
+• Network card or a wireless enabled computer 
+• Software such as an Internet browser 
+• A device such as a router/wireless router which would enable you to connect to either a 
+physical line or a wireless access point  
+A mobile device with a: 
+• SIM Card for access to mobile data 
+• Wi-Fi capabilities to enable the device to connect to a Wi-Fi access point which is in range of 
+the device or a personal hotspot (the mobile device is tethered to second device to access the 
+mobile data available to the second device) 
+• A browser software app installed on the device. For example, Apple devices use an app called 
+Safari while Android devices use a Google Browser app. 
+  
+===== PDF PAGE 96 =====
+Exploring IT: Theory Grade 10 
+Page 88 Learning Unit 7 Internet and WWW 
+7.4.2 Types of Connections 
+As technology has changed, faster Internet connections have changed or improved to handle those 
+changes. The following type of connections are available to connect large networks or personal 
+devices to the Internet. 
+7.4.2.1 ADSL 
+Asymmetric Digital Subscriber Line (ADSL) is a data communications technology that provides fast 
+data transmission over copper telephone lines. This connection requires an ADSL router. See 
+Learning Unit 5.7.1. 
+ 
+https://www.increasebroadbandspeed.co.uk/wp-content/uploads/2013/03/conventional-broadband1.png 
+7.4.2.2 Fibre 
+Fibre is a data communications technology that uses light to transmit data and superfast speeds and 
+high capacities. See Learning Unit 5.7.2. 
+ 
+https://www.increasebroadbandspeed.co.uk/wp-content/uploads/2013/03/fibre-broadband.png 
+7.4.2.3 Wireless 
+Wireless, or Wi-Fi, does not use telephone lines or cables to connect to the Internet. Instead, it uses 
+radio frequency. Wireless is also an always on connection and it can be accessed from just about 
+anywhere. 
+7.4.2.4 Cellular 
+If you are using a SIM Card in your device then you can access the Internet from anywhere. The 
+speeds vary depending on the provider, but the most common are 3G and 4G speeds. A 3G is a term 
+that describes a 3rd generation cellular network. 4G is the fourth generation of cellular wireless 
+standards.  
+  
+
+===== PDF PAGE 97 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 89 
+7.5 The World Wide Web (WWW) 
+7.5.1 What is the WWW? 
+The World Wide Web is a mass of linked web pages which can be accessed via the Internet. The 
+hypertext documents can be viewed with a web browser and these pages may contain text, images, 
+videos, sound and other multimedia. These pages are linked together, and you can navigate from one 
+to another via hyperlinks. Web pages are often dynamically linked to databases and can use the data 
+stored in the databases to provide up to date information on the web page. Databases can in turn be 
+updated from web pages. 
+It is important to note that the Internet and the World Wide Web is not the same thing. While the 
+Internet is a global network of interconnected computer networks, the Web runs on the Internet and 
+consists of interconnected documents connected by hyperlinks or URLs. 
+7.5.2 Web Page and Web Site 
+A web page is any document on the Web. These documents can be text only, or contain graphics, 
+videos audio and hyperlinks (links to other pages) 
+A web site is made up of a number of web pages. A web site is normally created and managed by an 
+individual or a company. Hyperlinks can lead you to any page of a web site. A web site always has a 
+home page. 
+7.5.3 Uniform Resource Locator (URL) 
+If you wish to view a web page on the web you will type in the URL of the page into your web browser 
+or follow hyperlinks to the page. Each web page on the Internet has a unique address, called the 
+URL. Many URLs begin with http://. Http stands for Hypertext Transfer Protocol, the protocols or 
+rules for communicating on the Internet. Web sites with https:// include the s to indicate that they are 
+secure sites and are safer in terms of a user entering private information. 
+The format of the URL: 
+http://  www  .schoolname.co.za  /High/Academics/tabid/88/Details.html 
+ 
+ 
+ 
+ 
+7.6 Searching the Web 
+7.6.1 Web Browser 
+A web browser is a program used to locate and view web pages, such as Google Chrome, MS Edge, 
+or Mozilla Firefox. The primary function of a web browser is to process HTML code. HTML is the code 
+used to design or 'mark-up' webpages. Each time a browser loads a web page, it processes the 
+HTML, which may include text, links, and references to images and other items. The browser 
+processes these items, then displays them in the browser window. The web browser program also 
+provides other features, for example, bookmarks, which allow you to save a link to favourite sites. 
+Refresh and navigation buttons and page tabs for multiple searches are all additional functions of a 
+web browser. 
+  
+The path to the 
+resource found on 
+the server on 
+which the web site 
+is hosted 
+The domain name www points to 
+the resource 
+the World 
+Wide Web 
+ 
+The protocol 
+used to 
+access the 
+resource 
+ 
+===== PDF PAGE 98 =====
+Exploring IT: Theory Grade 10 
+Page 90 Learning Unit 7 Internet and WWW 
+7.6.2 Search Engine 
+A search engine is a program that searches documents on the web for specified keywords and 
+returns a list of the documents where the keywords were found with hyperlinks to the relevant pages. 
+7.6.3 Successful Searching 
+To ensure successful searching using a search engine you need to find the balance between making 
+your search too general or too specific. The main aim is to reduce the number of returns.  
+The best way to search is to: 
+• State exactly what you want to find 
+• Identify keywords 
+• Use synonyms 
+ACTIVITY 3 
+Different search engines may use slightly different techniques for searching. The following search 
+techniques are useful, and they work in Google Chrome. Open Google Chrome and test the search 
+results for each of the following: 
+ When you are searching for a specific phrase, place it in inverted commas. By doing so you are 
+telling the search engine to only search for pages that include these search terms exactly as 
+you typed them. Type in the term “IP Addresses” 
+ By using the inurl search syntax you can search for words within the URL, for example if you 
+type in inurl: network. You will get search results of all sites with network in the web address. 
+ Use and to ensure that the search includes both of the items and does not return results for 
+only one of them. Type in zoos and South Africa only links for South African zoos will be 
+returned. 
+ You may wish to limit your search to a specific domain, such as .edu, .org, .gov. Type   site: edu 
+“web cams” which will look for web cams in educational sites. 
+ Use the Web to find definitions. Type definition: word to define. For example: define: Fake 
+News. Write down the definition provided. 
+ Test these techniques in a different search engine and compare the results. Different search 
+engines return different results. Some search engines specialise in certain genres, for example, 
+games or books.  
+ACTIVITY 4 
+ For your preferred search engine, do a search and write down 5 additional hints which would 
+help you to streamline your search. For Google searches the following web page provides tips:  
+https://www.lifehack.org/articles/technology/20-tips-use-google-search-efficiently.html 
+ Open Google Scholar and do a search on Wolfram Alpha. Write a paragraph to describe what 
+Wolfram Alpha is and give a few examples of how it could be useful to you.  
+Google Scholar searches return results that are based on research from theses, papers, books and 
+written by academics, often from universities. Google Scholar searches will return all scholarly 
+research and papers available on the Internet. Google searches do not have to be based on research.  
+ Now using Google Chrome or a similar search engine search for Wolfram Alpha and compare 
+the search results. 
+ There are many different types of search engines, each with their own speciality. Search the 
+Internet for five different types of search engines that you could find useful. 
+  
+===== PDF PAGE 99 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 91 
+7.6.4 Searching using Logical Operators  
+Logical Operators allow us to define the logical relationship between search terms. The operators 
+used to express the logical relationships are AND, OR and NOT. If we use Logical Operators in our 
+Internet searches, we will reduce the number of returns. See Learning Unit 6.2.2. 
+In a search query, Boolean logic helps us define the logical relationship between multiple search 
+terms. The operators used to express the relationship are AND, OR and NOT. Any number of 
+Boolean search terms can be connected with these operators to refine your search results. 
+The only case in which you will not use any search logic is when you search for a single item. 
+If we search for the following: 
+Peanut Butter AND Jelly:     Peanut Butter OR Jelly:        Peanut Butter NOT Jelly: 
+ 
+https://sru.libguides.com/c.php?g=531868&p=4524417 
+7.6.4.1 AND 
+Using AND will give search results that contain both terms which are searched for.  
+For example, if we search for names of rugby players AND names of known South Africans. This 
+search will return the names of South African rugby players. 
+AND operators are used to limit search results. For every AND you add to your Boolean query the 
+fewer results will be returned. 
+7.6.4.2 OR 
+Using OR will give search results that contain either one or several or all of the search terms.  
+For example, if we search for names of rugby players OR names of known South Africans. This 
+search will return the names of known players from anywhere in the world as well as the names of 
+known South Africans. 
+The OR Boolean operator implies that “at least one is required, more than one or all can be returned”. 
+For every OR we add to the search query the more results will be returned. 
+7.6.4.3 NOT 
+Using NOT excludes keywords from your search. Using a NOT is best used when you want to 
+exclude some of the search results. 
+Note:  While NOT is a valid term in Boolean logic, Google doesn't work with NOT. Instead of NOT, 
+you should use the '–' character. Note that there is no space between the dash and the keyword you 
+want to exclude.  
+
+===== PDF PAGE 100 =====
+Exploring IT: Theory Grade 10 
+Page 92 Learning Unit 7 Internet and WWW 
+For example, if we search for names of rugby players and NOT  the names of known South Africans. 
+This search will return the names of known players excluding all South Africans.  
+The NOT operator excludes specific search terms and so the query will not return any results with that 
+term, or terms in them. When a search produces many results that are not relevant to the query, 
+these results are called false positive results.  
+ACTIVITY 5 
+Open your search engine and type in the following searches. For each search write down the number 
+of results returned. 
+ Earth 
+ Wind 
+ Fire 
+ Earth or Wind or Fire 
+ Earth and wind and fire 
+ Wind not fire (wind –fire) 
+ Earth and wind and not fire 
+7.6.5 Order of Operations 
+Just as you use BODMAS for the order of operations in Mathematics, in Boolean algebra there is also 
+a specific order in which a logical statement should be executed.  
+Statements in brackets (parentheses) are dealt with first. Thereafter most search engines will give an 
+AND precedence over an OR. It is important to remember NOT is a very powerful operator. If you 
+include a NOT the “NOTed” term will be excluded before any other statement is evaluated.  
+7.6.5.1 Representing a Search as a Logical Expression 
+By effectively using the AND, OR, NOT Boolean Operators you can successfully search for exactly 
+what you are looking for by refining your search results. Different search engines may use different 
+symbols to represent AND, OR, NOT.  
+•  + refers to AND  
+•  | refers to OR 
+• - refers to NOT  
+An expression Crime AND poverty AND gender could be entered into a search as "Crime + poverty + 
+gender". It could also be written as a function F(C,P,G) = C + P + G where Crime is C, Poverty is P 
+and Gender is G. 
+An expression Pets NOT cats could be entered as "pets –cats" or F(P,C) = P.C' 
+  
+===== PDF PAGE 101 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 93 
+EXERCISE 1 
+1. Write these expressions as a search expression. You may rearrange the order of the 
+statements. 
+1.1. Mammals excluding cats and dogs 
+1.2. NAND hard drives and SSD hard drives but not flash drives 
+1.3. RAM, ROM and BIOS excluding CMOS and male sheep 
+1.4. Computer programmer, computer developer or system analyst jobs in South Africa and in 
+the USA 
+1.5. Computer Science and Computer Engineering degrees in Gauteng or Western Cape.  
+2. Write the previous search expressions as functions using Boolean variables. Indicate what each 
+variable represents in each function.  
+ 
+7.6.5.2 Evaluating Logical Expressions using Truth Tables 
+A truth table can be used to evaluate logical expressions. Suppose the two terms being joined are fish 
+and mammals. Each of these terms will have two possible truth values: true, or false. This gives us 
+four possible combinations. (22). These are represented on a table, as follows: 
+Mammals Fish 
+T T 
+T F 
+F T 
+F F 
+Now we extend the truth table to include:  Mammals AND Fish,  
+ Mammals OR Fish 
+Mammals Fish Mammals AND Fish Mammals OR Fish 
+T T T T 
+T F F T 
+F T F T 
+F F F F 
+Notice: that the Boolean expressions may be true or false depending on the different truth values of 
+Mammals and Fish. Thus, if we know what the truth values of Mammals and Fish are, we know what 
+the truth value of Mammals AND Fish; Mammals OR Fish is.  
+Now consider Europe (Boolean variable E), Paris (Boolean variable P), Amsterdam (Boolean variable 
+A) and then we will use a truth table to evaluate the Boolean expression Europe AND (Paris OR 
+Amsterdam).  
+F(E,P,A) = E . (P + A) 
+  
+===== PDF PAGE 102 =====
+Exploring IT: Theory Grade 10 
+Page 94 Learning Unit 7 Internet and WWW 
+We first evaluate each separately using a truth table. Note there will be eight possible combinations. 
+(23) 
+E P A Workings E. (P + A) 
+0 0 0 0 . (0 + 0) 0 . (0) 0 
+0 0 1 0 . (0 + 1) 0 . (1) 0 
+0 1 0 0 . (1 + 0) 0 . (1) 0 
+0 1 1 0 . (1 + 1) 0 . (1) 0 
+1 0 0 1 . (0 + 0) 1 . (0) 0 
+1 0 1 1. (0 + 1) 1 . (1) 1 
+1 1 0 1 . (1 + 0) 1 . (1) 1 
+1 1 1 1 . (1 + 1) 1 . (1) 1 
+F(E,P,A) = EP'A + EPA' + EPA 
+Interpreting this function means that the search will return results for documents with Europe, without 
+Paris and with Amsterdam, Europe, with Paris and without Amsterdam and Europe, with Paris and 
+with Amsterdam. 
+EXERCISE 2 
+Write the search statements as a function and draw a truth table to determine when the function will 
+be true. 
+1. Combine the search results of either virus (V) or spam (S) but not hacking (H). 
+2. Laptops (L) and desktops (D) but not servers (S). 
+3. Any references to by Alan Turing (A) after the second world war (S) but before 1950 (N). 
+CHECK POINT 1 
+1. What is the Internet? 
+2. List THREE basic services of the Internet. 
+3. Briefly explain the TCP/IP protocol. 
+4. What is a DNS and explain its function by referring to an IP address? 
+5. What is a host name and give an example? 
+6. What is the format of an IP address and give an example? 
+6.1. Convert the IP address 24.3.212.34 to binary 
+6.2. In a movie an IP address is given as 112.203.1.256. Why is the address incorrect? 
+6.3. Why would a movie provide an incorrect IP address? 
+7. What software and hardware would you need to connect to the Internet (besides the computer)? 
+8. Name THREE possible ways to connect to the Internet. 
+9. Describe the difference between the World Wide Web and the Internet 
+10. What is a URL? 
+  
+===== PDF PAGE 103 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 95 
+11. Define the following terms and give examples of each: 
+11.1. Web browser 
+11.2. Search engine 
+12. Which Boolean operator will give you the most search results?   
+12.1. OR 
+12.2. AND 
+12.3. NOT 
+13. Which of these two searches will give you fewer results? 
+13.1. (diabetes OR cancer) AND diet 
+13.2. (diabetes AND cancer) AND diet 
+14. What part of the following will be searched first? South Africa AND (endangered species OR 
+protected species)   
+14.1. Endangered species 
+14.2. South Africa 
+14.3. Endangered species OR Protected species  
+14.4. Protected species 
+15. Why should you be careful about using NOT in your search?   
+16. Study the following Venn Diagrams and write down the Boolean expression which was used to 
+return the shaded results in each diagram. 
+16.1.  
+ 
+16.2.  
+ 
+16.3.  
+ 
+17. Draw a truth table to evaluate the search RAM AND (SSD or HDD). The following headings 
+should be used. 
+RAM SSD HDD HDD OR SSD RAM AND (HDD or SSD) 
+17.1. Write the search as a function. 
+17.2. Negate the function using De Morgan's law and then draw a trace table to check if the 
+negated function is in fact the opposite of the original function. 
+ 
+  
+
+===== PDF PAGE 104 =====
+Exploring IT: Theory Grade 10 
+Page 96 Learning Unit 7 Internet and WWW 
+7.8 User Interface Design 
+The role of the User Interface is to provide a system for a user to interact with a system such as a 
+web site or computer program. In Learning Unit 4.1.1.1, we discussed Command Line Interfaces 
+(CLI) and Graphical User Interfaces (GUI). A command line interface requires the user to type 
+commands to instruct the system. Typed commands require the user to learn a large list of 
+commands and these commands can be easily misspelt. A GUI is easier for a user to use since they 
+do not need to remember commands and merely click on buttons that contain text or images (icons).   
+User interface design focuses on what the user needs to do and has elements that are easy to 
+access, understand, and use to carry out the user’s actions easily. Users must be familiar with the 
+elements of the interface and so these elements must be consistent, predictable and readable. 
+The easier a system is to use, the more likely the user will use it. A good user interface design that is 
+easy to use can eliminate errors and provide an experience free of frustration. Constant informative 
+feedback also makes an interface easy to use. This means that each time the user clicks on 
+something or does something like move a mouse, the Interface should react. If nothing happens, then 
+the user will assume the system, button or hyperlink is broken. 
+Good user interface design includes consistency, readability, layout, typography or use of colour 
+usually embodied in a theme. These principles can be applied to both web sites and computer 
+programs. 
+7.8.1 Readability  
+Good readability focuses on reducing the number of elements on the screen. The elements of the 
+interface must be placed in locations that make them easy to see, recognise and use 
+Ensure your fonts are readable and will be available in all web browsers. Use dark fonts on light 
+background or light fonts on a dark background. 
+Use recognisable icons. Most icons are easily understood. A magnifying glass for search, a printer for 
+print and a disk to save. Often a combination of both icons and text can be used. 
+ 
+https://help.sonatype.com/repomanager3/files/329993/5412124/1/1509033970164/Screen+Shot+2017-09-13+at+3.14.25+PM.png 
+Think of the design of a remote control for a television. If there are 50 buttons and they are not 
+logically grouped and properly labelled the average person would have trouble using the remote. A 
+remote with few clearly labelled buttons is easier to use. 
+7.8.2 Navigation 
+The “three-click rule” should be applied to any web site design. A user once, entering a web site, 
+should be achieve their purpose in a maximum of three clicks. A user is likely to move to a different 
+web site if they cannot satisfactorily easily find what they are looking for. A good search engine could 
+also assist a user to find what they are looking for.  
+
+===== PDF PAGE 105 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 97 
+Navigation between pages is usually achieved through menu bars and buttons. These should be in 
+the same place on every page. Use headings and a well-structured format so that the user knows 
+where they are in your web site. Make certain that the user is able to navigate through your web site 
+using hyperlinks or menus. The user must be able to return to the home page from each page or to 
+the last page visited. 
+ 
+https://www.elegantthemes.com/blog/wp-content/uploads/2018/10/000-Web-UI-Design.png 
+7.8.3 Typography/Colour 
+Ensure your fonts are large enough to be readable and fonts which will be available in all web 
+browsers. Use dark colours on light background or light colours on a dark background.  
+Use colours in a way that a user would expect. Red is usually associated with danger, yellow is 
+associated with caution and green with safety.   
+Don't include too many colours in the design. This will make the screen look busy and difficult to read. 
+Try limit the colours to at most three with highlights or variations in shade. For example, a hyperlink 
+that is not clicked can be light blue and once it has been clicked it can be navy blue. 
+7.8.4 Layout 
+Keep the layout simple. The more cluttered the page, the more difficult it is to read and use. Try to 
+identify what is the most important part of your page or screen and place the important sections where 
+a user is likely to look. Use colour, fonts and images to draw the user to important sections. 
+7.8.5 Theme 
+A theme can be applied to a web site or computer to ensure that all pages or screens have a 
+consistent look and feel with the same colours, menus and other components on each page. A theme 
+could be set up and applied to each page or screen using software. 
+7.8.6 Consistency 
+Screen elements that behave the same should be consistent in colour, design and the position on the 
+screen. Place buttons that have the same behaviour in the same place on each screen. Elements that 
+behave the same should look the same. For example, the Close button should appear the same in 
+shape, colour and size and in a similar position on each screen. Screen elements that behave 
+differently should look different.  
+Elements should be placed on the screen where a user would expect to find them. A user will not 
+have a great user experience if they struggle to find what they are looking for on each screen.  
+Consistency should also be applied to how the interface appears on various devices. The mobile 
+version should have the same them as the desktop version. Whilst the mobile version may not have 
+
+===== PDF PAGE 106 =====
+Exploring IT: Theory Grade 10 
+Page 98 Learning Unit 7 Internet and WWW 
+all the functions of the desktop, the elements that are common to both must behave and appear the 
+same. 
+ 
+https://cdn-images-1.medium.com/max/1600/1*--4w7QFk8tXKCi1jB8f3RA.png 
+7.8.7 Desktop Design vs Mobile Design 
+When designing an Interface for a desktop computer, we need to consider that the user has a 
+keyboard, mouse and possibly a touch screen. Users will need multiple ways to perform a function. 
+For example, to copy an item the user could use the keyboard shortcut keys <Ctrl> + C or select the 
+menu option Edit then Copy or right click on the item and select Copy. All three would work 
+successfully.  
+A mobile device usually has a smaller touch screen, which also functions as a 
+keyboard and a mouse. When you create your website or app, you need to 
+make sure that you design with all screen sizes in mind. 
+The website or app must also load on both low and high bandwidth Internet 
+connections.  
+Because of computer usage moving more and more to mobile devices we 
+have to consider a new rule. Designs have to be finger friendly but more 
+specifically thumb friendly. When the phone is held with one hand, the 
+thumb carries out the actions. When holding a phone in the right hand, for 
+example, the thumb falls naturally in an arc at the bottom left corner of the 
+screen. 
+https://bigmedium.com/bm.pix/phone-thumb-v2.orig-1000.png 
+On tablets the thumb zone changes for different postures. If you are 
+sitting, standing or lying down you would use your tablet differently. No 
+matter the position the tablet user would access the sides and top 
+corners easily. 
+ 
+ 
+ 
+ 
+https://bigmedium.com/bm.pix/tablet-thumb-zone-v2.orig-1000.png 
+For touch screen laptops and hybrids, we should cluster the controls around bottom and sides. 
+
+===== PDF PAGE 107 =====
+ Exploring IT: Theory Grade 10 
+Learning Unit 7 Internet and WWW Page 99 
+ 
+ 
+https://bigmedium.com/bm.pix/hybrid-thumb-zone-v2.orig-1000.png 
+CHECK POINT 2 
+1. List the principles of Interface design. 
+2. The image shows three web pages in the same web site. Each page is different colour. List 
+THREE reasons other than colour why these pages are inconsistent. 
+ 
+https://cdn-images-1.medium.com/max/1600/0*8vBpuXI1YPe7uCnr.gif 
+3. Open you favourite social media app on a desktop computer and a mobile device. 
+3.1. List TWO features that are not available on the mobile app? 
+3.2. How is the screen arranged on the mobile device compared to the desktop computer? 
+3.3. Do the two have a similar theme i.e. look and feel. 
+3.4. Is it easy to use the mobile app with one hand? 
+3.5. Can you easily use it both your left and right hand? 
+4. Design the screen layout of a mobile app to remotely monitor your lights, geyser, front door, 
+back door and the temperature of your house.  
+4.1. The app must allow the user to log in and log out.  
+4.2. Use icons and text appropriately. 
+4.3. Would it be necessary to include the architectural layout of the house? 
+4.4. Use colour effectively, red indicates danger or a problem and green indicates safety or 
+that something is OK.  
+5. Find a web site that you think is well designed.  
+5.1. Write down the URL. 
+5.2. List THREE reasons why you think the page is well designed. 
+ 

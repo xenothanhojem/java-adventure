@@ -1,12 +1,25 @@
 import * as javaSubject from './java/index.js';
-import * as businessSubject from './business/index.js';
+import * as theorySubject from './theory/index.js';
 
 export const SUBJECTS = {
+  theory: {
+    id: 'theory',
+    title: 'IT Theory',
+    subtitle: 'Grade 10 · Information Technology',
+    description: 'Data representation, hardware, system software, networks, Boolean logic, the Internet and social issues. All 8 theory learning units.',
+    mapTagline: 'From bits and bytes to networks and ethics.',
+    accentColor: 'lime',
+    glowClass: 'ja-glow-lime',
+    bgClass: 'ja-w-data-representation',
+    module: theorySubject,
+    hasPracticalTest: false,
+  },
   java: {
     id: 'java',
-    title: 'Java Adventure',
+    title: 'Java Practical',
     subtitle: 'Grade 10 · Information Technology',
-    description: 'Variables, strings, loops, logic, algorithms, and binary. Code your way through each world.',
+    description: 'Gogga objects, variables, strings, loops, decisions, methods and SQL. All 12 programming learning units, with coding challenges.',
+    mapTagline: 'Then make Java make sense.',
     accentColor: 'cyan',
     glowClass: 'ja-glow-cyan',
     bgClass: 'ja-w-variables',
@@ -15,20 +28,6 @@ export const SUBJECTS = {
     module: javaSubject,
     hasPracticalTest: true,
     practicalTestLabel: 'Practical Test',
-  },
-  business: {
-    id: 'business',
-    title: 'Business Studies Adventure',
-    subtitle: 'Grade 10 · IEB Business Studies',
-    description: 'Forms of ownership, professionalism, ethics, and business report writing. Apply theory to real scenarios.',
-    accentColor: 'gold',
-    glowClass: 'ja-glow-gold',
-    bgClass: 'ja-w-report',
-    storageKey: 'java-adventure-state-business-v1',
-    module: businessSubject,
-    hasPracticalTest: true,
-    practicalTestLabel: 'Business Report Test',
-    practicalTestKind: 'businessReport',
   },
 };
 

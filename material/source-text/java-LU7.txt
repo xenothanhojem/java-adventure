@@ -1,0 +1,1295 @@
+
+===== PDF PAGE 128 =====
+Exploring IT: Java Programming Grade 10 
+Page 118 Learning Unit 7 If Statements 
+Learning Unit 7 If Statements 
+Complete Learning Unit 6 in Exploring IT: Theory Grade 10 before attempting this Learning Unit. 
+7.1 Coding Programs with If Statements 
+In Java, we can make decisions using an if statement. The format of this statement is: 
+if (<condition>) 
+{ 
+   <statements if true>  
+} 
+ else 
+{ 
+   <statements if false> 
+} 
+The words if and else are reserved words and your IDE may indicate this by putting them in a 
+different colour. 
+7.1.1 A Problem Involving a Condition 
+Have a look at this sign: 
+ENTRANCE FEE 
+Adults   :  R150 
+Children under 12  : R100 
+The person at the ticket office who sells these tickets will have to decide every time a ticket is sold: 
+What price must be charged?  In order to decide this, the person will need to know the visitor's age. 
+Input age 
+Processing if age is less than 12 then entrance price is R100 otherwise it is 
+R150 
+Output display entrance fee 
+ 
+  
+===== PDF PAGE 129 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 119 
+We can represent the algorithm with a flow chart. 
+ 
+The algorithm in pseudocode for the program would be: 
+begin 
+    input age 
+   if age < 12 
+      then price  100 
+     else price  150 
+   endif 
+    display "Your ticket costs R" + price  
+end 
+The words, if, then, else and endif indicate each stage of the if statement. The statements must be 
+indented to indicate the subsection of the if statement. 
+ACTIVITY 1 
+Type in the code that follows, in the main method of a new class named Ticket.  
+{ 
+    int age = Integer.parseInt (JOptionPane.showInputDialog  
+      Enter your age")); 
+     int price; 
+ 
+    if (age < 12) 
+    { 
+       price = 100; 
+    } 
+    else     
+    { 
+         price = 150; 
+    } 
+ 
+    JOptionPane.showMessageDialog (null, "Your ticket costs R" +  
+            price); 
+The condition that has to be decided upon comes in 
+round brackets after the reserved word if. 
+It is important to check that you have an opening 
+and a closing curly bracket enclosing the 
+statements that follow the if condition and an 
+opening and a closing curly bracket enclosing the 
+statements after the reserved word else. 
+===== PDF PAGE 130 =====
+Exploring IT: Java Programming Grade 10 
+Page 120 Learning Unit 7 If Statements 
+} // end main method 
+A good habit to adopt is to type the opening and closing curly brackets at the same time. After this go 
+back and fill in the statements between them. This way you are less likely to leave out a bracket. 
+ Check that you have typed the brackets correctly with every opening bracket having a 
+corresponding closing one. (You should have four sets of curly brackets in your program.) 
+ Save and run the program four times with the age data 8, 12, 16 and 23. 
+ Change the condition to be (age <= 12) and run the program with the same data. Can you see 
+the effect? 
+ACTIVITY 2 
+The following program asks for the age in years of a person then, depending on the age input, either 
+allows the person to see an age-restricted film or not. 
+ Start a new Java application called AgeCheck. 
+ Add a prompt asking for a person's age in years to be entered and store this in a variable called 
+age which is of data type int.  
+ Add an if statement to display the following message if they are older than 16. 
+You are xx, which is over the age limit of 16. 
+ You may see the movie. 
+ Display the message below if they are 16 or younger than 16. 
+You are 16 or under. 
+You may NOT see the movie. 
+ Save and run the program three times, inputting an age over 16, as well as the age 16 and an 
+age under 16. 
+Your code should be similar to this. 
+import javax.swing.*; 
+public class AgeCheck 
+{ 
+   public static void main (String[] args) 
+   { 
+      int age = Integer.parseInt (JOptionPane.showInputDialog  
+          ("Enter your age")); 
+ 
+      if (age > 16) 
+      { 
+ 
+ 
+ 
+         System.out.println("You are "+ age+" which is over the age  
+           limit of 16"); 
+         System.out.println ("You may see the movie."); 
+   //(*)  
+      } 
+      else 
+      { 
+         System.out.println ("You are 16 or under."); 
+         System.out.println ("You may NOT see the movie."); 
+      } 
+  } // main method  
+}// AgeCheck class 
+Check that the output is correct each time. 
+As there is more than one statement in each part of the if then 
+else statement, we need to “enclose” these statements 
+between curly brackets so that both lines will be displayed if 
+the condition is met. 
+===== PDF PAGE 131 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 121 
+ Extend your program by adding code in the curly brackets just after the line marked (*) but still 
+inside the curly brackets so that, if the person is over 16, he/she is asked for the number of 
+movie tickets wanted.  
+ Each ticket costs R185.00. The total cost must then be worked out and displayed with a 
+meaningful message. 
+ Save and run, making sure that it works properly. 
+Flowchart of the program: 
+ 
+If there is no action to be carried out if the result of the condition is false, the else part of the if 
+statement can be left out. 
+ACTIVITY 3 
+The following code calculates the result of dividing a real number a by another real number b. The 
+user must enter values for a and b. Previously, we discovered that division by zero (0) produces a run 
+time error. To prevent this happening, we need to check if the user has entered 0 for the variable b. 
+Only if b is not a 0 can the division operation be performed. 
+ Type in this code using the class name CheckDivision. 
+double result; 
+ 
+double a = Double.parseDouble (JOptionPane.showInputDialog ("Enter a 
+value for a")); 
+double b = Double.parseDouble (JOptionPane.showInputDialog ("Enter a 
+value for b")); 
+
+===== PDF PAGE 132 =====
+Exploring IT: Java Programming Grade 10 
+Page 122 Learning Unit 7 If Statements 
+ 
+if (b != 0) 
+{ 
+   result = a / b; 
+   JOptionPane.showMessageDialog (null, "The result is " + result); 
+ } 
+ Save and run the program.  
+ Write down the output when you enter: 
+ 14 for a and 7 for b 
+ 5 for a and 7 for b 
+ 5 for a and 0 for b 
+ Write down the condition used in this program:  
+ Write this condition using English words:  
+ Add the following code after the closing bracket of the 'if' section shown above: 
+else 
+{ 
+    JOptionPane.showMessageDialog (null, "This calculation cannot be  
+           
+ performed!"); 
+} 
+ Run the program with the data:  5 for a and 0 for b. What is displayed? 
+The following activity has a program which has been written to input and test any word. If the number 
+of characters in the word is odd the middle letter is displayed. 
+ACTIVITY 4 
+Determine if there is an odd number of letters in a word. 
+ Type in the program using the class name NumChars. 
+int num, posn; 
+String wrd = JOptionPane.showInputDialog ("Type any word <Enter>"); 
+num = wrd.length (); 
+ 
+if (num % 2 != 0) 
+{ 
+   System.out.println (wrd + " has an odd number of letters."); 
+   posn = num / 2 + 1; 
+   System.out.println ("The middle letter is " + wrd.charAt (posn-1)); 
+} 
+ Save and run the program.  
+ Write down the output when you type in the word "peacock" 
+ What is output when you run the program and type in "woodpecker"?  Explain your last 
+answer. 
+ Write down the condition used in this program: 
+ Write this condition using English words:  
+ Add the following code after the closing bracket shown above: 
+else 
+{ 
+    System.out.println (wrd + " has an even number of letters."); 
+} 
+The if statement's condition is the same as saying if b is not equal to 0.  != 
+means ≠in Maths. There is no ≠sign on the keyboard so you must type != 
+An integer is even if there is no remainder when it is 
+divided by 2. The != is the same as ≠ in Maths. 
+===== PDF PAGE 133 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 123 
+ Run the program and type in "woodpecker" again when prompted. Write down what is output 
+now. 
+ Change the condition to (num % 2 == 1). Does this change the output of the program? 
+ Draw a flow chart and write the program in pseudocode. 
+The following page gives detailed information about the Relational (or Comparison) operators that are 
+used in Java conditions. 
+===== PDF PAGE 134 =====
+Exploring IT: Java Programming Grade 10 
+Page 124 Learning Unit 7 If Statements 
+7.2 Relational Operators 
+Relational or comparison 
+operators are used to 
+compare two items called 
+operands. 
+In a Java program, these 
+operators are typed 
+differently to the way they 
+are used in Maths. 
+The order in which you 
+type the characters in a 
+Java operator is important.  
+ You cannot use: 
+   => or =< or >< 
+Java operator Mathematical symbol Meaning 
+= = = equal to 
+!= ≠ not equal to 
+< < less than 
+<= ≤ less than or equal to 
+> > greater than 
+>= ≥ greater than or equal to 
+ 
+In Java, the double equals 
+are used to check equality. A 
+single equals sign is used to 
+assign or store a value in a 
+variable. 
+The exclamation mark (!) is 
+used for NOT. 
+> is the opposite of <= 
+ and         
+< is the opposite of >= 
+For interest: 
+There are Unicode code 
+values for the symbols ≥and 
+≤ (242 and 243 respectively) 
+but you cannot use these in 
+a Java if statement. 
+Here are some examples 
+to show you how we use 
+these operators in 
+conditions. 
+Complete the last two 
+yourself. 
+ENGLISH STATEMENT JAVA STATEMENT 
+if a person's initial is a 'T' ... if (initial == 'T') ...    
+if a number is anything except zero ...      if (num != 0) ... 
+if a person is younger than 21 if (age < 21) ... 
+if a person is at most 21 if (age <= 21) ... 
+if a person is older than 21  
+if a person is at least 21  
+ 
+TIP: 
+It is very important that you 
+learn to "translate" from 
+English to Java and vice 
+versa. 
+===== PDF PAGE 135 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 125 
+7.3 Important Points on the If Statement 
+if ... else is 1 statement in Java. 
+The condition in an if statement can be 
+either: 
+ true - execute the statements in 
+the block directly after the 
+condition 
+or  
+ false - execute the statements in 
+the else block 
+It is important that the layout of an if 
+statement makes it easy to read. The 
+curly brackets enclosing the blocks of 
+statements should be in line with each 
+other.  
+If there is only one statement in a block, 
+the curly brackets can be left off, but it is 
+safer always to use them. 
+Objects of the String data type cannot be 
+compared using == because String is not 
+a primitive data type. You will learn later 
+how to compare two Strings. 
+if (x == y)  
+{ 
+  sum = x + y; 
+  System.out.println("The answer is + sum); 
+} 
+else  
+{ 
+  y = y - 1; 
+  System.out.println("The result is " + y); 
+} 
+ 
+ 
+The word "if" must be in lowercase 
+(Never "IF"). 
+The double equals == must be used 
+when checking to see if two items are 
+equal. 
+The else part is optional. If there is no 
+else part, then the program continues 
+with the next instruction after the end of 
+if statement block. 
+It is possible to have 1 if statement 
+within another if statement but take 
+care that your layout and logic don't 
+become confusing to another person 
+who is trying to understand your 
+program.  
+Be very careful that you have opening 
+and closing brackets in the correct 
+places. 
+if (size == 'L')   
+{              
+ System.out.println ("Large");  
+} 
+is the same as the following but using the curly brackets is safer 
+if (size == 'L') 
+    System.out.println ("Large");   
+if (p > q)  
+{ 
+ p = p - 1; 
+ q = q - 1; 
+ count = count + 1; 
+}      
+else  
+{ p = p + q; } 
+if (floor == 3) 
+{  
+     if (number == 52)  
+  { System.out.println("Our flat");} 
+     else { System.out.println("Not our flat"); } 
+} 
+===== PDF PAGE 136 =====
+Exploring IT: Java Programming Grade 10 
+Page 126 Learning Unit 7 If Statements 
+CHECK POINT 1 
+1.  
+1.1. When the following code is carried out, will statementA and statementB both be 
+executed?  Explain your answer. 
+if (condition)    
+{ 
+    statementA;    
+} 
+else 
+{ 
+    statementB; 
+} 
+1.2. Complete the sentences by copying and filling in an A or a B. 
+If the condition is true, statement .......... will be executed. 
+If the condition is false, statement .......... will be executed. 
+2. Why do you think it is necessary to have the curly brackets in both sections of the if statement? 
+3. Can there be more than one statement in each section of the if statement? 
+4. Why do you think it is important to indent the statements in an if statement? 
+5. Can the curly brackets be left out in an if statement? 
+6. Must an if statement have an else part? 
+7. Explain the difference between these two sections of Java code:     
+num = 37;   and     num == 37      
+8.      
+8.1. What will be displayed if 8 is input for the variable num when the following if statement is 
+evaluated by the computer? 
+if ( num != 8 )  
+    System.out.println("Not 8"); 
+8.2. Add curly brackets and an else part with a meaningful output message. 
+8.3. If the condition is changed to !(num == 8), will it make any difference? 
+9. The Java statements below will produce compilation or warning errors. Identify each of the 
+errors and state how they can be corrected. 
+9.1.     
+int shoeSize; 
+if (shoeSize = 9);  
+{  
+    System.out.println("Same size as mine!")  
+} 
+else 
+{ 
+    System.out.println("Can't wear my shoes."); 
+} 
+===== PDF PAGE 137 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 127 
+9.2.     
+double len; 
+if len =< 15.5    
+    System.out.println("It is not long enough"); 
+10. Assume the following variable declarations and assignments: 
+int num1, num2; 
+num1 = 17; 
+num2 = 5; 
+Use the table of Java Operators to work out whether each of the following conditions is true or 
+false. 
+Condition  true (T) / false (F) 
+(num1 > num2)     
+(num2 > num1)     
+(num2 <= 6)      
+(num1 != num2)     
+Condition  true (T) / false (F) 
+(num1 > 50)      
+(num2 == 5 )      
+(45 != num1) .     
+(num1 >= num2)     
+ 
+ACTIVITY 5 
+ Study the following program segment: 
+int max,min,num; 
+max = 60; 
+min = 21; 
+ 
+int num = Integer.parseInt (JOptionPane.showInputDialog  
+         ("Enter any whole 
+number:")); 
+   
+if (num > 0) 
+{ 
+   message1 = "Your number "+num+" is larger than zero"; 
+} 
+else  
+{ 
+   message1 = "Your number is negative or zero"; 
+} 
+ 
+if (num > max) 
+{ 
+   message2 = "Your number "+num+" is larger than "+max; 
+} 
+ 
+if (num < min)  
+{ 
+   message2 = "Your number "+num+" is smaller than "+min; 
+} 
+ 
+JOptionPane.showMessageDialog (null, message1 ); 
+JOptionPane.showMessageDialog (null, message2 ); 
+ What will be displayed if the number 10 is typed in when the program is run? 
+===== PDF PAGE 138 =====
+Exploring IT: Java Programming Grade 10 
+Page 128 Learning Unit 7 If Statements 
+ Type this code in a new class called MaxMinNum and run it to check your answer. 
+ If you get an error message it could be for two reasons:  
+• you have not declared message1 and message2 
+• you have not initialised message1 and message2 
+ Correct any error(s) so that your program works properly. 
+ Write down what will be displayed if each of the following values of num are input when the 
+program is run:   (i)  72   (ii)  -33  (iii)  1   (iv)  -3  
+ Save it with the same name. 
+It is a good idea to assign the messages to variables and then display the variables at the end of the if 
+statements. 
+EXERCISE 1 
+1. Copy and complete the following table by filling in the opposite condition to the given condition 
+in each case. Assume the following variable declaration: 
+ int num1, num2; 
+ char answer; 
+ 
+Condition Opposite Condition 
+num1 > 5  
+num1 >= 5  
+num1 == 5  
+num1 < num2  
+num1 % num2 == 0  
+answer != 'Y'   
+2. Open the program you saved as Ticket. 
+ Use Replace to change all occurrences of Ticket to Ticket2. 
+ Change the  if  statement to become: 
+if (age >= 12) 
+ { 
+    price = 150; 
+} 
+else  
+{ 
+    price = 100; 
+} 
+ Run the program checking that it works correctly. Save it with the name Ticket2. 
+3. Change the condition in the program CheckDivision to be the opposite. Make sure that you 
+change the if statement so that the program still produces the same results.  
+Save the program as CheckDivision2. 
+===== PDF PAGE 139 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 129 
+4. The following code determines the salary for a salesperson. If the person has made more than 
+ten sales during the month, then the person receives an extra commission equal to the sales 
+percentage of the basic salary. 
+int basicSalary; 
+double salary; 
+ 
+basicSalary = 3000; 
+int sales = Integer.parseInt (JOptionPane.showInputDialog  
+("Enter the number of sales you made this month: ")); 
+ 
+if (sales > 10) 
+{ 
+    salary = basicSalary + basicSalary * sales / 100; 
+    System.out.println ("Well done!"); 
+} 
+else 
+{ 
+    salary = basicSalary; 
+} 
+System.out.println ("Salary : R" + salary); 
+ Type this code in a new class called Salaries. 
+ Run the program and test it using values 8 and 15 for sales. 
+ Change the condition to be its opposite:   (sales <= 10) 
+ Change the sections in the if statement so that when the same sales amounts as above 
+are input, the same output is produced. 
+ Answer the following: Why is the output of the final salary not enclosed inside any of the 
+curly brackets of the if ... else statement? 
+5. When you insert a bank card into an auto teller, it may ask you what language you would prefer. 
+Assume that you are presented with the following menu on the screen: 
+Choose your language (enter the letter): 
+A. Afrikaans 
+E. English  
+X. Exit 
+5.1. Start a new class called Greet. 
+5.2. Add code to this program to display the above menu and then to ask for either the letter A 
+or E or X to be entered. Store the input in a variable called option which is of type char. 
+Display either "Goeie Dag" or "Good Day" depending on the user's response. If 'X' 
+(or any other letter) is typed in, the program must end. 
+5.3. Extend your program so that it provides a Zulu option too. (Display "Sawubona"). 
+5.4. You will need this Greet program in a future Exercise, so make sure that you save it 
+where you can find it easily. 
+6. Easter Algorithm 
+As you know the date for Easter changes from year to year. This is because the date of Easter 
+depends on the moon and the sun whereas our calendar is determined by the sun. The following 
+algorithm calculates the date of Easter for the years 1900 to 2099. Start by subtracting 1900 from the 
+year in question to get the number A.  
+  
+===== PDF PAGE 140 =====
+Exploring IT: Java Programming Grade 10 
+Page 130 Learning Unit 7 If Statements 
+A  Year to calculate - 1900 
+Divide by quotient remainder 
+A 19 - B 
+7B  + 1 19 C - 
+11B + 4 - C 29 - D 
+A 4 E - 
+A + E + 31 - D 7 - F 
+G  25 – D – F gives the date of Easter. 
+If G is positive, the date is on G April. If G is negative, Easter falls in March and the date is 
+determined by counting backwards. Thus, if G = 0, Easter is on March 31; if G = -1, Easter is on 
+March 30 and so on. Easter can only fall between March 22 and April 25.  
+ Rewrite the above instructions as an algorithm. 
+ Code a program called Easter using your algorithm and test the program using the current year.  
+ Are the dates correct?  Use a calendar to check this year's date for Easter. 
+ 
+  
+===== PDF PAGE 141 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 131 
+7.4 Nested If Statements 
+ACTIVITY 6 
+ Take another look at the Greet program. Look closely at the three IF statements: 
+   if (option == 'A') { message = "Goeie Dag"; }    
+ if (option == 'E') { message = "Good Day"; } 
+ if (option == 'Z') { message = "Sawubona"; } 
+Each time the program is run, the conditions in all three if statements will be checked.  
+This is not efficient programming.  
+If the first if statement is true, there is no need to check the next two.  
+  
+
+===== PDF PAGE 142 =====
+Exploring IT: Java Programming Grade 10 
+Page 132 Learning Unit 7 If Statements 
+It is better to put else in the code before each subsequent 'if', as follows: 
+   if (option == 'A') { message = "Goeie Dag"; }  
+ else       
+    if (option == 'E') { message = "Good Day"; } 
+    else 
+       if (option == 'Z') { message = "Sawubona"; } 
+ 
+ 
+ 
+ Change your Greet program and improve it by adding else in front of the second and third if 
+statements. 
+ Make sure you indent as shown above. If you can, use your IDE to indent for you. 
+ 
+A nested if in pseudocode can be shown with the above example 
+if option == 'A' 
+    then message  "Goeie Dag" 
+    else if option == 'E' 
+                  then message  "Good Day" 
+                  else if option == 'Z' 
+                      then message  "Sawubona" 
+     endif 
+            end if 
+end if  
+Note that then and else are 
+indented inside each if and end 
+if is under the corresponding if. 
+An if statement within 
+the else part of another 
+if statement is called a 
+nested if statement. 
+The third if statement 
+does not have an else 
+part. 
+===== PDF PAGE 143 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 133 
+Make sure you indent the code correctly showing which else belongs to which if. 
+if (option == 'A') 
+{ 
+message = "Goeie Dag";  
+} 
+else 
+if (option == 'E') 
+{ 
+        message = "Good Day"; 
+} 
+else 
+if (option == 'Z') 
+{ 
+       message = "Sawubona"; 
+} 
+The bold and the underlined if and else words are linked together. There is no single best way to lay 
+out a nested IF statement, but make sure that your layout makes the program readable. 
+7.4.1 When to Use a Nested If 
+Use an else if only ONE of the conditions can be true at the same time, so that the program doesn't 
+check every IF statement unnecessarily. 
+If there is more than one condition to be tested and the conditions are independent of each other, you 
+should not use else. 
+Consider the following example: 
+Input any integer. Test to see if it is a positive number and test to see if it is divisible by 7. Display the 
+integer and the results of the tests. 
+ACTIVITY 7 
+Test for positive numbers divisible by 7. 
+ Start a new Java Application called TestNumber. 
+ Add code to ask for any integer to be input. 
+ Code an if ... else statement for each of the two tests and display the integer and the result in 
+each case. 
+For example, if 15 is input, your program should output: 
+  15 is positive  
+ 15 is not divisible by 7.  
+Check that your code is similar to the following: 
+int num; 
+String message1 = "", message2 = ""; 
+ 
+num = Integer.parseInt (JOptionPane.showInputDialog ("Type in any 
+integer <Enter>")); 
+ 
+if (num > 0) 
+{ 
+   message1 =  num + " is positive"; 
+===== PDF PAGE 144 =====
+Exploring IT: Java Programming Grade 10 
+Page 134 Learning Unit 7 If Statements 
+} 
+else 
+{ 
+   message1 = num + " is negative"; 
+} 
+ 
+if (num % 7 == 0) 
+{ 
+   message2 = num + " is divisible by 7"; 
+} 
+else 
+{ 
+   message2 = num + " is NOT divisible by 7";   
+} 
+JOptionPane.showMessageDialog(null, message1); 
+JOptionPane.showMessageDialog(null, message2); 
+EXERCISE 2 
+ Code programs for each of the following problems, following these instructions: 
+• Read the whole problem carefully first before beginning a solution.  
+• Use an algorithm (pseudocode or flow chart) to plan your solution. 
+• Use the class name given next to each number and save your file with the same name. 
+• Use the Comparison Operators to code conditions using else where necessary.  
+• Make your program user-friendly and readable. 
+1. Discount 
+A nursery is giving a 10% discount on all purchases over R100. Input the total amount that has 
+been spent (in R and c), work out the discount (if any) and then display the final price. 
+ Test your program by inputting an amount under R100 (e.g. 57.65), then run it again with 
+an amount over R100 (e.g. 176.25). 
+ Write down the output that your program gives when 176.25 is input: 
+2. TestAnotherNumber 
+2.1. Read an integer from the keyboard, then check to see whether it is  
+• positive or negative 
+• even or odd       
+• a multiple of 7 or not  
+The number must be displayed together with the results of each of the tests. 
+ Test your program with several numbers, such as   −7, 22, 140, −49, 56, 111 
+ Check the results produced, making sure that your program works properly. 
+ Extend your program to test if the square of the input number is greater than 100, or not 
+ Test your program with several numbers, such as   14, -25, 49, −4 
+3. LargerOfTwo 
+Code a program to input two numbers and determine the larger or if they are equal. Display an 
+appropriate message. 
+  
+===== PDF PAGE 145 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 135 
+4. Driving 
+A certain Traffic Department rules that people may only drive if they are 18 or older, but not 
+more than 75 years old. Input a person's age. If they are younger than 18, display the age and 
+"Too young to drive". If they are older than 75, display the age and "Sorry you are 
+over the legal age limit for driving". If they fall in the correct range, display the 
+age and a message stating "Age OK. Have you got a driving licence?". 
+Test your program with each of the ages: 16, 32, 75, 80. 
+Later you will learn another way of solving this problem using the logical AND operator  
+5. CompareNumChars 
+Input any two words into two String variables wrd1 and wrd2. Compare the number of 
+characters in each word and then display them in order from shortest to longest. 
+Test your program by inputting  butterfly   then worm 
+Run it again and input    dog then  dragonfly 
+6. Rewrite the following code as a nested if statement. 
+if(a == 3) 
+    m = 4; 
+if (b == 2) 
+    m = 1; 
+if (c == 1) 
+    m = 5; 
+ 
+7.5 Logical Operators 
+ACTIVITY 8 
+ Open your Greet program from the previous exercise. Run it and enter 'e' then run it again 
+and enter 'E'. Does it work for both uppercase and lowercases? 
+Your programs must work for both uppercase and lowercase letters. It is poor programming to instruct 
+the end user to type in either capitals or lowercase letters, when the computer can easily check both 
+cases. Look at the code that follows: 
+char option; 
+String message = ""; 
+     
+JOptionPane.showMessageDialog(null," MENU OPTIONS" + "\n\n A. 
+Afrikaans\n E. English\n Z. Zulu" +"\n X. Exit\n\n Type A, E, Z or X 
+<Enter>"); 
+ 
+option = JOptionPane.showInputDialog ("Enter your choice").charAt(0); 
+  
+if (option == 'a' | option == 'A')  
+{  
+   message = "Goeie Dag";  
+}  
+else 
+   if (option == 'e' |option == 'E')  
+   {  
+       message = "Good Day";  
+   } 
+   else 
+===== PDF PAGE 146 =====
+Exploring IT: Java Programming Grade 10 
+Page 136 Learning Unit 7 If Statements 
+       if (option == 'z' |option = 'Z')  
+        {      
+           message = "Sawubona";  
+       } 
+       else  
+          if (option == 'x' | option = 'X') 
+         {  
+             message = "Click Close to end"; 
+          }  
+ 
+ JOptionPane.showMessageDialog(null, message); 
+ Edit your Greet program so that it will work for either uppercase or lowercase letters.  
+ Save it and run it several times, testing it by typing both lower and uppercase letters. 
+In Java, the | symbol (usually above the backslash (\) on the keyboard) is used to stand for the 
+logical operator OR; the & symbol is used to stand for AND the ! symbol is used to stand for NOT. 
+(Similar to != stands for ≠ (not equal to)). 
+Why are 'a' and 'A' not the same in Java?  When Java compares the 2 letters, it compares their 
+Unicode code values and not the actual characters. Since 'a' and 'A' do not have the same 
+Unicode values, the computer sees them as 2 totally different characters.  
+A similar thing happens when words are compared - the computer checks each letter of a word, 
+looking at its Unicode value. 
+When more than one condition is tested, brackets are put around the whole condition. It is also 
+correct to bracket each condition, if there are brackets around the whole condition as well.  
+E.g.:  if((option == 'e')|(option == 'E')) 
+An alternative solution to checking for both uppercase and lowercase is to convert the input to 
+uppercase when it is entered. 
+ Change the code to input the value for the variable option so that it is converted to uppercase 
+immediately and then the first character is extracted using the charAt() method. 
+ option = JOptionPane.showInputDialog  
+         ("Enter your choice").toUpperCase().charAt(0); 
+Note that toUpperCase must be called before charAt() as toUpperCase() works with Strings and 
+not the char type.  
+ Change the if statements so that only the uppercase letters are checked as all the lowercase 
+letters have been converted to uppercase. This removes the need for the logical operator OR 
+(|). 
+ if(option == 'E') 
+The three logical operators we will use in this book are:  
+AND (&), OR (|) , NOT (!) 
+They are only used when testing a condition. They do not join statements (like "and" does in English). 
+Logical operators are useful when we want to check more than one thing at a time. 
+  
+===== PDF PAGE 147 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 137 
+ENGLISH JAVA 
+If the first letter of day is S (or s) then 
+it is the weekend. 
+if (letter == 'S' | letter == 's') 
+{ System.out.println("It is the weekend");} 
+If your age is between 12 and 20 then 
+you are a teenager. 
+if (age > 12 & age < 20)  
+{ 
+   ageGroup = "Teenager";  
+} 
+The & symbol 
+stands for AND in 
+Java. It is above 7 
+on the keyboard. 
+If the answer is not y (or Y), then 
+subtract 1 from the score. 
+if !(answer == 'y' | answer == 'Y')  
+   {score = score − 1;} 
+7.5.1 How are Conditions Evaluated in Java? 
+Arithmetic and logical expressions are evaluated as sums by the Arithmetic Logic Unit (ALU) in the 
+processor. Arithmetic expressions include + - * / and % and logical expressions include & | and !. 
+Refer to 6.2.2 of Learning Unit 6 in Exploring IT: Theory Grade 10. 
+Example 1: 
+Assuming the user entered 'd' for answer: 
+(!(answer == 'y' | answer == 'Y')) 
+Solution: 
+=NOT (FALSE AND FALSE) 
+= NOT (FALSE) 
+= TRUE 
+Example 2: 
+Assuming the user entered 'd' for answer: 
+(answer != 'y' & answer != 'Y') 
+Solution: 
+=TRUE OR TRUE 
+= TRUE 
+Example 3: 
+Assume answer is 'y', a is 4 and b is 2: 
+(b == 2 | (answer == 'y' & a == 3)) 
+Solution: 
+= TRUE OR (TRUE AND FALSE) 
+= TRUE OR FALSE 
+= TRUE 
+ Write down the results for Example 3 using the following values: 
+Assume answer is 'b', a is 3 and b is 2   
+(b == 2 | (answer == 'y' & a == 3))  
+ 
+Assume answer is 'b', a is 5 and b is 3 
+(b == 2 | (answer == 'y' & a == 3))
+===== PDF PAGE 148 =====
+Exploring IT: Java Programming Grade 10 
+Page 138 Learning Unit 7 If Statements 
+7.6  Important Points on Logical Operators 
+The AND (&) operator means that 
+both parts of a condition must be 
+true for the condition to be true. 
+The OR (|) operator means that ANY 
+one part (or the other part) of a 
+condition must be true for the 
+condition to be true. 
+To apply NOT to part of a condition, 
+put it in another set of brackets 
+inside the "main" condition brackets. 
+The NOT operator(!) makes a 
+condition become opposite. 
+If you want Java to execute an OR 
+operation before an AND, then you 
+need to put extra brackets around 
+the OR condition. (It will then do the 
+brackets first) 
+In this case, we are checking if the 
+user wants to play again (y or Y) and 
+if s/he has not had five chances yet. 
+Each part of the condition must make sense on its own. 
+It is not correct Java syntax to put: if (age > 25 & < 38) 
+The correct syntax is:    if (age > 25 & age < 38) ... 
+ 
+if (age > 29 &  age < 40)      
+    { System.out.println("Thirty something"); } 
+if ( price > 100 & !(quantity_bought < 5) )  
+    { discount = 10/100; } 
+if (age < 16 | age > 65 | has_job == 'n') 
+ 
+    System.out.println("You pay half price"); 
+if ((ans=='y' | ans=='Y') & (no_of_chances<5) 
+    result = "Play again"; 
+ 
+ 
+The condition must always be placed in brackets 
+after the word if. Each part of a condition can also 
+be bracketed: 
+if ((age > 25) & (age < 38)) is the same as     
+if (age > 25 & age < 38) 
+The statement     if (age > 25 & age < 38)   without 
+the inner brackets is valid because the operators 
+AND OR have a lower precedence than the 
+comparison operators.  
+Java will always carry out logical operators in the 
+following order: 
+1st: Brackets 
+2nd:  NOT 
+3rd:  AND 
+4th:  OR  
+if they appear in the same statement.  
+You can use more than one AND, OR, NOT in a 
+statement. If they are the same, they are 
+evaluated from left to right. 
+Strictly speaking, && should be used 
+instead of &, to make your programs 
+more efficient. 
+ && is called a conditional AND, 
+because it only evaluates the 
+second part of a condition if the first 
+part is true.  
+& is called a Boolean AND, 
+because it evaluates both parts, 
+even if the first one is false. 
+If a double && is used: (a > b && a > 0) the first part will be 
+checked and only if it is true, will the second part be checked. 
+In (a > b & a > 0), a > b is false, but because a single 
+& is used, a > 0 will still be checked, even though the whole 
+condition will be false.  
+In (a > b && a > 0) as soon as a > b is found to be false; 
+the whole condition is false. The second part of the condition a 
+> 0 is not checked. 
+The same applies to OR ( || is better than | ). 
+It is more efficient to use the conditional OR (||) 
+instead of the Boolean OR (|). 
+Like the && operator, using || means that the 
+second part of a condition will not always be 
+evaluated. If the first part is true, the whole 
+condition is true, because with OR, as long as one 
+part is true, the whole condition is true. 
+===== PDF PAGE 149 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 139 
+The AND operator does not join two statements that must be carried out after an if condition is 
+evaluated to true. The block of statements:   
+if (a > b & a > 0) { a = a + 1; AND b = 0; }  is incorrect Java syntax.  
+if (a > b & a > 0) { a = a + 1; & b = 0; }  is also incorrect. 
+This is correct: 
+if (a > b & a > 0)  
+{  
+    a = a + 1;  
+    b = 0;  
+} 
+The statements in the block after the condition are simply separated by semi-colons and are usually 
+indented and put on lines one below the other. 
+EXERCISE 3 
+1. Explain in English what is meant by each of the following Java statements: 
+1.1. if (age > 29 & age < 40)  
+{System.out.println("Thirty something"); } 
+1.2. if (price > 100  |  quantity_bought >= 5)  
+{discount = price*10/100; } 
+1.3. if (!(gender == 'm') & !(gender == 'M'))  
+{  
+    System.out.print ("female");  
+} 
+This could also have been coded as : 
+if (gender != 'm' & gender != 'M')  
+{ 
+    System.out.print ("female"); 
+} 
+or, even better, as 
+if (gender == 'f' | gender == 'F')  
+{ 
+    System.out.print ("female"); 
+} 
+1.4. if ( number > -10 & number < 10 )  
+{ System.out.println("Single digit") } 
+1.5. What data type will be used for each of the variables in the above Java statements?  Write 
+down the variable declarations. 
+2. In this question, use the following variables when you answer the questions:  
+int age, qty_bought; 
+char gender; 
+double price, discount; 
+Write down the equivalent in pseudocode and then as a Java if statement for each of the 
+following: 
+===== PDF PAGE 150 =====
+Exploring IT: Java Programming Grade 10 
+Page 140 Learning Unit 7 If Statements 
+2.1. If a person's age lies between 6 and 19 then display "What school do you go to?". 
+2.2. If a person is not a teenager, then display "You won't like this music". 
+2.3. If you buy more than 10 items and their total price is at least R50, then the discount is 
+12% of the total price, otherwise there is no discount. 
+3. MarkSymbol 
+Code a program that given any mark, a symbol will be displayed for this mark, according to the 
+following: 
+Mark    Symbol 
+>= 80    A 
+>=70 and < 80  B 
+>=60 and < 70  C 
+>=50 and < 60  D 
+<50    E 
+ Assume that the marks will be whole numbers.  
+ Structure the if ... else statements carefully, so that you do not have unnecessary 
+conditions. Test your program with a variety of marks to check that each range works 
+correctly. 
+ 
+7.6.1 Negating the Condition in an If Statement 
+Sometimes an if statement has been coded with exact opposite of a condition. The condition can be 
+made to be the opposite by placing a NOT (!) sign in front of the condition, but then this will change 
+meaning of the if statement. To solve this problem, the then part and else part of the if statement 
+must be swopped around. 
+    begin 
+        if (<condition>) 
+              <statementA>; 
+        else 
+             <statementB>; 
+    end 
+    begin 
+        if (! <condition>) 
+            <statementB>; 
+        else 
+            <statementA>; 
+    end 
+ACTIVITY 9 
+ Type in the following program. 
+public class Negate 
+{ 
+   public static void main(String[] args) 
+   { 
+      int num = 3; 
+       
+      if (num == 3) 
+         System.out.println("num is 3"); 
+      else 
+         System.out.println("num is not 3"); 
+   } 
+} 
+ Save and run the program. The output should be "num is 3" as the condition results in 
+evaluates to be true executing the first part of the if statement. 
+Negate the condition with a NOT 
+(!) before the condition and swop 
+the statements 
+===== PDF PAGE 151 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 141 
+ Negate the condition by adding ! before the condition. You can either write the condition as 
+(!num == 3) or (!(num == 3)). 
+ Save and run the program. The output should be "num is not 3 which is incorrect". 
+ Swop the statements in the if statement to correct the meaning of the if statement. 
+ Save and run the program to check that your solution is correct. 
+Sometimes if statements are incorrectly written with no code in the then part, and the code is in the 
+else part. 
+ACTIVITY 10 
+ Type in the following program. 
+public class Negate2 
+{ 
+   public static void main(String[] args) 
+   { 
+      int num = 3; 
+       
+      if (num < 1 || num > 10) 
+      { 
+          
+      } 
+      else 
+         System.out.println("num not in range 1 and 10"); 
+   } 
+} 
+ Save and run the program. The output should be "num not in range 1 and 10". 
+The if statement is not correct as it has no code in the then part of the statement. The else part 
+should be placed in the then and the else part removed. 
+ Negate the condition using De Morgan's law to change the condition to be: 
+    if (num >= 1 && num <= 10) 
+    { 
+       System.out.println("num is in range 1 and 10"); 
+    } 
+ Save and run the program. The output should still be "num not in range 1 and 10". 
+7.6.2 Negating Multiple Conditions using De Morgan's Law 
+Refer to section 6.2.4 in Learning Unit 6 of Exploring IT: Theory Grade 10. Consider the if 
+statement  
+if (a > b & b < 10) 
+{ 
+    a = b * 2; 
+} 
+else  
+{  
+    a = b * b;  
+} 
+If we wanted to negate the condition, we would to use De Morgan's Law which states (A + B)' = A'.B' 
+and similarly, (A.B)' = A' + B' to negate the condition and swop the then and else part. The condition  
+   (a > b & b < 10)   negated will become  
+   NOT(a > b & b < 10) apply NOT to the entire condition 
+===== PDF PAGE 152 =====
+Exploring IT: Java Programming Grade 10 
+Page 142 Learning Unit 7 If Statements 
+   = NOT(a > b) | NOT(b < 10)  negate each condition and change AND to OR 
+   = a <= b | b >= 10    change the sign to the opposite 
+swopping the then and else part will produce: 
+if (a <= b | b >= 10) 
+{ 
+    a = b * b; 
+} 
+else  
+{  
+    a = b * 2;  
+} 
+CHECK POINT 2 
+1. Which of the following commands will NOT display four stars  **** ? 
+1.1. Assume int x,y,z; and   x = 6;  y = 4; z = 10; 
+1.2. if (x + y == z | x == y) { System.out.println("****"); } 
+1.3. if !(x == y) { System.out.println("****"); } 
+1.4. if (x != z & !(x > y+1)) { System.out.println("****"); } 
+1.5. if x % y == 2 { System.out.println("****"); } 
+2. Write equivalent conditions without using NOT (!) in front of the conditions: 
+2.1. !( num > 7)     
+2.2. !( num <= 7)    
+2.3. !( letter == 'X')    
+2.4. !( realNum < 0.75 )   
+2.5. !(days == 5 && hours > 3) 
+2.6. !(degree == true || experience >= 5) 
+2.7. !((degree == true || experience >= 5) && referenceChecked == true) 
+2.8. !((day == 25 && month == 12) || (day == 31 && month == 12)) 
+3. Correct the following if statement by negating the condition and swopping the statements: 
+3.1. if (x == 2) 
+            // do nothing 
+         else 
+         {  
+             System.out.println("x is 2"); 
+             x = x *3; 
+         } 
+3.2. Is an else part necessary in this if statement? 
+4.   
+4.1. When should you use 'else' to write several if statements as a nested if statement?  
+Provide an example to aid your explanation. 
+4.2. Give an example of two separate if statements that should NOT be written as a single 
+nested if statement (i.e. 'else' should not be used with the 'if' statements). 
+===== PDF PAGE 153 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 143 
+5. The following program inputs a number and multiplies it by 2 if it is a multiple of 5, otherwise 
+multiplies the number by 3. The result of the calculation is displayed. The if statement is not well 
+coded. There are unnecessarily repeated statements. Rewrite the code more efficiently. 
+import javax.swing.*; 
+  
+public class CheckInput 
+{ 
+   public static void main(String[] args) 
+   { 
+      int num = Integer.parseInt(JOptionPane.showInputDialog 
+         ("Enter a number")); 
+       
+      if (num % 5 == 0) 
+      { 
+         System.out.println("The number you entered was " + num); 
+         num = num * 2; 
+         System.out.println("The changed number is " + num);      
+      } 
+      else 
+      { 
+         System.out.println("The number you entered was " + num); 
+         num = num * 3; 
+         System.out.println("The changed number is " + num); 
+      } 
+   } 
+} 
+6. Why can a nested if statement be more efficient than several separate if statements?  When is it 
+not more efficient? 
+7. Write down the arithmetic operators that we have covered in this book thus far.  
+8. Write down the relational operators that we have covered in this book thus far.  
+9. Write down the logical operators that we have covered in this book thus far. 
+10. Where are logical expressions evaluated in the computer? 
+11. Rewrite the if statement below as a single if statement and a logical operator. 
+public class Test { 
+ 
+   public static void main(String args[]) { 
+      int x = 30; 
+      int y = 10; 
+ 
+      if( x == 30 ) { 
+         if( y == 10 ) { 
+            System.out.print("X = 30 and Y = 10"); 
+         } 
+      } 
+   } 
+} 
+ 
+  
+===== PDF PAGE 154 =====
+Exploring IT: Java Programming Grade 10 
+Page 144 Learning Unit 7 If Statements 
+7.7 A Problem when using If Statements - a Valueless 
+Variable 
+ACTIVITY 11 
+ Type the following code in a class called LetterGrade which inputs a mark (out of 100), then 
+displays the equivalent grade (A, B, C, etc) that was obtained.  
+int mark, markDiv10; 
+ 
+char grade; 
+ 
+mark = Integer.parseInt(JOptionPane.showInputDialog 
+        ("Type in a mark out of 100")); 
+ 
+markDiv10 = mark / 10; 
+ 
+if (markDiv10 == 8 | markDiv10 == 9 | markDiv10 == 10) {grade = 'A';} 
+else 
+  if (markDiv10 == 7) {grade = 'B';} 
+  else 
+    if (markDiv10 == 6) {grade = 'C';} 
+    else 
+      if (markDiv10 == 5) {grade = 'D';} 
+      else 
+      if (markDiv10 == 4) {grade = 'E';} 
+        else 
+          if (markDiv10 == 3 | markDiv10 == 2 | markDiv10 == 1)  
+    {grade = 'F';} 
+ 
+JOptionPane.showMessageDialog (null,"Your mark of " + mark  
+        + " is equal to an/a " + 
+grade); 
+ Run the program and write down the error message that appears. 
+The variable grade is only given a value in the if statement blocks. If none of the if statements are 
+true Java knows that grade will not get a value. It warns you that you should assign an initial value to 
+grade before the if statements. 
+ Initialise the variable grade in the declaration statement. E.g. char grade = 'X'; 
+ Run the program and type in any integer mark when prompted. Check that the grade displayed 
+is correct. 
+ Run the program with several different marks, checking the grade each time. 
+ Write down an explanation of how this program works, using 79 for the input mark. 
+Any variable that is only assigned a value in if statements must be initialised before the if statements 
+so that it definitely gets a value in the program. Otherwise Java will give you an error message 
+warning you that it may not ever get a value. Your IDE may alert you to this problem. 
+Numbers are usually initialised to zero.  
+E.g. int num = 0; 
+   double realNum = 0; 
+Strings are initialised to the empty String.    
+E.g.  String stg = ""; 
+===== PDF PAGE 155 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 7 If Statements Page 145 
+Characters cannot be initialised to nothing as, by definition, a character is a single letter, digit, etc so a 
+char type variable must always be initialised to any character  
+E.g.  char grade = 'X'; 
+EXERCISE 4  
+ For each of the following problems, use abstraction to identify the relevant parts of the problem. 
+ Decompose the problem to identify the separate tasks involved in problem. The tasks to be 
+performed before the if statement, the tasks to be performed after the if statement. Zoom into 
+the if statement and identify the condition, the tasks to be executed when the condition is true 
+and the tasks to be executed if the condition is false.  
+ Code programs for each of the following problems following the same instructions as before. 
+Design sound test plans to test your programs. 
+1. DrawLetters 
+1.1. Ask a user to type either the letter 'F' or 'B' or 'S' (in upper or lowercase). 
+• If the letter 'F' is entered, draw a green F using a Gogga object. 
+• If the letter 'B' is entered, draw a blue B using a Gogga object. 
+• If the letter 'S' is entered, draw a pink S using a Gogga object. 
+1.2. For each of the letters 'F', 'B' or 'S', ask for the starting position co-ordinates and the height 
+and the trail width to be input and use this when the Gogga object draws the letter. 
+1.3. If any character other than 'F', 'B' or 'S' is typed in, display an error message using 
+JOptionPane. 
+2. FleaMarket 
+When you book a stall at a flea market you get a discount if you book for four consecutive 
+Saturdays or more. The normal cost of a stall is R200 per day. If you book for four consecutive 
+Saturdays, you pay R180 per day. If you book for more than four consecutive Saturdays, the 
+first four cost R180 and each one after that costs R160. 
+2.1. Input the number of consecutive Saturdays that are to be booked. Display an account 
+giving details of the number of consecutive Saturdays and the amount to be paid. 
+2.2. Write down the cost for  
+• two consecutive Saturdays 
+• four consecutive Saturdays 
+• six consecutive Saturdays 
+3. Commission 
+A salesman is paid commission on the following basis: 
+Total sales  Commission 
+0  − 500   2% of Total Sales 
+501  − 5000  5% 
+5001+   8% 
+3.1. Input the total sales figure. Calculate the commission. Display the total sales figure and 
+the commission earned. 
+===== PDF PAGE 156 =====
+Exploring IT: Java Programming Grade 10 
+Page 146 Learning Unit 7 If Statements 
+4. Arithmetic 
+4.1. Ask for two real numbers to be input. Store these in two variables.  Leave a blank line, 
+then display a menu, giving a choice of: 
+A - Addition 
+S - Subtraction 
+M - Multiplication 
+D – Division 
+X - Exit 
+4.2. Ask which operation is wanted. (Ask for 'A', 'S', 'M' or 'D' to be typed in.)  Note to exit the 
+program, use the code: System.exit(0);  
+4.3. Leave another blank line, then display the two numbers that were input and the result of 
+the operation (to 1 decimal place if necessary). 
+4.4. Save and run your program several times, testing that all the options work. 
+4.5. Extend your program to include a check that the user has made a valid choice from the 
+menu. If an 'A', 'S', 'M', 'D' (or 'a', 's', 'm', 'd') is typed in, perform the arithmetic as before. If 
+any other character is input display an error message and end the program. 
+ 

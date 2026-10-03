@@ -1,0 +1,1120 @@
+
+===== PDF PAGE 157 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 147 
+Learning Unit 8 Switch 
+Statements and More 
+8.1 Comparing Strings in Java 
+8.1.1 equals and equalsIgnoreCase Methods 
+Variables of type String are objects created from the String class.  
+E.g. when declaring  String name = "Sue"; 
+we are really declaring  String name = new String("Sue"); 
+The 'shortened' version is allowed because Strings are so commonly used that it makes it easier to 
+declare them like the other data types. 
+The String data type is not a primitive data type, therefore methods of the String class must be used 
+with String objects, instead of the operators used with integers, real numbers or characters. 
+When two Strings are compared in Java, the double equals (==) cannot be used. Instead, the equals 
+method of the String class must be used. 
+ACTIVITY 1 
+Type in the code on the following page in a new class called CompareStrings. 
+String stg1, stg2, message = ""; 
+stg1 = "HELLO"; 
+stg2 = JOptionPane.showInputDialog ("Type in any word and <Enter>"); 
+ 
+if (stg1.equals (stg2)) 
+ 
+{ 
+    message = "The strings are equal";   
+} 
+else 
+{ 
+    message = "The strings are NOT equal"; 
+} 
+JOptionPane.showMessageDialog (null, message); 
+ Save and run the program, typing in "hello" all in lowercase when prompted. 
+ Check the output - is it correct? 
+As we have said before, capital letters are different to their lowercase equivalents, as they have 
+different Unicode code values. 
+ Run the program again and input "HELLO" all in uppercase when prompted. Check the output. 
+ Put // in front of the statement   if (stg1.equals (stg2)) to make it into a comment.  
+ Then type the following incorrect 'if' statement in its place: if (stg1 == stg2)  
+ If "HELLO" (all in capitals) is input, what should the output be?  
+✖  You cannot use ==  as in: 
+if (stg1 == stg2)... 
+The equals method takes the 
+second string as a parameter. 
+===== PDF PAGE 158 =====
+Exploring IT: Java Programming Grade 10 
+Page 148 Learning Unit 8 Switch Statements and More 
+ Run the program and input "HELLO" all in uppercase when prompted. Note the output that the 
+computer produces. 
+NOTE that using == with Strings does not produce an error message, but it does often give incorrect 
+output (or no output at all in some cases). 
+ Change the equals method to be equalsIgnoreCase. 
+if (stg1.equalsIgnoreCase(stg2)) 
+ Run the program and enter "hello" as input. Run it again with "Hello" and "hElLo" as 
+input. 
+The methods equalsIgnoreCase is useful when you do not want to worry about the case that the 
+user has entered the data. 
+8.1.2 toLowerCase and toUpperCase Methods 
+Instead of using equalsIgnoreCase, you can change both strings to be either uppercase or lowercase 
+letters. The String class provides both these methods to change all the characters in the String to 
+either uppercase or lowercase. If the character is not a letter, then it will remain the same. 
+ACTIVITY 2 
+ Change the first three lines of CompareStrings to convert both stg1 and stg2 to lowercase. The 
+toLowerCase method can be applied after the showInputDialog method or applied to a string. 
+String stg1, stg2; 
+stg1 = "HELLO"; 
+stg2 = JOptionPane.showInputDialog  
+     ("Type in any word and <Enter>").toLowerCase(); 
+stg1 = stg1.toLowerCase(); 
+ Save and run the program. Test the program with "hello", "HELLO" and "HeLlo". The 
+program should display that the strings are equal in all cases. 
+ Change the program to use the toUpperCase method to both strings.  
+ Save and run the program. Test the program again with "hello", "HELLO" and "HeLlo". The 
+program should display that the strings are equal in all cases. 
+8.1.3 How Strings are Compared 
+When the computer compares Strings, it looks at each character individually. Each character has a 
+numerical code value in the Unicode table and so, instead of comparing letters, the computer is really 
+comparing Unicode code values which are numbers. 
+ If the words are not the same length, it will add the necessary spaces on the end of the shorter word 
+before comparing the words. 
+ In the code if (stg1.equals (stg2)), the Unicode values of each character in each word are 
+compared. If  stg1 = "HELLO"; and stg2 = "hello"; the computer checks the Unicode values of 'H' 
+and 'h' which are 72 and 104 respectively. These code values are not equal, so the computer states 
+that the 2 strings are not equal. 
+If two strings are similar, as in 
+"Garth" and "Gareth", the 
+computer will compare the 
+first letters of each word and 
+then the second and so on 
+until there is a difference in 
+the Unicode value. 
+G a r t h space 
+71 97 114 116 104 32 
+ 
+G a r e t h 
+71 97 114 101 116 104 
+ 
+The first three letters of the 
+names are the same. The 
+fourth letters are different. 101 
+is less than 116 and so 
+"Gareth" would be different 
+from (less than) "Garth". 
+===== PDF PAGE 159 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 149 
+"Garth" ≠ "garth" ≠ "GARTH"  
+(in fact: "GARTH" < "Garth" < "garth") 
+The digits 0-9 also have Unicode values - see 
+the Appendix. In the Unicode table, the digits 
+come before capitals and then come the small 
+letters. 
+8.1.4 Alphabetic Order using the compareTo method 
+Strings can be tested to see if they are in alphabetic order using the compareTo method. 
+ACTIVITY 3 
+ Start a new class called AlphOrder.      
+ Add the following code:  
+ String word1, word2; 
+ word1 = "carrots"; 
+ word2 = "broccoli"; 
+ System.out.println("ALPHABETIC ORDER"); 
+ 
+ if ( word1.compareTo(word2) < 0 ) 
+ { 
+     System.out.print (word1 + " comes before " + word2); 
+ } 
+ else 
+ { 
+     System.out.print ( word2 + " comes before " + word1); 
+ } 
+ Save and run, making sure that your program does display the words in alphabetic order. 
+ Change the program so that the two words can be input from the keyboard instead of being 
+assigned in the program. 
+ Run the program again inputting your own words, as well as the pairs of words shown below. 
+Circle the word in each pair that will be displayed first alphabetically. 
+ apple, banana  jelly, jam  
+ Thandi, Thomas  hi, Hi 
+ someone, some-one  
+The computer checks the Unicode code values of the characters in each word, then subtracts the 
+values to determine whether the difference in values is negative or not.  
+Using the following code as an example: 
+ String word1, word2; 
+ word1 = "carrots"; 
+ word2 = "broccoli"; 
+ 
+ if ( word1.compareTo(word2) < 0 ) 
+From the table in the Appendix, you will see that the Unicode value for 'c' (the first letter in word1) is 
+99 and the Unicode value for 'b' (the first letter in word2) is 98.  
+Because these first letters are different, word1.compareTo(word2) is evaluated by 
+ subtracting the Unicode values 
+i.e.  99 − 98 
+    =   1 which is NOT < 0 therefore the part after the else will be carried out: 
+ System.out.print (word2 + " comes before " + word1); 
+===== PDF PAGE 160 =====
+Exploring IT: Java Programming Grade 10 
+Page 150 Learning Unit 8 Switch Statements and More 
+ i.e.: broccoli comes before carrots 
+As a second example, assume that the following assignments are made: 
+ String word1, word2; 
+ word1 = "Sugar"; 
+ word2 = "Super"; 
+word1.compareTo(word2) is again evaluated by comparing the characters in each word. The first 
+two characters are the same, so the computer compares the third character in each word 'g' and 
+'p' and subtracts their Unicode values 
+=  103  − 112 
+=   −9 which IS  < 0 therefore the part after the if will be carried out: 
+ System.out.print ( word1 + " comes before " + word2); 
+i.e.: Sugar comes before Super 
+ACTIVITY 4 
+ The compareTo() method can also be used to check if two Strings are equal, as in the following 
+code: 
+String wrd1 = "cool"; 
+String wrd2 = "cool"; 
+if (wrd1.compareTo(wrd2) == 0) 
+{ System.out.println( wrd1 + " equals " + wrd2); }  
+ Type in this section of code in a Java program to test it. 
+ Add an 'else' clause to display a message if the words are not equal. 
+CHECK POINT 1 
+1.  
+1.1. Rewrite the following Java statement correctly:  if ( greeting ==  "hello" ) 
+1.2. Explain why two Strings cannot be compared using the double equals (==). 
+2. How does the computer know the difference between two strings such as "Jean" and "Jane"? 
+3. Consult the Unicode table in the Appendix and answer true /false to the questions below. 
+Assume that all these "words" are Strings in double quotes (even those that are numeric). 
+3.1. Andy > Andrew. 
+3.2. 0 < zero 
+3.3. vanderMerwe < van der Merwe 
+3.4. &*()pW#@½ > &*()pW#@¼ 
+3.5. singing > sing songs 
+3.6. U2 < UB40 
+3.7. Van der Merwe < van der Merwe 
+3.8. 14 > 99    
+3.9. hamba >= hambani 
+3.10. singer < sing softly 
+ If you are uncertain about your answers, use the program AlphOrder to check them. 
+ 
+===== PDF PAGE 161 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 151 
+8.2 Trace Tables with the If Statement 
+You are having a promotion of your new stock of earrings at the flea market. The earrings normally cost R50, but 
+the special price is R30 a pair. Initially you decided that a customer may not buy more than four pairs. However, the 
+new range is so successful that several customers want to buy more than four pairs. You then decide that each 
+customer will get the first four pairs at R30 and that the rest will cost 85% of the full price of one pair of earrings. 
+The following code is designed to 
+help you do these calculations. But 
+when you use it to work out the 
+amount due, your customers 
+complain that you are charging them 
+too much! 
+   int qty; 
+   double price; 
+ 
+1  qty = Integer.parseInt  
+   (JOptionPane.showInputDialog 
+   ("How many pairs?")); 
+  Use 6 for data 
+2  if (qty <= 4)  
+   { 
+3      price = qty * 30;  
+   } 
+   else 
+   { 
+4    price = 4*30 + qty*50*85/100;  
+   } 
+ 
+5  System.out.println  
+      ("You owe R" + price); 
+This column is 
+not essential 
+Use a column 
+for every 
+variable 
+And a column 
+for every 
+condition 
+Line no. qty price qty <= 4? 
+1 6   
+2   . . . A. . . . 
+3    
+4  . . . B. . . .  
+5    
+ 
+OUTPUT: ......C........ 
+ 
+ 
+   SCREEN DISPLAY 
+   12345678901234567890 
+   How many pairs? 
+   6 
+   You owe R...D... 
+ Write down what will be in the missing parts labelled A, B, C and D. Is 
+the program's output correct?  
+ Your customer correctly claims that she only owes R205.00. Can you 
+find the problem in the program? 
+ Make the changes you think are necessary and then go through your 
+program twice - with data values of 6 and 3.  
+ Type in the program and run it several more times with different data 
+to make sure that it is correct 
+===== PDF PAGE 162 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 152 
+EXERCISE 1 
+1. Study the program called Candles which is shown here: 
+// The "Candles" class. 
+import java.awt.*; 
+ 
+public class Candles 
+{ 
+public static void main (String [] args) 
+{ 
+int sales1, sales2, sales3, sales4; 
+double tot, ave, bonus; 
+double sal = 600.0; 
+ 
+System.out.println 
+ ("Enter the sales figures for each week of the month"); 
+System.out.println ("and press <Enter> after each one"); 
+sales1 = Integer.parseInt (JOptionPane.showInputDialog  
+  ("Sales 1"));  
+sales2 = Integer.parseInt (JOptionPane.showInputDialog  
+  ("Sales 2"));  
+sales3 = Integer.parseInt (JOptionPane.showInputDialog  
+  ("Sales 3"));  
+sales4 = Integer.parseInt (JOptionPane.showInputDialog  
+  ("Sales 4"));  
+ 
+bonus = 0; 
+tot = sales1 + sales2 + sales3 + sales4; 
+ave = tot / 4; 
+ 
+if (tot > 5000) 
+{ 
+     bonus = sal * 10 / 100; 
+} 
+if (ave > 1200) 
+{ 
+     bonus = bonus + 400; 
+} 
+String msg1 = "Your salary cheque for R "+ sal  
+      +" has been mailed to you.\n"; 
+String msg2 = "Congratulations! Your bonus is R" + bonus; 
+ 
+JOptionPane.showInputDialog (null, message1 + message2); 
+ 
+} // main method 
+} // Candles class 
+This program determines the bonus for a candle-seller at a flea market based upon sales for the 
+month. A bonus is paid for total sales over R5000 and a further bonus for an average of R1200 
+or more. But the program gives strange output for some sets of data. 
+1.1. Draw up a trace table using the headings below with the amounts of R1200, R1345, 
+R1842 and R1903 for the 4 sales figures that must be input. 
+sal sales1 sales2 sales3 sales4 bonus tot ave tot > 5000? ave > 1200? 
+===== PDF PAGE 163 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 153 
+Remember to show the screen output. 
+1.2. Draw another trace table for this program and determine what output you get if you enter 
+the following sales figures: R800, R1000, R986 and R1500.  
+1.3. Type in the code into a new class called Candles, making corrections where necessary, 
+then run the program, checking the output from your trace tables. 
+Be sure to test all the possible options and check that the program doesn't display any 
+messages about a bonus if the person hasn't received one.  
+Remember to save any changes.  
+2. Look at the program segment below: 
+day = JOptionPane.showInputDialog  
+    ("Type in the day (e.g. Monday, Tuesday)"); 
+publicHol = JOptionPane.showInputDialog 
+    ("Public holiday? (y/n)").charAt (0); 
+ 
+if (publicHol == 'Y' | publicHol == 'y' &&  
+    (day.equals ("Monday") | day.equals ("Friday"))) 
+{ 
+     longWeekend = 'Y'; 
+} 
+3. Type in this code in a new class, declaring the variables day, publicHol and longWeekend 
+used in this program segment. 
+3.1. Why are there extra brackets (after &&) around the check for day?  
+3.2. Why are two && symbols used for AND? 
+Run your program with several sets of data to test it.  
+3.3. What happens if the user types in MONDAY? 
+3.4. Adjust the condition so that the day can be typed in using any case. 
+4. Draw a trace table of the following program. Create a column for each variable and each 
+condition in bold below: 
+int i; 
+double x = 4, sum = 1.0; 
+ 
+for (i = 3; i <= 8; i++) 
+{ 
+sum = sum + i; 
+if (i % 2 == 0) 
+{ 
+    x = x + i * 3; 
+} 
+    System.out.println (i); 
+    System.out.println (sum); 
+} 
+System.out.println (i); 
+System.out.println (x); 
+ 
+  
+===== PDF PAGE 164 =====
+Exploring IT: Java Programming Grade 10 
+Page 154 Learning Unit 8 Switch Statements and More 
+8.3 Determining the Largest and Smallest 
+A common programming problem is to find the largest and smallest value of a set of values. In this 
+case the user will enter 10 values and the program will display the largest and smallest of the 10 
+numbers.  
+The best way to solve this is to input the first number and to use that number to set the highest and 
+lowest variable. The subsequent numbers are entered and each one is compared to the highest and 
+lowest. If the number is higher, then it replaces the existing highest number; if it is lower, it replaces 
+the lowest. 
+8.3.1 Decomposition, Abstraction, Repetition and Algorithm 
+To decompose the problem IPO would not be suitable as we will need to input values in the loop, 
+blurring the processing and input tasks. An alternate method is to simply break the problem into three 
+main tasks. 
+Task 1 Task 2 Task 3 
+input first number 
+use this number to set both 
+max and min 
+repeat this for the remaining 
+9 numbers (Repetition) 
+display the result 
+We can zoom into (abstraction) Task 2 and decomposed further: 
+repeat 9 times 
+input next number 
+determine if this number is the largest or smallest (Task 4) 
+end loop 
+Again, we can abstract out Task 4 by zooming in and writing the algorithm for the nested if statement 
+if num > max 
+ then max  num 
+ else  
+     if num < min 
+     then  
+                      min  num 
+Task 1 through 4 can be combined into the algorithm below: 
+Pseudocode: 
+    begin  
+input num     
+max  num     
+min  num 
+for i 2 to 10; inc 1 by 1 (need to enter the next 9 numbers) 
+input num   (input the next num) 
+ if num > max    (if new num is greater than max then it is the new biggest) 
+         then max  num 
+         else  
+    if num < min  (otherwise if it less than min it is the new lowest) 
+then 
+         min  num 
+ end if 
+===== PDF PAGE 165 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 155 
+end for 
+display max, min 
+    end 
+Note in the second if statement we must include a check that num < min to determine the smallest 
+number. We cannot assume that if a number is not the highest then it must be the smallest! 
+The flow chart for the solution is shown below. 
+ 
+
+===== PDF PAGE 166 =====
+Exploring IT: Java Programming Grade 10 
+Page 156 Learning Unit 8 Switch Statements and More 
+ACTIVITY 5 
+ Create a Java program called MaxMin using the algorithm provided. 
+ Save and run the program and check with 10 different values. 
+EXERCISE 2 
+1. Adapt the MaxMin program so that it calculates the average as well as the highest and lowest 
+values. 
+2. Create a new program RandomMaxMinAve to randomly generate 100 numbers between 1 and 
+200. Determine the average, highest and lowest. Display the results. 
+ 
+8.4 Using a Switch Statement Instead of Multiple If 
+Statements  
+Instead of using several if ... else statements, it is sometimes easier and neater to use switch and 
+case.  
+ACTIVITY 6 
+ Open the class called LetterGrade that you created previously. 
+ Replace all occurrences of LetterGrade with LetterGrade2 and save the program. 
+ Change the code in the entire section of if ... else statements so that the program reads as 
+follows. (The changed statements are shown in bold.) 
+// The "LetterGrade2" class. 
+import javax.swing.*; 
+ 
+public class LetterGrade2 
+{ 
+  public static void main (String [] args) 
+  { 
+    int mark, markDiv10; 
+ 
+    char grade = 'X'; 
+ 
+    mark = Integer.parseInt (JOptionPane.showInputDialog ("Type in a 
+mark out of 100")); 
+ 
+    markDiv10 = mark / 10; 
+ 
+    switch (markDiv10) 
+    { 
+       case 8: case 9: case 10: 
+         grade = 'A'; 
+     break; 
+       case 7: 
+         grade = 'B'; 
+     break; 
+       case 6: 
+     grade = 'C'; 
+          break; 
+       case 5: 
+===== PDF PAGE 167 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 157 
+          grade = 'D'; 
+          break; 
+       case 4: 
+          grade = 'E'; 
+          break; 
+       case 3: case 2: case 1: case 0: 
+          grade = 'F'; 
+          break; 
+     } // end switch 
+  
+ 
+     JOptionPane.showMessageDialog (null,"Your mark of " + mark  
+        + " is the symbol " + grade); 
+  } // main method 
+} // LetterGrade2 class 
+In the switch construct, the statements in each case clause are not enclosed in curly brackets 
+(although they can be).  
+The break statement at the end of each case clause makes the program exit the switch statement. If 
+break is left out, then the statements of the following alternative are also carried out. 
+When several cases result in the same action, the different cases are separated by colons before the 
+next statements to be executed.  
+In the above code, case 8: case 9: case 10:  is equivalent to having no statements in the case 8 
+clause or in the case 9 clause. There is no break statement in either, so for case 8, case 9 and case 
+10 the statements of the case 10 clause will be carried out. 
+ Indent your code as shown above or use the indent function in your IDE if you have one.  
+ Save and run the program and test your program with 80, 38, 51, 90, 66 and 70 for marks. 
+ Write down the output that your program produces: 
+It is usual to include a default alternative in case a value is typed in that does not fit into any of the 
+"case" categories. 
+Add the following lines of code just before the ending switch bracket: 
+  default: 
+        System.out.println("Mark incorrect, no grade applies"); 
+ Run the program and enter a mark that is above 100. You should be informed that this is 
+incorrect. Unfortunately, the grade of X is displayed with your mark. 
+Your switch statement should ultimately look like this: 
+switch (markDiv10) 
+{ 
+case 8: 
+case 9: 
+case 10: 
+    grade = 'A'; 
+break; 
+case 7: 
+    grade = 'B'; 
+    break; 
+case 6: 
+    grade = 'C'; 
+    break; 
+case 5: 
+    grade = 'D'; 
+    break; 
+===== PDF PAGE 168 =====
+Exploring IT: Java Programming Grade 10 
+Page 158 Learning Unit 8 Switch Statements and More 
+case 4: 
+    grade = 'E'; 
+    break; 
+case 3: 
+case 2: 
+case 1: 
+case 0: 
+    grade = 'F'; 
+    break; 
+default: 
+    System.out.println ("Mark incorrect, no grade applies"); 
+ } // end switch 
+if (mark >= 0 & mark <= 100) 
+{ 
+ JOptionPane.showMessageDialog (null,"Your mark of " + mark  
+      + " is the symbol " + grade); 
+ } 
+ Change the output statement to be in an if statement so that the grade will only be displayed if 
+the mark entered is not more than 100. 
+8.4.1 How a Switch Statement Works 
+When a switch statement executes, the interpreter computes the value of the expression in brackets 
+after the word switch, then looks for a case label that matches that value. If it finds a match, the 
+interpreter starts executing the block of code at the first statement following the matching case label. 
+If it does not find a matching case label, the interpreter starts execution at the first statement following 
+the default: label. Or, if there is no default: label, the interpreter skips the body of the switch block 
+altogether and carries on with the rest of the program.  
+The use of the break keyword at the end of each case clause causes the interpreter to exit the 
+switch statement block when it has executed the statements in that case clause. The case label 
+which matches the switch expression is only the starting point of the desired code. The individual 
+cases are not independent blocks of code and with breaks, they do not have any implicit ending point. 
+Therefore, the end of each case clause must be specified using a break statement. 
+8.4.1.1 Investigation of the Break Statement 
+ To understand the importance of the break statement, place // before each break; in the switch 
+statement and run the program with 78 as data.  
+ Write down the output. 
+In the absence of break statements, a switch statement begins executing code at the first statement 
+after the matching case label and continues executing statements until it reaches the end of the 
+switch block. 
+A simple explanation is that the program finds the first matching case label starting from the 
+beginning of the switch statement. In this example, the grade should be displayed as a 'B'. 
+Because there are no break statements to cause the program to exit the switch statement after 'B' 
+has been assigned, each statement after the grade = 'B' is executed one after the other, 
+assigning each letter in turn to the variable grade. 
+The final grade is assigned is an 'F' as all the previous values are overwritten. 
+  
+===== PDF PAGE 169 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 159 
+ACTIVITY 7 
+Start a new class called Respond and enter the following code: 
+char ch; 
+ch = JOptionPane.showInputDialog  
+("Choose from '1'-sing, '2'-cry, '3'-laugh,'x'-
+finish:").charAt(0); 
+switch (ch)  
+{ 
+case '1': 
+    System.out.println ("La la");  
+    break; 
+case '2': 
+    System.out.println ("Boo hoo"); 
+    break; 
+case '3': 
+    System.out.println ("Ha ha"); 
+    break; 
+case 'x': 
+    System.out.println ("See you later"); 
+    break; 
+default: 
+    System.out.println ("I don't understand"); 
+} // end switch 
+ Run the program and type in the character '2' when prompted. What is displayed? 
+ What will be output if the character 'x' is typed in when asked to choose? 
+ Why does the program stop when one of the characters '1', '2', '3' or 'x' is pressed? 
+ What will be output if the character '4' is typed in when asked to choose? Why? 
+ Why is there no break; after the output in the default clause? 
+ What will be output if the character 'X' (capital) is typed in when asked to choose?  Explain 
+your answer? 
+ Extend the program so that both a capital 'X' and a lowercase 'x' can be input, with the same 
+response. 
+Another way to ensure your program can cope with lowercase and uppercase letters is to convert the 
+input to capitals as it is entered. 
+ Change the input statement to be: 
+ ch = JOptionPane.showInputDialog ("Choose from '1'-sing, '2'-cry,  
+    '3'-laugh, 'x'-finish: ").toUpperCase ().charAt (0);  
+Note that toUpperCase() is a String method and must be used on the String before converting to a 
+char with the charAt() method. 
+The above input statement could have been coded in separate lines of code, as shown: 
+String input = JOptionPane.showInputDialog ("Choose from '1'-sing,  
+     '2'-cry,'3'-laugh, 'x'-finish: "); 
+input = input.toUpperCase ();   
+ch = input.charAt (0); 
+ Do the "case" options in the switch statement use lowercase letters?  If so, you want to use the 
+toLowerCase() method rather than toUpperCase().  
+This is a common error, where the input is converted to uppercase but switch cases are looking for 
+lowercase letters. 
+The values being tested 
+can be single characters 
+rather than integers.  
+The values being tested 
+must then be in single 
+quotes. 
+===== PDF PAGE 170 =====
+Exploring IT: Java Programming Grade 10 
+Page 160 Learning Unit 8 Switch Statements and More 
+EXERCISE 3 
+Open the Greet class which you saved in a previous exercise. You should have an Afrikaans, English 
+and Zulu option. 
+ Add a Sotho option, displaying "Dumela" if the option 'S' is chosen from the menu. 
+ The if statements in this program are getting rather messy. Change them to use switch and 
+case. 
+ Also add a default option so that if a letter other than A, E, S, Z or X is typed in, a message will 
+be displayed stating that an invalid option has been entered. 
+ Run your program, testing all options to make sure that they work correctly. 
+The options are all characters, so the case labels MUST be in single quotes. 
+ 
+  
+===== PDF PAGE 171 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 161 
+8.4.2 Important Points on the Switch / Case Statement 
+The logic of the SWITCH/CASE statement is similar to 
+that of the nested IF statement. Only 1 of the options is 
+executed, if break is used at the end of each case 
+section. 
+Layout is important. Line up the case labels and the 
+colons (:). Using Indent in your IDE helps to line up the 
+statements correctly. 
+ 
+int num;      
+num = Integer.parseInt 
+(JOptionPane.showInputDialog  
+    (""Enter any integer")); 
+ 
+switch (num) 
+{ 
+   case 1: 
+   case 3: 
+   case 5: 
+   case 7: 
+   case 9: 
+      System.out.println ("odd"); 
+      break; 
+   case 1: case -1: 
+      System.out.println ("Too low to 
+go!"); 
+      break; 
+   case 2: 
+   { 
+      System.out.println ("Even no"); 
+      System.out.println ("Prime no 
+too!"); 
+      break; 
+   } 
+   case 0: 
+      System.out.println ("zilch!"); 
+      break; 
+   case 10: 
+      System.out.println ("Too high"); 
+   case 11: 
+      System.out.println ("More than 10"); 
+      break; 
+   default: 
+      System.out.println ("Any other 
+value"); 
+ 
+} // end of switch 
+ 
+System.out.println ("Case is closed"); 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+If more than one value has the same 
+output, each value must have the word 
+case in front of it and a colon after it. 
+Putting nothing after each colon makes 
+the computer follow on to check the 
+next values, until it hits a break 
+statement. 
+A break causes the switch statement 
+to be exited. 
+The statements that must be carried 
+out if a case label matches the value of 
+num may be put in curly brackets, but 
+they are not essential. 
+If a break statement is not used and a 
+match occurs (e.g. if the value 10 is 
+input in this case) the output will be the 
+statement following the match, as well 
+as the next case output statement(s), 
+until a break is encountered. In this 
+e.g., "Too high" as well as "More 
+than 10" will be output if 10 is 
+entered. 
+If none of the specific case labels 
+match the input value, then the 
+statement after the default: label will be 
+carried out. If the default: label is not 
+included in the switch statement and 
+none of the case labels match the input 
+value, the program will jump to the line 
+after the end of the switch statement 
+and continue from there. 
+This last line will be displayed every 
+time, as it is outside the switch 
+statement block. 
+The int or char type variable whose value is to be tested is put in brackets after the word switch. If 
+a char type variable is used, the case labels must be in single quote marks. Each case label can 
+have only one unique value. No ranges such as 0..9 can be used. You will need to check each 
+option i.e. case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: 
+case 8: case 9:. Relational operators may not be used such as num > 0. If you need to use a 
+relational operator, you will have to change to an if statement instead of a switch. 
+===== PDF PAGE 172 =====
+Exploring IT: Java Programming Grade 10 
+Page 162 Learning Unit 8 Switch Statements and More 
+CHECK POINT 2 
+1. What types are not allowed for input values of a switch statement? 
+2. What is the importance of the break statement in a case clause in a switch statement? 
+3. What is the purpose of the default statement used with switch? 
+4. Identify the compilation errors in the following switch statements.  
+4.1.    
+switch (num) 
+{ 
+case 2: 
+case 4: 
+case 6: 
+    System.out.println ("2,4,or 6"); 
+break; 
+case 3: 
+case 6: 
+case 9: { 
+    System.out.println ("3,6,or 9"); 
+case 10: 
+case 11: 
+case 12: 
+    System.out.println ("10,11,12"); 
+    break; 
+ 
+System.out.println ("End of program"); 
+4.2.  
+switch (ans) 
+{ 
+case <0 : System.out.println("negative"); 
+case 0: System.out.println("zero"); 
+case >0: System.out.println("positive"); 
+} 
+4.3.  
+switch opt 
+case 1: case 2: case 3: 
+    System.out.println("options 1,2,3"); 
+default : 
+    System.out.println("none of the above"); 
+case 4: 5: 6: 
+    System.out.println("the rest"); 
+5. Rewrite the following switch statements as nested if statements. 
+5.1.  
+switch (ch) 
+{ 
+case '1': 
+    System.out.println ("La la");  
+    break; 
+case '2': 
+    System.out.println ("Boo hoo"); 
+===== PDF PAGE 173 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 163 
+    break; 
+case '3': 
+    System.out.println ("Ha ha"); 
+    break; 
+case 'x': 
+    System.out.println ("See you later"); 
+    break; 
+default: 
+    System.out.println ("I don't understand"); 
+    break; 
+} // end switch 
+5.2.  
+switch (num) 
+{ 
+case 1: 
+case 3: 
+case 5: 
+case 7: 
+case 9: 
+    System.out.println ("odd"); 
+    break; 
+case - 1: 
+    System.out.println ("Too low to go!"); 
+    break; 
+case 2: 
+{ 
+    System.out.println ("Even no"); 
+    System.out.println ("Prime no too!"); 
+    break; 
+} 
+case 0: 
+    System.out.println ("zilch!"); 
+    break; 
+case 10: 
+    System.out.println ("Too high"); 
+    break; 
+case 11: 
+    System.out.println ("More than 10"); 
+    break; 
+default: 
+   System.out.println ("Any other value"); 
+} // end of switch  
+6. All switch statements can be written as nested if statements, but the reverse is not true. Why is 
+it not possible to convert the following nested if statement to a switch statement? 
+if (a > b)     
+    if (b < 10){a = b * 2;} 
+        else { a = b * b; } 
+ 
+  
+===== PDF PAGE 174 =====
+Exploring IT: Java Programming Grade 10 
+Page 164 Learning Unit 8 Switch Statements and More 
+EXERCISE 4 
+1. Load the program Arithmetic. Change the menu so that it uses a switch statement. Include a 
+default statement to display an error message for any incorrect input. 
+2. ValidDate 
+Write a program to check if the date entered is valid. The user will input the day, month and 
+year. These must be stored in separate variables. Use a switch statement to check the days in 
+the month. If the month is February, check if the year is a leap year. Display a message if the 
+date is valid or not. Use the jingle to help you: 
+Thirty days hath September, April, June and November. 
+All the rest have thirty-one, excepting February alone, 
+Which has but twenty-eight days clear, 
+And twenty-nine in each leap year. 
+3. SportingEvents 
+The Olympics are held during a leap year. The cricket world cup is usually held two years after a 
+leap year and the rugby world cup is held three years after a leap year. Write a program to enter 
+the year, determine and display the sporting event to be held. Display a suitable message if 
+there is no event that year. 
+Test your program with the current year and every year for the next 4 years. 
+4. RockPaperScissors 
+This is a game the user can play against the computer. Rock paper scissors has three options 
+for each player: paper, scissors and rock. Rock smashes scissors, scissors cuts paper and 
+paper wraps rock. 
+4.1. Assign a value to each option 0 = paper, 1 = scissors and 2 = rock. 
+4.2. Randomly generate a number between 0 and 2 for the computer 
+4.3. Input an option from the user. 
+4.4. To determine the winner, calculate the computer's option less the user's option. 
+• If the result is a 1 or a -2 the computer has won 
+• If the result is a -1 or a 2 the user has won 
+• If the result is 0 it is a draw 
+  
+===== PDF PAGE 175 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 165 
+4.5. Copy the table and fill in the results to check the formula. 
+Computer User Result 
+rock (2) paper (0)  
+rock (2) scissors (1)  
+scissors (1) rock (2)  
+scissors (1) paper(0)  
+paper (0) rock(2)  
+paper (0) scissors (1)  
+rock (2) rock (2)  
+scissors (1) scissors (1)  
+paper (0) paper (0)  
+ 
+8.5 Boolean Variables 
+The name Boolean comes from the 19th Century computer pioneer George Boole, an English logician 
+and mathematician. 
+We have done many examples where we tested conditions using if statements. Often, we checked for 
+a condition and then did something without storing the outcome of the condition in memory. 
+Remember the example in which greetings were displayed in different languages?  This included 
+several if statements such as: 
+ if (option == 'A')  
+   { System.out.println("Goeie More"); } 
+ What is the condition in this statement? 
+The result of the condition is not stored in memory. The computer simply checks if the option is 'A' 
+and then displays a message. 
+BUT ... there will be times when we want to store the results of conditions like this. So, we need to 
+introduce a new type of variable: 
+ACTIVITY 8 
+ Take a careful look at the code below which determines whether a year is a leap year:  
+int year; 
+ 
+boolean leap; 
+ 
+year= Integer.parseInt(JOPtionPane.showInputDialog  
+         ("Enter the year")); 
+leap = year % 4 == 0; 
+ 
+if (leap)  
+{  
+It is not necessary to say 
+if (leap == true) 
+===== PDF PAGE 176 =====
+Exploring IT: Java Programming Grade 10 
+Page 166 Learning Unit 8 Switch Statements and More 
+    System.out.println("leap year"); 
+}                   
+else 
+{ 
+    System.out.println("not a leap year");  
+} 
+Type the above code in a new class called Boole1. 
+Java takes the value stored in the variable year and finds the answer to year % 4. It then checks if 
+the answer is 0. If it is 0, then the boolean variable leap gets a value of true, otherwise leap gets a 
+value of false. 
+===== PDF PAGE 177 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 167 
+8.5.1 Important Points on Boolean Expressions 
+ 
+ 
+Boolean variables can only store the results of 
+Boolean expressions. i.e. expressions that test a 
+condition. 
+ 
+boolean even_no; 
+ 
+if (num % 2 == 0)  
+   {even_no = true;} 
+boolean even_no; 
+ 
+even_no = (num % 2 == 0); 
+The Boolean variable will always get a value 
+(either true or false) when the statement has 
+been completed. 
+In the if statement above, even_no will not get a 
+value if num is odd, but in the Boolean 
+expression, it will get a value. 
+ 
+ 
+Any condition in an if statement can be rewritten 
+as a Boolean expression and vice versa. 
+ 
+Boolean variables only have two values: TRUE 
+and FALSE 
+ 
+    In Java, we can think of  
+   FALSE = 0 and TRUE = 1. 
+ 
+The results of Boolean expressions are not 
+Strings so don't put true or false in quote marks. 
+ 
+Many computer programmers think that it is 
+better programming to use a boolean variable 
+rather than an expression in an if statement. 
+ 
+boolean teenager; 
+int age; 
+ 
+teenager = (age > 12 & age < 20); 
+ 
+if (teenager) { ... } 
+ 
+Boolean variables are often used with the logical 
+operators AND, OR, NOT. 
+Boolean variables are useful when the condition 
+in an if statement is very long. 
+if (let=='a' | let=='e' | let=='I' | let=='o' | let=='u') 
+   { System.out.println ('The letter is a vowel'); } 
+vowel = (let=='a' | let=='e' | let=='I' | let=='o' | let=='u'); 
+if (vowel)  
+   { System.out.println ("The letter is a vowel"); } 
+ 
+ 
+===== PDF PAGE 178 =====
+Exploring IT: Java Programming Grade 10 
+Page 168 Learning Unit 8 Switch Statements and More 
+Sometimes you will have written code that could easily have been written as a boolean expression. 
+The code is normally in the form: 
+ boolean var; 
+ if (condition) 
+ { 
+     var = true; 
+ } 
+ else 
+ { 
+     var = false;  
+ } 
+This can be rewritten as:  
+    var = condition; 
+For example: 
+ boolean hot; 
+ if (temp >= 35) 
+ { 
+     hot = true; 
+ } 
+ else 
+ { 
+     hot = false; 
+ } 
+This can be rewritten as: 
+    hot = temp >= 35; 
+EXERCISE 5 
+1. Explain the difference(s) between the pairs of statements below: 
+1.1.     
+1.1.1. even = mynumber % 2; 
+1.1.2. even = mynumber % 2 == 0; 
+1.2.     
+1.2.1. if (a > b) {big_a = true;} 
+1.2.2. big_a = (a > b);  
+2. If we declare the following Boolean variables: ans1, evenTot, over45 and isTheSame, what 
+will the value of the variables be for each of the statements below? Work out and write down 
+your answers. 
+2.1. ans1 = (3 + 4 == 4 + 3); 
+2.2. evenTot = ((13 + 16 + 19 + 21) % 2 == 0); 
+2.3. over45 = (35/9*11+7 > 45); 
+2.4. isTheSame = (200/5/2 == 200/10); 
+2.5. similar = ("0800".equals("800")); 
+===== PDF PAGE 179 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 8 Switch Statements and More Page 169 
+2.6. isTheSame = (!(similar) & (ans1 | isTheSame));  
+3. Rewrite the IF statements below using Boolean variables and declare all the variables that you 
+use. Try to make your Boolean statements as short as possible. 
+3.1.  
+if (ans != 'Y' | ans != 'y' | ans != 'N' | ans != 'n')      
+{ 
+    validAns = false; 
+} 
+else 
+{ 
+    validAns = true; 
+} 
+3.2.      
+if (dialCode.equals("0860") | time < 7.0 | time > 19.0) 
+{  
+    cheapPhoneCall = true; 
+}  
+else  
+{ 
+    cheapPhoneCall = false; 
+} 
+3.3. Type your answers for 3.1 and 3.2 in a program on the computer to check them. Use 
+suitable input values to test them. Try re-writing the condition in 3.1 several different ways. 
+4. Five variables have been initialised below.  
+4.1. Write down the Java code to declare each variable.  
+// Declare the variables 
+name = "Bongani"; 
+age = 16; 
+inLove = true; 
+soccerTeam = "Mamelodi Sundowns"; 
+music = "RAP"; 
+4.2. What will the output of the following program segment which uses the above variables be? 
+System.out.println (name + " is " + age + " years old."); 
+if (inLove) 
+{ 
+    System.out.print ("Yes! He is "); 
+} 
+else 
+{ 
+    System.out.print ("No! He is not "); 
+} 
+System.out.println ("in love"); 
+ 
+if (soccerTeam.length () > age) 
+{ 
+    music = "jazz"; 
+} 
+ 
+if (music == "RAP") 
+{ 
+    soccerTeam = "Chiefs"; 
+} 
+===== PDF PAGE 180 =====
+Exploring IT: Java Programming Grade 10 
+Page 170 Learning Unit 8 Switch Statements and More 
+ 
+System.out.print ("He supports " + soccerTeam );  
+System.out.println(" and he loves " + music + " music"); 
+System.out.println (); 
+System.out.print ("Actually this information is " +  
+    (name.length() % 2 == 0)); 
+System.out.println (" ... he supports the BAFANABAFANA!"); 
+4.3. Type in a program on the computer to check your answers. 
+5. Given the if statement below: 
+double pH; 
+if (pH >= 1 & pH < 7)  
+{  
+    System.out.println("Solution is acidic - might be lemon juice"); 
+} 
+else  
+{  
+    System.out.print("Solution is either neutral or base."); 
+    System.out.println(" Perhaps it is water!");  
+}  
+5.1. Rewrite the if statement using a Boolean variable. 
+5.2. Explain why you can't use a "switch/case" statement instead of "if" in this example. 
+ 

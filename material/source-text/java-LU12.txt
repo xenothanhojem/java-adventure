@@ -1,0 +1,1231 @@
+
+===== PDF PAGE 229 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 219 
+Learning Unit 12 Databases and 
+SQL 
+12.1 Introduction 
+This Learning Unit requires that you are familiar with Boolean Logic in Learning Unit 6 in Exploring 
+IT: Theory Grade 10. 
+Instead of data being stored in text files and the data in these files being manipulated, using 
+programs, data can be stored in tables in a database, using a database program and manipulated 
+using Structured Query Language (SQL). 
+A database is "a collection of related information about a subject, organised in a useful manner" 
+according to QUE's Computer and Internet dictionary. The data in the database can be easily 
+retrieved and used to draw conclusions, or to make decisions using a database program. A relational 
+database program provides mechanisms to store data in tables and relate the data in one table to 
+another using a common column or field. Most major commercial databases created using programs 
+such as Microsoft Access or MySQL use a relational approach.  
+A Database Management System (DBMS) is a 
+set of programs used to create the database, 
+control the database, provide access to it and 
+manage the data within the database.  
+A good DBMS should avoid duplication of data 
+and should provide data that is consistent and 
+reliable. Many users usually have access to the 
+same database, possibly across a network. The 
+DBMS needs to control the access to the data. 
+Microsoft Access and MySQL are examples of a 
+DBMS. MS Access is proprietary software 
+developed for the Windows operating system and 
+is not designed for commercial use. MySQL is an 
+open source DBMS that is designed for 
+commercial use and multiple operating systems. 
+Both support Delphi and Java, however MySQL 
+supports a larger range of programming 
+languages. If you do not have a licenced version 
+of MS Access, then you can freely download and install MySQL instead. In this Learning Unit, we will 
+use Java DB which is bundled with NetBeans which is freely available. 
+In this chapter, we will learn how to structure the data in a database and later on, in Grade 11, how to 
+write programs that will use and manipulate the data. We will be using MS Access and MySQL 
+applications in the examples. Application programs can connect to any other type of database with 
+minimal changes. 
+https://www.indiamart.com/techsync-consulting/data-management-systems.html 
+12.2 Database Concepts 
+A DBMS schema is the skeleton structure or the logical design of the entire database. It defines how 
+the data is organised into tables and how these tables are linked together to form relationships. The 
+simplest entity in a database is a field. A field can store a single data item. Fields are the columns in 
+a table. For example, a field can be a person's name, date of birth (an age is never stored, but this will 
+
+===== PDF PAGE 230 =====
+Exploring IT: Java Programming Grade 10 
+Page 220 Learning Unit 12 Databases and SQL 
+be explained later), or telephone number. Each field must have a data type associated with it just like 
+a variable needs a type in a programming language. 
+When many fields are grouped together, they form a record. All the related fields containing data 
+about one person will form a record. In a database table, records are the horizontal rows. 
+As another example, think of a record as a list of your personal details at your school. All the 
+information stored at the school about you is grouped together as a record. Each student record 
+consists of many fields storing information about a student such as StudentID (one word – just like 
+any variable name), name, surname, grade, date of birth and address. 
+12.2.1 Primary Keys 
+The StudentID field is a very important one – it's known as the Primary Key. A Primary Key is 
+defined as being a field that uniquely identifies each record in the table. Consider the table 
+containing students (as above), what would happen if you wanted information about a particular 
+student, but more than one student has the same name or surname?  The DBMS wouldn't be able to 
+differentiate enough to guarantee that you are working with the correct record unless you provide 
+more information, like grade, but you could still have more than one student with the same name, 
+surname and grade. What if you wanted to edit or delete a particular student?  If you don't have a 
+Primary Key, you may delete more than one student or edit the incorrect student!  
+We are going to design tables that include a Primary Key, and we have the option of using an auto 
+number Primary Key; we are going to make use of this design feature when we create the first 
+database that you will use. 
+12.2.2 Database Terminology 
+Many records can be grouped together in a table. A physical paper file containing many peoples' 
+records, or a drawer of a cabinet containing all the library cards, can be thought of as in a similar way 
+to a table. 
+• A field stores a single data item. 
+• A record is a collection of fields. 
+• A table is a collection of records. 
+• A database is a collection of tables. 
+• A primary key uniquely identifies a record. 
+12.3 Creating a Table 
+You can choose to use either MS Access if you have the package or Java DB bundled with NetBeans 
+which is freely available. 
+If you are using Java DB, read the following section as it contains important theory regarding table 
+creation in a database, then proceed to 12.3.3 to learn how to create a table in Java DB using 
+NetBeans. 
+12.3.1  MS Access 
+We are going to create a simple table, using the MS Access database program to store the details of 
+Comrades Marathon winners from 1990 to 1994. We're going to use 8 fields: ID, Year, UpDown, 
+WinTime, Name, Gender, Club and Country.  
+  
+===== PDF PAGE 231 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 221 
+ACTIVITY 1  
+Using MS Access to create a database table: 
+ Load MS Access and create a Blank Access Database. 
+ Create the database with the name Comrades1 in a folder of your 
+choice. 
+ 
+You will automatically go to the table section. This section is where the data in the table can be 
+viewed and it is called Datasheet view. 
+ Click on the Save icon at the top left of the screen and save the table as 
+tblComrades. 
+ 
+ 
+ 
+ 
+ 
+tbl is a prefix indicating that the object is a table. In MS Access you can have tables, forms, queries 
+and reports, therefore, using a naming convention helps to identify the object you are dealing with. 
+The prefixes for the other objects are frm (form), qry (query) and rpt (report). 
+ Click on the icon that looks like a ruler and set square (also on the top left of the 
+screen): 
+ 
+This will take us into Design View where we will create the fields for the records in the table. The 
+schema or structure of the table is defined here by giving each field a name and a data type. The 
+screen will change and display the fields of the table. MS Access will automatically insert a field called 
+ID and mark this as the Primary Key which will be automatically increased each time a new record is 
+added to the table. 
+
+===== PDF PAGE 232 =====
+Exploring IT: Java Programming Grade 10 
+Page 222 Learning Unit 12 Databases and SQL 
+ Under the ID field, type in the first field of 
+the Comrades records, namely RaceYear 
+as one word. Field names should always be 
+one word. When two words are joined 
+together, we use upper camel case, where 
+the first letter of each new word is 
+capitalised including the first letter. 
+ Click on the Data Type next to RaceYear 
+and set it to Number: 
+ Note: we did consider using the name Year 
+for the field, but MS Access pre-empts that 
+the word Year may be a potential reserved 
+word; as there is a function called Year that 
+will extract the Year part of a DateTime 
+value. As such, we will continue with the 
+field name RaceYear: 
+ We can further define the field's properties 
+by choosing an appropriate Number Type. 
+Change the Field Size property to Long 
+Integer under the General tab at the bottom of the design window. 
+ Add the following fields to complete the table design: 
+ 
+ 
+ 
+ 
+ 
+ 
+Some notes on the choice of fields and their properties: 
+• UpDown: This field represents a Boolean value. Each Comrades Marathon alternates 
+between being an uphill race (Durban to Pietermaritzburg) or a downhill race (Pietermaritzburg 
+to Durban). The format could be Yes/No, but the format of True/False is more consistent with 
+Boolean values that you are accustomed to using in your programming language. Up means 
+TRUE, down means FALSE. 
+• WinTime: 'Time' is also a reserved word, so the addition of 'Win' allows the field name to not 
+conflict; also, the format of Long Time allows for the recording of winning times in hh:mm:ss 
+format. 
+• WinName: 'Name' is also a reserved word, so 'Win' is used to remove the conflict. A field size 
+of 50 should be long enough to accommodate any name and surname. 
+• Gender:  This is a tricky one!  We could use True for female and False for male (a Yes/No 
+field type), or vice versa, but it's somewhat discriminatory to refer to a gender as either True or 
+False. A Text type of 'F' or 'M' is more appropriate and is set to a field size of 1 for a single 
+character allowing for a variety of genders. 
+• Club:  This field name doesn't represent a reserved word conflict. Once again, a Text field size 
+of 50 would cover all possibilities. 
+• Country:  This field name doesn't represent a reserved word conflict and a Text field size of 
+50 would also suffice. 
+Field Names Field Type Property 
+UpDown Yes/No Format: True/False 
+WinTime Date/Time Format: Long Time 
+WinName Short Text Field Size: 50 
+Gender Short Text Field Size: 1 
+Club Short Text Field Size: 50 
+Country Short Text Field Size: 50 
+
+===== PDF PAGE 233 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 223 
+It's quite important that we consider field sizes and properties so that the table is designed in the most 
+efficient manner. Once you have added all the fields to the table schema, the Design View should 
+appear as follows: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Additionally, some fields may allow for Required and Indexed property settings: 
+ 
+ 
+ 
+ 
+Required set to Yes means that a value must be provided for the field value when adding a new 
+record to the table (or changing record values); i.e. the value may not be Null or empty. Indexed 
+fields are useful if there are frequent searches or sorts applied to the field. The DBMS provides a 
+structure similar to an index at the back of a book to speed up searching and sorting, but it can slow 
+down updating (editing) of a field as the index would have to change according to the changed data. 
+Multiple field indexes can also be created, but that is beyond the scope of this course. 
+ACTIVITY 2 
+The previous activity created the table structure. You now need to insert data into the table. 
+ Switch to Datasheet view (on the same icon you clicked on for Design view)  
+ Enter the following data row by row into tblComrades by selecting each field for the row. Note: 
+the field ID will be populated automatically by MS Access with ascending numbers; this is 
+correct: 
+ 
+ Save and close Comrades1. 
+  
+
+===== PDF PAGE 234 =====
+Exploring IT: Java Programming Grade 10 
+Page 224 Learning Unit 12 Databases and SQL 
+12.3.2 MS Access Data Types 
+MS Access provides many data types. The following table provides a summary of useful data types. 
+Type Name Category Description 
+AutoNumber Number A self-incrementing long integer number. 
+Byte Number Store integers from 0 to 255 (one byte) 
+Integer Number Store integers from -32768 to 32767 (two bytes) 
+Long Integer Number Store integers from -2 billion to 2 billion (four bytes) 
+Currency Number Stores numeric data as a currency value in 8 bytes 
+Double Number Stores a decimal number in 8 bytes 
+Short Text Text Text up to 255 characters 
+Long Text Text Text up to 64 000 characters 
+General Date Date/Time Includes both the year and the date.  
+Long/Medium/Short 
+Date 
+Date Long (Monday, October 19, 2020), Medium (19-Oct-20), 
+Short (2020/10/19) 
+Long/Medium/Short 
+Time 
+Time Long (17:34:23), Medium (5:34 PM), Short (17:34) 
+True/False, 
+Yes/No, On/Off 
+Yes/No 0 for false and -1 true in one byte 
+12.3.3 Java DB 
+We will use NetBeans to connect to the Java DB database. Besides being open source, the 
+advantages of using NetBeans with Java DB is that you can work on your Java program and view 
+your database in the same application without installing any other software. In Grade 11 will use 
+NetBeans instead of jGrasp as an IDE when coding with Java.  
+You will need to NetBeans installed on your computer. Download NetBeans from 
+https://netbeans.org/. 
+ACTIVITY 3 
+ Open NetBeans and click on the Services tab in the left-hand 
+pane.  
+ Click the + button next to Databases to expand the list of 
+Databases. 
+ Right click on Java DB Server and select Start Server. 
+ Right click Java DB Server again and select Create Database and type in comrades1 (you can 
+use upper or lower case since Java DB is not case sensitive) for the database name. Leave the 
+Username and Password blank in case you forget it. Normally you should choose a suitable 
+username and a strong password. Click OK. 
+
+===== PDF PAGE 235 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 225 
+ 
+ If you look further down the Services Window you will see that a database has been created. 
+The broken orange connection icon shows that you are not connected to the Comrades1 
+database.  
+ Right click on the conrades1 database and select Connect. Do not enter a username and 
+password and click OK. 
+ The connection icon will be whole 
+showing you are connected. 
+ Click the + button to expand the 
+database where you will see 
+comrades1 in bold. 
+ Click the + button to view APP then 
+click + to view the Tables folder in this database. 
+ 
+ Right click on the Tables folder and select Execute Command.  
+ In the window of the right, showing the Connection: jdbc:derby://localhost:1527/comrades1 [ 
+on APP] database, type in the SQL statement to create the table. The SQL statement will be 
+explained in more detail later on.  
+CREATE TABLE TBLCOMRADES 
+( 
+    ID INTEGER NOT NULL PRIMARY KEY  
+        GENERATED ALWAYS AS IDENTITY  
+        (START WITH 1, INCREMENT BY 1), 
+    RACEYEAR SMALLINT, 
+    UPDOWN BOOLEAN, 
+     WINNAME VARCHAR(50), 
+    WINTIME TIME, 
+    GENDER VARCHAR(1), 
+    CLUB VARCHAR(50), 
+    COUNTRY VARCHAR(50) 
+) 
+The CREATE TABLE statement defines the fields in the table. The ID field is set to an integer primary 
+key that will start at 1 and automatically increase. RaceYear stores a year so it can be a SMALLINT, 
+UpDown needs only two values so it is a BOOLEAN, WinTime is a TIME type and the rest of the 
+fields are declared as VARCHAR to store string values. We can limit the number of characters in the 
+field in brackets. Java DB writes all fields in capitals.  
+
+===== PDF PAGE 236 =====
+Exploring IT: Java Programming Grade 10 
+Page 226 Learning Unit 12 Databases and SQL 
+ Click the Run SQL button to run the SQL statement and create the table tblComrades in the 
+comrades1 database. 
+ 
+ Once the instruction has executed, expand the +button next to Tables. You should see all the 
+fields you have created. The ID field will be coloured red indicating it is a primary key.  
+ 
+If you expand the Indexes folder, it will show a folder with the primary keys. Expanding this folder will 
+show the ID field. If we had chosen to index any other field, it will be displayed here. 
+ Hover you mouse over any of the fields. You will see the details of that particular field which 
+corresponds to the information you entered when you created the field. Note that the ID field is 
+red denoting a primary key. 
+ACTIVITY 4 
+ View the table structure by right clicking on table tblComrades and selecting View Data. An 
+empty table will be displayed. 
+ 
+ Add records to the table by right clicking on first row of the table produced above and selecting 
+Insert Record(s). 
+ The ID field shows <GENERATED>, indicating a value cannot be entered. Double click on 
+RACEYEAR and enter 1990, double click on UPDOWN and a tick will show. Click on the ellipsis 
+(three dots) next to the WINTIME value (or double click the field) and enter 07:02:00. Continue 
+with this process by entering 'Naidene Harrison' for WINNAME, 'F' for GENDER, 
+'LadySmith AC' for the CLUB and 'South Africa' for the COUNTRY. Click Add Row. 
+ 
+
+===== PDF PAGE 237 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 227 
+ Repeat the process to add nine more fields. You will not see the value for the ID field as you 
+add. Right click on tblComrades and View Data to see the records with the Auto Numbered ID 
+values. 
+ 
+12.3.4 Java DB Data Types 
+Java DB provide data types to store different values. 
+Type Name Category Description 
+SMALLINT Number Store integers from -32768 to 32767 (two bytes) 
+INTEGER Number Store integers from -2 billion to 2 billion (four bytes) 
+DOUBLE Number Stores a decimal number in 8 bytes 
+VARCHAR Text Text up to 32 672 characters 
+TIMESTAMP Date/Time Includes both the year and the date.  
+DATE Date Long (Monday, October 19, 2020), Medium (19-Oct-20), 
+Short (2020/10/19) 
+TIME Time Long (17:34:23), Medium (5:34 PM), Short (17:34) 
+BOOLEAN Yes/No 0 for false and -1 true in one byte 
+CHECK POINT 1 
+1. Define a database. 
+2. Name one commonly used relational database program. 
+3. Give 4 functions of a DBMS. 
+4. Give 2 features of a good, well designed database. 
+5. Explain each of the following database terms clearly showing the differences between them: 
+5.1. field. 
+5.2. record. 
+5.3. table. 
+6. Explain why a field in a database table must have a data type associated with it. 
+7. In MS Access, what data type is used to store:  
+7.1. strings of characters. 
+7.2. numeric data. 
+8. What does it mean to say that the default for a Text field in MS Access is 255? 
+
+===== PDF PAGE 238 =====
+Exploring IT: Java Programming Grade 10 
+Page 228 Learning Unit 12 Databases and SQL 
+9. What does it mean to say that a field's property is set to Required? 
+10. Give ONE advantage and ONE disadvantage of Indexing a field. 
+11. Name the most appropriate MS Access Number data type to store each of the following so that 
+memory is used most efficiently: 
+11.1. ages in the range 0 to 100  
+11.2. positive and negative integers in the range − 2 million to + 2 million  
+11.3. heights of people in metres (e.g. 1.68)  
+11.4. prices of cars in whole Rands 
+12. Why does MS Access store a Yes/No field in a byte instead of a bit if it can only have two 
+values? 
+13. Using a calculation prove the following: 
+13.1. Byte field is stored in 8 unsigned bits 
+13.2. Integer is stored in 16 signed bits 
+13.3. Long Integer is stored in 32 signed bits. 
+ 
+12.4 Creating Queries 
+SQL stands for Structured Query Language. SQL contains a set of commands that are used to 
+access and modify the data in a relational database. This language is used by many database 
+programs. There are many versions of SQL, but all versions use the basic statements in a similar 
+way. The SQL statements are processed by the DBMS.  
+SQL statements are the means by which queries or updates are performed on the database. It is 
+important to remember that when you are using advanced SQL statements, different versions of SQL 
+may return slightly different results. The versions of SQL may also differ slightly to produce slightly 
+different commands. 
+A query is used to search or extract data from a table in a database based on specified criteria. 
+12.4.1 Query Design in MS Access 
+MS Access provides a wizard to help you create queries.  
+ACTIVITY 5 
+Query to return data in all fields. 
+We will begin by setting up a query to return the data in all fields of all records in the Comrades1 
+database.  
+ Open the file Comrades1 in MS Access.  
+ In the Create menu tab, click the Query Design button in the 
+Queries ribbon.  
+The Show Table window opens in the centre panel of the screen. 
+ Check that the table tblComrades is selected and then click 
+Add, then Close. 
+ Double click on the star (*) in the tblComrades window. 
+This selects ALL the fields to be displayed from the table 
+tblComrades and it will be added to the list of fields to be shown in the query. 
+
+===== PDF PAGE 239 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 229 
+ Save the query as qryALL by clicking on the Save menu 
+item (2nd menu item, top left). To rename a query, right 
+click on the query in the left-hand window and select 
+Rename. 
+The first three letters qry indicate that it is a query. 
+ Run the query by selecting the Run menu item (red 
+exclamation mark button(!)). You may need to close the 
+table before the query can execute. 
+The entire table will be displayed. 
+12.4.2 View SQL Statements in MS Access 
+The actual SQL statement for this query can be viewed by changing the view to SQL View, as follows: 
+ Open the query (if it is not already open) by right-clicking on the query object named qryAll and 
+then click on the Design View. At the top left, click on View and select SQL View. The code 
+should appear as: 
+ SELECT tblComrades.* 
+FROM tblComrades; 
+At this stage, it is not essential to include the table name to indicate which table is being used, but 
+when there is more than one table, it becomes important to refer to the correct table. 
+Note that the SQL statement ends with a semicolon; 
+The SQL statement that will display data from all the fields in the table tblComrades can also be 
+written: 
+SELECT *  
+FROM tblComrades; 
+where the '*' indicates all fields. In tblComrades.* the '*' is called a wild card indicating that all 
+the fields are required from tblComrades. 
+12.4.3 Creating Queries in Java DB 
+ACTIVITY 6 
+ Open NetBeans and connect to the comrades1 database by right clicking on the comrades1 
+database and selecting Connect.  
+ Right click on the table tblComrades and select Execute Command to show the window in 
+which SQL statements can be entered.  
+ Type in the following SQL statement to view tblComrades: 
+SELECT *  
+FROM tblComrades; 
+ Click the Run SQL button to execute the command. The result should be displayed in the 
+Output window. 
+ Right click on tblComrades and select View Data. Note that SQL statement to view the table is 
+automatically provided for you.  
+select * from APP.TBLCOMRADES; 
+The statement is written as one line, however, to aid readability it is better to write each part of the 
+SQL statement on a different line. 
+
+===== PDF PAGE 240 =====
+Exploring IT: Java Programming Grade 10 
+Page 230 Learning Unit 12 Databases and SQL 
+12.5 Opening an Existing Database 
+12.5.1 MS Access 
+ACTIVITY 7 
+The previous sections in this Learning Unit focussed on the design of a database table from scratch 
+and completing simple introductory queries. You should now obtain the complete database 
+Comrades.accDB (without the 1 at the end of the name) from the Funworks resources webpage (or 
+your teacher may have a copy of it already). This database contains all the winners from 1990 to 
+2018, providing much more data to analyse in the queries that follow. 
+ Open the Resources page on the site at http://www.funworks.co.za/Resources.aspx. 
+ Navigate to the Database folder and download the Comrades.accDB file. 
+ Copy the file to a suitable folder and double click on the file to open in in MS Access. 
+12.5.2 Java DB 
+ACTIVITY 8 
+ Download the text file Comrades.sql containing SQL statements from the Funworks resources 
+webpage http://www.funworks.co.za/Resources.aspx.  
+ In NetBeans click on the Services tab and then right click on Java DB and select Create 
+Database. 
+ Type in Comrades as a database name and leave the username and password blank. 
+ Right click on the newly created Comrades database and select Connect. Click OK again 
+leaving the username and password blank. 
+ Expand the nodes next to the database and then expand the APP node to view the Tables 
+folder. 
+ Right click on the Tables folder and select Execute Command.  
+ Open the Comrades.sql file in Notepad. 
+ Copy and paste the entire file into the Execute Command window. The window should contain 
+the CREATE statement and INSERT statements for the table tblComrades. 
+ Click the Run SQL button and then click on View Data to check that the database has 58 
+records. 
+ 
+ The table is shown 20 records at a time. Click on the blue navigation buttons to scroll through 
+the records. 
+12.6 SELECT Queries 
+A SELECT query doesn't change the data in the database, it merely searches the database for data 
+based on certain criteria. Unless otherwise stated, the following statements apply to both MS Access 
+and Java DB. 
+  
+
+===== PDF PAGE 241 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 231 
+12.6.1 Limiting Fields 
+Instead of extracting the entire table, we can limit the table to a select number of fields. If we want to 
+choose only the RaceYear and WinName fields, we use SELECT RaceYear, WinName FROM 
+tblComrades. 
+ACTIVITY 9 
+ Change the SQL statement to become:  
+SELECT RaceYear, WinName  
+FROM tblComrades; 
+ Run the query and check that only the RaceYear and WinName columns are shown as a 
+result. 
+Note that the SQL code is not case sensitive, but whatever you put as the SELECT field(s) is shown 
+as the column heading(s) in the resulting output. It is good practise to put all reserved words like 
+SELECT, FROM etc. in capital letters to differentiate from field and table names. 
+ Change the SQL query code to become:  
+SELECT raceyear, WINNAME  
+FROM tblComrades; 
+ Run the query and note the column headings.  
+The SQL statement to select all the data in specified fields from a table is always in the form: 
+SELECT <field(s)>  
+FROM <table>; 
+The table name does not have to be prefixed to the field names (tblComrades.WinName) if all the 
+fields come from the same table. If all the fields are to be selected, then a star (*) can be used in 
+place of specific field names. 
+SELECT *  
+FROM <table>; 
+Note that we can leave out the semicolon at the end of a statement in MS Access and it will still work. 
+EXERCISE 1 
+1. Write down the SQL statements for each of the following: 
+1.1. Display the data in the WinName, Club and Country fields from the table tblComrades. 
+1.2. Display the data in the Gender and Country fields from the table tblComrades. 
+2. Test these SQL statements by writing queries in SQL view in MS Access or in Java DB. 
+ 
+12.6.2 Sorting using ORDER BY 
+By inserting ORDER BY into an SQL statement, we can produce a query that is sorted. A simple SQL 
+statement to sort data in ascending order will be:  
+SELECT <field(s)>  
+FROM <table>   
+ORDER BY <field>; 
+For example, to sort tblComrades' data in alphabetical order of WinName, the SQL statement would 
+be: 
+===== PDF PAGE 242 =====
+Exploring IT: Java Programming Grade 10 
+Page 232 Learning Unit 12 Databases and SQL 
+SELECT *  
+FROM tblComrades  
+ORDER BY WinName; 
+If we wanted to reverse the order and list the WinNames from Z down to A, then the SQL statement 
+would be: 
+SELECT *  
+FROM tblComrades  
+ORDER BY WinName DESC; 
+DESC indicates the table is to be sorted in descending order according to the field. By default, the 
+column is ordered in ascending order ASC, so it would make no difference if we used: 
+SELECT *  
+FROM tblComrades  
+ORDER BY WinName;  
+ 
+OR  
+ 
+SELECT *  
+FROM tblComrades  
+ORDER BY WinName ASC; 
+There are many winners from the same country, so we may want to show a list of winners from each 
+country, ordered by the country name and then by the winner's names within that country. We can 
+extend the SQL statement to sort according to a first field and then a second one. This means if there 
+is more than one runner from the same country, then the records with the same country will also be 
+sorted according to their names.  
+ACTIVITY 10 
+ Type in the SQL statement to sort the table by Country and then by WinName. 
+SELECT *  
+FROM tblComrades  
+ORDER BY Country, WinName; 
+If we really wanted to be fancy, we could order the RaceYear field in ascending order and the 
+WinName field in descending order.  
+ Change the SQL statement to reverse the order of WinName. 
+SELECT *  
+FROM tblComrades  
+ORDER BY Country ASC, WinName DESC; 
+The ASC could have been left out after RaceYear. Note that ASC and DESC also applies to numeric 
+data and data of type date and time. 
+Therefore, a more general format of a SQL statement is: 
+SELECT <field(s)>  
+FROM <table> 
+ORDER BY <field1> (DESC), <field2> (DESC),.....,<fieldn> (DESC); 
+  
+===== PDF PAGE 243 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 233 
+EXERCISE 2 
+Write down SQL statements for the following: 
+1. From the table tblComrades, display only the winners' names in order of fastest to slowest race 
+time. 
+2. From the table tblComrades, display all the female winners and the year they won, followed by 
+all male winners. Each group must be sorted alphabetically on the winner's name. 
+3. Generate a query in tblComrades that will display all the Clubs within each country; the sort 
+must be based on the Country field and then the Club. 
+4. Perform a query that will show the winner's name, winning time and country. The display must 
+be sorted firstly on the country and then winning time, with the slowest winner mentioned first 
+and the fastest winner mentioned last, within each country. 
+Check these SQL statements by writing queries using the Comrades database you downloaded. 
+ 
+12.6.3 Conditions using WHERE 
+We can limit the number of rows in the table by specifying criteria that must be satisfied in the result. 
+Supposing we want to display the records in the table tblComrades for a specific set of years, say 
+2000 onwards. 
+The SQL statements we have been working with so far can only be used to select columns from a 
+table and display all the data in those fields. If we want to find records for the years 2000 onwards, we 
+need to include a condition: 
+The SQL statement for this query is: 
+SELECT *  
+FROM tblComrades  
+WHERE RaceYear > 1999; 
+Bear in mind, the condition RaceYear > 1999 could have been replaced with RaceYear >= 2000. All 
+the Boolean comparison operators >, <, <=, >=, <> can be used in WHERE conditions. 
+The WHERE clause is added to the SQL statement to include a condition. 
+SELECT <field(s)>  
+FROM <table>   
+WHERE <condition>; 
+ACTIVITY 11 
+ Create a new query called qryAfterY2000 using the query. In Java DB each new query is 
+stored in a separate window. These windows will remain in NetBeans until they are closed even 
+if NetBeans is closed. 
+SELECT *  
+FROM tblComrades  
+WHERE RaceYear > 1999; 
+ Run the query to check that it works. 
+ Create a new query called qrySA to display all the records of only South African winners. Note 
+that the words must be enclosed in single quotes. 
+SELECT *  
+FROM tblComrades  
+WHERE Country = 'South Africa'; 
+===== PDF PAGE 244 =====
+Exploring IT: Java Programming Grade 10 
+Page 234 Learning Unit 12 Databases and SQL 
+ Run the program and check that only South African winners are displayed. 
+ Change to search string from 'South Africa' to 'SOUTH AFRICA' and run the query. Did 
+the change make any difference? 
+The data in the MS Access database is NOT case sensitive, however Java DB is case sensitive. 
+When we want to make a query that uses a Date Time field (WinTime) in a condition, we must 
+surround the comparison value with '#' symbols. In Java DB, the Date Time fields are surrounded by 
+single quotes. 
+ Create a new query called qryWinTimeMoreThan6H30M (where winning times are greater 
+than 6 and a half hours) using the SQL statement. In  
+MS Access 
+SELECT *  
+FROM tblComrades  
+WHERE WinTime > #6:30:00#; 
+Java DB 
+SELECT *  
+FROM tblComrades  
+WHERE WinTime > '6:30:00'; 
+EXERCISE 3 
+1. In the Comrades database, write a SQL statement search for all the winners and their times 
+where the times are less than 6 hours. 
+2. Write a SQL statement that will show all the data for winners that won before Y2K (2000). 
+3. Write a SQL statement that will display the names of all the female winners. 
+4. Write a SQL statement that will display the names of all the winners of downhill races only. 
+ 
+12.6.4 Conditions using NOT, AND, OR 
+SQL allows for the use of Boolean logical operators in WHERE clauses to create compound (multiple) 
+conditions. Complete Learning Unit 6 in Exploring IT: Theory Grade 10 before proceeding with this 
+Learning Unit. 
+Recall the basic rules of order of operations: 
+Brackets, NOT, AND, OR 
+12.6.4.1 NOT 
+If we want to search for all Comrade's winners from countries other than Germany, i.e. not Germany, 
+the SQL statement would be: 
+SELECT *  
+FROM tblComrades  
+WHERE NOT (Country = 'Germany'); 
+ACTIVITY 12 
+ Create a new query called qryNotGermany and type in the SQL statement below in SQL view. 
+SELECT *  
+FROM tblComrades  
+WHERE NOT (Country = 'Germany'); 
+ Run the query to check that it works. 
+ Change the SQL statement to search for records not won by Russia. 
+===== PDF PAGE 245 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 235 
+ Run the query to check that it works. 
+A record will be returned if it satisfies the NEGATIVE of the condition. 
+The general form of an SQL statement with NOT is: 
+SELECT <field(s)>  
+FROM <table>  
+WHERE NOT <condition>; 
+12.6.4.2 AND 
+Way may want to find records for only male winners from a particular country. We would need a 
+condition that involves Gender AND Country. A record will be found if it satisfies BOTH the conditions. 
+The SQL statement would be: 
+SELECT *  
+FROM tblComrades  
+WHERE Gender = 'M' AND Country = 'South Africa'; 
+ACTIVITY 13 
+ Create a new query called qryMSA and type in the SQL statement below in SQL view. 
+SELECT *  
+FROM tblComrades  
+WHERE Gender = 'M' AND Country = 'South Africa'; 
+ Run the query to check that it works. 
+ Change the SQL statement to search for female winners from USA. 
+ Run the query to check that it works. 
+A record will be returned if it satisfies BOTH the conditions. 
+The general form of an SQL statement with AND is: 
+SELECT <field(s)>  
+FROM <table>  
+WHERE <condition> AND <condition>; 
+12.6.4.3 OR 
+A record will be found if it satisfies EITHER one of the conditions. For example, if we wanted to find all 
+the winners that are from either of two countries, South Africa or Russia, the SQL statement would 
+be: 
+SELECT *  
+FROM tblComrades  
+WHERE Country = 'South Africa' OR Country = 'Russia'; 
+ACTIVITY 14 
+ Change your query to use the above SQL statement and run the query to check that it works. 
+ Alter the query so that all the winners from any 2 other countries are displayed. 
+ Run the query to check that it works. 
+A record will be found if it satisfies EITHER one of the conditions. 
+  
+===== PDF PAGE 246 =====
+Exploring IT: Java Programming Grade 10 
+Page 236 Learning Unit 12 Databases and SQL 
+The general form of an SQL statement with OR is: 
+SELECT <field(s)>  
+FROM <table>  
+WHERE <condition> OR <condition>; 
+There are some 'operators' or statements that simplify the use of compounded AND or OR conditions: 
+12.6.5 Operators BETWEEN…AND…, IN, LIKE and IS NULL 
+12.6.5.1 BETWEEN…AND… 
+A record will be found if the field has values in a specified range. For example, if we wanted to find all 
+the winners between 1995 and 1999, the SQL statement would be: 
+SELECT *  
+FROM tblComrades  
+WHERE RaceYear BETWEEN 1995 AND 1999; 
+A record will be found if the field has values in a specified range. 
+If we don't use BETWEEN…AND…, the condition would have to be something like: 
+WHERE RaceYear > 1994 AND RaceYear < 2000 
+ACTIVITY 15 
+ Change your query to use the above SQL statement. 
+ Run the query to check that it works. 
+ Are the years 1995 and 1999 included in the output? YES / NO 
+The general form of a SQL statement with BETWEEN ... AND is: 
+SELECT <field(s)>  
+FROM <table>  
+WHERE <field> BETWEEN <value1> AND <valuen>; 
+As long as the operand (value) before the operator BETWEEN is of the same data type as the range 
+of values value1 AND value2, the condition will work and is a lot simpler than a compound statement 
+with many OR operators. Because a range of values value1 AND value2 is used, it stands to reason 
+that the operand and range must be of an ordinal type. 
+12.6.5.2 IN 
+If the selection required is not across a range of values, but rather a collection of values, the IN 
+operator can be used. This is particularly useful if the values are not in any order. 
+ACTIVITY 16 
+ Type in the query to determine the winners that won in the specific years 1992, 1998, 2004 and 
+2010: 
+SELECT *  
+FROM tblComrades 
+WHERE RaceYear IN (1992, 1998, 2004, 2010); 
+Once again, this operator can be used to replace a more complex condition. 
+ Rewrite the query using the AND or OR operator. Type in your answer to check that it works. 
+  
+===== PDF PAGE 247 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 237 
+It is also possible to combine the IN operator with NOT, to exclude the years: 
+SELECT *  
+FROM tblComrades 
+WHERE RaceYear NOT IN (1992, 1998, 2004, 2010); 
+ Type in the above query to determine the winners that won, excluding in the specific years 
+1992, 1998, 2004 and 2010. 
+12.6.5.3 IS NULL and NOT IS NULL 
+The IS NULL 'operand' is useful to use for field data in record/s that does not exist. It is very important 
+to understand that NULL means does not exist, i.e. the data doesn't have a 0 value or is an empty 
+string – it simply does not exist. A 0 value or empty string can exist as data and is not the same as a 
+NULL value. When you completed the design of the first database Comrades1, you may have 
+noticed that some clubs were indicated as 'Unknown'; the Comrades database had these removed so 
+that we can demonstrate the use of IS NULL. 
+ACTIVITY 17 
+ Type in the following query to determine which winners did not have a known club: 
+SELECT WinName 
+FROM tblComrades 
+WHERE Club IS NULL; 
+ Change the SQL statement to view the winners who are registered with a club. 
+SELECT WinName 
+FROM tblComrades 
+WHERE Club IS NOT NULL; 
+12.6.5.4 LIKE 
+This is a useful operator to use when matching text to a pattern condition. 
+ACTIVITY 18 
+ Type in the query to find winners whose name starts with an 'A' or a 'B': 
+SELECT *  
+FROM tblComrades  
+WHERE WinName LIKE 'A*' OR WinName LIKE 'B*'; 
+In Java DB use the '%' character instead of '*'. 
+This query will return all records where the name starts with 'A' and anything to follow, or 'B' and 
+anything to follow. Notice that the '*' sign is used to match any text. This is known as a wildcard 
+character. It can replace one, none or many characters. 
+While looking at the concepts of conditions, we haven't included ORDER BY (sorting). It would be 
+better to group the A's together and the B's together for readability. The ORDER BY clause is easy to 
+include, but the rule is: it must always be the last clause in a query. 
+ Rewrite the query to use ORDER BY on the name field: 
+SELECT *  
+FROM tblComrades  
+WHERE WinName LIKE 'A*' OR WinName LIKE 'B*' 
+ORDER BY WinName; 
+  
+===== PDF PAGE 248 =====
+Exploring IT: Java Programming Grade 10 
+Page 238 Learning Unit 12 Databases and SQL 
+ Type in the query to find winners whose names end with 'e': 
+SELECT *  
+FROM tblComrades 
+WHERE WinName LIKE '*e'; 
+Notice that the wildcard (*) is now at the beginning of the text pattern, so all records will be displayed 
+that have an 'e' as the last character. 
+ Apply the ORDER BY to this query as well. 
+ Type in the query to find winners whose names contain the text 'en': 
+SELECT *  
+FROM tblComrades 
+WHERE WinName LIKE '*en*'; 
+This query will return any winners who have 'en' anywhere in their name. So, you can have the 
+wildcard (*) at the front, at the back or both ends, depending on the outcome you want. Also, you can 
+have multiple characters in the text pattern, not just one character. 
+EXERCISE 4 
+Write down the SQL statements for each of the following queries, using the Comrades database. 
+Test these statements by designing your queries in SQL view. 
+1. Find all the South African winners that won in a time of 6 to 7 hours. Order the results according 
+to winner's name. 
+2. Find all the records where the winners did belong to a known club. i.e. those who didn't have a 
+club must be excluded. Order this list by country and then by club name. 
+3. Find all the female winners who won from 1990 to 2000. Only display the year, name and 
+country; order by year in reverse order (2000 to 1990). 
+4. Find all the records that have names which start with a vowel. Only display the names in 
+alphabetical order. 
+5. Find all the records that include winners from Germany, Russia and Poland. Display year, 
+winning time, name and country in no specific order. 
+6. Make a minimal change to the previous query to display all records that were NOT in those 
+countries. 
+ 
+12.7 DISTINCT and TOP/FETCH FIRST 
+The previous section looked at queries that involve conditions. You may have noticed that some 
+queries generated results that contain the same name (if the person won more than once) or the 
+same country (many countries, especially Russia, provided more than 1 winner). What if we wanted to 
+know exactly who the winners were, over time, without repetition?  What if we wanted to have a list of 
+all the countries that have had winners, but only mentioned once?  Also, what if we wanted to know 
+the best winner of all time, or the top 3?  DISTINCT and TOP <n> (FETCH FIRST <n> ROWS ONLY 
+in Java DB) were left until now as they don't necessarily use conditions. 
+12.7.1 DISTINCT 
+We want to find all the winners over time, but without repetition. DISTINCT works very well at 
+removing duplicates in a query, but only if you use a single field; if you use more fields, each record 
+becomes more distinct and you may still end up with some repetition of 1 or more fields. To display all 
+the non-repeated winners, the SQL query will be: 
+===== PDF PAGE 249 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 239 
+SELECT DISTINCT WinName 
+FROM tblComrades; 
+ACTIVITY 19 
+ Run the query using the above SQL statement to view the 39 unique names. 
+You will notice that the list is automatically ordered – no need to include an ORDER BY; however, you 
+can include an ORDER BY if you want to reverse the order, perhaps (or ORDER BY another field): 
+SELECT DISTINCT WinName 
+FROM tblComrades 
+ORDER BY WinName DESC; 
+ Run the query to check that it works. 
+To provide a list of all female winners (non-repeated), we can include a WHERE clause: 
+SELECT DISTINCT WinName 
+FROM tblComrades 
+WHERE Gender = 'F' 
+ORDER BY WinName DESC; 
+ Run the query to check that it works. 
+12.7.2 Using TOP <n> OR FETCH FIRST <n> ROWS ONLY 
+TOP <n> (MS Access) or FETCH FIRST <n> ROWS ONLY (Java DB) is often used in conjunction 
+with ORDER BY to produce a list only displays the first n records generated by a query; the query 
+may generate many records, depending on the condition/s in the query, but only the first n records will 
+be displayed. 
+ACTIVITY 20 
+ Type in the following query to find the winner with the best time ever. 
+MS Access 
+SELECT TOP 1 WinName 
+FROM tblComrades 
+ORDER BY WinTime; 
+Java DB 
+SELECT WinName 
+FROM tblComrades 
+ORDER BY WinTime 
+FETCH FIRST 1 ROWS ONLY; 
+ Run the query to check that one record is returned. 
+ Change the query to include the winning time: 
+MS Access 
+SELECT TOP 1 WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime; 
+Java DB 
+SELECT WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime 
+FETCH FIRST 1 ROWS ONLY; 
+ Change the query to find the top 3 best winners: 
+MS Access 
+SELECT TOP 3 WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime; 
+Java DB 
+SELECT WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime 
+FETCH FIRST 3 ROWS ONLY; 
+ Change the query to find the worst 5 winners. 
+===== PDF PAGE 250 =====
+Exploring IT: Java Programming Grade 10 
+Page 240 Learning Unit 12 Databases and SQL 
+MS Access 
+SELECT TOP 5 WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime DESC; 
+Java DB 
+SELECT WinName, WinTime 
+FROM tblComrades 
+ORDER BY WinTime DESC 
+FETCH FIRST 5 ROWS ONLY; 
+There is no word in SQL that is the opposite of TOP. If we reverse the order of the sort using DESC, 
+we can find the bottom 5.  
+ Change the query to find the top 3 male winners. 
+MS Access 
+SELECT TOP 3 WinName, WinTime 
+FROM tblComrades 
+WHERE Gender = 'M' 
+ORDER BY WinTime; 
+ 
+Java DB 
+SELECT WinName, WinTime 
+FROM tblComrades 
+WHERE Gender = 'M' 
+ORDER BY WinTime 
+FETCH FIRST 3 ROWS ONLY; 
+ Change the query find the top 3 male runners in South Africa. 
+MS Access 
+SELECT TOP 3 WinName, WinTime 
+FROM tblComrades 
+WHERE Gender = 'M' 
+AND Country = 'South Africa' 
+ORDER BY WinTime; 
+ 
+Java DB 
+SELECT WinName, WinTime 
+FROM tblComrades 
+WHERE Gender = 'M' 
+AND Country = 'South Africa' 
+ORDER BY WinTime 
+FETCH FIRST 3 ROWS ONLY; 
+ Run the query and check that three different runners are listed. 
+EXERCISE 5 
+1. Create and run a query that will display all the countries that have been represented at the 
+Comrades Marathon, without repetition. Order the list alphabetically. 
+2. Perform a SQL query that will display the best 3 female winners (on time). Display the name, 
+time and country. 
+3. Perform a SQL query that will display the worst 3 female winners (on time). Display the name, 
+time and country. 
+ 
+12.8 Editing data in a Database 
+Data in a database table must be able to be changed. We may need to add a record, delete a record, 
+or just change the values of data in an existing record. These changes could be made in the database 
+itself, but often it is useful to write SQL code to perform these functions. The changes we are going to 
+make to the Comrades database will affect the accuracy of the data, so it would be a good idea to 
+keep a copy of the original database handy; the changes are merely intended to demonstrate the 
+editing capabilities of SQL. 
+12.8.1 Inserting a Record with Specific Fields 
+To insert data, we use the INSERT SQL statement. In MS Access, a record can be easily added 
+directly into a table, but later you will need to be able to add records to a database via a program. The 
+===== PDF PAGE 251 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 241 
+reason for this is that the database may be on a remote server and the only access the programmer 
+has is through a programming language. 
+The general form of the INSERT INTO statement in SQL is: 
+INSERT INTO <table> (<field1>, <field2>,.. .., <fieldn>) 
+VALUES (<value1>, <value2>,.. .., <valuen>); 
+You need to state the table's name that a record must be inserted into, followed by a list of field 
+names into which the data values must be allocated and, lastly, the list of actual data values that 
+correspond (in the same order) to the fields specified. You can leave out fields which will result in 
+NULL values being placed as the field data; in the case of Comrades, the ID field must be left out. 
+The ID field will not be given a null value as it is an auto number field in the database. 
+After some research, it was found that, in 1989, the male winner was Samuel Tshabalala, from South 
+Africa, in a time of 5:35:41; the female winner was Frith van der Merwe, also South African, in a time 
+of 5:54:43. The research didn't show which clubs they represented, but we have enough information 
+to make the records for the 1989 year. Looking at the records for 1990, we can see that 1989 was a 
+downhill race (from Pietermaritzburg to Durban). 
+The SQL statements for Comrades Marathon 1989 will then be: 
+INSERT INTO tblComrades (RaceYear, UpDown, WinTime, WinName, Gender, 
+Country) 
+VALUES (1989,False,#5:35:41#,'Samuel Tshabalala','M','South Africa'); 
+And 
+INSERT INTO tblComrades (RaceYear, UpDown, WinTime, WinName, Gender, 
+Country) 
+VALUES (1989,False,#5:54:43#,'Frith van der Merwe','F','South 
+Africa'); 
+Note that the ID field has been left out; the WinTime value is surrounded by '#' (single quote ' in Java 
+DB) symbols and the Club field is not present so it will be given a null value. The UpDown field value 
+is set to false (no quotes) to represent a downhill race, the year doesn't have quotes as it is a 
+number; the other values do have quotes as they are text values 
+12.8.1.1 Inserting a Record in MS Access 
+ACTIVITY 21 
+ To show how this can be done using SQL, we will use a query in SQL view. 
+ Create a query called qryInsertM1989 and type in the first SQL statement (for Samuel 
+Tshabalala) in SQL view. 
+ Run the query. If you have been successful you will see a message confirming that you are 
+about to add a record. 
+ 
+ You will need to open the table to check that the record has been added to the table 
+tblComrades. 
+
+===== PDF PAGE 252 =====
+Exploring IT: Java Programming Grade 10 
+Page 242 Learning Unit 12 Databases and SQL 
+ Create a query called qryInsertF1989 and type in the second SQL statement (for Frith van der 
+Merwe) in SQL view. 
+The record should be added to the end of the table. You will also notice that the ID values for both 
+new entries are not 1 and 2; they take the next ID's from those that have already been allocated. 
+12.8.1.2 Inserting a Record in Java DB 
+ACTIVITY 22 
+ Right click on the table tblComrades in the Comrades database and select Execute 
+Command. 
+ Type in the following SQL statement to insert the record at the end of the table. 
+Note that the date value is enclosed in single quotes like the string values.  
+INSERT INTO tblComrades (RaceYear, UpDown, WinTime, WinName, Gender, 
+Country) 
+VALUES (1989,False,'5:35:41','Samuel Tshabalala','M','South Africa'); 
+ View the table to check that the record has been added at the end of the table. 
+ Type in a second SQL statement to add Frith van der Merwe's 1989 race. 
+INSERT INTO tblComrades (RaceYear, UpDown, WinTime, WinName, Gender, 
+Country) 
+VALUES (1989,False,'5:54:43','Frith van der Merwe','F','South 
+Africa'); 
+ Again, view the table to check the SQL statement has been added. 
+12.8.2 Inserting a Record with All Fields 
+There is another version of the INSERT INTO statement which leaves out the field/s list but expects 
+ALL fields to be included. 
+INSERT INTO <table> 
+VALUES (<value1>, <value2>,.. .., <valuen>); 
+But this version requires that you provide data for ALL the field values, in the order that they exist in 
+the table. This version can't be used in Comrades database as the ID field can't be inserted as it is an 
+auto number field which can't be inserted manually; also, this version doesn't allow you to insert 
+empty (null) values by excluding fields. 
+12.8.3  Deleting a Record 
+The DELETE statement in SQL deletes ROWS (records) in a database table. The general form of the 
+DELETE FROM statement in SQL is: 
+DELETE  
+FROM <table>  
+WHERE <condition> [AND/OR <condition>]; 
+You MUST add a condition to the DELETE SQL statement. If you do not use a condition and perform 
+the SQL statement DELETE from tblComrades, then ALL the records in the table will be removed. 
+The SQL statement to delete the single record for Samuel Tshabalala would be done best by deleting 
+based on the ID field: 
+DELETE  
+FROM tblComrades  
+WHERE ID = <whatever Samuel Tshabalala's ID is>; 
+  
+===== PDF PAGE 253 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 243 
+Or, a compound condition that uniquely identifies the record will work: 
+DELETE  
+FROM tblComrades  
+WHERE WinName = 'Samuel Tshabalala' AND WinYear = 1989; 
+ACTIVITY 23 
+ Create a new query named qryDelete1989 in SQL view: 
+DELETE  
+FROM tblComrades  
+WHERE WinYear = 1989; 
+ Run the query. 
+If your query is correct you should see a message informing you that 2 records be deleted. Open the 
+table tblComrades to check that it worked. Remember, there would have been 2 records for 1989. 
+12.8.4  Changing the Details in a Field 
+If a Comrade's Marathon winner is stored with the wrong details, or one of the fields needs to be 
+changed, the most obvious way is to change the values of the record in the table in MS Access; 
+however, a SQL statement can also be used to alter the fields in a record. 
+The general form of the UPDATE statement in SQL is: 
+UPDATE <table>  
+SET <column/field name> = <new value>  
+WHERE <column/field name> = <existing value>; 
+Once again, a WHERE clause should be included, otherwise all the records will change. 
+If you want to change a single record, it's always better to refer to the Primary Key in the WHERE 
+clause; this will guarantee that only 1 record will change. 
+For example, if the name 'Charly Doll' (men's winner in 1993, ID 8) was incorrectly captured, the 
+SQL statement would be: 
+UPDATE tblComrades  
+SET WinName = 'Charly Dollar'  
+WHERE ID = 8; 
+OR 
+UPDATE tblComrades  
+SET WinName = 'Charly Dollar'  
+WHERE WinName = 'Charly Doll'; 
+ACTIVITY 24 
+ Create a new query called qryCDoll to execute the above SQL statement. 
+ Run the query. MS Access will display a notification dialog that a record is to be updated. Java 
+DB will display a message that the statement was successfully executed. 
+===== PDF PAGE 254 =====
+Exploring IT: Java Programming Grade 10 
+Page 244 Learning Unit 12 Databases and SQL 
+ 
+ 
+ 
+ 
+ 
+ 
+ Check that the record has been changed in the table tblComrades. 
+Some updates, especially those that use a primary key, can easily be reversed, others can't. If it was 
+discovered that the name was correct as 'Charly Doll', the update can be reversed changing it 
+again. 
+ Perform the following SQL statement to change the name back to 'Charly Doll': 
+UPDATE tblComrades  
+SET WinName = 'Charly Doll'  
+WHERE ID = 8; 
+It is important to remember that all records that match the condition will be altered. You need to make 
+your conditions very specific. There are times, however, when we do want to change multiple records 
+in one UPDATE statement. For example, if the organizers wanted to change the country name to a 
+three-3 letter code ('Russia' = 'RUS') for the country, all those country names can be changed at 
+once: 
+UPDATE tblComrades  
+SET Country = 'RUS'  
+WHERE Country = 'Russia'; 
+ Perform the SQL statement above to make the change. 
+ Note how many records are changed. 
+A formula can also be applied, if necessary, to update all records. If it was found that all the years 
+were incorrect by 1 year, we could add 1 to all years: 
+UPDATE tblComrades  
+SET RaceYear = RaceYear + 1; 
+ Perform the SQL statement above to make the change. 
+Note how many records are changed. 
+ Perform the reverse SQL statement to re-correct the change: 
+UPDATE tblComrades  
+SET RaceYear = RaceYear – 1; 
+  
+
+===== PDF PAGE 255 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 245 
+EXERCISE 6 
+1. Perform a SQL query on Comrades database that will pre-empt the 2019 men's winner. It's 
+assumed that the 2019 winner will be the same as the 2018 winner with all the same relevant 
+details. 
+2. Perform the same query as the previous, but for the women's winner. 
+3. In keeping with moving to a three- letter country code, perform the SQL query that will change 
+all instances of 'Germany' to 'GER'. 
+4. Perform two separate SQL statements to change 'South Africa' to 'SA' and 'United 
+States' to 'USA'. 
+5. Perform the necessary SQL query that will remove the 2010 entries. 
+ 
+  
+===== PDF PAGE 256 =====
+Exploring IT: Java Programming Grade 10 
+Page 246 Learning Unit 12 Databases and SQL 
+12.9 Summary of SQL Statements 
+1. Selecting Data from a Table 
+1.1. SELECT <field(s)> FROM <table> 
+SELECT * FROM <table> 
+ 
+1.2. SELECT <field(s)> FROM <table>     
+ORDER BY <field1>, <field2>, ... ,<fieldn>  
+ (sorts in ascending order) 
+ 
+1.3. SELECT <field(s)> FROM <table> 
+ORDER BY <field1> (DESC), <field2> (DESC), ... ,<fieldn> (DESC) 
+ 
+1.4. SELECT <field(s)> FROM <table>  
+WHERE <condition> 
+ 
+1.5. SELECT <field(s)> FROM <table>  
+WHERE <column/field value> IN (Set of values) 
+ 
+1.6. SELECT <field(s)> FROM <table> 
+WHERE <condition> LIKE '*string*> 
+ 
+1.7. SELECT <field(s)> FROM <table> 
+WHERE NOT <condition> 
+ 
+1.8. SELECT <field(s)> FROM <table> 
+WHERE <condition> AND <condition> 
+ 
+1.9. SELECT <field(s)> FROM <table> 
+WHERE <field> BETWEEN <value1> AND <value2> 
+ 
+1.10. SELECT <field(s)> FROM <table> 
+WHERE <condition> OR <condition> 
+ 
+Note: all the previous could include DISTINCT or TOP <n>/LIMIT <n> after SELECT. 
+ 
+The NOT operator can be included in any of the WHERE <condition>… clauses 
+ 
+2. Updating Data in a Table 
+2.1. INSERT INTO <table> (<field1>, <field2>,.. .., <fieldn>) 
+VALUES (<value1>, <value2>,.. .., <valuen>); 
+ 
+2.2. DELETE FROM <table> 
+WHERE <condition> AND/OR <condition> 
+ 
+2.3. UPDATE <table> 
+SET <column/field name> = <new value> 
+WHERE <column/field name> = <existing value> 
+  
+===== PDF PAGE 257 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 12 Databases and SQL Page 247 
+CHECK POINT 2 
+1. Next to each of the SQL statements in the SUMMARY above, write a brief description stating 
+what each statement can be used for. 
+2. The table tblStudent shown here stores data about students in Grade 12 in three different 
+classes A, B and C. In South Africa, the students in schools are divided into houses. There are 
+usually about 3 or 4 houses. In this example, the students are divided into two different coloured 
+houses, Blue and Red. 
+Name Class House 
+Rachael B Blue 
+Samuel C Red 
+Thabo C Red 
+Jermaine B Blue 
+Susanna A Blue 
+Jason B Red 
+Nelson C Blue 
+Fatima A Red 
+Sipho A Red 
+Write down the order that the data in the table will be displayed if the following SQL statements 
+are executed: 
+2.1. SELECT * FROM tblStudent ORDER BY Class, House, Name 
+2.2. SELECT * FROM tblStudent ORDER BY House, Class, Name   
+3. Using tblStudent write down the Names of the Students who would be found with the following 
+searches: 
+3.1. SELECT name FROM tblStudent WHERE Class = 'A' OR House = 'Blue' 
+3.2. SELECT name FROM tblStudent WHERE Class = 'A' AND House = 'Blue' 
+4. Write down the SQL statements to perform the following: 
+4.1. Insert a student, Mary, into tblStudent. She is in class B and has been assigned to the 
+Blue house. 
+4.2. The school has decided to name the houses after great political leaders in South Africa. 
+The Red house will be called Sisulu after Walter Sisulu and the Blue house will be called 
+Tambo after Oliver Tambo. Write SQL statements to change the houses' names. 
+4.3. Delete all the students in class C. 
+4.4. Change Mary's name to Mary-Anne. 
+ 
+ 
+ 
+ 

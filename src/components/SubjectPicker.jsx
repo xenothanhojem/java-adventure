@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Briefcase, ArrowRight } from 'lucide-react';
+import { Code2, Cpu, ArrowRight } from 'lucide-react';
 import { SUBJECTS } from '../subjects/index.js';
 
 export default function SubjectPicker({ onSelect }) {
@@ -12,13 +12,13 @@ export default function SubjectPicker({ onSelect }) {
           <span style={{ color: 'var(--ink-dim)' }}>Then make it make sense.</span>
         </h1>
         <p className="text-base mt-3 max-w-xl mx-auto sm:mx-0" style={{ color: 'var(--ink-dim)' }}>
-          Grade 10 learning adventures. Theory, missions, levels, and practice tests.
+          Grade 10 Information Technology. IT Theory and Java Practical, unit by unit from the Exploring IT textbooks.
         </p>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
         {Object.values(SUBJECTS).map((subject) => {
-          const Icon = subject.id === 'java' ? Code2 : Briefcase;
+          const Icon = subject.id === 'java' ? Code2 : Cpu;
           return (
             <button
               key={subject.id}

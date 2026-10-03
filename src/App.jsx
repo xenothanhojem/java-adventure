@@ -4,9 +4,8 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary, Briefcase
+  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary
 } from 'lucide-react';
-import { migrateSkillIds } from './data/skills.js';
 import CodeEditor from './components/CodeEditor.jsx';
 import ProgressReport from './components/ProgressReport.jsx';
 import DoOrDie from './components/DoOrDie.jsx';
@@ -14,8 +13,7 @@ import OnboardingModal from './components/OnboardingModal.jsx';
 import TheoryMode from './components/TheoryMode.jsx';
 import PracticalTest from './components/PracticalTest.jsx';
 import SubjectPicker from './components/SubjectPicker.jsx';
-import BusinessReportTest from './components/BusinessReportTest.jsx';
-import { getSubject, getSubjectModule } from './subjects/index.js';
+import { SUBJECTS, getSubject, getSubjectModule } from './subjects/index.js';
 import { tickerScheduleFor, scoreRun, GRADE_COLOR } from './data/scenarios.js';
 
 /* =========================================================================
@@ -110,19 +108,6 @@ const styleSheet = `
     --rose: #fb7185;
     --lime: #a3e635;
   }
-
-  .ja-w-report { border-color: color-mix(in srgb, var(--gold) 30%, var(--line)); }
-  .ja-w-concepts { border-color: color-mix(in srgb, var(--teal) 30%, var(--line)); }
-  .ja-w-factors { border-color: color-mix(in srgb, var(--sky) 30%, var(--line)); }
-  .ja-w-sole-partner { border-color: color-mix(in srgb, var(--orange) 30%, var(--line)); }
-  .ja-w-companies { border-color: color-mix(in srgb, var(--violet) 30%, var(--line)); }
-  .ja-w-public-sector { border-color: color-mix(in srgb, var(--rose) 30%, var(--line)); }
-  .ja-w-compare { border-color: color-mix(in srgb, var(--lime) 30%, var(--line)); }
-  .ja-w-ethics { border-color: color-mix(in srgb, var(--emerald) 30%, var(--line)); }
-  .ja-w-citizenship { border-color: color-mix(in srgb, var(--cyan) 30%, var(--line)); }
-  .ja-w-contracts { border-color: color-mix(in srgb, var(--coral) 30%, var(--line)); }
-  .ja-w-self-mgmt { border-color: color-mix(in srgb, var(--magenta) 30%, var(--line)); }
-  .ja-w-exam { border-color: color-mix(in srgb, var(--amber) 30%, var(--line)); }
 
   .ja-card {
     background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
@@ -247,9 +232,29 @@ const styleSheet = `
   /* Indigo glow for object world */
   .ja-glow-indigo { box-shadow: 0 0 0 1px rgba(168,197,255,0.35), 0 0 30px -8px rgba(168,197,255,0.55), inset 0 0 20px -10px rgba(168,197,255,0.4); }
 
-  /* Lime glow and background for binary world */
   .ja-glow-lime { box-shadow: 0 0 0 1px rgba(190,242,100,0.35), 0 0 30px -8px rgba(190,242,100,0.55), inset 0 0 20px -10px rgba(190,242,100,0.4); }
-  .ja-w-binary { background: radial-gradient(circle at 30% 20%, rgba(190,242,100,0.18), transparent 60%), linear-gradient(180deg, var(--panel), var(--panel-2)); }
+
+  .ja-w-data-representation, .ja-w-computer-overview, .ja-w-hardware, .ja-w-system-software,
+  .ja-w-networks, .ja-w-boolean-logic, .ja-w-internet-www, .ja-w-social-ethical,
+  .ja-w-java-intro, .ja-w-switch-strings, .ja-w-while-loops, .ja-w-nested-loops,
+  .ja-w-methods, .ja-w-databases-sql {
+    background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--w-color) 18%, transparent), transparent 60%), linear-gradient(180deg, var(--panel), var(--panel-2));
+    border-color: color-mix(in srgb, var(--w-color) 30%, var(--line));
+  }
+  .ja-w-data-representation { --w-color: var(--lime); }
+  .ja-w-computer-overview   { --w-color: var(--cyan); }
+  .ja-w-hardware            { --w-color: var(--amber); }
+  .ja-w-system-software     { --w-color: var(--magenta); }
+  .ja-w-networks            { --w-color: var(--sky); }
+  .ja-w-boolean-logic       { --w-color: var(--emerald); }
+  .ja-w-internet-www        { --w-color: var(--teal); }
+  .ja-w-social-ethical      { --w-color: var(--rose); }
+  .ja-w-java-intro          { --w-color: var(--teal); }
+  .ja-w-switch-strings      { --w-color: var(--sky); }
+  .ja-w-while-loops         { --w-color: var(--orange); }
+  .ja-w-nested-loops        { --w-color: var(--violet); }
+  .ja-w-methods             { --w-color: var(--gold); }
+  .ja-w-databases-sql       { --w-color: var(--rose); }
   :root { --lime: #bef264; }
 
   /* Trace table inputs */
@@ -600,8 +605,8 @@ function Hud({ subject, state, user, onHome, onPractice, onProgress, onReset, on
     <div className="ja-card flex items-center justify-between px-4 py-3 mb-6 gap-2">
       <div className="flex items-center gap-3 min-w-0">
         <button onClick={onHome} className="flex items-center gap-2 hover:opacity-90">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: subject === 'business' ? 'linear-gradient(135deg,#ffc857,#2dd4bf)' : 'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color:'#0a0c12'}}>
-            {subject === 'business' ? <Briefcase size={20} strokeWidth={2.5}/> : <Code2 size={20} strokeWidth={2.5}/>}
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: subject === 'theory' ? 'linear-gradient(135deg,#bef264,#2dd4bf)' : 'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color:'#0a0c12'}}>
+            {subject === 'theory' ? <Cpu size={20} strokeWidth={2.5}/> : <Code2 size={20} strokeWidth={2.5}/>}
           </div>
           <div className="hidden sm:block">
             <div className="text-sm leading-tight ja-display" style={{fontWeight:700, letterSpacing:'-0.01em'}}>{getSubject(subject).title}</div>
@@ -678,11 +683,7 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
         <button onClick={onSwitchSubject} className="ja-mono text-xs px-2 py-1 rounded" style={{border:'1px solid var(--line)', color:'var(--ink-mute)'}}>switch subject</button>
       </div>
         <h1 className="ja-display text-4xl sm:text-5xl mb-2" style={{fontWeight:800, letterSpacing:'-0.03em', lineHeight:1.05}}>
-          {getSubject(subject).title === 'Java Adventure' ? (
-            <>Pick a world.<br/><span style={{color:'var(--ink-dim)'}}>Then make Java make sense.</span></>
-          ) : (
-            <>Pick a world.<br/><span style={{color:'var(--ink-dim)'}}>Ownership, ethics, and report writing.</span></>
-          )}
+          Pick a world.<br/><span style={{color:'var(--ink-dim)'}}>{getSubject(subject).mapTagline}</span>
         </h1>
         <p className="text-base mt-3 max-w-xl" style={{color:'var(--ink-dim)'}}>
           Each world covers a unit from class. Levels get harder as you go. Three stars per level if you nail it.
@@ -742,7 +743,7 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
         })}
       </div>
 
-      {/* Practical Test card */}
+      {getSubject(subject).hasPracticalTest && (
       <button
         onClick={onPracticalTest}
         className="ja-tile ja-card w-full text-left p-6 mt-4 relative overflow-hidden ja-glow-magenta"
@@ -758,13 +759,11 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
               <div className="ja-display text-2xl mb-1" style={{fontWeight:700, letterSpacing:'-0.02em'}}>
                 {getSubject(subject).practicalTestLabel}
               </div>
-              <div className="ja-mono text-xs mb-2" style={{color: subject === 'business' ? 'var(--gold)' : 'var(--magenta)', opacity: 0.85}}>
-                {subject === 'business' ? 'AI-marked business report exam' : 'AI-generated coding exam'}
+              <div className="ja-mono text-xs mb-2" style={{color: 'var(--magenta)', opacity: 0.85}}>
+                AI-generated coding exam
               </div>
               <p className="text-sm" style={{color:'var(--ink-dim)', lineHeight:1.55}}>
-                {subject === 'business'
-                  ? 'Full business report practice test. Scenario, structured writing, instant AI marking against IEB criteria.'
-                  : 'A full practical coding test -- just like the real thing. Pick your units, get a unique test paper, write your code, and get marked instantly.'}
+                A full practical coding test -- just like the real thing. Pick your units, get a unique test paper, write your code, and get marked instantly.
               </p>
             </div>
           </div>
@@ -774,6 +773,7 @@ function WorldMap({ subject, state, onPickWorld, onPracticalTest, onSwitchSubjec
           </div>
         </div>
       </button>
+      )}
 
       {state.sessionsPlayed > 0 && (
         <SkillSummary state={state}/>
@@ -824,7 +824,8 @@ function SkillSummary({ state }) {
 }
 
 function prettySkill(s) {
-  return s.replace(/-/g, ' ');
+  const skill = Object.values(SUBJECTS).map((sub) => sub.module.SKILLS[s]).find(Boolean);
+  return skill ? skill.name : s.replace(/-/g, ' ');
 }
 
 /* ---------- LEVEL VIEW ---------- */
@@ -1364,9 +1365,19 @@ function CodeReview({ review, onContinue, onRevise }) {
   );
 }
 
+function shuffledIndices(n) {
+  const idx = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  return idx;
+}
+
 function MCAnswers({ challenge, onSubmit }) {
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [order] = useState(() => shuffledIndices(challenge.options.length));
 
   function getState(idx) {
     if (!submitted) return idx === selected ? 'selected' : '';
@@ -1384,7 +1395,7 @@ function MCAnswers({ challenge, onSubmit }) {
   return (
     <div>
       <div className="grid gap-2.5">
-        {challenge.options.map((opt, idx) => (
+        {order.map((idx, pos) => (
           <button
             key={idx}
             disabled={submitted}
@@ -1395,9 +1406,9 @@ function MCAnswers({ challenge, onSubmit }) {
             <div className="flex items-center gap-3">
               <div className="ja-mono text-xs w-6 h-6 rounded flex items-center justify-center flex-shrink-0"
                    style={{background:'var(--bg-2)', color:'var(--ink-dim)'}}>
-                {String.fromCharCode(65 + idx)}
+                {String.fromCharCode(65 + pos)}
               </div>
-              <div className="ja-mono text-sm" style={{color:'var(--ink)'}}>{opt}</div>
+              <div className="ja-mono text-sm" style={{color:'var(--ink)'}}>{challenge.options[idx]}</div>
             </div>
           </button>
         ))}
@@ -1577,10 +1588,7 @@ function MatchAnswers({ challenge, onSubmit }) {
   const [selections, setSelections] = useState(() => pairs.map(() => null));
   const [submitted, setSubmitted] = useState(false);
 
-  const rightOptions = useMemo(() => {
-    const rights = pairs.map((p) => p.right);
-    return rights;
-  }, [pairs]);
+  const [rightOptions] = useState(() => shuffledIndices(pairs.length).map((i) => pairs[i].right));
 
   function pick(slotIdx, rightText) {
     if (submitted) return;
@@ -1869,19 +1877,14 @@ function defaultSubjectState() {
 
 function defaultState() {
   return {
-    subjects: {
-      java: defaultSubjectState(),
-      business: defaultSubjectState(),
-    },
+    subjects: Object.fromEntries(Object.keys(SUBJECTS).map((id) => [id, defaultSubjectState()])),
   };
 }
 
 function migrateSkillStats(oldStats, subjectId) {
   const out = {};
   for (const [key, val] of Object.entries(oldStats || {})) {
-    const ids = subjectId === 'business'
-      ? migrateSkillIdsForSubject([key], subjectId)
-      : migrateSkillIds([key]);
+    const ids = migrateSkillIdsForSubject([key], subjectId);
     if (ids.length === 0) continue;
     const newKey = ids[0];
     const cur = out[newKey] || { correct: 0, wrong: 0, history: [] };
@@ -1905,16 +1908,15 @@ function migrateSubjectState(payload, subjectId) {
 function migrateLoadedState(payload) {
   if (payload?.subjects) {
     return {
-      subjects: {
-        java: migrateSubjectState(payload.subjects.java || {}, 'java'),
-        business: migrateSubjectState(payload.subjects.business || {}, 'business'),
-      },
+      subjects: Object.fromEntries(Object.keys(SUBJECTS).map((id) => [
+        id, migrateSubjectState(payload.subjects[id] || {}, id),
+      ])),
     };
   }
   return {
     subjects: {
+      ...defaultState().subjects,
       java: migrateSubjectState(payload || {}, 'java'),
-      business: defaultSubjectState(),
     },
   };
 }
@@ -2288,7 +2290,7 @@ export default function App() {
             subject={activeSubject}
             state={subjectState}
             onPickWorld={(worldId) => setView({ kind: 'world', subject: activeSubject, worldId })}
-            onPracticalTest={() => setView({ kind: activeSubject === 'business' ? 'businessReportTest' : 'practicalTest', subject: activeSubject })}
+            onPracticalTest={() => setView({ kind: 'practicalTest', subject: activeSubject })}
             onSwitchSubject={goSubjectPicker}
           />
         )}
@@ -2325,23 +2327,6 @@ export default function App() {
               });
             }}
             dispatch={(a) => subjectDispatch(a)}
-          />
-        )}
-
-        {view.kind === 'businessReportTest' && (
-          <BusinessReportTest
-            onBack={goHome}
-            onComplete={(result) => {
-              syncSession({
-                mode: 'businessReportTest',
-                subject: 'business',
-                unitId: result.unitId,
-                correctCount: result.totalAwarded,
-                total: result.totalPossible,
-                score: result.percentage,
-                grade: result.grade,
-              });
-            }}
           />
         )}
 
@@ -2411,7 +2396,7 @@ export default function App() {
             levelId={view.levelId}
             challengeIds={view.challengeIds}
             mode="level"
-            onExit={() => setView({ kind: 'world', worldId: view.worldId })}
+            onExit={() => setView({ kind: 'world', subject: activeSubject, worldId: view.worldId })}
             onComplete={({ correctCount, total, results, unitId }) => {
               syncSession({
                 mode: 'level',
@@ -2422,7 +2407,7 @@ export default function App() {
                 attempts: buildAttemptsForApi(results, unitId),
               });
               setView({
-                kind: 'summary', mode: 'level', levelName: view.levelName, worldId: view.worldId,
+                kind: 'summary', subject: activeSubject, mode: 'level', levelName: view.levelName, worldId: view.worldId,
                 levelId: view.levelId, challengeIds: view.challengeIds, correctCount, total, results,
               });
             }}
@@ -2445,7 +2430,7 @@ export default function App() {
                 attempts: buildAttemptsForApi(results, unitId),
               });
               setView({
-                kind: 'summary', mode: 'practice', levelName: 'Quick Practice',
+                kind: 'summary', subject: activeSubject, mode: 'practice', levelName: 'Quick Practice',
                 challengeIds: view.challengeIds, correctCount, total, results,
               });
             }}

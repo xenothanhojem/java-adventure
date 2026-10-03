@@ -1,0 +1,1029 @@
+
+===== PDF PAGE 181 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 171 
+Learning Unit 9 While Loops and 
+Do Loops 
+9.1 The Need for a While Loop 
+A "for" loop is usually used when the number of times one or more statements must be repeated is 
+known. Sometimes the number of repetitions is not known. Instead, a block of statements is repeated 
+while a condition is true, or until a value changes. 
+ACTIVITY 1  
+A user will enter data for a person's age and the only allowable values are between 1 and 120. You 
+need code to check the user's input and display an error message if the input is incorrect.  
+Type the following code into a new Java Application called CheckInput: 
+import javax.swing.*; 
+public class CheckInput 
+{ 
+public static void main (String [] args) 
+{ 
+       
+int age = Integer.parseInt(JOptionPane.showInputDialog ( 
+"Enter your age from 0 to 120"));  
+if (age < 0 || age > 120) 
+{ 
+ System.out.println ("The age is an incorrect value");  
+}// end if 
+}//main method 
+}//CheckInput 
+ Save and run this application and enter 130 as data. The program informs the user that the 130 
+is incorrect but does not allow the user to enter a correct age. 
+This program needs a loop to allow the user to enter the age until the value is correct. The user could 
+make more than one mistake entering an age. 
+ Change the program to alter the if statement to a while loop, by changing the reserved word if 
+to while. 
+ Run the program and enter 130 as data and notice the loop is infinite as the user is not allowed 
+to input a new value for age. 
+ Change the loop by adding a second input statement for age inside the loop. 
+int age = Integer.parseInt(JOptionPane.showInputDialog ("Enter your 
+age from 0 to 120"));  
+while (age < 0 || age > 120) 
+{ 
+System.out.println ("The age is an incorrect value"); 
+age = Integer.parseInt(JOptionPane.showInputDialog  
+     ("Enter your age from 0 to 120"));  
+}// end while 
+ Indent your code between the curly brackets in the loop. All the code that lies between the curly 
+brackets of the while loop will be repeated. 
+===== PDF PAGE 182 =====
+Exploring IT: Java Programming Grade 10 
+Page 172 Learning Unit 9 While Loops and Do Loops 
+The word while means "as long as". Just before the while statement, the program asks the user to 
+enter an age. If the age is correct the condition will be false, and the loop will be bypassed. If the age 
+is incorrect, the condition will be true, and the loop will be executed. An error message will be 
+displayed, and the user will be able to enter a new value for age. The while loop will only terminate 
+when the condition is false, in other words the user has entered a valid value for age. 
+9.2 General Structure of a While Loop 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Select a variable to control the loop   S 
+ Initialise the test variable       I 
+ while (a condition using the test variable is true)  T 
+ { 
+  ... statements in loop ... 
+  Change the value of the test variable  C 
+ } // end while loop 
+9.3 Another Example using a While Loop 
+ACTIVITY 2 
+ Read the following problem description: 
+Display all the multiples of 3 between 1 and 8000 across the screen, with one space between each.  
+9.3.1 Decompose the Problem in Terms of IPO. 
+IPO can be used in this case as there is no input or output in the processing loop.  
+Decide what condition 
+you will be testing and 
+select the variable to 
+use in this condition (age 
+in the previous example). 
+ 
+At the beginning of the 
+loop, the condition 
+using age is tested to 
+see if it is true. 
+ 
+Ask the user if he/she 
+wants to continue the 
+loop - change the value 
+of age. 
+ 
+ 
+ 
+Loop ends here. 
+As you can see a 
+while has a similar 
+flow chart to a for loop.  
+Get an initial value for 
+the variable age. 
+ 
+If the condition is true, 
+the statements in the 
+loop are carried out. 
+ 
+ 
+ 
+As soon as the 
+condition is false, the 
+body of the loop is 
+skipped and the first 
+statement after the 
+loop is executed. 
+===== PDF PAGE 183 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 173 
+Input No input, the numbers will be generated. 
+Processing 
+Generate multiples of 3 starting at 3 and 
+stopping when the numbers are greater 
+than 8000. 
+Output Multiples of 3. 
+9.3.2 Data Structure 
+We can use a single integer variable num to store the numbers and overwrite each number in the 
+variable num, then display num after the loop.  
+9.3.3 Algorithm 
+The program needs to use a loop as we want to repeat the action of adding 3 to num and displaying 
+each num. We don't know how many times the loop will execute unless we start counting in 3's until 
+we get to 8000, which is what we want the program to do. For this reason, a for loop is not suitable as 
+we do not know how many times the loop will execute. We need to have a condition that will stop the 
+loop.  
+It is important that we design the while loop to terminate correctly and serve the purpose that we 
+need. By using ITC, we can design a loop that will terminate successfully. 
+Select num 
+Initialise num  3 
+Test num <= 8000 
+Change num  num + 3 
+We can use the table above to write the algorithm. 
+begin 
+    num  3 
+    while (num <= 8000) 
+ 
+num  num + 3 
+ 
+    end while 
+end 
+Now we have a successful while loop that will terminate. We need to add in code to completely solve 
+the problem. The variable num needs to be displayed, but should num be displayed before or after it 
+is incremented by 3? 
+ Algorithm 1 
+ 1   num  3 
+ 2   while (num <= 8000) 
+ 3 display num 
+ 4 num  num + 3 
+ 5   end while 
+OR 
+Algorithm 2 
+1   num  3 
+2   while (num <= 8000) 
+3 num  num + 3 
+4 display num 
+5   end while 
+ 
+  
+===== PDF PAGE 184 =====
+Exploring IT: Java Programming Grade 10 
+Page 174 Learning Unit 9 While Loops and Do Loops 
+To decide which is the correct solution, we can use a trace table for each algorithm 
+Line num num <= 8000? OUTPUT  Line num num <= 8000? OUTPUT 
+1 3    1 3   
+2  true   2  true  
+3   3  3 6   
+4 6    4   6 
+5     5    
+2  true   2  true  
+3   6  3 9   
+4 9    4   9 
+5     5    
+2  true   2  true  
+3   9  3 12   
+4 12    4   12 
+5     5    
+2  true   2  true  
+  ....     ....  
+Note that that when the end of the loop is reached, the condition at the beginning is tested to 
+determine if the loop must execute again. If the result of the condition is true, the loop will execute 
+again, if the condition is false, the loop will terminate and line 6 (if there was one) of the algorithm 
+would execute. 
+The solution to Algorithm 1 produces 3, 6, 9, 12,.... while the solution to Algorithm 2 produces 6, 9, 12 
+since it increases num by 3 before num is displayed. 
+We could fix this by initialising num to 0 instead of 3, however as we approach 8000 and num is say 
+7999, it will be incremented by 3 to produce 8002 which will be displayed and then the loop will 
+terminate effectively going over the 8000 limit.  
+For this reason, Algorithm 1 is the correct solution. In the while loop, the C for change should be the 
+last line of the while loop. This ensures that the loop control variable is changed and then tested. In 
+Algorithm 2 the loop control variable is changed and displayed even though the loop should have 
+ended. 
+9.3.4 Code the Algorithm 
+ACTIVITY 3 
+ Code the algorithm by typing the following program called Mult3. 
+System.out.println ("MULTIPLES OF 3 BETWEEN 1 and 8000"); 
+  
+int num = 3; 
+               
+while (num <= 8000)     
+{ 
+     System.out.print (num + " "); 
+     num = num + 3; 
+ 
+}// end while loop 
+ 
+===== PDF PAGE 185 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 175 
+System.out.println (); 
+System.out.println ("Click Close to end"); 
+ Save and run the program. 
+9.3.5 Test the Code 
+ Check that multiple of 3s are displayed across the screen ending with a number less than 8000. 
+Since the program requires no input, no test data can be used.  
+What if we changed the condition to num < 8000?   
+ Change the condition and test to see if the program still works. 
+Since 8000 is not a multiple of 3, it does not make any difference in this case, however it could for 
+other data. 
+9.3.6 Evaluate the Solution 
+We could improve the output by displaying 10 numbers on a line. We can do this by using the 
+System.out.println() method every 10th number. To work out every 10th number, we could use a 
+counter, or determine when num is a multiple of 30. 
+ Algorithm 3 
+ num  3 
+ count  0 
+ while (num <= 8000) 
+  display num 
+ count  count + 1 
+  if (count % 10 == 0) 
+   go to next line 
+ num  num + 3 
+ end while 
+OR 
+Algorithm 4 
+num  3 
+while (num <= 8000) 
+ num  num + 3 
+ display num 
+ if (num % 30 == 0) 
+  go to next line 
+end while 
+ Type in both solutions and check that they both work. 
+ Choose a solution. 
+While both are acceptable, we could argue the Algorithm 4 is better as it uses less variables. We 
+could also argue that both are more inefficient that Algorithm 1 as the if statement must be checked 
+each time the loop executes, and the condition will only be true every 10th iteration of the loop. 
+There is always a trade-off. By adding the if statement, we have improved the output but cost more in 
+execution time. As a programmer, you will have to decide which is the best solution for a particular 
+problem.  
+EXERCISE 1 
+1. Code a program in a class called WhileEx to display across the screen all integers starting at 
+−10 and ending at 50. Leave two spaces between each number.   
+1.1. Adapt the code to display integers from −20 to 100. 
+1.2. Change the code by asking the user to enter the starting and ending values and display all 
+the multiples of 4 between those values. 
+ 
+  
+===== PDF PAGE 186 =====
+Exploring IT: Java Programming Grade 10 
+Page 176 Learning Unit 9 While Loops and Do Loops 
+CHECK POINT 1 
+1. Explain the difference between an if statement and a while loop. 
+2. Answer TRUE or FALSE to each of the following: 
+2.1. The condition in a while loop is always tested at the beginning of the loop. 
+2.2. There must be more than one line inside a while loop.  
+2.3. The test variable must be initialised inside the while loop.  
+2.4. The statements in a while loop will only be carried out if the condition is TRUE.  
+2.5. The loop variable must be changed just before the end of the while loop. 
+3. What is an infinite loop and how do you avoid it? 
+4. Why does it help to follow SITC steps when using while loops? 
+5. Is the while loop the only loop that can be an infinite loop? 
+6. Which do you think is more likely to be an infinite loop, a while loop or a for loop? 
+7. How many times will each of the following while loops be carried out? Do a trace table for each 
+section of code. Show also the output that will be displayed on the screen. 
+7.1.      
+int num = 0; 
+int value = 1; 
+while (num == 0) 
+{ 
+    System.out.println(value); 
+    if (value % 2 == 0) 
+    { 
+        num = num + 1; 
+    } 
+} 
+7.2.      
+int num = 0; 
+while (num != 0) 
+{ 
+    System.out.println( num ); 
+    num = num + 5; 
+} 
+ 
+ 
+===== PDF PAGE 187 =====
+ exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 177 
+9.4 SITC for While Loops 
+Every while loop must have the same structure so 
+that it will work correctly. We are going to use SITC 
+which we will explain below. 
+You must identify a condition that will allow you to 
+use a while loop in the same way as you do with an 
+if statement. This condition will involve one or more 
+variables. 
+We have also shown the structure of the 
+while loop using a flowchart and pseudocode. 
+S Select the test variable(s) to use in the 
+condition e.g. ans or num 
+I 
+Give the test variable(s) an initial value. 
+e.g. ans = Integer.parseInt 
+(JOptionPane.showInputDialog ());   
+or    num = 3; 
+T 
+Test the condition in the while heading. 
+e.g. while (ans =='Y' | ans =='y') 
+or    while ( num < 80 ) 
+C 
+Change the value of the test variable(s) 
+just before the end of the loop.  
+e.g. ans = Integer.parseInt 
+(JOptionPane.showInputDialog ());   
+(again)   
+or   num = num + 3; 
+ 
+ 
+ 
+ 
+Using Pseudocode 
+SELECT and INITIALISE the variable(s) 
+to be tested in the condition 
+while (TEST condition is true)  
+       ... statement(s) in the loop 
+ 
+      CHANGE the test variable at the 
+ end of the loop 
+end while 
+ 
+ ... statement(s) after the loop 
+ 
+Select and initialise the test variable(s) 
+BEFORE the start of the while loop. 
+Change the value of the test variable JUST 
+BEFORE THE END of the while loop 
+ALWAYS use SITC when you design a while 
+loop, so that it will work properly! 
+
+===== PDF PAGE 188 =====
+Exploring IT: Java Programming Grade 10 
+Page 178 Learning Unit 9 While Loops and Do Loops 
+9.4.1 Investigating SITC 
+The following examples will illustrate why none of the SITC parts can be left out when you use a while 
+loop. 
+ACTIVITY 4 
+9.4.1.1 S is important 
+The price of an article in a five-day sale is decreased by R10 every day of the sale. If you are given 
+the starting price, display the reduced price of the article on each day of the sale. 
+(i.e. Starting Price R200; Sale day 1 -  R190; Sale day 2 -  R180, etc.) 
+ price = 200;       
+ while (day <= 5)  
+ { 
+     price = price − 10; 
+     System.out.println("Sale Day "+ day +" Price R "+ price); 
+     day = day + 1; 
+ }  
+ Type in these statements in a program, using class name Sale1 and run it. 
+ Price is initialised to 200, yet day < = 5 is the condition. We need to initialise day to 1. Correct 
+the above program by setting day to 1 before the loop. 
+9.4.1.2 I is important.    
+ Add consecutive positive integers from 1 until their sum is just less than 20.  
+In other words, add 1 + 2 + 3 + ... and while their sum is less than 20, keep adding another integer. 
+ Work out what the answer should be and write down the answer. 
+Integers added Sum Sum < 20? 
+ 1 1 ✓ 
+ 1 + 2 3 ✓ 
+ 1 + 2 + 3 6 ✓ 
+ 1 + 2 + 3 + 4   
+ 1 + 2 + 3 + 4 + 5   
+ 1 + 2 + 3 + 4 + 5 + 6   
+The following program has been written to solve this problem: 
+ int num = 1; 
+ int sum; 
+ while (sum < 20)  
+ { 
+   System.out.println("The sum of " + num + " natural numbers is "   
+     + sum); 
+    num = num + 1; 
+    sum = sum + num; 
+ } 
+  
+===== PDF PAGE 189 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 179 
+ Copy this code into a class called Sum20 and run it. 
+ Write down the error message that is displayed. 
+ Correct the problem by initialising the sum to 1. Run the program to check that you get the 
+correct answer. 
+9.4.1.3 T is important 
+A person wrote this segment to display a Count Down: 
+  10...9...8...7...6...5...4...3...2...1...0  BLAST OFF!   
+ System.out.println( "Count Down" ); 
+ num = 10; 
+ while ( num < 10 )  
+ { 
+     System.out.print( num + ". . ." ); 
+     num = num − 1; 
+ } 
+ System.out.println( "BLAST OFF!" ); 
+ Type this code segment in a program, using class name BlastOff and run it. 
+ This program does not display what was intended. Write down what is displayed.  
+ Change the condition so that the test is correct and rerun the program. 
+ Change the condition to (num = = 10) and run the program again. What happens? 
+ Change the condition to (num > 0 && num < 0) What happens? 
+ Change the condition to (num > 0 && num < 10) What happens? 
+9.4.1.4. C is important.     
+The price of a R200 article is decreased by R10 every day of the sale. Given the starting price, 
+display the reduced price of the article on each day of the sale. 
+ price = 200; 
+ day = 1; 
+ while (day <= 5)  
+ { 
+     price = price − 10; 
+     System.out.println("Sale Day "+ day+ " Price R "+ price); 
+ } 
+ Copy the following headings and complete a trace table to see what this code does: 
+price, day, day <= 5?, OUTPUT 
+ Type this code in a class called Sale2 and run it. Write down what happens when the program 
+is run and explain why:  
+ Fix this program so that it works correctly. Save it. 
+  
+===== PDF PAGE 190 =====
+Exploring IT: Java Programming Grade 10 
+Page 180 Learning Unit 9 While Loops and Do Loops 
+EXERCISE 2 
+For each of the problems that follow, check "SITC". Be careful of the layout of your code. Use while 
+loops in each program unless instructed otherwise. 
+1. A sequence of numbers is a set of numbers that usually have some relationship between 
+them. For example, a simple sequence is the set of counting numbers: 
+1, 2, 3, 4, 5, ...  
+Each number in this sequence is one more than the previous one.  
+Another sequence is the set of even numbers:  
+2, 4, 6, 8, 10, ...  
+In this example, each number is 2 more than the previous number. We say that the 'step' from 
+one number to the next is 2. 
+1.1. Generate a sequence of even numbers starting at 2 and ending at 500. Display the 
+numbers across the screen, with one space between each number. Before coding the 
+program on the computer, use an SITC table.  
+1.2. Code the program on the computer in a class called EvenNums.  
+1.3. Add an if statement that will display 5 numbers on a line and then go to the next line. You 
+may need to introduce a new variable to count the number of terms generated and, if it is 
+a multiple of 5, move to the next line.  
+1.4. This program can quite easily be done with a for loop. Use class name EvenNums2 and 
+code a solution using a for loop so that your output is exactly the same as EvenNums. 
+2. A series of numbers is a sequence of numbers added together, such as: 
+1 + 4 + 7 + 10 + 13 + 16 + 19 + 22 
+Each term goes up by 3 in this series. 
+2.1. You have been asked by the Maths Department to write a program to work out how many 
+positive integers, starting from 1 must be added so that the sum of these integers is just 
+greater than 5000. 
+In other words, you must add   1 + 2 + 3 + 4 + 5 + 6 + 7 + . . . and check the sum of the integers 
+that have been added to see if it is greater than 5000 or not.  
+2.2. You will need to include a counter to count how terms will be added. 
+2.3. Plan your solution in detail using IPO, choose a data structure, design an algorithm, code 
+the solution, test and evaluate the solution. 
+2.4. Code a new Java Application called WhileSum to solve the above problem. 
+ 
+  
+===== PDF PAGE 191 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 181 
+9.5 While Loops which use a Given Terminating Value  
+Sometimes you are told to input data until a terminating (dummy or rogue) value is typed in. This 
+rogue value must be used in the condition to test whether input must continue. The rogue value must 
+not be used in any calculations involving the data. 
+ACTIVITY 5 
+Consider the following problem: 
+ Input an unknown quantity of marks that students 
+obtained in an Information Technology test. Terminate 
+input by entering −1 for a mark. Determine and display the 
+average mark obtained in the test. (You want to be able to 
+apply the program to any test for any number of students, 
+so it is better to use a while loop rather than a for loop.) 
+ What is the rogue value that is to be used in this problem 
+to stop the input of marks? 
+ Assume that the test marks are bigger than or equal to 
+zero (as marks usually are). Will any of the marks (except 
+for the rogue value) be < 0? 
+ Write down a condition (using mark as the test variable) 
+that will enable input to stop when the rogue value is 
+entered: 
+The pseudocode is given below: 
+ begin 
+    total  0 
+     counter  0 
+     display "Input mark (-1 to stop)" 
+     input mark 
+     while (mark ≠ -1) 
+  total  total + mark  
+  counter  counter + 1 
+  display "Input mark (-1 to stop)" 
+  input mark 
+     end while 
+     average  total / counter  
+     display average, counter  
+ end 
+ Code a new Java Application called AvgMarks using the 
+pseudocode as a guide. 
+ Save and run the program, using the following sets of test 
+data as input. 
+ Write down the answers your program produces for each 
+set of marks. 
+Sets of Marks        
+1. 78, 89, 55, 63, 70, 42, 50, 80, 69, 59, 72, 61, 49, 62, −1   
+2. 25, 30, 28, 19, 17, 21, 30, 18, 25, 28, 22, 20, 29, 21, 29, 27, −1  
+3. 45, 48, 43, −1        
+
+===== PDF PAGE 192 =====
+Exploring IT: Java Programming Grade 10 
+Page 182 Learning Unit 9 While Loops and Do Loops 
+ Complete a trace table and show the output that will be produced by this program. Use the last 
+set of test data (45, 48, 43, −1) 
+ total   counter mark    while ................(⇐ Fill in the condition)       average 
+Learn the algorithm as it is a generic solution that is often used and can be adapted for similar 
+problems. 
+EXERCISE 3 
+1. Find the sum of an unknown quantity of integers that are entered on the keyboard. Input ends 
+when the integer -99 is entered. Save the program as AddInts. 
+1.1. Write down the SITC sections.      
+1.2. Draw a flow chart to show the logic of a solution for this program. Your flowchart should 
+correspond to the following pseudocode. 
+begin 
+sum  0 
+input num 
+while num <> -99 
+    sum  sum + num 
+    input num 
+end while 
+display sum with a message 
+end 
+1.3. Make sure that the termination value is not added to sum. 
+1.4. Code a program which follows the steps in the algorithm above. Save as AddInts. 
+1.5. Test your program with the following data:  8, 45, -19, 77, 50, 12, -4, -6, 13, 0 
+1.6. Do you think that -99 is a good rogue value for this problem? 
+1.7. What would be a good rogue value when inputting people's surnames? 
+2. Consider the following problem: 
+Input the price of each of an unknown quantity of goods bought at the supermarket. Terminate 
+input with a suitable rogue value. Determine and display the total amount that the customer 
+must pay (to 2 decimal places). 
+2.1. First, complete the SITC table. 
+2.2. Choose a suitable data structure. 
+2.3. Write an algorithm showing a logical solution to this problem. 
+2.4. Code a program to solve this problem using your algorithm. Save as Prices. 
+2.5. Run it and input the following test data: 
+78.99   231.56  19.05   5.75   67.12   43.88   1.90   3.22   6.75   0 
+2.6. Change your program so that the individual prices are displayed, as well as the total. 
+Make up a name for the supermarket and display it as a heading. 
+  
+===== PDF PAGE 193 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 183 
+3. Sale3  
+An article that is on sale has a starting price of R200. Every day its price is reduced by R8 until 
+the price is just less than R100.  Determine the number of days it will take until the article 
+reaches this price. Display the number of days and the new price.  
+3.1. Plan and code your solution. Test your solution with suitable test data.  
+4. Write an algorithm or pseudocode to display the integers:  
+48 24 12  6  3 
+4.1. Type code into a class DivideNums after you have planned your solution. 
+5. Code a new Java Application called Dice which simulates a throw of a dice by producing one 
+random integer in the range {1;2;3;4;5;6}. 
+5.1. Run the program another ten times and write down the random number produced each 
+time:   
+5.2. Add a "for" loop into your program so that the computer will generate and display (one 
+below the other) 10 random integers between 1and 6 (inclusive) instead of you having to 
+run the program ten times. 
+5.3. Change your program so that it will produce 100 random integers in the range 1 to 6 
+inclusive. Display them across the screen with suitable spacing. 
+5.4. Change your program again so that it will generate and display random integers (across 
+the screen with one space between each) in the range 1 to 6 (inclusive) until a 6 is 
+generated. (You will have to change the type of loop.)   
+5.5. As soon as a 6 is generated, the program must display a message "THE END" (on the 
+same line) and then stop. (The 6 must not be displayed.)  
+5.6. Run the program several times to get different lists of numbers and write down the output. 
+below: 
+5.7. It can happen that the output just consists of "THE END" with no numbers in front of it at 
+all. Explain how this could happen. 
+5.8. Replace all occurrences of Dice in your program with the class name Random99 and 
+save the program with the new name Random99. Change the program so that it will 
+generate and display random integers in the range 0 to 99 (inclusive) until a 0 (zero) is 
+generated. As soon as a 0 is generated, the program must stop. Add a counter to your 
+program, so that it counts the number of integers that are generated before a zero makes 
+it stop. Leave a blank line and then display the quantity, with a suitable message. (Run the 
+program several times.) 
+CHECK POINT 2 
+1. Explain in your own words why while loops are necessary in programming. 
+2. "For loops are like while loops, the ITC is built-in in for loops". Explain this statement. 
+3. Give an example of a problem in which you would use a for loop and another in which you 
+would use a while loop. 
+4. Rewrite the following for loop as a while loop. 
+for (int i = 0; i <= 5; i++) 
+    System.out.println("Hi there"); 
+===== PDF PAGE 194 =====
+Exploring IT: Java Programming Grade 10 
+Page 184 Learning Unit 9 While Loops and Do Loops 
+5. What is the most common cause of infinite loops in while loops? 
+6. In what way is the flow chart of a while loop very similar to that of a for loop?  To explain your 
+answer, draw flow charts of a for loop solution and a while loop solution for the problem of 
+counting from 1 to 10 and displaying the numbers across the screen. 
+7. Can all for loops be written as while loops?  If so, why bother with for loops? 
+ 
+9.6 Errors in While Loops   
+ACTIVITY 6 
+ Consider the following program which does not follow the SITC structure correctly.  
+// The "While_Error_One" class. 
+// This program reads and adds non-zero integers.  
+// Input ends when a zero is entered.     
+public class While_Error_One  
+{ 
+   public static void main (String [] args) 
+   { 
+     int number, sum = 0; 
+     number = Integer.parseInt 
+    (JOptionPane.showInputDialog("Enter an integer")); 
+     while (number == 0) 
+     { 
+          sum = sum + number; 
+         number=Integer.parseInt 
+    (JOptionPane.showInputDialog("Enter an integer")); 
+     } 
+     System.out.println ("The sum of the integers is " + sum); 
+   } // main method 
+} // While_Error_One class 
+ Draw a trace table to explain what the error is.  
+ Use the headings sum, number, number = = 0?, SCREEN OUTPUT. 
+ Change the condition to:  number != 0    
+ Draw another trace table with the changed condition and use the test data 7, -5, 2 and 0. 
+EXERCISE 4 
+1. Create a trace table for each of programs below to determine the logic of each program. Then 
+explain what is wrong with each one.  
+1.1. The user will enter 7 as input. 
+// The "While_Error_Two" class. 
+// This program reads and adds non-zero integers.  
+// Input ends when a zero is entered.      
+public class While_Error_Two       
+{ 
+   public static void main (String [] args) 
+   { 
+      int number, sum = 0; 
+ 
+===== PDF PAGE 195 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 185 
+      number = Integer.parseInt(JOptionPane.showInputDialog 
+                               ("Enter an integer ")); 
+      while (number != 0) 
+      { 
+         sum = sum + number;            
+      } 
+      System.out.println ("The sum of the integers is " + sum); 
+ 
+   } // main method 
+} // While_Error_Two class 
+1.2. Explain what is wrong with the program. 
+1.3. Write down the Java statement needed to correct the program. Say exactly where it must 
+be inserted in the program. 
+2. Study the program to generate and display positive even numbers up to and including 10.  
+// The "EvenNumbers" class. 
+// 
+ 
+public class EvenNumbers 
+{ 
+   public static void main (String [] args) 
+   {       
+      int even = 0; 
+      while (even < 10) 
+      { 
+         System.out.println (even); 
+         even = even + 2; 
+      } 
+   } // main method 
+} // EvenNumbers class 
+2.1. Explain what is wrong with the program 
+2.2. Write down the Java statement that will ensure that the program does what it is supposed 
+to.  
+3. Type in the following code in a new class called OtherLoopErrors and run it. 
+public class OtherLoopErrors 
+{ 
+   public static void main (String [] args) 
+   { 
+      char ch; 
+      ch = JOptionPane.showInputDialog("Input any character  
+                                      (x to stop)").charAt(0); 
+ 
+      while (ch != 'X' || ch != 'x');     
+      { 
+         System.out.println (); 
+         System.out.println ("You typed in " + ch); 
+ 
+         ch = JOptionPane.showInputDialog ("Input any character  
+                                          (x to stop)").charAt (0); 
+      }// end while loop 
+      System.out.println ("End of program"); 
+ 
+   } // main method 
+} // OtherLoopErrors class 
+===== PDF PAGE 196 =====
+Exploring IT: Java Programming Grade 10 
+Page 186 Learning Unit 9 While Loops and Do Loops 
+3.1. When you run the program and type any character, the program is still running (look at the 
+caption at the top of the output window), but nothing is happening. Clearly the semicolon 
+is the problem. Can you explain why? 
+3.2. Remove the semi-colon (;) from the end of the while loop header.  
+3.3. Run the program. Now it should allow you to type in as many characters as you want - 
+BUT it does not stop when you input X (or x). Why not? 
+3.4. Change the operator in the condition from OR (||) to AND (&&) so that the condition 
+becomes: 
+(ch != 'X' && ch != 'x') 
+When checking if more than one item is equal, use OR (||). When checking if more than one 
+item is not equal, use AND (&&). 
+3.5. Run the program. It should now work correctly, allowing you to type in as many characters 
+as you want - AND stopping when you press X (or x). 
+If you have a logical error in a WHILE loop, check SITC first - most errors result from these 
+four steps. If this still does not solve the problem, use a trace table. 
+Make sure you do not have a ; at the end of the while statement header. This effectively makes 
+the loop infinite. One small semi colon can make a huge difference. 
+EXERCISE 5 
+Code programs for each of the following problems, planning each solution in detail. 
+1. StarStop 
+1.1. Ask the user to enter characters and stop when a '*' is entered. Count how many 
+characters are input before a '*' is entered and display this information. (Do not count 
+the '*'). 
+1.2. Test your program with the following sets of test data: 
+1.2.1. 6, h, +, * 
+1.2.2. 1, 2, 3, 4, 5, 6, 7, * 
+1.2.3. a, * 
+2. AvgGirlsNames 
+2.1. Input an unknown number of girls' first names (stopping when a '*' is input). Determine 
+and display the average length of the girls' names (rounded to a whole number). You can 
+use the Java method name.length() to determine the number of characters in a String 
+variable called name. 
+2.2. Test data:         
+2.2.1. Susan, Veronica, Thandi, Geraldine, Ann, Bridget  
+2.2.2. Pat, Di, Val, Jane, Helen, Sam, Lynn, Meg, Anne 
+3. Heights 
+3.1. Input the heights (as real numbers in metres) of an unknown quantity of people (stopping 
+when a negative number is input). Determine and display the height of the tallest person. 
+Add code to display the height to 1 decimal place. 
+===== PDF PAGE 197 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 187 
+3.2. Test data:  
+3.2.1. 1.74, 1.70, 1.80, 1.62, 1.58, 1.78, 1.54, 1.69, 1.77 
+3.2.2. 1.55, 1.50, 1.48, 1.53, 1.49 
+3.3. Change your program so that it displays the height of the shortest person. 
+3.4. Test data:  
+3.4.1. 1.65, 1.74, 1.70, 1.80, 1.62, 1.58, 1.78, 1.54, 1.69, 
+1.47 
+3.4.2. 1.45, 1.50, 1.48, 1.53, 1.49 
+3.5. Change your program again so that the name of each person as well as their height can 
+be entered. (The name must be entered inside the loop.)  Display the name of the shortest 
+person, as well as their height. 
+3.6. Test data:  
+3.6.1. 1.62, Sue,    1.73, Wendy,    1.58, Carol,    1.66, Jane 
+4. Rainfall 
+4.1. Rainfall figures (in mm) were recorded for an unknown number of days. Input these 
+figures, terminating the input when a negative number is entered. Determine and display, 
+with a suitable heading, showing the number of days in the period: 
+4.1.1. the total rainfall that fell during the period. 
+4.1.2. the average daily rainfall that fell during the period. 
+4.1.3. the maximum rainfall that fell on any one day during the period. 
+4.1.4. the number of the day on which the maximum rainfall fell. (e.g. The maximum 
+rainfall of 88 mm fell on Day 7.) 
+4.2. Test data:  
+4.2.1. 23, 57, 81, 120, 44, 14, 39, 0, 25, 8 
+4.2.2. 0, 0, 15, 25, 18, 0, 0, 0, 26, 11, 0, 5, 0, 3, 8, 10 
+5. HowMany 
+5.1. HowMany1 
+How many numbers in the series 2 + 5 + 8 + 11 + . . . must be added so that the sum of 
+all these numbers is just greater than 610?  Display and write down the quantity and the 
+sum.  
+5.2. HowMany2 
+How many numbers in the series 1 + 1/2 + 1/3 + 1/4 + 1/5 + . . . must be added so that the 
+sum of all these numbers is just greater than 6?  Display on the screen and write down the 
+sum (to 8 decimal places) as well as the quantity of numbers. 
+Remember that using slash (/) division with integers causes the answer to be rounded off. 
+In order to get the correct results in this program, use 1.0/number so that real number 
+division takes place. Alternatively declare your numbers as double to avoid the problem 
+entirely. 
+  
+===== PDF PAGE 198 =====
+Exploring IT: Java Programming Grade 10 
+Page 188 Learning Unit 9 While Loops and Do Loops 
+6. ExamAvgs 
+6.1. Students have just written country-wide Computer Theory and Practical exams.  Input the 
+names and the Theory and Practical exam marks of an unknown number of students. 
+Input must stop when "X" (or "x") is entered for a name. Calculate the average of the 
+Theory and Practical exam marks for each student. Display each name and average (to 
+one decimal place). 
+6.2. Save and run your program using the following test data. Write down the output that is 
+produced for each student. 
+6.2.1. J Naidoo, 78, 72 
+6.2.2. P Sehunoe, 55, 43 
+6.2.3. G Matthews, 49, 38 
+6.2.4. K King, 80, 82 
+6.2.5. F Ntuli, 83, 75 
+6.2.6. S Mamphele, 66, 60 
+6.2.7. D Burton, 63, 58 
+7. ThreeLetterWords 
+7.1. Ask the user to enter five 3-letter words. The program must stop after five words have 
+been entered, or if any of the words do not have 3 letters. Display each word on the right-
+hand side of the screen after it has been entered. 
+7.2. Save and run your program, using the following four sets of test data.  
+7.2.1. fun, try, win, pet, sat, owl 
+7.2.2. add, subtract, sum, tot, minus 
+7.2.3. cry, mad, sad, pot, yo 
+7.2.4. dry, see, me, too, may 
+7.2.5. Create a trace table for your program using as test data the words: 
+7.2.5.1. cry, mad, sad, pot, yo 
+8. HiLoAveWhile 
+8.1. Code a program using a while loop to determine the largest and smallest number from a 
+set of numbers. The user will input the numbers and terminate input with 999.  
+8.2. Display the largest number, the smallest number and the average of the numbers. 
+  
+9.7 Do While Loops 
+Remember the program CheckInput at the beginning of this Learning Unit to validate input?  The 
+code could be written as a do loop. 
+import javax.swing.*; 
+public class CheckInput2 
+{ 
+   public static void main (String [] args) 
+   { 
+===== PDF PAGE 199 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 189 
+      int age;  
+      do 
+      { 
+         age = Integer.parseInt(JOptionPane.showInputDialog  
+("Enter your age from 0 to 120")); 
+      }  
+      while (age < 0 || age > 120);// end do 
+   }//main method 
+}//CheckInput2  
+ACTIVITY 7 
+ Type in the above code and save it as CheckInput2.  
+ Test the program with 30 as input. 
+ Test the program again with 150, 200, -2 and 4.  
+9.7.1 Comparing While and Do While Loops 
+9.7.1.1 Flow Charts 
+While Loop Do While Loop 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+===== PDF PAGE 200 =====
+Exploring IT: Java Programming Grade 10 
+Page 190 Learning Unit 9 While Loops and Do Loops 
+The While loop 
+• has only the keyword while to mark the 
+beginning of the loop 
+• has no semi-colon after the condition 
+• may not be executed at all (if the initial 
+value of the test variable makes the 
+condition false) 
+• has its condition tested at the beginning of 
+the loop statements 
+• uses SITC 
+The Do...While loop 
+• has the keyword do at the beginning of 
+the loop and while at the end (before the 
+condition) 
+• has a semi-colon after the condition, 
+because that is the end of the loop 
+• is always carried out at least once 
+• has its condition tested at the end of the 
+loop statements 
+• uses SICT 
+Both loops are carried out if the condition is true or until the condition becomes false. 
+The do...while loop is used much less frequently than the while loop because you are usually not 
+sure that the loop must be carried out at least once. Menus can use do...while because a menu must 
+always be displayed once. 
+Do while loops are useful to validate input; to ensure that the user cannot proceed in the program until 
+they have entered the data. 
+ACTIVITY 8 
+Consider the following algorithm to display a draw a different coloured square using the Gogga object, 
+depending on an option chosen from a menu of colours: 
+ do      
+  display menu showing colour options 
+  input choice      
+  check choice and draw a square in the colour chosen 
+ while choice is not 'Q' OR choice is not 'q' 
+ The following menu must be displayed: 
+COLOUR MENU 
+B  Blue 
+R  Red 
+G  Green 
+Q  Quit 
+ The menu must be displayed at least once, so that the user can choose Quit if s/he does not 
+want any of the other options. 
+ Add code to a program called ColSquare which displays the menu and then gets the letter of 
+the colour wanted (or Q), in either uppercase or lowercase and then checks the letter and if B, R 
+or G (in either case) draws a line graph in the chosen colour. Use a do...while loop for this 
+program. 
+EXERCISE 6 
+1. A menu must be displayed on the screen to offer the user the following choices for any positive 
+or negative integer that is entered: 
+CHECKS TO BE PERFORMED ON THE INTEGER: 
+Check if it is positive 
+Check if it is even 
+Check if it is a perfect square 
+===== PDF PAGE 201 =====
+ Exploring IT: Java Programming Grade 10 
+Learning Unit 9 While Loops and Do Loops Page 191 
+Check if it is a multiple of 7 
+Quit 
+1.1. The menu must appear repeatedly after each option has been carried out. When 5 is 
+pressed, the program must end.  
+1.2. Write pseudocode to show a logical solution to this problem. Use a do...while loop. 
+1.3. Code your solution on the computer in a class called CheckInt.  
+1.4. Save, then run the program and test each of the choices to make sure that it works.  
+2. How many consecutive positive integers must be added so that their sum is just greater than 
+twenty? 
+2.1. Write down an algorithm or pseudocode or a flowchart here to show a solution for this 
+problem, using a while loop. 
+2.2. Type code following your solution into a class called QuantityPosInts. 
+2.3. Save the program and run it, checking that it works correctly. 
+2.4. Change the program so that it uses a do...while loop instead of a while loop. 
+2.5. Run the program. Check your answers to make sure that they are the same as before. 
+2.6. Edit the program so that the user can enter the upper bound, instead of it being limited to 
+twenty. 
+2.7. Which is the better loop to use for this program, or does it make no difference?  Justify 
+your answer. 
+3. Study the following code, then answer the questions below: 
+do 
+{ 
+    String message = "Type in any greeting e.g. Hi, Hello, etc –  
+                     Type QUIT to stop"; 
+    String input = JOptionPane.showInputDialog (message); 
+    if (input.equals ("Hi")) 
+    { 
+         System.out.println ("Hi to you too"); 
+    } 
+    else if (input.equals ("Hello")) 
+         { 
+             System.out.println ("How are you?"); 
+         } 
+         else 
+         { 
+             System.out.println (input + " yourself!"); 
+         } 
+} 
+while (!input.equals ("QUIT")); 
+System.out.println ("Bye!"); 
+3.1. Write down the condition that is used in the loop 
+3.2. Write this condition in English showing clearly what it means 
+3.3. Are the following statements true (T) or false (F)? 
+3.3.1. The loop will be repeated while the condition is true. 
+3.3.2. The loop will be repeated until the condition is false. 
+===== PDF PAGE 202 =====
+Exploring IT: Java Programming Grade 10 
+Page 192 Learning Unit 9 While Loops and Do Loops 
+3.4. Explain why a nested if statement is used - i.e. why is "else" used between the 2 if 
+statements? 
+3.5. What input must be typed in so that "Bye!" is output?  
+3.6. Use the equalsIgnoreCase() method to extend the program so that the greetings such 
+as those used above can be typed in any case (upper, lower or mixed). 
+ 
+9.8 Choosing an Appropriate Looping Structure 
+There are three looping structures in Java: the for loop, the while loop and the do loop. Which 
+circumstances dictate the selection of an appropriate structure?  Any one of the loops can be used in 
+place of any one of the other loops. However, it is often more appropriate to use one type of loop in a 
+particular situation.  
+Consider the following code using a while loop for items sold at the flea market: 
+int itemCount = 0; 
+char ans = JOptionPane.showInputDialog  
+      ("Has an item been sold? 
+(Y/N)").charAt(0); 
+while (ans == 'Y' | ans == 'y') 
+{ 
+    itemCount = itemCount + 1; 
+    ans = JOptionPane.showInputDialog ("Has an item been sold?  
+          (Y/N)").charAt (0); 
+} 
+System.out.println ("The total number of items sold is " + itemCount); 
+The same code can be written using a for loop. Recall that a for loop has three parts: initialise a 
+variable, test a condition and change the loop variable. For example,  
+int itemCount = 0; 
+char ans; 
+ 
+for (ans = JOptionPane.showInputDialog 
+     ("Has an item been sold?(Y/N)").charAt (0); 
+     ans == 'Y' | ans == 'y';  
+     ans = JOptionPane.showInputDialog 
+     ("Has an item been sold?(Y/N)").charAt (0);)  
+     itemCount = itemCount + 1; 
+} 
+System.out.println ("Total number of items sold is " + itemCount); 
+Although the above use of the for loop produces the correct output, we do not recommend that you 
+use a for loop in this way. We feel that in the case of problems where the number of iterations is not 
+known beforehand, a while loop results in code which is more intuitive and more readable. 
+In the same way, a problem coded with for loop can logically always be rewritten with a while loop or 
+a do-while loop and vice versa. The decision of which loop to use is therefore an issue of code 
+readability, rather than what is possible.  
+We recommend the following: 
+• Use a for loop when the number of iterations is known beforehand. 
+• Use a while loop when the number of iterations is not known beforehand.  
+• Use a do while loop where at least one pass through the loop must be made. 

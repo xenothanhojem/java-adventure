@@ -1,5 +1,5 @@
 import {
-  Hash, ScrollText, Workflow, Repeat, Boxes, GitBranch, Binary,
+  Hash, ScrollText, Workflow, Repeat, Boxes, GitBranch,
 } from 'lucide-react';
 
 export const WORLDS = [
@@ -31,7 +31,7 @@ export const WORLDS = [
     glow: 'ja-glow-coral',
     bg: 'ja-w-algorithms',
     icon: Workflow,
-    blurb: 'Decompose. Spot patterns. Abstract away noise. Flowcharts, pseudocode, errors, traces — the toolkit behind every program.',
+    blurb: 'Decompose. Spot patterns. Abstract away noise. Flowcharts, pseudocode, errors, tests and traces: the toolkit behind every program.',
   },
   {
     id: 'loops',
@@ -61,16 +61,6 @@ export const WORLDS = [
     glow: 'ja-glow-emerald',
     bg: 'ja-w-logic',
     icon: GitBranch,
-    blurb: 'True or false. If, else, nested. AND, OR, NOT. Every branch leads somewhere.',
-  },
-  {
-    id: 'binary',
-    name: 'Binary Matrix',
-    subtitle: 'Binary · calculations & conversions',
-    color: 'lime',
-    glow: 'ja-glow-lime',
-    bg: 'ja-w-binary',
-    icon: Binary,
-    blurb: 'Ones and zeros. Convert, add, subtract. Bits, bytes, and the language every computer speaks.',
+    blurb: 'True or false. If, else, nested. AND, OR, NOT, De Morgan. Every branch leads somewhere.',
   },
 ];

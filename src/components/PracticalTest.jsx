@@ -20,11 +20,17 @@ import CodeEditor from './CodeEditor.jsx';
  */
 
 const UNIT_OPTIONS = [
+  { id: 'U1', label: 'Unit 1 - Introduction to Java' },
   { id: 'U2', label: 'Unit 2 - Variables & Arithmetic' },
   { id: 'U3', label: 'Unit 3 - Strings & Math Class' },
+  { id: 'U4', label: 'Unit 4 - Computational Thinking' },
   { id: 'U5', label: 'Unit 5 - For Loops' },
   { id: 'U6', label: 'Unit 6 - Objects' },
   { id: 'U7', label: 'Unit 7 - If Statements' },
+  { id: 'U8', label: 'Unit 8 - Switch & String Comparison' },
+  { id: 'U9', label: 'Unit 9 - While & Do Loops' },
+  { id: 'U10', label: 'Unit 10 - Nested Loops' },
+  { id: 'U11', label: 'Unit 11 - Methods' },
 ];
 
 const DIFFICULTY_OPTIONS = [
