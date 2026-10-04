@@ -34,9 +34,9 @@ const UNIT_OPTIONS = [
 ];
 
 const DIFFICULTY_OPTIONS = [
-  { id: 'easy', label: 'Easy', desc: 'Fewer sections, simpler logic' },
-  { id: 'medium', label: 'Medium', desc: 'Like a real class test' },
-  { id: 'hard', label: 'Hard', desc: 'Exam-level integration' },
+  { id: 'easy', label: 'Easy', desc: '45 minutes, about 30 marks, starter code given' },
+  { id: 'medium', label: 'Medium', desc: '60 minutes, about 50 marks, like a real class test' },
+  { id: 'hard', label: 'Hard', desc: '75 minutes, about 60 marks, exam-level' },
 ];
 
 function gradeColor(grade) {
@@ -46,15 +46,108 @@ function gradeColor(grade) {
   return 'var(--coral)';
 }
 
+const PAPER_INSTRUCTIONS = [
+  'Use comments to number your code according to the question number.',
+  'Answer the questions in the manner described. Marks are awarded according to the specifications in each question.',
+  'Only answer what is asked in each question.',
+  'If you cannot get a section of code to work, comment it out so that it is not executed and you can continue.',
+  'Your program must work with any data.',
+  'Save your work regularly.',
+];
+
+/*
+ * Splits paper text into paragraphs and pipe tables ("a | b" rows with an
+ * optional ---|--- separator). A single line containing | stays as text.
+ */
+function textBlocks(text = '') {
+  const blocks = [];
+  let textLines = [];
+  let tableLines = [];
+  const isSeparator = (l) => /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(l);
+  const cells = (l) => l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+  const flushText = () => {
+    if (textLines.length) blocks.push({ type: 'text', text: textLines.join('\n') });
+    textLines = [];
+  };
+  const flushTable = () => {
+    const rows = tableLines.filter(l => !isSeparator(l));
+    if (rows.length >= 2) {
+      flushText();
+      blocks.push({ type: 'table', header: cells(rows[0]), rows: rows.slice(1).map(cells) });
+    } else {
+      textLines.push(...tableLines);
+    }
+    tableLines = [];
+  };
+  for (const line of String(text).split('\n')) {
+    if (line.includes('|')) {
+      tableLines.push(line);
+    } else {
+      if (tableLines.length) flushTable();
+      textLines.push(line);
+    }
+  }
+  if (tableLines.length) flushTable();
+  flushText();
+  return blocks;
+}
+
+function escapeHtml(s = '') {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function blocksToHtml(text) {
+  return textBlocks(text).map(b => {
+    if (b.type === 'text') return `<div class="qtext">${escapeHtml(b.text).replace(/\n/g, '<br/>')}</div>`;
+    const head = b.header.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+    const body = b.rows.map(r => `<tr>${r.map(c => `<td>${escapeHtml(c)}</td>`).join('')}</tr>`).join('');
+    return `<table class="ptable"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+  }).join('');
+}
+
+function PaperText({ text, className = '', style }) {
+  return (
+    <div className={className} style={style}>
+      {textBlocks(text).map((b, i) => (b.type === 'text' ? (
+        <div key={i} style={{ whiteSpace: 'pre-line' }}>{b.text}</div>
+      ) : (
+        <div key={i} className="my-2 overflow-x-auto">
+          <table className="text-xs ja-mono" style={{ borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                {b.header.map((h, j) => (
+                  <th key={j} className="text-left px-3 py-1.5"
+                    style={{ border: '1px solid var(--line-2)', background: 'var(--panel-2)', color: 'var(--ink)', fontWeight: 700 }}>
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {b.rows.map((r, j) => (
+                <tr key={j}>
+                  {r.map((c, k) => (
+                    <td key={k} className="px-3 py-1.5" style={{ border: '1px solid var(--line)', color: 'var(--ink-dim)' }}>{c}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )))}
+    </div>
+  );
+}
+
 function buildPaperHTML(test) {
   const sections = (test.sections || [])
     .map(s => {
       const qs = (s.questions || [])
         .map(q => `
           <div class="question">
-            <span class="qnum">${q.number}</span>
+            <span class="qnum">${escapeHtml(q.number)}</span>
             <div class="qbody">
-              <div class="qtext">${q.text.replace(/\n/g, '<br/>')}</div>
+              ${blocksToHtml(q.text)}
               <div class="qmarks">(${q.marks})</div>
             </div>
           </div>`)
@@ -62,8 +155,8 @@ function buildPaperHTML(test) {
       return `
         <div class="section">
           <div class="section-head">
-            <span class="snum">${s.number}</span>
-            <span class="stitle">${s.title}</span>
+            <span class="snum">${escapeHtml(s.number)}</span>
+            <span class="stitle">${escapeHtml(s.title)}</span>
             <span class="smarks">[${s.marks}]</span>
           </div>
           ${qs}
@@ -74,9 +167,21 @@ function buildPaperHTML(test) {
   const sampleBlock = test.sampleOutput
     ? `<div class="section">
         <div class="section-head"><span class="stitle">SAMPLE OUTPUT</span></div>
-        <pre class="sample">${test.sampleOutput.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>
+        <pre class="sample">${escapeHtml(test.sampleOutput)}</pre>
       </div>`
     : '';
+
+  const marksRows = (test.sections || [])
+    .map(s => `<tr><td>${escapeHtml(s.number)}</td><td>${s.marks}</td><td></td></tr>`)
+    .join('');
+  const marksTable = `<table class="ptable marks"><thead><tr><th>Question</th><th>Marks</th><th>Marked</th></tr></thead>
+    <tbody>${marksRows}<tr><td><b>Total</b></td><td><b>${test.totalMarks}</b></td><td></td></tr></tbody></table>`;
+
+  const instructions = `<div class="section">
+      <div class="section-head"><span class="stitle">PLEASE READ THE FOLLOWING INSTRUCTIONS CAREFULLY</span></div>
+      <ul class="instr">${PAPER_INSTRUCTIONS.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>
+      ${marksTable}
+    </div>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -103,13 +208,24 @@ function buildPaperHTML(test) {
   .qmarks{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8e8fa0;margin-top:4px}
   .sample{background:#0e0e12;border:1px solid #27272f;border-radius:6px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:pre-wrap;line-height:1.5;color:#8e8fa0;overflow-x:auto}
   .footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#5e5e6e;margin-top:24px}
-  @media print{body{background:#fff;color:#222}.section{background:#f8f8f8;border-color:#ddd}.section-head .stitle{color:#222}.qtext{color:#333}.sample{background:#f0f0f0;border-color:#ddd;color:#444}.meta{color:#7b5ea7}.meta span{color:#2a8a96}.snum,.qnum{color:#7b5ea7}h1{color:#111}.scenario{color:#555}.footer{color:#999}}
+  .ptable{border-collapse:collapse;margin:8px 0;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .ptable th,.ptable td{border:1px solid #34343f;padding:4px 12px;text-align:left}
+  .ptable th{color:#fff;background:#1f1f29}
+  .ptable.marks{margin-top:14px}
+  .ptable.marks td:nth-child(3){min-width:70px}
+  .instr{margin:0 0 4px 18px;font-size:13px;color:#cfd0d4}
+  .scenario .qtext{color:#8e8fa0}
+  @media print{body{background:#fff;color:#222}.section{background:#f8f8f8;border-color:#ddd}.section-head .stitle{color:#222}.qtext,.instr{color:#333}.sample{background:#f0f0f0;border-color:#ddd;color:#444}.meta{color:#7b5ea7}.meta span{color:#2a8a96}.snum,.qnum{color:#7b5ea7}h1{color:#111}.scenario,.scenario .qtext{color:#555}.footer{color:#999}.ptable th,.ptable td{border-color:#bbb}.ptable th{background:#eee;color:#111}}
 </style>
 </head>
 <body>
-  <h1>${test.title}</h1>
-  <div class="scenario">${test.scenario}</div>
-  <div class="meta">Class: <span>${test.className}</span> &nbsp; Total marks: <span>${test.totalMarks}</span></div>
+  <h1>${escapeHtml(test.title)}</h1>
+  <div class="meta">Class: <span>${escapeHtml(test.className)}</span> &nbsp; Time: <span>${test.durationMinutes || 60} minutes</span> &nbsp; Total marks: <span>${test.totalMarks}</span></div>
+  ${instructions}
+  <div class="section">
+    <div class="section-head"><span class="stitle">SCENARIO</span></div>
+    <div class="scenario">${blocksToHtml(test.scenario)}</div>
+  </div>
   ${sections}
   ${sampleBlock}
   <div class="footer">Java Adventure - Practical Test Paper &nbsp;|&nbsp; Print with Ctrl+P</div>
@@ -570,12 +686,17 @@ const PaperPhase = React.forwardRef(function PaperPhase(
         <div className="ja-display text-2xl sm:text-3xl mb-2" style={{ fontWeight: 800 }}>
           {test.title}
         </div>
-        <p className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.55 }}>
-          {test.scenario}
-        </p>
+        <PaperText text={test.scenario} className="text-sm" style={{ color: 'var(--ink-dim)', lineHeight: 1.55 }} />
+        <details className="mt-3 text-xs" style={{ color: 'var(--ink-dim)' }}>
+          <summary className="ja-mono cursor-pointer" style={{ color: 'var(--ink-mute)' }}>Instructions</summary>
+          <ul className="mt-2 ml-4 space-y-1" style={{ listStyle: 'disc' }}>
+            {PAPER_INSTRUCTIONS.map(i => <li key={i}>{i}</li>)}
+          </ul>
+        </details>
         <div className="mt-3 flex items-center justify-between flex-wrap gap-2">
           <div className="ja-mono text-xs" style={{ color: 'var(--ink-mute)' }}>
             Class name: <span style={{ color: 'var(--cyan)' }}>{test.className}</span>
+            {' '}&middot; Time: <span style={{ color: 'var(--cyan)' }}>{test.durationMinutes || 60} minutes</span>
           </div>
           <div className="flex items-center gap-2 ja-mono text-xs px-3 py-1.5 rounded-lg"
             style={{ background: 'rgba(214,138,255,0.06)', border: '1px solid var(--line)' }}>
@@ -621,7 +742,7 @@ const PaperPhase = React.forwardRef(function PaperPhase(
                         {q.number}
                       </span>
                       <div className="flex-1">
-                        <div style={{ color: 'var(--ink-dim)', lineHeight: 1.55, whiteSpace: 'pre-line' }}>{q.text}</div>
+                        <PaperText text={q.text} style={{ color: 'var(--ink-dim)', lineHeight: 1.55 }} />
                         <div className="ja-mono text-xs mt-1" style={{ color: 'var(--ink-mute)' }}>({q.marks})</div>
                       </div>
                     </div>

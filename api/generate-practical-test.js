@@ -148,7 +148,7 @@ Vocabulary: nested loop, outer loop, inner loop, iteration, pattern, row, column
     U11: `UNIT 11 -- Methods
 What has been taught:
 - User-defined methods of the form static void name() with NO parameters and NO return values, called from main as name();. After a call, execution continues on the next line.
-- Shared data uses static class variables declared inside the class but outside every method. Variables declared inside a method are local to it.
+- Shared data uses static class variables declared inside the class but outside every method. Variables declared inside a method are local to it. Test papers call these class variables "global variables".
 - Decomposing a problem into task methods; merging near-identical methods into one reused method.
 - Putting the inner loop of a nested loop in a method called from the outer loop in main.
 - Pattern: a helper method processes ONE item (input with JOptionPane, a for loop, highest/lowest/sum logic) and leaves its result in a static class variable; main calls it in a loop (for, or while until a rogue value) and tracks the overall highest or lowest.
@@ -179,30 +179,48 @@ Vocabulary: method, method call, static, class variable, local variable, decompo
       ? '- Include at least one if/else structure.'
       : '- Do NOT use if statements; they are Unit 7.',
     maxUnit >= 5
-      ? '- Include at least one loop and an accumulator (sum, average, or similar).'
+      ? '- Include at least one loop and an accumulator, counter or running total.'
       : '- Do NOT use loops; they are Unit 5. Use straight-line code with input, calculation and output.',
+    maxUnit >= 6
+      ? '- Data may come from JOptionPane.showInputDialog OR be generated with Math.random() (simulations such as "each day between 2 and 8 eggs hatch" are common on real papers). Random ranges are stated inclusively, e.g. "a number between 1 and 3 (incl)".'
+      : '- Use JOptionPane.showInputDialog for input. Do NOT use Math.random(); random numbers are Unit 6.',
   ].join('\n');
+
+  const PAPER_SIZE = {
+    easy:   { minutes: 45, marks: '30-35', parts: '8-10' },
+    medium: { minutes: 60, marks: '45-50', parts: '12-16' },
+    hard:   { minutes: 75, marks: '55-60', parts: '15-20' },
+  };
+  const size = PAPER_SIZE[difficulty] || PAPER_SIZE.medium;
+
+  const methodsPattern = maxUnit >= 11 ? `
+METHODS PAPER PATTERN (follow this when the listed units include Unit 11):
+- QUESTION 1: 1.1 create the program with a main method (2); 1.2 declare the global variables, listed by name only, so the student chooses the types (about 3 marks).
+- QUESTION 2 (the largest question): "Code a method called <name> which will be called from the main method" (1), then numbered steps inside the method, e.g. generate or input a value and store it in a named local variable, an if check that adjusts it, update a global variable, display output in an exact format, and a loop inside the method that processes each item (with a table lookup done "using an appropriate programming structure").
+- QUESTION 3 "In the main method": initialise the global variables, create a local counter variable, and use an appropriate looping structure (often with a combined stop condition such as "repeat for 7 days or until totalEggs is 0") that displays a heading, calls the method and updates the counter.
+` : '';
 
   const systemPrompt = `You are an expert Grade 10 Java teacher in South Africa creating practical coding test papers. You use the "Exploring IT: Java Programming" textbook and NetBeans IDE.
 
-You create tests modelled on real SA IT practical assessments -- a realistic scenario with a class, variables, loops, conditions, and output formatting. Think of tests like: a swimming team manager, a restaurant ordering system, a school marks calculator, a game score tracker, a shop inventory system, etc.
+You create tests modelled on real SA Grade 10 IT practical test papers: a short scenario with a numbered list of rules (and a data table where useful), then QUESTION 1, QUESTION 2, QUESTION 3 with numbered sub-questions (2.1, 2.1.1, ...) and the marks for each sub-question in brackets. One cohesive program is built step by step through the questions. Example scenarios: simulating egg hatching in a game over 7 days, a tuckshop order system, a swimming gala results tracker, a load shedding log, a taxi fare calculator.
 
 Generate a COMPLETE practical test as a JSON object. STRICT FORMAT -- no prose, no markdown fences, just valid JSON.
 
 The JSON shape:
 {
-  "title": "Short test title (e.g. 'Restaurant Order System')",
-  "scenario": "2-3 sentence real-world scenario description",
+  "title": "Short test title (e.g. 'Egg Hatching Simulator')",
+  "scenario": "2-4 sentence scenario, then \\n and the rules as lines starting with '- ', then optionally a data table in pipe format (see TABLES)",
+  "durationMinutes": ${size.minutes},
   "totalMarks": <number>,
   "className": "PascalCase class name for the program",
   "sections": [
     {
-      "number": "2",
-      "title": "Section title (e.g. 'RestaurantOrder class')",
+      "number": "1",
+      "title": "QUESTION 1",
       "marks": <number>,
       "questions": [
         {
-          "number": "2.1",
+          "number": "1.1",
           "text": "Full question text exactly as it would appear on the test paper",
           "marks": <number>,
           "skills": ["U2-S3", "U7-S1"]
@@ -210,36 +228,43 @@ The JSON shape:
       ]
     }
   ],
-  "sampleOutput": "Full expected sample output as it would appear on the paper, using \\n for newlines",
-  "starterCode": "Minimal Java class skeleton with the class name, main method, and TODO comments for each section",
+  "sampleOutput": "Full example output for one run, using \\n for newlines and \\t for tabs",
+  "starterCode": "Minimal Java class skeleton with the class name, main method, and TODO comments numbered by question",
   "markingRubric": [
     {
-      "questionNumber": "2.1",
-      "criteria": "What specifically to check in the student's code",
+      "questionNumber": "1.1",
+      "criteria": "One tick per mark, e.g. '1 mark: class EggsSim declared; 1 mark: correct main method header'",
       "marks": <number>
     }
   ]
 }
 
+PAPER SIZE (${difficulty}): ${size.minutes} minutes, ${size.marks} marks, ${size.parts} numbered sub-questions, usually 3 questions. Each sub-question is worth 1 to 5 marks, and section marks must add up to totalMarks.
+
 RULES:
 - The test MUST integrate concepts from the listed units naturally into ONE cohesive program.
 - The student has worked through the textbook units in order, so earlier units are background knowledge, but the questions must focus on the listed units. Never use a feature from a unit later than the highest listed unit.
-- Use JOptionPane.showInputDialog for user input.
 - Use System.out.println / System.out.print for output.
-- Total marks should be 50-70.
 ${scopeRules}
-- Include string output formatting (concatenation, tabs, team/category lists).
-- Questions should specify exact output format with examples.
-- The scenario must be different each time -- be creative with South African contexts (rugby, cricket, tuckshop, matric dance, load shedding tracker, taxi fare calculator, braai planner, etc.).
+- QUESTION 1 always sets up the program: 1.1 "Create a program called <className> with a main method." (2 marks), then declaring the main variables (see wording style below).
+- Programs must work with any data, so never hard-code answers that depend on the sample.
+- Where the student should choose the construct, write "use an appropriate looping structure" or "using an appropriate programming structure" instead of naming for, while, if or switch. The rubric must accept any valid choice.
+- Give exact output formats the way SA papers do: literal text in double quotes with <space> and <tab> markers, then "For example:" and a concrete line. E.g. "Egg"<space>i<tab>"Type"<space>eggType then For example: Egg 1<tab>Type Zombie. Keep the wording identical between the format, the example and the sample output.
+- If data is random, say so above the sample output wording ("depending on the values you generated") and keep the sample consistent with the rules.
+- The scenario must be different each time -- be creative with South African contexts (rugby, cricket, tuckshop, matric dance, load shedding tracker, taxi fare calculator, braai planner, game design, etc.).
 - Keep it Grade 10 level: NEVER use arrays, ArrayList or other collections, file I/O, try-catch, Scanner, the ternary operator, break or continue inside loops, or user-defined classes other than the program class.
 - Do not use the Gogga class; the test is a text-based program.
 - The starterCode should be a compilable skeleton with the class and a main method stub with TODO comments.${maxUnit >= 11 ? ' It may include empty static void method stubs if the questions ask for methods.' : ' No other methods.'}
-- Make section numbering start at 2 (section 1 is typically "create the project" which we skip).
+- Every rubric entry lists one tick per mark, so markers can award marks item by item. Include the expected types for declarations.
+- Before returning, check that the numbers in the scenario, the tables, the examples and the sample output all agree.
 - Return ONLY the JSON. No explanation, no markdown.
+
+TABLES: when a question or the scenario needs a table (variables to declare, or a lookup like number -> type name -> power), put it on its own lines in pipe format: a header row, a ---|--- row, then one row per line, e.g. "Number generated | Type name | Power\\n---|---|---\\n1 | Elf | 430".
+${methodsPattern}
 
 CRITICAL -- QUESTION WORDING STYLE:
 - NEVER reveal Java types in the question text. The student must choose the correct type themselves -- that IS the assessment.
-- When asking the student to declare variables, present them in a TABLE format inside the question text, listing each variable name alongside a plain-English storage description. Use this exact pattern:
+- When asking the student to declare variables, present them in a TABLE inside the question text, listing each variable name alongside a plain-English storage description (for global variables in a methods paper, the name alone is fine, as on real papers). Use this exact pattern:
 
   "Declare the following variables in your program. Choose the appropriate types for each variable.\\n\\nVariable | Description\\n---|---\\nitemName | Store text\\ntotalCount | Store whole number\\naverageScore | Store real number\\ncategoryList | Store text"
 
@@ -312,6 +337,7 @@ Create a fresh, unique scenario. Return the JSON object.`;
     if (!parsed.title || !parsed.sections || !parsed.starterCode) {
       return res.status(502).json({ error: 'Generated test missing required fields' });
     }
+    if (!parsed.durationMinutes) parsed.durationMinutes = size.minutes;
 
     return res.status(200).json({ test: parsed });
   } catch (err) {
