@@ -4,7 +4,7 @@ import {
   Lightbulb, RotateCcw, Check, X, Lock, Sparkles, BarChart3, Home,
   ArrowRight, BookOpen, Cpu, Repeat, GitBranch, Hash, ScrollText, Brain,
   PartyPopper, Rocket, Boxes, Workflow, Bug, Send, Loader2, FileCode,
-  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary, Sun, Moon
+  AlertCircle, Pencil, TrendingUp, Skull, Timer, LogOut, Binary, Sun, Moon, Briefcase
 } from 'lucide-react';
 import CodeEditor from './components/CodeEditor.jsx';
 import ProgressReport from './components/ProgressReport.jsx';
@@ -12,11 +12,37 @@ import DoOrDie from './components/DoOrDie.jsx';
 import OnboardingModal from './components/OnboardingModal.jsx';
 import TheoryMode from './components/TheoryMode.jsx';
 import PracticalTest from './components/PracticalTest.jsx';
+import BusinessExam from './components/BusinessExam.jsx';
 import SubjectPicker from './components/SubjectPicker.jsx';
 import TeachMe from './components/TeachMe.jsx';
 import { buildWeakAreasPrompt } from './lib/teachPrompt.js';
 import { SUBJECTS, getSubject, getSubjectModule } from './subjects/index.js';
 import { tickerScheduleFor, scoreRun, GRADE_COLOR } from './data/scenarios.js';
+
+const HUD_BADGE = {
+  java: { icon: Code2, gradient: 'linear-gradient(135deg,#5cf2ff,#a8c5ff)' },
+  theory: { icon: Cpu, gradient: 'linear-gradient(135deg,#bef264,#2dd4bf)' },
+  business: { icon: Briefcase, gradient: 'linear-gradient(135deg,#ffc857,#fb923c)' },
+};
+
+const TEST_CARD = {
+  coding: {
+    icon: FileCode,
+    color: 'magenta',
+    tile: 'rgba(214,138,255,0.16)',
+    background: 'linear-gradient(135deg, rgba(214,138,255,0.08), rgba(92,242,255,0.04))',
+    tagline: 'AI-generated coding exam',
+    text: 'A full practical coding test -- just like the real thing. Pick your units, get a unique test paper, write your code, and get marked instantly.',
+  },
+  businessExam: {
+    icon: ScrollText,
+    color: 'gold',
+    tile: 'rgba(255,200,87,0.16)',
+    background: 'linear-gradient(135deg, rgba(255,200,87,0.08), rgba(251,146,60,0.04))',
+    tagline: 'AI-generated IEB-style exam',
+    text: 'Pick your chapters and get a fresh exam paper: objective questions, case study questions and an optional essay, marked against a memo.',
+  },
+};
 
 /* =========================================================================
    STYLE BLOCK — fonts, custom CSS, small animations.
@@ -50,6 +76,7 @@ const styleSheet = `
     --violet: #a78bfa;
     --rose: #fb7185;
     --lime: #a3e635;
+    --indigo: #a8c5ff;
 
     --syn-key: #ff8aae;       /* keywords  (int, for, if) */
     --syn-num: #ffb454;       /* numbers   */
@@ -246,7 +273,10 @@ const styleSheet = `
   .ja-w-data-representation, .ja-w-computer-overview, .ja-w-hardware, .ja-w-system-software,
   .ja-w-networks, .ja-w-boolean-logic, .ja-w-internet-www, .ja-w-social-ethical,
   .ja-w-java-intro, .ja-w-switch-strings, .ja-w-while-loops, .ja-w-nested-loops,
-  .ja-w-methods, .ja-w-databases-sql {
+  .ja-w-methods, .ja-w-databases-sql,
+  .ja-w-business-environments, .ja-w-entrepreneurship, .ja-w-forms-of-ownership, .ja-w-business-information,
+  .ja-w-creative-thinking, .ja-w-professionalism-ethics, .ja-w-teamwork, .ja-w-purchasing,
+  .ja-w-production-operations, .ja-w-financial-function, .ja-w-information-management {
     background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--w-color) 18%, transparent), transparent 60%), linear-gradient(180deg, var(--panel), var(--panel-2));
     border-color: color-mix(in srgb, var(--w-color) 30%, var(--line));
   }
@@ -264,6 +294,17 @@ const styleSheet = `
   .ja-w-nested-loops        { --w-color: var(--violet); }
   .ja-w-methods             { --w-color: var(--gold); }
   .ja-w-databases-sql       { --w-color: var(--rose); }
+  .ja-w-business-environments  { --w-color: var(--gold); }
+  .ja-w-entrepreneurship       { --w-color: var(--orange); }
+  .ja-w-forms-of-ownership     { --w-color: var(--teal); }
+  .ja-w-business-information   { --w-color: var(--sky); }
+  .ja-w-creative-thinking      { --w-color: var(--violet); }
+  .ja-w-professionalism-ethics { --w-color: var(--emerald); }
+  .ja-w-teamwork               { --w-color: var(--magenta); }
+  .ja-w-purchasing             { --w-color: var(--amber); }
+  .ja-w-production-operations  { --w-color: var(--coral); }
+  .ja-w-financial-function     { --w-color: var(--lime); }
+  .ja-w-information-management { --w-color: var(--indigo); }
   :root { --lime: #bef264; }
 
   /* Light theme: accents are darker so text in accent colours stays readable on white */
@@ -290,6 +331,7 @@ const styleSheet = `
     --violet: #6d28d9;
     --rose: #be123c;
     --lime: #4d7c0f;
+    --indigo: #4338ca;
 
     --syn-key: #be185d;
     --syn-num: #b45309;
@@ -562,7 +604,11 @@ function highlightJava(code) {
 }
 
 function CodeBlock({ code, className = '' }) {
-  const tokens = useMemo(() => highlightJava(code), [code]);
+  const isCode = useMemo(() => /[;{}]|System\.|\bSELECT\b/.test(code || ''), [code]);
+  const tokens = useMemo(() => (isCode ? highlightJava(code) : []), [code, isCode]);
+  if (!isCode) {
+    return <pre className={`ja-code ${className}`} style={{ whiteSpace: 'pre-wrap' }}>{code}</pre>;
+  }
   return (
     <pre className={`ja-code ${className}`}>
       {tokens.map((tok, idx) => (
@@ -690,8 +736,8 @@ function Hud({ subject, state, user, theme, onToggleTheme, onHome, onPractice, o
     <div className="ja-card flex items-center justify-between px-4 py-3 mb-6 gap-2">
       <div className="flex items-center gap-3 min-w-0">
         <button onClick={onHome} className="flex items-center gap-2 hover:opacity-90">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: subject === 'theory' ? 'linear-gradient(135deg,#bef264,#2dd4bf)' : 'linear-gradient(135deg,#5cf2ff,#a8c5ff)', color: 'var(--on-accent)'}}>
-            {subject === 'theory' ? <Cpu size={20} strokeWidth={2.5}/> : <Code2 size={20} strokeWidth={2.5}/>}
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{background: HUD_BADGE[subject]?.gradient || HUD_BADGE.java.gradient, color: 'var(--on-accent)'}}>
+            {React.createElement(HUD_BADGE[subject]?.icon || Code2, { size: 20, strokeWidth: 2.5 })}
           </div>
           <div className="hidden sm:block">
             <div className="text-sm leading-tight ja-display" style={{fontWeight:700, letterSpacing:'-0.01em'}}>{getSubject(subject).title}</div>
@@ -829,37 +875,40 @@ function WorldMap({ subject, state, studentName, onPickWorld, onPracticalTest, o
         })}
       </div>
 
-      {getSubject(subject).hasPracticalTest && (
+      {getSubject(subject).hasPracticalTest && (() => {
+        const card = TEST_CARD[getSubject(subject).practicalTestKind || 'coding'];
+        return (
       <button
         onClick={onPracticalTest}
-        className="ja-tile ja-card w-full text-left p-6 mt-4 relative overflow-hidden ja-glow-magenta"
-        style={{ background: 'linear-gradient(135deg, rgba(214,138,255,0.08), rgba(92,242,255,0.04))' }}
+        className={`ja-tile ja-card w-full text-left p-6 mt-4 relative overflow-hidden ja-glow-${card.color}`}
+        style={{ background: card.background }}
       >
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-              style={{background:'rgba(214,138,255,0.16)', color:'var(--magenta)'}}>
-              <FileCode size={22} strokeWidth={2}/>
+              style={{background: card.tile, color: `var(--${card.color})`}}>
+              <card.icon size={22} strokeWidth={2}/>
             </div>
             <div>
               <div className="ja-display text-2xl mb-1" style={{fontWeight:700, letterSpacing:'-0.02em'}}>
                 {getSubject(subject).practicalTestLabel}
               </div>
-              <div className="ja-mono text-xs mb-2" style={{color: 'var(--magenta)', opacity: 0.85}}>
-                AI-generated coding exam
+              <div className="ja-mono text-xs mb-2" style={{color: `var(--${card.color})`, opacity: 0.85}}>
+                {card.tagline}
               </div>
               <p className="text-sm" style={{color:'var(--ink-dim)', lineHeight:1.55}}>
-                A full practical coding test -- just like the real thing. Pick your units, get a unique test paper, write your code, and get marked instantly.
+                {card.text}
               </p>
             </div>
           </div>
           <div className="ja-mono text-xs px-2 py-1 rounded flex-shrink-0"
-            style={{background:'rgba(214,138,255,0.12)', color:'var(--magenta)'}}>
+            style={{background: card.tile, color: `var(--${card.color})`}}>
             NEW
           </div>
         </div>
       </button>
-      )}
+        );
+      })()}
 
       {state.sessionsPlayed > 0 && (
         <SkillSummary subject={subject} state={state} studentName={studentName}/>
@@ -2401,7 +2450,10 @@ export default function App() {
             subject={activeSubject}
             state={subjectState}
             onPickWorld={(worldId) => setView({ kind: 'world', subject: activeSubject, worldId })}
-            onPracticalTest={() => setView({ kind: 'practicalTest', subject: activeSubject })}
+            onPracticalTest={() => setView({
+              kind: getSubject(activeSubject).practicalTestKind === 'businessExam' ? 'businessExam' : 'practicalTest',
+              subject: activeSubject,
+            })}
             onSwitchSubject={goSubjectPicker}
             studentName={user?.name}
           />
@@ -2448,6 +2500,26 @@ export default function App() {
 
         {view.kind === 'practicalTest' && (
           <PracticalTest
+            onBack={goHome}
+            onComplete={(result) => {
+              syncSession({
+                mode: 'practicalTest',
+                title: result.title,
+                totalAwarded: result.totalAwarded,
+                totalPossible: result.totalPossible,
+                percentage: result.percentage,
+                grade: result.grade,
+              });
+            }}
+            dispatch={(a) => subjectDispatch(a)}
+          />
+        )}
+
+        {view.kind === 'businessExam' && (
+          <BusinessExam
+            module={subjectMod(activeSubject)}
+            subjectTitle={getSubject(activeSubject).title}
+            studentName={user?.name}
             onBack={goHome}
             onComplete={(result) => {
               syncSession({

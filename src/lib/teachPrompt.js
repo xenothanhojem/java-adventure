@@ -8,16 +8,22 @@ const MAX_PROMPT_CHARS = 3500;
 const SCOPE = {
   java: 'Stay within the Grade 10 Java scope: variables, String, char and Math, for, while and do...while loops, nested loops, if and switch, String comparison, boolean variables, and static void methods with no parameters and no return values. Do not use arrays, parameters, return values, classes other than the program class, exceptions or collections. Use JOptionPane for input, as the textbook does, and the Gogga class where it helps.',
   theory: 'Stay within the Grade 10 IT Theory scope and use the same terms the textbook uses.',
+  business: 'Stay within the Grade 10 Business Studies scope and use the same terms, lists and definitions the textbook uses. Practise the way Business Studies is examined: define, explain, discuss, differentiate, and apply theory to a short South African business case study.',
 };
 
 const BOOK = {
   java: '"Exploring IT: Java Programming Grade 10" (NetBeans, with the Gogga class from the it package)',
   theory: '"Exploring IT: Theory Grade 10"',
+  business: '"Business Studies Grade 10 Learner\'s Book" (Consumo Publishers, 6th edition)',
+};
+
+const STUDYING = {
+  business: 'Business Studies in South Africa (IEB)',
 };
 
 function intro(subjectId, studentName) {
   const who = studentName ? `a Grade 10 student called ${studentName}` : 'a Grade 10 student';
-  return `You are a patient, encouraging tutor. I am ${who} studying Information Technology in South Africa (CAPS). My textbook is ${BOOK[subjectId] || BOOK.theory}.`;
+  return `You are a patient, encouraging tutor. I am ${who} studying ${STUDYING[subjectId] || 'Information Technology in South Africa (CAPS)'}. My textbook is ${BOOK[subjectId] || BOOK.theory}.`;
 }
 
 function method(subjectId) {

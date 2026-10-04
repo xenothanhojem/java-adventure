@@ -1,0 +1,316 @@
+Business Studies Grade 10 Learner's Book (Consumo Publishers, 6th ed 2021)
+Chapter 11: Information Management (Administrative Function)
+
+===== PDF PAGE 110 (book page 108) =====
+INFORMATION MANAGEMENT
+(ADMINISTRATIVE FUNCTION)
+1. Introduction
+•  The focus in this chapter will be on Information
+Management rather than the traditional
+Administrative function. The reason for this
+shift in focus is the fact that information
+management has become an important
+component in every business function /
+department at the present time.
+•  The Information Management function has
+thus absorbed all other business functions
+and is no longer handled by a separate
+department traditionally known as the
+Administrative function.
+•  Managers throughout the business are
+required to make short, medium and long-
+term decisions to respond to both trends and
+crises that may arise. It is thus important
+that information is accurate, reliable and
+measurable so that managers are able to make
+informed decisions when they need to do so.
+•  Information management systems are normally
+formal structures within a business. This
+means that each business will, depending on
+its size, geographical and production systems
+have its own unique information management
+structure.
+2. Data, information and
+information management
+Data
+Processing
+data into
+information
+Actions
+Information
+Management
+and decision-
+making
+2.1 Data
+• Data refers to all the raw / unprocessed figures
+and facts that are collected by the business or
+the different business units.
+•  As data are raw / unprocessed, they cannot be
+used to base decisions on.
+•  Examples of data could be sales figures,
+production times, costs etc.
+2.2 Processing data to turn it into
+Information
+•  Information refers to data which has been
+processed via a transformation process known
+as data processing.
+•  For example: A business collects sales
+figures from its different stores. The business
+will then use different processes (usually
+with the help of computer programs) to get
+useful information such as sales per person
+(if commission has to be paid), or sales per
+region or sales per product category, etc.
+2.3 Information Management and
+decision-making
+•  Information management refers to the
+process where the information is used to
+make informed decisions. If information is well
+managed, the information management system
+will allow management to access information
+on its past and present to make well-informed
+decisions for the future.
+•  Management, for example, could look at
+weekly sales, monthly sales, and quarterly
+sales of a particular product to determine if the
+business should continue to sell this product
+or how much stock to keep at different times of
+the year, etc.
+2.4 Actions
+Once the management have made the necessary
+decisions, based on the information that has been
+processed, action is taken, namely by reducing the
+product range or ordering the appropriate volume
+of stock.
+===== PDF PAGE 111 (book page 109) =====
+Activity 1
+Choose any business that you are familiar with. Explain the type of data, information and actions that would
+form part of its information management system. If you do not know any business well enough, use your
+school in this activity.
+3. Information Management
+at Different Levels of
+Management
+Managers at different levels in the business have to make different types of decisions. For this reason they will
+need different types of information that is presented to them in different ways to make the necessary decisions.
+Top Management:
+Strategic Decisions
+Middle Management:
+Tactical Decisions
+Lower-Level Management:
+Day-to-Day / Operational Decisions
+This table will briefly explain how management at different levels use information to make different types
+of decisions:
+Lower-Level
+Management
+Management at this level use information that details daily activities in the business
+and will mostly need internal information.
+• For example: The production supervisor will need to assess the volume of
+raw materials needed on the production line over the next week. He/she will
+communicate this information to the Production manager.
+Middle-Level
+or Functional
+Management
+Management at this level will be concerned with information which affects the
+medium-term running of the business. It is important to remember that this level
+of management will collect information from the lower-level manager and process
+this information to present it to top management. This level of management will be
+interested in information from both the internal and external environment.
+•  For example: The Marketing manager will want to collect information from
+customers to make marketing decisions.
+•  For example: The Production manager will inform the Purchasing manager of
+stock to be ordered after he/she has decided how much of each type of product
+needs to be produced in the next quarter.
+Top-Level
+Management
+This Level of management requires information that gives the top level an overall
+idea of what is happening in the business. Top management will use information
+to plan for the future of the business, i.e. how to steer the business to achieve
+its vision and mission. Top management will be concerned with both internal and
+external information, such as what is happening in the political, social and economic
+(etc.) environments of the business.
+===== PDF PAGE 112 (book page 110) =====
+Activity 2
+Briefly discuss the decisions the different levels of management would make in Woolworths.
+4. Requirements of a Sound
+Information Management
+System
+•  We have already seen that the information
+management system is the backbone of the
+decision-making process and therefore it is
+important that this system is worth the money
+and time spent designing the system.
+•  The following are general requirements of a
+good information management system:
+Information
+Management
+System
+Quality and Quantity
+Flexible
+Reliable
+Simplistic
+Utility
+Economical
+4.1        Quality and Quantity
+•  It is important that information is accurate.
+The more accurate the information, the better
+the quality of decisions by the different levels
+of management.
+•  There should be sufficient amounts of
+information available (quantity) for the decision
+makers in the business to make informed
+decisions. For example: It would be more
+effective for the Marketing department to use
+information gained over a longer period of time
+(last eight quarters / 2 years or even longer)
+to try to identify trends, rather than base sales
+decisions of the future on information from the
+previous week’s sales.
+4.2       Flexible
+•  All businesses operate in a competitive and
+ever-changing global environment.
+•  It is important that the information management
+system can be adapted to provide information
+in various formats to help management to
+make informed decisions.
+•  For example: The system should be able to
+give overall production cost. At another time
+the manager may ask for information regarding
+the cost of raw material vs. labour costs vs.
+overhead costs for each production line.
+Or maybe the costs per unit produced. The
+Information Management system should be
+flexible enough to allow management to extract
+different types of information for different types
+of decisions.
+4.3       Reliable
+•  Management will use the information to make
+informed decisions about the short, medium
+and long-term. Decisions can only be reliable,
+if the information that it is based on, is reliable.
+•  This means that the capturing, processing and
+timing of the information needs to accurate
+and available at the time when these decisions
+have to be made.
+4.4        Simplistic
+• Often Information management systems are so
+complex, that it is difficult for a non-computer
+===== PDF PAGE 113 (book page 111) =====
+expert to extract the information needed. The
+more complex, the higher the costs (as a rule
+of thumb).
+•  The business has to ensure that the processing
+of data to information is as simple as possible,
+to ensure accurate and reliable information is
+available to management at the correct time
+and in an easy to understand format.
+•  Information can be collected, processed
+and stored in a centralised or decentralised
+manner:
+◊  Centralised: means that all information
+comes to a point where the data is captured
+and processed.
+◊  Decentralised: means that information is
+captured and processed at different points,
+namely by each department or geographical
+area.
+•  Whether a centralised or decentralised system
+is implemented, is not important; the business
+has to ensure the system offers the best quality
+of information in the most efficient manner.
+4.5        Utility
+The information management system has to assist
+management by ensuring they are able to make
+informed decisions. To meet this requirement, the
+system has to provide meaningful information.
+4.6        Economical
+The cost of collecting, processing and storing
+information, as well as the cost of maintaining the
+system on an on-going basis, should not exceed the
+value that the business will obtain from the system.
+Activity 3
+Discuss how the different elements of a sound information management system applies to the following
+businesses:
+A. Edcon (Edgars, Jet, CNA and a variety of other retailers grouped under this umbrella)
+B. Your school
+C. A spaza shop
+5. The role of the
+Administrative Function in
+a traditional Information
+Management
+•  In a traditional Information Management setup
+where all departments do not manage their
+own information, the Administrative function
+will assist all other functional managers by
+providing information that is:
+◊  Accurate
+◊  Meaningful
+◊  Available at the correct time
+◊  Economical.
+•  The Administrative function will be responsible
+for collecting, capturing and processing
+data and to store information. In addition,
+the Administrative function will ultimately
+compile reports as and when needed by
+other managers.
+•  The steps that will be followed by the
+Administrative function to fulfil their obligation
+can be illustrated as follows:
+===== PDF PAGE 114 (book page 112) =====
+Data Collection:
+Data is collected from
+both Internal and
+external sources.
+Data Classification:
+Data is grouped or
+classified into similar
+catagories, e.g.
+alphabetical, by region,
+product line, etc.
+Sorting and Processing
+data: After data has been
+classified, it is processed
+to meet the needs of
+the different managers.
+The information is
+arranged in a way that
+provides more meaning.
+Summary of Information:
+In this step information
+is summarised and
+condensed (information is
+reduced) to provide only
+the  information needed
+by management.
+Storage: Information
+is now stored. Today,
+information is (mostly)
+stored electronically.
+The business will need
+to ensure that it has a
+reliable electronic storage
+system as well as a
+backup system.
+Retrieval: The different
+managers will request
+certain information and
+the administrative function
+has to be able to retrieve
+this information speedily.
+Communication: The
+administrative function will
+ensure that all information
+is understandable and that
+it is communicated in the
+most effective manner.
+Additional activities
+1. Define the following terms:
+a.  Data
+b.  Information
+c.  Action
+2. Discuss the types of decisions taken at the different levels of management.
+3. Provide an example of information needed at each level of management.
+4. Explain three elements of a sound information management system.
+5. Why it is important at an information management system is economical?
+6. What is the role of the administrative function during the traditional information management
+process?
+7. Differentiate between a centralised and decentralised information management system.

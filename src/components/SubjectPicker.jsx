@@ -1,6 +1,8 @@
 import React from 'react';
-import { Code2, Cpu, ArrowRight } from 'lucide-react';
+import { Code2, Cpu, Briefcase, ArrowRight } from 'lucide-react';
 import { SUBJECTS } from '../subjects/index.js';
+
+const ICONS = { java: Code2, theory: Cpu, business: Briefcase };
 
 export default function SubjectPicker({ onSelect }) {
   return (
@@ -12,13 +14,13 @@ export default function SubjectPicker({ onSelect }) {
           <span style={{ color: 'var(--ink-dim)' }}>Then make it make sense.</span>
         </h1>
         <p className="text-base mt-3 max-w-xl mx-auto sm:mx-0" style={{ color: 'var(--ink-dim)' }}>
-          Grade 10 Information Technology. IT Theory and Java Practical, unit by unit from the Exploring IT textbooks.
+          Grade 10 Information Technology and Business Studies. IT Theory, Java Practical and Business Studies, unit by unit from your textbooks.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {Object.values(SUBJECTS).map((subject) => {
-          const Icon = subject.id === 'java' ? Code2 : Cpu;
+          const Icon = ICONS[subject.id] || Cpu;
           return (
             <button
               key={subject.id}

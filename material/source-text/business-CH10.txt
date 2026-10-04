@@ -1,0 +1,569 @@
+Business Studies Grade 10 Learner's Book (Consumo Publishers, 6th ed 2021)
+Chapter 10: Financial Function
+
+===== PDF PAGE 101 (book page 99) =====
+FINANCIAL FUNCTION
+1. Introduction
+There is a tendency in the business world to say
+that the bottom line (or profit) should not be the only
+focus of the business and that there should rather
+be greater emphasis on Triple Bottom line reporting.
+Triple bottom line reporting (also known as Integrated
+reporting) requires the business to look at the
+following three issues when reporting on how well
+the business has performed:
+•  People
+•  Planet
+•  Profit
+Although the importance of looking after people and
+the planet is not denied in this chapter, the reality is
+that no business will be able to uplift the community
+in which it operates or look after the environment,
+unless it is making a profit. The emphasis of this
+chapter is on the financial well-being of the business.
+Shareholders and other investors are particularly
+interested in the financial performance of the
+business during the last financial year, as this
+will tell them if their money is generating a ROI
+(return on investment). But financial forecasting is
+equally important as this predicts if the business
+will be profitable in the immediate future. In order
+to understand the financial performance (past,
+present and future) of a business, it is important to
+understand the two basic financial statements of a
+business, namely:
+•  The Income Statement or the new term used:
+The Statement of Comprehensive Income
+and
+•  The Balance Sheet or as it is now known:
+The Statement of Financial Position.
+Activity 1
+Critically discuss the following statement in pairs:
+A business that focuses on profit will harm the environment and other stakeholders.
+2. A basic interpretation
+of The Statement of
+Comprehensive Income
+and The Statement of
+Financial Position:
+•  The Statement of Comprehensive Income is
+used to calculate the net profit of the business
+for the financial year.
+◊  All income - all expenses = net profit.
+◊  If it is a Sole Trader or Partnership, the
+business will not pay tax as the owner pays
+tax in his/her personal capacity. There
+is, therefore, no indication of tax on the
+Statement of Comprehensive Income given
+on the next page.
+===== PDF PAGE 102 (book page 100) =====
+2.1 The Statement of Comprehensive Income
+Lion and Tiger
+Statement of Comprehensive Income of for the year ending 31 December 2020
+Turnover (Sales minus debtors allowances) 190 150
+- Cost of Sales (33 797)
+= Gross profit 156 353
++ Operating Income 9 000
+Rent Income 9 000
+= Gross operating Income 165 353
+- Operating Expenses (73 119)
+Water and Electricity 6 100
+Wages 19 555
+Telephone 1 523
+Stationery 900
+Salaries 21 321
+Packing material 3 121
+Donations 1 500
+Depreciation 3 005
+Advertising 16 094
+= Operating Profit 92 234
++ Interest Income 600
+= Profit before Interest Expense 92 834
+- Interest Expense (134)
+= Net Profit 92 700
+===== PDF PAGE 103 (book page 101) =====
+2.2 The Statement of Financial Position
+Lion and Tiger
+Statement of Financial Position on 31 December 2020
+Notes 31 Dec 2020
+ASSETS
+Non-Current Assets 796 125
+Property, Plant and Equipment 2 780 125
+Fixed deposit: Strong Bank 16 000
+Current Assets 199 000
+Inventory 3 106 000
+Trade and Receivables 69 000
+Cash and Cash Equivalents 4 24 000
+TOTAL ASSETS 995 125
+EQUITY AND LIABILITIES
+Owner’s equity 580 000
+Capital 5 580 000
+Non-Current Liabilities 410 000
+Long term loan: XYZ Bank  410 000
+Current Liabilities 5 125
+Trade and Payables 8 5 125
+TOTAL EQUITY AND LIABILITIES 995 125
+•  The Statement of Financial Position shows all Assets, Owner’s Equity and Liabilities of the business.
+•  The Statement of Financial Position should always balance:
+◊  The reason why the Statement of Financial Position should balance is that there are only two options
+for a business to obtain capital:
+ »  Own money
+ »  Borrowed money
+◊  If the business wants to purchase assets, it has to use the own or borrowed capital. This means:
+ »  Total Assets = Owner’s Equity + Total Liabilities.
+Activity 2
+What is the difference between the Statement of Comprehensive Income and the Statement of
+Financial Position?
+===== PDF PAGE 104 (book page 102) =====
+3. Own vs. borrowed capital:
+3.1 Own capital:
+Own capital is the investment made by the owner of
+the business.
+•  In a Sole Trader there is only one owner
+and he/she will contribute all own capital. If
+someone else gives capital to the business,
+it will either be in the form of a loan (and
+therefore borrowed capital) or if the second
+person is a co-owner of the business, it will no
+longer be a Sole Trader, but a Partnership.
+•  In a Partnership a minimum of two and a
+maximum of 20 owners may contribute capital
+towards the business. Each partner will receive
+or portion of the profits, depending on the %
+that was agreed upon between the partners in
+the Partnership Agreement.
+•  In a Company the business sells shares to
+shareholders. Each person who owns shares
+in the business is an owner of the business
+and he/she will be entitled to a dividend
+(profits of the business are divided between
+all shareholders in the ratio to the number of
+shares owned).
+3.2 Borrowed capital:
+•  Any money that the business borrows creates
+a Liability for the business. It is important to
+remember if money is borrowed, that it is not
+only the loan amount that has to be repaid, but
+also interest.
+•  Borrowed capital is also known as foreign
+capital, because it does not come from the
+owner(s).
+•  Capital is usually borrowed from the bank.
+Because businesses will borrow on both the
+long-term and short-term, we need to keep
+in mind that there is an important difference
+between long-term and short-term borrowing:
+◊  If capital is borrowed and repaid over the
+long-term (longer than one year), it is said
+that it was borrowed on the capital market.
+◊  If it has to be repaid over the short-term
+(one year or shorter), it is borrowed on the
+money or credit market.
+•  Although buying on credit is not a loan, it is still
+a source of borrowed capital (a liability) for the
+business, as it has to be repaid (sometimes
+with interest, but usually the business gets
+a couple of months interest-free to repay
+the creditor).
+Activity 3
+Differentiate between own and borrowed capital.
+3.3 Factors to consider when deciding
+between own vs. borrowed
+capital:
+Most businesses will use a combination of own and
+borrowed, but if the business is not sure which one
+should be used in a particular situation, the following
+guidelines may be useful:
+3.3.1	 The	finance	period	and	the	nature	of
+the assets bought:
+•  Capital obtained from issuing shares is
+permanent, but borrowed capital must be
+repaid within a specific period.  If long-term
+finance is required, it may be better to choose
+own capital.
+•  Long-term assets should maybe be financed
+using own capital, but if there is insufficient
+own capital, it is not a problem to finance long-
+term assets with capital borrowed over the
+same period.
+◊  If an asset has an indefinite lifespan such
+as a building, it is acceptable to take out
+a mortgage loan over 20 or 25 years and
+repay the loan over a very long term.
+◊ However, if a machine has an expected
+life span of 3 years, the repayment period
+of the borrowed capital should not exceed
+3 years. If the loan has to be repaid over a
+period of longer than 3 years, the original
+loan will not yet be repaid and a new loan
+will be required to replace the machine.
+3.3.2 Urgency:
+•  It is a relatively fast process to obtain a loan.
+Most banks will give an answer within a day or
+maybe a week.
+•  To sell shares in a company is a long and
+cumbersome process.
+3.3.3 Control:
+•  If the business issues more shares to new
+shareholders, there are more people who can
+vote for the directors at the AGM; consequently
+the control or management of the company
+may change hands. However, if the existing
+shareholders buy the new shares in the
+same ratio as the existing number of shares
+held, there will be no impact on who controls
+the company.
+===== PDF PAGE 105 (book page 103) =====
+•  Banks and creditors do not have a say in the
+management of the company.
+3.3.4 Solvency:
+•  To determine if a business is solvent, we will
+look at the Solvency ratio
+◊  Solvent = assets > liabilities.
+◊  Insolvent/bankrupt = assets < liabilities.
+•  When the ratio between assets and liabilities is
+low, it is better to sell shares rather than take
+out a loan that may bring the solvency of the
+business in jeopardy.
+Activity 4
+Explain FOUR criteria that could be used when the business has to decide if it should use own or borrowed
+capital.
+◊  A credit card is another form of short-
+term credit. The bank issues the person or
+business with a credit card that can be used
+to buy goods or even draw cash. The bank
+will charge the credit card holder interest on
+the amount of credit used. Transactions can
+either be done on the “straight account”,
+which means the repayment period is up to
+six months, or on a “budget facility” which
+can range from 12 to 60 months. The credit
+limit is the maximum amount that can be
+spent on the credit card.
+◊  Credit allowed by manufacturers and
+businesses is known as trade credit or
+suppliers’ credit or credit on an open
+account. The supplier allows the buyer
+an amount of credit, based on the buyer’s
+creditworthiness. The account is considered
+to be an “open account”, because it stays
+open for as long as the buyer keeps buying
+and repaying the account.
+◊  Instalment sale transactions are usually
+associated with the purchase of equipment
+or vehicles. A monthly instalment that
+includes the repayment of the capital
+amount and interest is required. If the
+buyer does not pay the account as per
+the agreement, the seller has the right to
+repossess the item that was sold, because
+ownership of the article is only transferred
+to the buyer when the account is settled.
+◊  If a business leases equipment or a vehicle,
+the business pays a monthly instalment for
+the use of the item, but ownership is never
+transferred to the business.
+Activity 5
+Differentiate between short-term and long-term capital and explain how the business could go about raising
+working capital.
+4. Types of capital: Long-term
+vs. short-term capital
+4.1 Long-term capital
+•  Long-term capital is also known as
+Fixed Capital.
+•  The most common source of long-capital is
+selling shares (own capital), while the most
+common form of long-term borrowed capital is
+a loan from the bank.
+4.2 Short-term capital
+•  Short-term capital is often referred to as
+Working Capital.
+•  Because capital obtained by selling shares
+is considered Long-term capital, we will
+focus here on obtaining credit in the short
+term. Possible sources of credit in the short
+term include:
+◊  An overdraft with the bank can only be
+arranged on a current (cheque) account.
+An overdraft means the bank allows the
+account holder to draw more money out
+of the account than the person has in the
+account. The overdraft facility can be used
+as and when the money is needed and
+interest is only charged on the portion of the
+overdraft used.
+◊  An individual or business can also apply
+for a short-term loan from the bank. The
+bank will often ask for some form of security
+before granting the loan. Interest is charged
+on the loan amount.
+===== PDF PAGE 106 (book page 104) =====
+4.3	 Factors	that	influence	the	demand
+for long-term vs. short-term
+capital:
+•  The nature of the business: Manufacturers
+need more fixed (long-term) capital than
+retailers to buy fixed assets such as equipment
+to establish the manufacturing plant. A
+manufacturer will therefore have a bigger
+demand for fixed capital than a retailer or
+service undertaking of the same size.
+•  The size of the business: The bigger the
+business, the fixed (long-term) capital it will
+need to buy machines and vehicles. The bigger
+the business, the more working capital will be
+needed for salaries, water and electricity, rent
+and other expenses.
+•  The stage of development: If the business
+is still expanding, it will probably need more
+fixed capital to buy additional machines and
+equipment. A business that has already been
+going for a couple of years, probably already
+has the required machine and may only need
+to replace it when it becomes outdated or if
+it has too much wear and tear. Do you think
+new businesses need more working capital
+to pay expenses than an already established
+business?
+•  Time of production: The longer it takes to
+manufacture the final product, for example,
+to develop a new townhouse complex, the
+more working capital will be needed, because
+until the production is completed, working
+capital is tied up and no income is received. A
+product that takes a relatively short period of
+time to produce will generate working capital
+in a shorter period of time and therefore less
+working capital will be needed to tide the
+business over.
+•  Rate of stock turnover: Stock turnover
+measures how fast inventory is sold. The
+higher the stock turnover, the less additional
+working capital is required, because there is
+a constant stream of money coming into the
+business.
+•  Buying and selling terms: If the business
+buys inventory for cash, but sells on credit it
+will need more working capital than a business
+that sells for cash while buying on credit.
+5. Budgeting
+5.1 What is a budget?
+A budget is a tool that will assist the business
+(or person) to plan how much money will be
+available (income) and how it should best be spent
+(expenditure).
+5.2 The purpose of budgeting:
+•  Budgeting is a tool used for financial planning,
+because it forces the financial manager to think
+about the future and what will be needed.
+• Budgeting helps with the process of financial
+decision-making, because the information is
+available when needed.
+•  Budgeting is not only an instrument to control
+how money is spent, but also the amount
+spent which not only helps with the financial
+evaluation of different departments, but the
+business overall.
+5.3 Types of budgets:
+5.3.1 A capital budget is used to plan fixed capital
+requirements.  It is a long-term financial
+planning tool to plan the purchases of fixed
+assets such as Land & Buildings, Vehicles
+and Equipment.
+5.3.2 A cash budget  is used to do short-term
+financial planning. It is used to plan for
+working capital requirements to cover
+payments to creditors, to buy inventory for
+cash, to finance debtors and to pay for the
+expenses associated with the day-to-day
+running of the business.
+Activity 6
+Explain how a budget could be viewed as a tool that is used for financial planning AND financial control.
+6. The difference between
+cash	and	profit:
+• It is crucial that the entrepreneur understands
+the difference between cash and profit. A
+business can make a healthy profit, but still
+develop cash flow problems …
+◊  Profit is the difference between income and
+expenses, but not all profit is in the form
+of cash.
+◊  If the business sells to a debtor, the
+business will make a profit, because the
+selling price of the inventory is more than
+the cost price. The business, however, has
+to wait a couple of months until the debtor
+pays the account before cash actually
+comes into the business.
+===== PDF PAGE 107 (book page 105) =====
+7. Selling on credit to a
+debtor:
+7.1 Credit trading
+When the business sells on credit, the person buying
+on credit is called a debtor i.e. a debtor owes money
+to the business from which it bought goods on credit.
+7.2 Advantages of / reasons for selling
+on credit:
+•  A business may sell on credit, because by
+doing so it increases its turnover (sales) and
+ultimately the profit is increased.
+•  Granting credit to customers may give the
+business a competitive advantage in the
+market, because consumers do not always
+have cash to buy everything they need. This
+will create goodwill and loyalty amongst
+customers and they will continue to buy now
+and pay later.
+•  If the competitors are also granting credit, the
+business will at least not be at a disadvantage
+in comparison to its competitors if it also sells
+on credit.
+•  Credit stimulates the economy, because
+more goods are sold and businesses make
+more profit. This means more jobs can be
+created in the retail industry and even in the
+manufacturing industry (providing goods are
+not imported).
+7.3 Disadvantages of selling on credit:
+•  The business runs the risks of bad debts, i.e.
+unpaid accounts that have to be written off.
+•  Credit trading increases the administrative
+expenses, because:
+◊  the business has to for example, obtain
+credit references to determine the
+creditworthiness of the potential debtor and
+this means telephone calls and more paper
+work which all costs time and money
+◊  it has to send statements out to remind
+debtors to pay their accounts
+◊  this means more work and therefore an
+increased salary bill to pay more employees
+to do the work.
+•  The credit trader needs more working capital,
+because the business has to wait to get the
+money from the debtor. This may even cause
+cash flow problems if the debtors are not
+carefully managed.
+•  The business incurs opportunity costs.
+Opportunity cost refers to the situation where
+the business cannot use an opportunity that
+may presents itself (e.g. buying stock on a sale
+from the supplier), because the business does
+not have cash while it waits for debtors to pay.
+• From the consumer’s point of view, too much
+credit may lead to financial problems if the
+person buys more than what they can afford
+to repay.
+•  If we look at the bigger picture, too much credit
+may lead to an increase in demand and thus
+demand-pull inflation where an increase in
+demand means businesses are increasing the
+prices of goods.
+Activity 7
+You are about to start your own business selling handmade furniture. You will enter into the business venture
+with two other people. One is in favour of selling on credit, while the other one feels sales should only be
+made when the customer pays cash. Neither of them can substantiate the “gut feel” of their opinions.
+Make a list of the advantages and disadvantages of only selling for cash in preparation for a meeting
+between the two people.
+7.4 The credit policy of the business:
+The credit policy will specify the following:
+•  Credit standards describe the criteria that
+are used when a decision is made whether
+to grant credit to a customer or not, i.e. the
+creditworthiness of the potential debtor. These
+criteria could include:
+◊  A credit application form will help the
+business to judge the financial status of
+the customer by asking questions relating
+to place of employment, salary, how long
+he/she has worked there, residential
+address, whether the person owns or rents
+the property, how long he/she has lived
+there etc.
+◊  The financial position of the customer
+is evaluated.
+◊  Bank references – the seller will ask his/
+her bank to get a status report on the buyer.
+The status report will indicate if the buyer is
+responsible when it comes to managing his/
+her cheque account or if he/she writes out
+cheques which are dishonoured.
+===== PDF PAGE 108 (book page 106) =====
+Additional activities
+Indicate if the following statements are true or false. If false, give a reason why it is incorrect:
+1. The relationship between own capital and borrowed capital is known as solvency.
+2. A business in a good financial position will probably be able to negotiate a better interest rate when
+borrowing money.
+3. When a bank is asked for a reference for a prospective debtor, the bank will only give the person’s
+balance on the account.
+4. Short-term funds are borrowed on the credit market.
+5. It is important to maintain the liquidity of the business by maintaining a favourable ratio
+between fixed and working capital.
+6. A good financial policy will stipulate that current assets will be financed with long-term funds.
+7. The use of borrowed capital increases the risk in a business.
+Choose the most correct alternative when doing question 8 - 12:
+8. If the business sells on credit, but replaces all goods on a cash basis, it will … the demand for
+working capital.
+ A    not influence     B    increase
+C    decrease    D    All of the above
+9. Which of the following is a source of working capital?
+A Sale of shares     B Long-term loans
+C A mortgage bond   D Bank overdraft
+◊  Credit bureau (e.g. ITC) checks: The credit
+bureau collects information on a buyer’s
+credit reputation; this information is shared
+with the seller at a cost.
+◊  References from other businesses of the
+customer’s previous credit transactions
+are obtained. The businesses are phoned
+to inquire about the payment record of the
+potential debtor. All such references are
+highly confidential.
+•  The credit period refers to how long debtors
+have to settle their accounts. The longer the
+credit period granted, the more attractive it will
+be for customers, but the more working capital
+the business will need.
+•  The credit limit describes the maximum credit
+that a specific debtor will be allowed. The
+person’s credit limit is determined by his/her
+creditworthiness.
+•  Cash discount is sometimes given to
+encourage the debtor to settle the account
+early. If you see something like the following
+on a credit statement, “3/60 net 120”, it means
+a 3% discount will be given if the account is
+settled within 60 days, but the maximum time
+the debtor gets to pay the account is 120 days.
+7.5 Credit control:
+Credit control is very important in any business that
+sells on credit to debtors because:
+•  Increased sales mean higher profits, but also
+higher risks of bad debt.
+•  Credit sales help to build up customer loyalty
+(patronage), but once again it serves no
+purpose that the business has loyal customers
+that turn into bad debt.
+•  Credit control and credit collection should not
+be too rigid. If the debtor is in financial difficulty,
+the law allows for a debtor to get credit
+counselling and the opportunity to negotiate
+new payment terms. This is obviously only the
+case if the debtor has a valid problem. It allows
+the debtor the opportunity to repay debt without
+getting into worse financial problems and
+allows the business to reduce the bad debts of
+the business due to non-payment.
+===== PDF PAGE 109 (book page 107) =====
+10. Credit control helps to …
+A create good will with debtors  B reduce admin expenses
+C improve the cash flow of the business D All of the above
+11. The collection of overdue accounts is the responsibility of the …
+A selling department   B financial department
+C general manager    D creditors clerk
+12. Which one is NOT a source of information about the financial status of a prospective debtor?
+A Bank reference     B Family reference
+C Credit bureau reference   D Business reference
+13. An Income Statement is also known as a …
+14. A Balance sheet is also known as a …
+15. Discuss THREE factors that will determine how much working capital a business will need.
+16. Explain the concept Triple Bottom Line reporting and its relevance to the financial manager.

@@ -1,0 +1,977 @@
+Business Studies Grade 10 Learner's Book (Consumo Publishers, 6th ed 2021)
+Chapter 9: Production / Operations Management
+
+===== PDF PAGE 87 (book page 85) =====
+PRODUCTION / OPERATIONS
+MANAGEMENT
+1. Introduction
+• Production management refers to the
+management of processes that create value
+in order to satisfy the needs and/or wants of
+consumers. This process of “creating value” is
+when goods are produced.
+•  Production has traditionally been associated
+with goods being produced in factories.
+•  The concept of “production” has, however,
+expanded over the last few decades to include
+as well “operations” that are performed to
+create a service that will satisfy customers’
+needs. For example, banks and insurance
+companies offer services to customers. This
+is why the Production function is sometimes
+called “Operations management”.
+•  When goods are produced it is possible
+to trace a tangible production process,
+but a service is something intangible that
+is produced.
+•  The production function, like all other functional
+areas in the business, does not operate in a
+vacuum. The production function forms part of
+the internal supply chain of the business. Look
+at the illustration below to understand where
+the production function fits into this internal
+supply chain.
+Purchasing Function:
+Procurement of the
+resources that are needed
+by the production function
+(and all other departments).
+Production Function:
+Uses the input (resources)
+bought by the Purchasing
+function to transform
+these resources into
+goods / services based
+on the needs / wants of
+the market.
+Marketing Function:
+Goods / services produced
+by the Production function
+are marketed to the
+relevant target market.
+2. Factors of Production
+• Although there has traditionally only been four factors of production, we have added Information
+technology as a fifth production factor.
+Labour (Human Capital)
+Capital
+Entrepreneurship
+Factors of Production
+Information Technology
+Land / Raw Materials
+ Skills, knowledge and experience.
+Includes all capital i.e. money and fixed assets that are
+used when goods / services are produced.
+ Opportunities identified to combine the resources
+of land, capital, information technology and labour to
+produce goods / services.
+Information technology refers to the use of technology
+to satisfy customer needs. This could be the use of new
+machines, online shops, online banking, etc.
+All the natural resources that are used in the production
+of goods / services.
+
+===== PDF PAGE 88 (book page 86) =====
+•  These factors of production are used (in
+various combinations) in the Production system
+of a business.
+•  A business will look out for factors of
+production that are valuable and that could
+give the business a competitive advantage
+in the market. The following criteria describe
+when a resource is considered to be valuable:
+◊  It is difficult to imitate
+◊  It is durable
+◊  It is scarce.
+Activity 1
+Draw up a list of all factors of production your school uses to ensure that a high quality service is being
+offered. Motivate how each element contributes to the smooth running of your school.
+3. Tasks of the Production
+Function
+•  It is the responsibility of the Production
+manager to ensure that all systems /
+procedures that are part of the supply chain
+are well planned, organised, converted into
+action and controlled.
+◊  Input: The business will need to ensure
+that the correct, raw materials, know-how,
+capital, information and quality control
+mechanisms etc. are in place before the
+business starts to produce goods/services
+that will satisfy customers’ needs / wants.
+ »  Clear and proper communication
+between the Operations manager,
+Purchasing manager, Human Capital
+and Financial manager is crucial at
+this stage.
+◊  Transformation: The manager needs to
+ensure that the correct, facilities, labour and
+capital are in place to transform inputs into
+goods / services.
+◊  Output: It is important that the output
+(goods / services) being produced
+meets the predetermined standards and
+quality criteria.
+◊  Acceptance: Goods / services that meet
+the necessary quality standards are finally
+sold to or accepted by the customers
+through marketing activities.
+ »  Communication with the Marketing
+manager is important.
+Input Transformation Output Acceptance
+•  While the Production manager is conducting the above activities, he/she will be involved with three
+specific tasks to ensure that the production process runs smoothly.
+Long-term tasks
+Specific Tasks
+Medium-term
+tasksShort-term tasks
+===== PDF PAGE 89 (book page 87) =====
+Long-term tasks •  These decisions are considered to be long-term, because research, consultation
+and discussions take place before these decisions are made.
+•  A second reason why these are long-term decisions is because once they are
+implemented, it is not something that can be changed quickly.
+•  These decisions take place before the production process (actual input,
+transformation and output) takes place.
+•  Examples of these types of decisions are: choosing the factory premises,
+decisions about the factory layout, deciding on a production system, the selection
+and design of the product (product specification), as well as obtaining the
+required equipment.
+Medium-term
+tasks
+•  These decisions are made over a medium-term and could be adapted quarterly or
+even monthly if need be.
+•  Examples of such decisions are: determining the production budget and
+production quantities, safety measures, materials management and machine
+maintenance.
+Short-term
+tasks
+•  These are decisions that are made on a day-to-day basis regarding the input,
+transformation and output of goods and services.
+•  For example: These tasks may include the daily work-plan that is drafted
+to ensure that the correct quantity of goods is produced as well as the
+implementation of quality control.
+Activity 2
+Identify a business that you are familiar with. Briefly discuss the Long, Medium and Short-term decisions
+that the business had/has to make to ensure a well-functioning production system.
+3.1 Long-term decisions / tasks:
+3.1.1 Choosing the factory premises (location)
+•  The factory location is a critical element that could affect the profitability and the possible expansion of
+a business.
+•  The following factors may impact on the decision regarding the location of the factory:
+Availability of services
+Integration with business
+ “partners”
+Availability of labour and skills
+Location Elements
+Proximity to the resource vs.
+market
+Site costs
+Room for expansion
+Special grants
+Location Elements (continued...)
+Regional regulations
+Availability of transport
+===== PDF PAGE 90 (book page 88) =====
+Proximity to the resources vs. proximity to
+the market:
+The business may choose to locate either close to
+the resource or close to the market. The decision will
+be influenced by the type of product produced.
+•  If it is a product made from a resource that
+is perishable, such as tomato soup, it will be
+better to be close to the tomato farm in order
+to get the product to the factory as fast as
+possible before it spoils. Once the tomato soup
+is made and in the tin, it is much easier to
+transport the tins of soup.
+•  If the product is something like furniture made
+from wood, it is better to be close to the
+market. Logic dictates that it is much easier to
+transport wooden logs over large distances,
+than transporting furniture which may be
+difficult to handle or be damaged in the process
+of getting it to the market.
+Integration with business
+•  The business could decide to locate close to
+other factories or business units that all work
+towards satisfying the same consumer need.
+•  For example: You will find a large number of
+car manufacturers in the Eastern Cape. It will,
+therefore, make sense if the manufacturers of
+tyres, car radios, car seats, etc. are located in
+the same area.
+•  Being close to each other allows for easy
+transportation and access to components to
+assemble the final product.
+Availability of labour and skills
+•  The business has to attract labour with the
+correct skills, and therefore, it may be a
+good idea to locate the factory in an area
+where there is already a concentration of the
+required skills.
+•  Unfortunately this is not always possible.
+Sometimes the business has to attract the
+labourers required to the desired location.
+Think of a mine for example; it has to locate
+in the area where the mineral resource is and
+then attract skilled labour to that location.
+Availability of services:
+The business will be concerned with locating
+itself close to services such infrastructure (water,
+electricity, communication networks and waste
+disposal).
+Availability of transport
+The business first has to consider the type of transport
+system required to convey resources and/or the final
+product before locating close to the appropriate
+transport network (existing roads, airports, railway
+systems, harbours and/or a pipeline).
+Room for expansion:
+The business should consider the possibility to
+expand in the future and choose a location that will
+accommodate this expansion.
+Special grants:
+The government sometimes offers special grants
+(low rental or low rates and taxes) as a way to attract
+industries to certain locations in order to stimulate
+economic growth in those areas. A business would
+only consider such a location if the other elements
+discussed are also available in those areas.
+Site Costs:
+The business will have to consider the cost
+implications (cost to level the ground, of laying
+pipelines, rates and taxes, etc.) of setting up in a
+particular area.
+Regional regulations:
+It is important that the business checks that the
+location has no previous violations (such as
+environmental dangers) or that the location has no
+historical land claims.
+Activity 3
+Identify a factory in your local community and use the above elements to assess if the factory is located in
+an ideal location.
+3.1.2 Factory layout
+•  Once the business has decided on the location
+of the manufacturing plant, it is important that
+the business considers the factory layout in
+order to maximize production.
+•  The factory layout refers to the physical
+arrangement of the equipment that is used as
+part of the production process.
+•  The objective of an effective factory layout is to
+ensure a smooth flow of the necessary work,
+materials, labour and information during the
+production process.
+•  Effective factory layout will promote:
+◊  Productivity
+◊ Safety
+◊  Quality of goods / services
+===== PDF PAGE 91 (book page 89) =====
+• The following are criteria that could be used by the Production manager to help assemble an effective
+production line / system:
+Criteria for
+Factory Layout
+Best use of space
+VisibilityDistance
+Limit discomfortCoordination
+SafetyFlexibility
+Handling
+Flexibility A good layout is one that can easily be modified if need be. However, the bigger the
+machines, the more difficult it becomes to move them around.
+Coordination The layout should be set up in such a way that it allows for an easy flow, i.e. input
+leading to output during the production process. Think about the process of making
+crisps. The potatoes are received and then washed. So the washing machine should be
+close to the delivery area. Then the peeling process follows, so this machine should be
+next to the washing machine. The potatoes are now cut, so the cutter follows after the
+peeler, etc. …
+Distance This distance that labour and materials have to travel between the various production
+stations should be minimised to avoid accidents and/or wastage.
+Handling The handling of the raw material and final goods should be reduced to a minimum, to
+avoid damaging the raw material and/or product (lesser quality).
+Best use of
+space
+It is important to consider the optimum utilisation of space by looking for opportunities to
+stack goods (i.e. make use of vertical space available).
+Visibility All equipment and materials should be clearly visible to avoid accidents or goods that
+are misplaced.
+Limit discomfort The business should avoid situations of poor lighting, excessive heat, noise, smells, etc.
+Safety This should always be one of the top priorities of the production department. The
+business must ensure that, as far as possible, all risks are noted and the necessary
+precautionary measures are in place.
+Advantages of proper factory layout:
+•  From the employee’s point of view:
+◊  If there is a logical flow of production
+activities, it will result in less physical
+movement by the workers, which means
+they will be less tired and more productive.
+◊  Higher productivity has the potential benefit
+of higher wages.
+◊  Optimum utilisation of space and a logical
+flow may lead to fewer accidents.
+•  From the business’s point of view:
+◊  If the production process runs smoothly,
+more goods will be produced and this may
+lead to a higher turnover (more sales).
+◊  If less material is wasted it will translate into
+lower production cost and higher profits.
+◊  If workers are more productive it will mean
+better profits for the company.
+◊  It is easier to implement a system of
+production control if activities follow a
+logical flow.
+◊  The general safety in the factory is
+promoted.
+===== PDF PAGE 92 (book page 90) =====
+Production Systems
+Combination
+ ProductionBatch Production Jobbing ProductionMass Production
+Mass Production
+•  Mass production occurs when standardized
+products are produced in large quantities.
+•  Because the products are standardized (the
+same design and material used), there is a
+limited variety of goods, i.e. the process of
+duplicating the same product at the same
+quality level is continuous.
+•  This allows for the business to produce large
+quantities of the same product in a relatively
+short period of time.
+•  There has to be a stable demand for the
+product before a manufacturer can start to
+produce in large quantities.
+•  Machine capacities have to be kept in sync.
+For example: If one part of the production
+process takes twice as long as another part
+of the process, the business has to use two
+machines to avoid bottlenecks.
+•  This type of production system is highly reliant
+on high quality single purpose machines. single
+purpose machines can only be used for one
+purpose and therefor the variety of products
+that can be manufactured using that machine
+is very limited. These single purpose machines
+are expensive and a large capital investment
+is required.
+•  Mass production relies heavily on automation,
+because assembly lines with conveyor belts
+make mass production easier.
+•  Mass production usually results in a lower
+cost per unit, because standardized products
+means work is done faster and more cheaply,
+because workers and machines are used to
+their maximum potential.
+•  Generation of large volumes of goods could be
+problematic if good quality control is lacking. If
+detection of problems takes too long during in
+the production run, all products manufactured
+will have the same flaw; this could prove costly
+to the business.
+•  A system of mass production could be
+inflexible, because it is difficult to cope with
+changes in demand and if a machine breaks,
+expensive delays could occur and this may
+cause bottlenecks in the production process.
+Jobbing Production
+•  An example of a goods being produced using
+this system is an individualized wedding dress
+or the production of capital goods, such as
+building a house.
+•  Jobbing refers to a system where one job is
+finished before a new one is started.
+•  The products that are produced are usually
+complicated by nature and done according to
+the customer’s specifications. It is seldom that
+the production of the same product is repeated
+which means these products are usually
+produced one at a time.
+•  This system allows for more flexibility and can
+be adapted to customers’ needs regarding the
+type and volume of production.
+•  Jobbing requires employees to have multiple
+skills as they will be producing individualised
+goods for customers, i.e. the production
+process / task is not routine by nature.
+•  Jobbing requires general purpose machines,
+i.e. machines that can be used for more than
+one task. These multi-purpose machines
+are usually cheaper than the single-purpose
+machines used for mass production.
+•  Stockpiling cost is higher because a variety of
+spare parts and raw material must be kept.
+3.1.3 Deciding on a production system
+•  Production systems describe the process of …
+Input Processed Output
+•  There are two basic types of production systems, namely continuous production and
+interrupted production.
+◊  Mass production is an example of a continuous production system
+◊  Batch production and jobbing are examples of interrupted production systems.
+===== PDF PAGE 93 (book page 91) =====
+Batch Production
+•  Batch production refers to a production
+system that falls between mass production
+and jobbing.
+•  Large quantities of similar products are made
+in batches, for example, producing a dozen
+or a hundred of the same product (products
+are made in batches and one batch has to be
+completed before a next batch is started).
+•  This system allows for more flexibility
+regarding the colour, size and patterns of the
+items produced.
+•  It is easier to overcome delays in production
+than during mass production, because if a
+machine breaks, the production of a different
+component can be continued.
+•  The production cost per unit, however, is
+higher than with mass production.
+•  An example of batch production is the 1.4
+white VW Polo. Thereafter red cars can be
+manufactured or the production system can be
+adapted to manufacture 1.6 Polos.
+Combination Production
+•  Many manufacturing businesses have seen a
+shift towards a system where mass production
+and jobbing and/or batch production are used
+in combination with one another.
+•  Technology is allowing for a more customized
+(according to customer specifications)
+approach than traditional mass production.
+•  This combination production system has added
+value to the supply chain of a business and
+could result in a competitive advantage for
+the business.
+•  An example of a combination production
+system is when a customer chooses the
+interior colour and other add-ons for his/
+her car. The body of the vehicle is still mass
+produced, the colours are still done in batches,
+but the interior is personalised.
+Activity 4
+Identify four products – one item for each of the production systems and discuss how the production system
+is used to make the different products.
+3.1.4 The selection and design of the product
+(product specification)
+During the process of product specification the
+methods, used in the production process and the
+materials that will be used, are standardised. This
+means that quality standards are set.
+The importance of product specifications:
+•  The suppliers of the materials will know exactly
+what type and quality of material are required.
+•  It is easier to manage the control during the
+delivery of the raw materials (has to meet
+predetermined standards), as well as during
+the manufacturing process.
+•  Employees know the expectations and aim
+to perform accordingly. This may lead to less
+wastage, better productivity and ultimately
+more profits for the business.
+•  The customer knows what level of product
+quality can be expected.
+3.1.5 Obtaining the required equipment.
+The decision about which machine to buy, will be
+influenced by a variety of factors:
+•  Production system and rate of production
+(mass production, batch production or jobbing)
+◊  Specialized machines are designed and
+built according to specific requirements of
+the business; what it produces is used with
+mass production.  These machines are
+usually expensive and it is often (due to the
+specialised nature of the machine) difficult
+to get spare parts. The machines generally
+do not have a good re-sale value.
+◊  Jobbing usually requires standardized and/
+or general-purpose machines. General-
+purpose machines can often be bought
+at a hardware store and they are usually
+cheaper than single-purpose machines.
+The maintenance of these machines is
+generally not a problem and it is easy to get
+spare parts. Examples of a general-purpose
+machine would be an electric saw or drill or
+a sewing machines to make clothes.
+◊  Most businesses use a combination of
+standardised and specialized machines.
+•  The purchase price of the machine and the
+potential maintenance cost of the machine
+are important factors to consider by the
+Productions manager and Financial manager.
+•  The availability (or non-availability) of spare
+parts will determine the productivity of
+the machine.
+•  The longer the lifespan of machine, the better
+value for money.
+•  The resale value of the machine is important.
+The more specialised a machine, the smaller
+the market of people who may want to buy
+===== PDF PAGE 94 (book page 92) =====
+the machine and this may mean a lower
+resale value.
+•  The amount of training that employees may
+need before they can operate the machine and
+their safety are also important considerations.
+Automation refers to the process where production
+activities that were previously performed by manual
+labour, are moved into a production line and these
+activities are now performed by machines.
+•  Automation requires a high capital investment
+in machines, but using machines usually
+translates into a faster production time.
+•  Although it may be a generalisation, machines
+usually make fewer mistakes and deliver a
+better quality products than people.
+•  In terms of labour, the following needs to be
+kept in mind when we consider automation:
+◊  Workers may lose their jobs
+◊  The remaining workers will have to be
+retrained to operate the machines, i.e. they
+learn new skills, but it will cost the business
+money to retrain workers
+◊  Operating some of these machines may
+become monotonous for the worker and this
+may lead to less job satisfaction.
+3.2 Medium-term decisions / tasks:
+3.2.1 Determining the production budget
+The cost of the building, the factory layout, the cost
+of the raw material and the wages of the people
+working in the manufacturing plant are some of the
+components that will affect the price of the product.
+The cost accountant has to give an accurate
+estimation of the production costs to enable the
+business to determine a competitive selling price. The
+cost accountant will work closely with the financial
+department, the production / operation manager and
+the purchasing function to determine and minimise
+costs (where possible) without sacrificing quality.
+3.2.2 Determining production quantities
+Some businesses may consider large-scale
+production, while others may prefer small-scale
+production. Even though we instinctively want
+to produce and sell as much as possible, there is
+nothing wrong with small-scale production. The
+production quantities will be determined by a number
+of factors:
+•  If a large, capital investment is needed to
+obtain the required equipment, production
+on a large scale may be better to ensure the
+optimum return on the investment.
+•  If the final product allows for a high level of
+standardization, for example, manufacturing
+pens or computers or toffees or Coca Cola
+or … large-scale production will be most
+beneficial.
+•  If it is a service with a local demand, namely
+a nail technician in a local shopping mall,
+production on a large scale is not always
+possible. But it can be done. Think of Dream
+Nails or Perfect 10 that is nationwide.
+•  The nature of the product: If it is an exclusive
+product (one of a kind wedding dress),
+production on a small scale may be a
+better option.
+3.2.3 Materials management (stock control)
+•  Stock control refers to the management of the
+inventories that are needed to manufacture the
+product (and/or service).
+• Material management ensures the right stock
+is available at the right time and place and
+in the right quantities so that the production
+process can run smoothly and no bottle neck is
+created during the production process because
+the business ran short of certain items.
+•  The productions manager has to monitor the
+supply chain within the business and order
+the necessary inventory (via the Purchasing
+manager) before it is needed.
+•  Proper materials management means the
+Production department has to determine the
+optimum stock levels:
+◊  The minimum stock level is the lowest
+level of stock that can be tolerated before
+production or service levels are negatively
+affected. When the minimum stock level is
+reached, a new order must be placed. The
+buffer stock will protect the business from
+running out of stock while the business
+waits for the new order to be delivered.
+◊  The maximum stock level should not be
+exceeded, because this will result in stock
+becoming obsolete and consequently, the
+business may suffer a loss.
+• One of the most commonly used stock control
+systems is EPOSSE (Electronic Point of Sale
+Scanning Equipment).
+◊  This is the system that big retailers like Pick
+n Pay and Checkers and Edgars etc. use.
+◊  The items are scanned at the till and the
+computer automatically deducts the stock
+item from the inventory.
+◊  When a certain (predetermined) stock
+level is reached, the computer will alert
+the Purchasing department that an order
+needs to be placed. It is thus possible for
+the business to determine the amount and
+value of stock on hand without having to do
+a physical stock count.
+◊  The system also helps to identify theft,
+damage and obsolete stock.
+===== PDF PAGE 95 (book page 93) =====
+3.2.4 Safety measures
+•  Safety refers to any risk that is associated with the health and safety of employees.
+•  Safety is always a real concern for business – especially in a manufacturing plant where there are
+dangerous machines.
+•  To prevent any unsafe conditions in the workplace, the business should put the necessary safety policies
+and procedures in place by training employees and implementing procedures to ensure workers adhere
+to the safety guidelines.
+•  If workers know what to do, how to do it and why these safety measures are important, this will prevent
+injuries, but also create a safer and more productive working environment.
+Training Programme
+Skills
+Training
+Employee Orientation
+Refresher Training
+Safety Awareness Training
+Audit and Accident
+Investigation Techniques
+Promotional Activities
+Display Accident Statistics
+Display Factory
+Safety Policy
+Display Safety signs
+Provide Safety
+Handbooks
+Practice Emergency Drills
+Safety Campaigns
+Promote Safety
+Improvement Teams
+===== PDF PAGE 96 (book page 94) =====
+In South Africa safety in the work place is legislated
+through the Occupational Health and Safety Act
+(OHS-Act):
+•  The OHS Act lays out guidelines for a business
+with regards to creating a healthy and safe
+working environment for all its employees by
+stipulating the minimum standards that should
+be adhered to.
+•  These requirements could be different in
+different industries (types of businesses).
+•  In order to meet these requirements, the
+business has to ensure that the working
+environment is reasonably free from hazardous
+substances and equipment, which could cause
+injuries and/or diseases.
+• Before any protective equipment is used by
+employees, the employer should first try to
+eliminate or reduce the possible danger.
+◊  The employer has to be cautious and put
+the necessary action plans in place to
+prevent / reduce the production, processing,
+handling or transporting of harmful
+substances and articles.
+◊  However, where it is not possible to prevent
+dangerous situations, the employer has
+to inform employees about the risks and
+present plans on how the business aims
+to prevent risks (e.g. non-slip surface
+on floors) and to ensure safety as far
+as possible.
+◊  An example of managing  and reducing
+risks is the business providing the
+necessary safety equipment, such as
+helmets, goggles, gloves and boots.
+•  This Act specifies that health and safety
+risks and preventative measures should be
+communicated to employees.
+◊  The business needs to conduct the
+necessary training and workshops to
+communicate and educate its employees on
+health and safety.
+◊  It is important that employees understand
+the risks and that they are able to work
+within the guidelines of the safety measures
+implemented by the business.
+•  However, health and safety is not the sole
+responsibility of the employer; the employer
+and employees share in the responsibility of
+being proactive to identify risk situations and to
+implement the necessary control mechanisms
+to avoid these risk situations. This means
+that there should be cooperation between
+employers and employees over health and
+safety issues in the business.
+•  According to the Act, the employer is
+responsible to establish a health and
+safety committee:
+◊  This committee should consist of
+management and employees who
+will monitor health and safety within
+the business.
+◊  This committee should make the necessary
+recommendations to management
+regarding health and safety issues and the
+implementation of policies and procedures
+at all levels in the business.
+◊  Members of the committee should conduct
+both planned and unplanned inspections
+in various areas to make sure that risk
+systems are in place and working well, but
+also to monitor day-to-day operations to
+identify potential risks that had not been
+identified before.
+•  The OHS Act allows external safety inspectors
+to enter any workplace or premises where
+machines and hazardous substances are used
+as part of a production process.
+◊  The inspector will conduct an audit of the
+minimum safety requirements as stipulated
+in the Act.
+◊  If the business contravenes any of these
+requirements the business is issued a
+contravention notice and given 60 days to
+make the necessary corrections.
+◊  The business could also be issued an
+improvement notice, where the business
+is required to bring about improvements
+to its health and safety policies and
+procedures.
+◊  The inspector may also request health and
+safety documentation; policies, procedures
+and documentation regarding internal health
+and safety audits.
+Practical safety measures in a manufacturing plant:
+If conditions in the factory are not closely monitored
+and safety measures implemented, it will jeopardize
+the health and safety of employees and this could
+have a negative impact on productivity (loss of
+productivity means lower profits).
+• Provide the correct clothes, e.g. helmets,
+boots, welding goggles, gloves, etc.
+•  Employees should be trained in first aid.
+•  The following are basic rules relating to fire
+fighting issues:
+◊  Employees should be trained in fire
+prevention measures.
+◊  Fire marshals and fire fighting equipment
+should be available.
+◊  Fire escapes may not be blocked.
+◊  Flammable material, e.g. fuel
+must be stored underground and
+warnings displayed.
+◊  Firewalls must be built.
+•  A non-slip floor or rubber boots will help
+prevent employees from falling and injuring
+themselves.
+===== PDF PAGE 97 (book page 95) =====
+•  Ventilation is important to get rid of dangerous
+fumes. A good ventilation system can either be
+achieved by natural ventilation through doors
+and windows or an extractor fan.
+•  The temperature and humidity in the factory
+must be carefully controlled.  If necessary,
+the business should install heaters or an
+air conditioner.
+•  Sufficient light is important to prevent strain
+on the eyes of employees and to reduce
+accidents.
+3.2.5 Maintenance
+•  Machine utilization refers to the number of
+hours per day that the machine is used. The
+business invests large amounts of capital
+in machines and equipment; therefore,
+machines should be used to their full capacity.
+If a machine breaks, it means there is a
+loss in production time and idle time means
+money is wasted, as labourers still have to
+be paid. Maintenance prevents unnecessary
+breakdowns which may result in a slower
+(and less economical) production process.
+•  Other benefits of regular maintenance are:
+Improved Safety
+Reliability of Production
+Lower Operation Costs
+Increased Lifespan of Equipment Benefits of
+Maintenance
+Types of maintenance that could be carried out:
+•  Corrective maintenance or remedial
+maintenance takes place when the machine
+has already broken down and is then repaired.
+The problem with this type of maintenance
+is that the machine is already out of order,
+resulting in an interruption in the production
+process while the machine is repaired.
+•  Preventive maintenance is done to forestall
+machine breakdowns thus averting lost
+production time. As soon as a problem arises,
+the machine should be serviced.
+•  Conditional maintenance is routine by
+nature as the machines are serviced at
+regular intervals. Refers to inspections and
+maintenance of machines at regular intervals,
+for example, three-weekly intervals. Because
+these routine checks are scheduled, the
+production manager can effectively monitor the
+production process to ensure the business is
+able to meet the required production levels.
+3.3 Short-term decisions / tasks:
+3.3.1 The work plan
+The production manager has to determine the most
+effective sequence that will be followed as the product
+passes through the production process. Allocating
+the correct worker to the correct workstation will
+improve productivity. The synchronization of all
+components of the production process is important
+to avoid bottlenecks.
+Control and follow up are very important, because
+the manager has to determine whether plans
+are executed correctly, and if not, to implement
+corrective measures. One element of control is to
+perform quality control checks.
+3.3.2 The implementation of quality control
+•  Quality control is important because in
+order to satisfy the needs of consumers, the
+business has to supply a product that meets
+the expected / required quality standards.
+The particular target market may sometimes
+===== PDF PAGE 98 (book page 96) =====
+even be satisfied with a lesser quality product,
+provided it is cheaper.
+•  The quality of the product / service will be
+determined by the quality of the raw material,
+the quality of labour, the machines and working
+conditions and how the different production
+elements are combined.
+•  In order to have successful quality control, the
+business has to formulate a set of criteria to
+which the product / service should adhere. When
+the actual quality of the product / service is
+measured against the predetermined standards,
+the performance gap is identified.
+•  The business has to monitor quality at different
+stages during the manufacturing process to make
+the necessary corrections before goods / services
+move through the entire production process,
+without quality defects being identified.
+•  The business could assess quality at the
+following stages:
+◊  Inspecting all inputs to ensure they meet
+set standards.
+◊  Inspections during the production process.
+◊  Inspecting all outputs before they are
+distributed to customers.
+Reasons to perform quality control:
+•  Quality control will help to encourage workers to
+deliver good quality products.
+•  Quality control can serve as a basis for
+remuneration decisions – good quality products
+will be rewarded.
+•  Retailers know they will receive a good quality
+product to sell in their shops (higher turnover
+for them).
+•  Continuous quality control will help to eliminate
+problems in the production process and
+thereby reduce production cost by eliminating
+poor products.
+How to do quality control:
+•  A few products from a batch are tested by taking
+a sample. If the sample is of an acceptable
+quality, it is assumed that all products in the batch
+will be of equal quality and the entire batch will
+be approved. If the sample is not big enough
+to generalise, the business runs the risk of
+accepting a bad batch or rejecting a good batch.
+•  An inspection is performed if each individual
+product is tested and compared with quality
+standards. This is time-consuming and
+increases the cost of quality control and
+is mostly performed when the value of
+the product is high. For example: If a new
+townhouse complex is built, the project
+manager has to make sure that every geyser
+works before the keys are given to the new
+owners. A new owner will not be impressed
+if the geyser does not work and the project
+manager says: “But I tested three houses and
+they all had hot water”.
+•  An outside organisation like the SABS (South
+African Bureau of Standards) could assist with
+quality control.
+•  Objectives / Aims of the SABS:
+◊  The South African Bureau of Standards tries
+to promote standardization in commerce
+and industry by assisting private businesses
+in preparing specifications and codes
+of practice.
+ »  A specification describes the physical
+characteristics of the product, such as
+material used and the quality of the
+material used.
+ »  A code of practice is a set of rules that
+describes how to manufacture and use
+the product.
+◊  SABS provides facilities to test the quality
+of raw materials and final products. Tested
+products that meet quality standards may
+bear the standardization mark. The SABS
+controls the use of this mark.
+◊  SABS educates businesses on
+the importance and advantages of
+standardization (e.g. mass production and
+easier quality control).
+Activity 5
+Identify a business that is SABS accredited and give your opinion if you think that the SABS accreditation
+has helped to create a competitive advantage for the business.
+===== PDF PAGE 99 (book page 97) =====
+Additional activities
+True or False:
+1. The production function is responsible for the overall marketing of products to the consumer,
+motivate your response.
+2. The OHS Act provides guidelines for sustainable development? Motivate your response
+3. Jobbing is suited for a product with a large and constant demand.
+4. A manufacturer that produces a batch of bubble bath will use sampling to do quality control.
+Choose the most correct alternative when doing question 5 - 11:
+5. The disadvantage of mass production is …
+A.  Equipment and labour are cheap
+B.  Quality control is difficult
+C.  The cost per unit is high
+D.  High stock levels have to be maintained because production happens fast and on a large scale
+6. … maintenance is when machines are serviced at regular intervals
+A. Regular     B.  Remedial
+C. Preventative    D.  Conditional
+7. A system of mass production will lead to…
+A.  uneven quantities of the same product being manufactured.
+B.  small quantities of the same product being manufactured.
+C.  large quantities of the same product being manufactured.
+D.  large quantities of a large variety of products being manufactured.
+8. Which production system will be used to build a space rocket?
+A. mass production   B.  jobbing
+C. batch production   D.  single production
+9. Which production system is used to manufacture school uniforms?
+A. mass production   B.  jobbing
+C. batch production   D.  single production
+10. Which production system is used to design and create matric dance dresses made to order?
+A. mass production   B.  jobbing
+C. batch production   D.  single production
+11. In order to produce mayonnaise in different sizes … production would be most suitable.
+ A . mass     B.  batch
+ C. continuous    D.  jobbing
+12. Define the following two terms:
+•  Corrective maintenance
+•  Preventative maintenance
+13. How would you define the production function of a business?
+14. Why would a business consider materials management to be important?
+15. Explain the term automation.
+16. Describe two different production systems that could be used in a dairy factory.
+17. You have been asked to help Coca-Cola decide on a location for a new bottling plant. Explain the
+different factors you would consider when deciding on a new location.
+18. Discuss the importance of a good factory layout.
+19. Explain THREE factors that may influence quality control.
+20. Explain TWO advantages and TWO disadvantages of mass production.
+===== PDF PAGE 100 (book page 98) =====
+21. How would higher levels of automation affect the employees of a car manufacturer?
+22. Give TEN examples of products that are usually mass-produced.
+23. List FIVE safety measures that will be applied at the Simba chips manufacturing plant.
+24. How could a manual production system vs. an automated system affect the cost and quality of the
+following products?
+•  A flower arrangement
+•  Tinned tuna
+25. Name THREE factors that may impact on the decision to buy a certain machine.

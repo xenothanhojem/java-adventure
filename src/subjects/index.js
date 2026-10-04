@@ -1,5 +1,6 @@
 import * as javaSubject from './java/index.js';
 import * as theorySubject from './theory/index.js';
+import * as businessSubject from './business/index.js';
 
 export const SUBJECTS = {
   theory: {
@@ -28,6 +29,20 @@ export const SUBJECTS = {
     module: javaSubject,
     hasPracticalTest: true,
     practicalTestLabel: 'Practical Test',
+  },
+  business: {
+    id: 'business',
+    title: 'Business Studies',
+    subtitle: 'Grade 10 · Business Studies (IEB)',
+    description: 'Business environments, entrepreneurship, ownership, ethics, teamwork and the business functions. All 11 textbook chapters, with case-study practice exams.',
+    mapTagline: 'From the micro environment to the income statement.',
+    accentColor: 'gold',
+    glowClass: 'ja-glow-gold',
+    bgClass: 'ja-w-business-environments',
+    module: businessSubject,
+    hasPracticalTest: true,
+    practicalTestLabel: 'Practice Exam',
+    practicalTestKind: 'businessExam',
   },
 };
 

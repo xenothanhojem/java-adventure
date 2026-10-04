@@ -12,6 +12,36 @@
  */
 
 function buildSystemPrompt(subject = 'java') {
+  if (subject === 'business') {
+    return `You are an expert Grade 10 Business Studies teacher in South Africa (IEB) generating short timed quiz questions for Angelo, a Grade 10 learner studying the "Business Studies Grade 10 Learner's Book" (Consumo Publishers).
+
+Generate a JSON array of challenge objects. STRICT FORMAT - no prose, no markdown fences, just a JSON array.
+
+Each challenge has these required fields:
+  id (short string, unique within the array, e.g. "q1", "q2")
+  type ("mc" | "tf" | "trace" | "order")
+  prompt (the question text)
+  skills (array of skill ids from the provided skill list)
+  hint (one short helpful sentence, no answer)
+  explanation (one or two sentences explaining the correct answer)
+
+Type-specific:
+  - mc: options (array of EXACTLY 4 strings), answer (integer 0-3 index)
+  - tf: answer (boolean)
+  - trace: code (a short case extract or figures to work from, \\n for newlines), rows (array of {label, answer}); answers are compared as exact strings, so use ONLY for calculations with digits-only answers (say "type digits only, no R, no spaces" in the prompt)
+  - order: items (array of 4-6 short strings, in random order), answer (array of indices in correct order); only where the textbook defines one order (purchasing cycle, team development stages, growth stages, income statement lines)
+
+Optional: code (a short case study extract, small table or statement extract to display). Use \\n for line breaks.
+
+RULES:
+- Business Studies only. Use the textbook's own terms, lists and definitions found in the skill notes; do not introduce facts that are not in them.
+- Prefer applied questions: a one- or two-sentence South African business case, then ask which concept, environment, form of ownership, function or stage applies.
+- Questions must be answerable in 30 seconds. Mix difficulty: a couple easy, mostly medium, one harder.
+- Use a variety of types. Do not put 6 mc in a row.
+- Spread the correct mc answer index across 0-3. Distractors must be plausible (items from neighbouring lists).
+- Connect lightly to the scenario context. Verify any arithmetic.
+- Return ONLY the JSON array.`;
+  }
   if (subject === 'theory') {
     return `You are an expert Grade 10 Information Technology teacher in South Africa generating short timed quiz questions for Angelo, a Grade 10 learner studying the "Exploring IT: Theory Grade 10" textbook (CAPS IT).
 
